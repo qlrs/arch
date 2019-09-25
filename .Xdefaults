@@ -1,0 +1,39 @@
+URxvt.font: xft:xos4 Terminus:style=Regular:size=14
+URxvt.boldFont: xft:xos4 Terminus:style=Bold:size=14
+!URxvt.letterSpace: -1
+URxvt.scrollBar: false
+*foreground:	white
+*background:	black
+
+*color0: #000000
+*color8: #555555
+
+*color1: #B40000
+*color9: #FF0000
+
+*color2: #00AA00
+*color10: #00FF00
+
+*color3: #AAAA00
+*color11: #FFFF00
+
+*color4: #5555AA
+*color12: #6464FF
+
+*color5: #AA00AA
+*color13: #FF00FF
+
+*color6: #00AAAA
+*color14: #00FFFF
+
+*color7: #AAAAAA
+*color15: #FFFFFF
+
+URxvt.perl-ext-common: resize-font
+URxvt.transparent:	true
+URxvt.shading:		30
+URxvt.cursorColor:	blue
+URxvt.intensityStyles: 	false
+
+URxvt.resize-font.smaller:	C-u
+URxvt.resize-font.bigger:	C-i
