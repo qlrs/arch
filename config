@@ -206,6 +206,9 @@ bindsym $mod+Shift+n exec urxvt -e ranger
 bindsym $mod+Shift+v exec firefox
 bindsym $mod+Shift+q exec qutebrowser
 bindsym $mod+Shift+m exec urxvt -e ncmpcpp
+bindsym $mod+Shift+a exec gnome-calendar
+bindsym $mod+Shift+b exec nemo
+bindsym $mod+Shift+t exec tor-browser
 
 #wallpaper
 exec_always feh --bg-scale /home/dan/wallpapers/gits2
@@ -215,7 +218,10 @@ workspace 1 output DVI-D-0
 workspace 2 output HDMI-0
 workspace 4 output HDMI-0
 workspace 3 output DP-2
+workspace 5 output DP-2
 
 #launch floating
 for_window [class="Nemo" instance="nemo"] floating enable
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
+for_window [class="Tor Browser" instance="Navigator"] floating enable
