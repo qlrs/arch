@@ -11,7 +11,6 @@ set statusline+=%l\
 set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
 
-colorscheme delek
 syntax on
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
@@ -22,7 +21,20 @@ inoremap <S-Tab> <Esc>
 set t_Co=256
 hi Normal ctermbg=none
 
+
+
+call plug#begin()
+    Plug 'dracula/vim', { 'as': 'dracula' }
+
+call plug#end()
+
+
+let g:dracula_colorterm = 0
+colorscheme dracula
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+
