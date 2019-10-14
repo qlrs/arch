@@ -5,34 +5,29 @@ URxvt.scrollBar: false
 *foreground:	white
 *background:	black
 
-*color0: #000000
-*color8: #555555
-
-*color1: #B40000
-*color9: #FF0000
-
-*color2: #00AA00
-*color10: #00FF00
-
-*color3: #AAAA00
-*color11: #FFFF00
-
-*color4: #5555AA
-*color12: #6464FF
-
-*color5: #AA00AA
-*color13: #FF00FF
-
-*color6: #00AAAA
-*color14: #00FFFF
-
-*color7: #AAAAAA
-*color15: #FFFFFF
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
 
 URxvt.perl-ext-common: resize-font
 URxvt.transparent:	true
 URxvt.shading:		30
-URxvt.cursorColor:	blue
+URxvt.cursorColor:	magenta
 URxvt.intensityStyles: 	false
 
 URxvt.resize-font.smaller:	C-u
