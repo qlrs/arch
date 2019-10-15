@@ -1,5 +1,5 @@
-URxvt.font: xft:xos4 Terminus:style=Regular:size=14
-URxvt.boldFont: xft:xos4 Terminus:style=Bold:size=14
+URxvt.font: xft:Inconsolata:style=Regular:size=15
+URxvt.boldFont: xft:Inconsolata:style=Bold:size=15
 !URxvt.letterSpace: -1
 URxvt.scrollBar: false
 *foreground:	white
@@ -25,8 +25,10 @@ URxvt.scrollBar: false
 *.color15:    #E6E6E6
 
 URxvt.perl-ext-common: resize-font
-URxvt.transparent:	true
-URxvt.shading:		30
+URxvt.depth: 32
+URxvt.background: [90]#000000
+!URxvt.transparent:	true
+!URxvt.shading:		30
 URxvt.cursorColor:	magenta
 URxvt.intensityStyles: 	false
 
