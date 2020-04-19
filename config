@@ -49,7 +49,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -fn "-xos4-terminus-medium-r-*-*-14-*"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -188,14 +188,14 @@ bar {
 
 
 #gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner 10
-gaps outer 3
+gaps outer 1
 
 
 #smart border and gaps
 #smart_borders on
-#smart_gaps on
+smart_gaps on
 
 #customs
 bindsym $mod+Shift+y	resize shrink width 10 px or 10 ppt
@@ -207,16 +207,17 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 #launch shit
 bindsym $mod+Shift+z exec gnome-calculator
 bindsym $mod+Shift+d exec discord
-bindsym $mod+Shift+n exec urxvt -e ranger
+bindsym $mod+Shift+n exec urxvt -e bash -ic ranger
 bindsym $mod+Shift+v exec firefox
 bindsym $mod+Shift+q exec qutebrowser
-bindsym $mod+Shift+m exec urxvt -e ncmpcpp
+bindsym $mod+Shift+m exec urxvt -e bash -ic ncmpcpp
 bindsym $mod+Shift+a exec gnome-calendar
 bindsym $mod+Shift+b exec nemo
 bindsym $mod+Shift+t exec tor-browser
 
-#wallpaper
-exec_always feh --bg-scale /home/dan/wallpapers/wall16
+#wallpaper and pywal
+exec feh --bg-scale /home/dan/wallpapers/cyberpunk1
+exec wal -i /home/dan/wallpapers/cyberpunk1
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -231,6 +232,7 @@ for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="Tor Browser" instance="Navigator"] floating enable
 for_window [class="Yad"] floating enable
+for_window [class="gedit"] floating enable
 
 #probably deleting
 # class                 border  backgr. text    indicator child_border
@@ -242,4 +244,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+#mouse warping
+mouse_warping none
 
+#disables window from focusing if mouse is on it
+#focus_follows_mouse no
