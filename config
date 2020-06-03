@@ -241,6 +241,10 @@ for_window [class="Rhythmbox"] floating enable
 for_window [class="kate"] floating enable
 for_window [class="Steam"] floating enable
 
+#assign to specific workspace
+assign [class="Thunderbird"]1
+
+
 #probably deleting
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #e7e7e7   #e7e7e7
