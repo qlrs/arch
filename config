@@ -243,6 +243,7 @@ for_window [class="Steam"] floating enable
 
 #assign to specific workspace
 assign [class="Thunderbird"]1
+assign [class="discord"]1
 
 
 #probably deleting
