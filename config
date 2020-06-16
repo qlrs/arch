@@ -214,13 +214,13 @@ bindsym $mod+Shift+m exec urxvt -e bash -ic ncmpcpp
 bindsym $mod+Shift+a exec gnome-calendar
 bindsym $mod+b exec nemo
 bindsym $mod+Shift+t exec tor-browser
-bindsym $mod+Shift+s exec steam
+bindsym $mod+g exec steam
 bindsym $mod+q exec urxvt -e bash -ic vim
 bindsym $mod+Shift+p exec kolourpaint
 
 #wallpaper and pywal
-exec feh --bg-scale /home/dan/wallpapers/waves.png
-exec wal -i /home/dan/wallpapers/waves.png
+exec feh --bg-scale /home/dan/wallpapers/cyberpunk1
+exec wal -i /home/dan/wallpapers/cyberpunk1
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -238,12 +238,12 @@ for_window [class="Tor Browser" instance="Navigator"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="gedit"] floating enable
 for_window [class="Rhythmbox"] floating enable
-for_window [class="kate"] floating enable
 for_window [class="Steam"] floating enable
 
 #assign to specific workspace
 assign [class="Thunderbird"]1
 assign [class="discord"]1
+assign [class="Steam"]3
 
 
 #probably deleting
@@ -261,3 +261,7 @@ mouse_warping none
 
 #disables window from focusing if mouse is on it
 #focus_follows_mouse no
+
+#testing scratchpad stuff
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
