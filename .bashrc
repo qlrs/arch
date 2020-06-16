@@ -7,9 +7,13 @@
 
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;13m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]] \\$ \[$(tput sgr0)\]"
 
+set -o vi
+
 alias ls='ls --color=auto'
-alias ll='ls -al'
-alias ldate='ls -alt'
+alias ll='ls -ahl'
+alias ldate='ls -ahlt'
+alias grep='grep --color=always'
+alias cp='cp -v'
 alias paci='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
 alias memedown='sudo shutdown -h now'
