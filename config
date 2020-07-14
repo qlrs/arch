@@ -188,7 +188,7 @@ bar {
 
 
 #gaps
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 1
 
@@ -209,18 +209,21 @@ bindsym $mod+z exec gnome-calculator
 bindsym $mod+Shift+d exec discord
 bindsym $mod+n exec urxvt -e bash -ic ranger
 bindsym $mod+v exec firefox
-bindsym $mod+Shift+q exec qutebrowser
-bindsym $mod+Shift+m exec urxvt -e bash -ic ncmpcpp
+bindsym $mod+m exec urxvt -e bash -ic ncmpcpp
 bindsym $mod+Shift+a exec gnome-calendar
 bindsym $mod+b exec nemo
 bindsym $mod+Shift+t exec tor-browser
 bindsym $mod+g exec steam
 bindsym $mod+q exec urxvt -e bash -ic vim
 bindsym $mod+Shift+p exec kolourpaint
+bindsym $mod+Shift+n exec urxvt -e bash -ic newsboat
+bindsym $mod+p exec urxvt -e bash -ic pulsemixer
+bindsym $mod+u exec pavucontrol
+bindsym $mod+r exec urxvt -e bash -ic tuir
 
 #wallpaper and pywal
-exec feh --bg-scale /home/dan/wallpapers/cyberpunk1
-exec wal -i /home/dan/wallpapers/cyberpunk1
+exec feh --bg-scale /home/dan/wallpapers/landscape3.jpeg
+exec wal -i /home/dan/wallpapers/landscape3.jpeg
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -229,6 +232,8 @@ workspace 4 output HDMI-0
 workspace 3 output DP-2
 workspace 5 output DP-2
 workspace 6 output DVI-D-0
+workspace 7 output HDMI-1
+
 
 #launch floating
 for_window [class="Nemo" instance="nemo"] floating enable
@@ -248,11 +253,7 @@ assign [class="Steam"]3
 
 #probably deleting
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #e7e7e7   #e7e7e7
-client.focused_inactive #333333 #5f676a #ffffff #333333   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #4c7899 #285577 #ffffff #b30000   #b30000
 
 client.background       #ffffff
 
@@ -265,3 +266,6 @@ mouse_warping none
 #testing scratchpad stuff
 bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
+
+#switch between workspaces
+bindsym $mod+Tab workspace back_and_forth
