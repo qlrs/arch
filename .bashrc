@@ -7,7 +7,7 @@
 
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;13m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]] \\$ \[$(tput sgr0)\]"
 
-set -o vi
+#set -o vi
 
 alias ls='ls --color=auto'
 alias ll='ls -ahl'
@@ -30,6 +30,8 @@ alias switch='sudo minicom ciscoSwitch'
 #fixes the fucking time
 #but you need to adjust to the correct time
 alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
+alias tuir='tuir --enable-media'
+alias sshserver='ssh root@rschrader.xyz'
 #for pywal
 (cat ~/.cache/wal/sequences &)
 
