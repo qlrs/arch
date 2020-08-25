@@ -37,7 +37,10 @@ alias fd='fd --hidden'
 alias wttr='curl wttr.in/"Myrtle Beach"?u'
 alias paci='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
+alias yayu='sudo yay -Syu'
+alias yayaur='sudo yay -Sua'
 alias pacr='sudo pacman -Rs'
+alias yayr='sudo yay -Rs'
 alias chox='chmod u+x'
 alias i3lock='i3lock -c 000000'
 alias p='python3'
@@ -50,6 +53,7 @@ alias switch='sudo minicom ciscoSwitch'
 #but you need to adjust to the correct time
 alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
 alias tuir='tuir --enable-media'
+alias clearlock='xmodmap -e "clear lock"'
 alias sshserver='ssh root@rschrader.xyz'
 #for pywal
 #(cat ~/.cache/wal/sequences &)

@@ -6,6 +6,8 @@ exec screen
 exec xbanish &
 exec mpd &
 exec --no-startup-id compton &
+exec xmodmap .Xmodmap &
+exec urxvt -e zsh -ic clearlock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -176,7 +178,7 @@ bindsym $mod+v exec firefox
 bindsym $mod+m exec urxvt -e zsh -ic ncmpcpp
 bindsym $mod+Shift+a exec gnome-calendar
 bindsym $mod+b exec nemo
-bindsym $mod+Shift+t exec tor-browser
+bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
 bindsym $mod+q exec urxvt -e zsh -ic vim
 bindsym $mod+Shift+p exec kolourpaint
@@ -186,8 +188,8 @@ bindsym $mod+u exec pavucontrol
 bindsym $mod+r exec urxvt -e zsh -ic tuir
 
 #wallpaper and pywal
-exec feh --bg-scale /home/dan/walls/castle.jpeg
-exec wal -i /home/dan/walls/castle.jpeg
+exec feh --bg-scale /home/dan/walls/wall16.jpeg
+#exec wal -i /home/dan/walls/castle.jpeg
 
 #specific screens
 workspace 1 output DVI-D-0
