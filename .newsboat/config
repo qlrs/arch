@@ -10,3 +10,13 @@ bind-key G end
 bind-key g home
 bind-key l open
 bind-key h quit
+
+browser firefox
+player mpv
+macro o open-in-browser ; toggle-article-read "read"
+
+#color listfocus white magenta
+#color info white black
+#maybe delete these
+#color listfocus_unread white magenta
+#color listnormal_unread white magenta

@@ -1,12 +1,21 @@
-https://nitter.net/cenkuygur/rss "~Cenk Uygur"
-https://nitter.net/dpakman/rss "~David Pakman"
-https://nitter.net/youyve/rss "~Yvette Young"
-https://nitter.net/torproject/rss "~Tor"
-https://nitter.net/Snowden/rss
+#https://nitter.net/cenkuygur/rss "~Cenk Uygur"
+#https://nitter.net/dpakman/rss "~David Pakman"
+#https://nitter.net/youyve/rss "~Yvette Young"
+#https://nitter.net/torproject/rss "~Tor"
+#https://nitter.net/Snowden/rss "~Snowden"
 
+https://youtube.com/feeds/videos.xml?channel_id=UCAL3JXZSzSm8AlZyD3nQdBA "~Prim Tech"
 https://youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith"
-https://youtube.com/feeds/videos.xml?channel_id=UCAL3JXZSzSm8AlZyD3nQdBA "Prim Tech"
+https://youtube.com/feeds/videos.xml?user=MegatoadStonie "~Matt Stonie"
+https://youtube.com/feeds/videos.xml?user=derekvegas "Derek Millen"
+https://youtube.com/feeds/videos.xml?user=ContraPoints "~ContraPoints"
+https://youtube.com/feeds/videos.xml?channel_id=UCtGoikgbxP4F3rgI9PldI9g "~Anime Guy"
+https://youtube.com/feeds/videos.xml?user=YourMovieSucksDOTorg "~YMS"
+https://youtube.com/feeds/videos.xml?user=XboxAhoy "~Ahoy"
+https://youtube.com/feeds/videos.xml?channel_id=UCuq1H-HXWoW4JL-hX5bWxzw "~Death Grips"
+https://youtube.com/feeds/videos.xml?channel_id=UCjU-Cwjfqbo2hMRItlXwnnQ "~Dan Bell"
 
 
 https://www.archlinux.org/feeds/news/ "~Arch News"
-https://www.eff.org/rss/updates.xml "~EFF"
+# https://www.eff.org/rss/updates.xml "~EFF"
+# https://stallman.org/rss/rss.xml "~Stallman"
