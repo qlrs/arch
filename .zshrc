@@ -19,7 +19,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)	
 
-bindkey -v
+bindkey -v '^?' backward-delete-char
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:
@@ -34,13 +34,12 @@ alias ldate='ls -ahlt'
 alias grep='grep --color=always'
 alias cp='cp -v'
 alias fd='fd --hidden'
-alias wttr='curl wttr.in/"Myrtle Beach"?u'
 alias paci='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
-alias yayu='sudo yay -Syu'
-alias yayaur='sudo yay -Sua'
+alias yayi='yay -S'
+alias yayaur='yay -Sua'
 alias pacr='sudo pacman -Rs'
-alias yayr='sudo yay -Rs'
+alias yayr='yay -Rs'
 alias chox='chmod u+x'
 alias i3lock='i3lock -c 000000'
 alias p='python3'
