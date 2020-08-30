@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-case $BLOCK_BUTTON in
-    1) $TERMINAL -e neofetch ;;
-    2) echo "DANK MEME" ;;
-esac
-
