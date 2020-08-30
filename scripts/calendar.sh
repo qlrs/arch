@@ -1,7 +1,7 @@
 #! /bin/sh
 
-WIDTH=${WIDTH:-200}
-HEIGHT=${HEIGHT:-200}
+WIDTH=${WIDTH:-400}
+HEIGHT=${HEIGHT:-400}
 DATEFMT=${DATEFMT:-"+%a %d.%m.%Y %H:%M:%S"}
 SHORTFMT=${SHORTFMT:-"+%H:%M:%S"}
 
@@ -26,8 +26,8 @@ case "$BLOCK_BUTTON" in
   1|2|3) 
 
 	# the position of the upper left corner of the popup
-	posX=$(($BLOCK_X - $WIDTH / 2))
-	posY=$(($BLOCK_Y - $HEIGHT))
+	posX=$(($BLOCK_X - 200))
+	posY=$(($BLOCK_Y + 20))
 
 	i3-msg -q "exec yad --calendar \
         --width=$WIDTH --height=$HEIGHT \

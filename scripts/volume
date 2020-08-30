@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+case $BLOCK_BUTTON in
+    1) $TERMINAL -e pulsemixer & disown ;;
+esac
+echo 
