@@ -1,5 +1,4 @@
 exec i3
-wal -R
-
+#wal -R
 
 
