@@ -1,0 +1,9 @@
+#!/bin/sh
+
+curl -sf wttr.in/29575 >> meme
+
+urxvt -hold -e sed -n '1,6p' meme
+rm meme
+
+
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mpv /home/dan/scripts/whitenoise.mp4 --no-video & disown
+exit
