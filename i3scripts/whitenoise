@@ -1,6 +1,0 @@
-#!/bin/sh
-case $BLOCK_BUTTON in
-    1) mpv /home/dan/scripts/whitenoise.mp4 --no-video & disown ;;
-    2) exit
-esac
-echo 

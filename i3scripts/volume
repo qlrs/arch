@@ -1,6 +1,16 @@
-#!/bin/zsh
+#!/bin/sh
 
 case $BLOCK_BUTTON in
-    1) $TERMINAL -e pulsemixer & disown ;;
+    1) $TERMINAL -e pulsemixer ;;
+    3) pamixer -t ;;
+    4) pamixer --allow-boost -i 10 ;;
+    5) pamixer --allow-boost -d 10 ;;
 esac
-echo 
+
+if [ pamixer --get-mute = true ]; then
+    icon="🔇"
+else
+    icon="🔊"
+fi
+
+echo "$icon"
