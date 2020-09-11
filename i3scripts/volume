@@ -7,7 +7,9 @@ case $BLOCK_BUTTON in
     5) pamixer --allow-boost -d 10 ;;
 esac
 
-if [ pamixer --get-mute = true ]; then
+
+
+if [ $(pamixer --get-mute) = true ]; then
     icon="🔇"
 else
     icon="🔊"
