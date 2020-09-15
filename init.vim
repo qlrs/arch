@@ -24,6 +24,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-g> :Goyo<CR>
 map <C-p> :w !python<CR>
 inoremap <S-Tab> <Esc>
+nnoremap S :%s//g<Left><Left>
 
 set t_Co=256
 hi Normal ctermbg=none
