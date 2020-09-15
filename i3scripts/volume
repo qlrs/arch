@@ -2,9 +2,10 @@
 
 case $BLOCK_BUTTON in
     1) $TERMINAL -e pulsemixer ;;
-    3) pamixer -t ;;
-    4) pamixer --allow-boost -i 10 ;;
-    5) pamixer --allow-boost -d 10 ;;
+    2) pamixer --set-volume 100 ;;
+    3) pamixer -t ;; #mutes
+    4) pamixer --allow-boost -i 5 ;; #scroll up/down for increase/decrease
+    5) pamixer --allow-boost -d 5 ;;
 esac
 
 
