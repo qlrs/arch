@@ -23,7 +23,7 @@ while getopts ":f:W:H:" opt; do
 done
 
 case "$BLOCK_BUTTON" in
-  1|2|3) 
+    1|2) 
 
 	# the position of the upper left corner of the popup
 	posX=$(($BLOCK_X - 200))
@@ -34,7 +34,9 @@ case "$BLOCK_BUTTON" in
 	    --undecorated --fixed \
 	    --close-on-unfocus --no-buttons \
 	    --posx=$posX --posy=$posY \
-	    > /dev/null"
+	    > /dev/null" ;;
+    3) $TERMINAL -e calcurse
+
 esac
 echo "$LABEL$(date "$DATEFMT")"
 echo "$LABEL$(date "$SHORTFMT")"
