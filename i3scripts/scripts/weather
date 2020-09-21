@@ -1,0 +1,7 @@
+#!/bin/sh
+
+url=https://wttr.in/29575\?uT
+forecast=`curl -s $url | sed 's/[^0-9]*//g' | sed -n '4p'`
+
+echo $forecast
+
