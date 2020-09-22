@@ -32,6 +32,10 @@ yay(aur)
 mpd
 mpc
 mpv
+alsa-utils
+pulseaudio
+(maybe)pulseaudio-alsa
+pamixer
 sxiv
 picom
 xmodmap
