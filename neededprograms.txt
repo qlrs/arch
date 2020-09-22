@@ -57,3 +57,4 @@ ttf-linux-libertine
 newsboat
 calcurse
 tuir(aur)
+tor-browser
