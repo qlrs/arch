@@ -10,6 +10,8 @@ proper drivers
 xorg-server
 xorg-apps
 xorg-fonts(?)
+zsh
+openssh
 git
 curl
 wget
