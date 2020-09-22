@@ -1,0 +1,50 @@
+user dan
+mkdir ~/.config/dunst ~/.config/ncmpcpp ~/.config/nvim ~/.config/picom ~/.config/ranger
+mkdir ~/.i3
+mkdir ~/.mpd
+
+networkmanager / networkmanager-runit (enable dbus first)
+networkmanager-openvpn
+network-manager-applet
+proper drivers
+xorg-server
+xorg-apps
+xorg-fonts(?)
+exa
+fd
+bat
+yay
+rxvt-unicode-pixbuf-patched(aur)
+xbanish(aur)
+i3-gaps
+dmenu
+i3lock
+i3blocks
+neovim
+dunst
+feh
+yay(aur)
+mpd
+mpc
+mpv
+sxiv
+picom
+xmodmap
+python-pywal
+
+gnome-calculator
+ranger
+firefox
+ncmpcpp
+nemo
+steam
+noto-fonts
+tamsyn-font
+noto-fonts
+noto-fonts-emoji
+ttf-inconsolata
+ttf-liberation
+ttf-linux-libertine
+newsboat
+calcurse
+tuir(aur)
