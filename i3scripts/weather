@@ -1,7 +1,8 @@
 #!/bin/sh
 
 url=https://wttr.in/29575\?uT
+
 forecast=`curl -s $url | sed 's/[^0-9]*//g' | sed -n '4p' | cut -c 1-2`
 
-echo $forecast
-
+echo "☀️ $forecast"
+`notify-send "Weather updated"`
