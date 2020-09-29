@@ -1,8 +1,11 @@
 #!/bin/sh
-
+#sed through `mpc status` to get song name then use notify-send blah blah
+song=`mpc status | sed -n '1p'`
 case $BLOCK_BUTTON in
     1) $TERMINAL -e ncmpcpp ;;
     2) mpc clear > /dev/null ;;
-    3) mpc toggle > /dev/null ;;
+    3) mpc toggle > /dev/null ; echo "🎵 $song" ;;
+    4) mpc next > /dev/null ; echo "🎵 $song" ;;
+    5) mpc prev > /dev/null ; echo "🎵 $song" ;;
 esac
 
