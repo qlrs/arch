@@ -1,6 +1,5 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-    1) mpv /home/dan/scripts/whitenoise.mp4 --no-video >/dev/null ;;
-    3) pkill mpv ;;
+    1) mpc clear > /dev/null ; mpc add shit/whitenoise.mp4 ; mpc toggle > /dev/null ;;
 esac

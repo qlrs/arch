@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) $TERMINAL -e ncmpcpp ;;
+    2) mpc clear > /dev/null ;;
+    3) mpc toggle > /dev/null ;;
+esac
+
