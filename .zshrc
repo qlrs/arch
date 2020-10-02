@@ -49,7 +49,10 @@ alias vim='nvim '
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
 #shows font list with easy to read name
 alias fontmeme='fc-list | cut -f2 -d: | sort -u'
+alias wttr='curl -s https://wttr.in/29575\?uT'
 alias switch='sudo minicom ciscoSwitch'
+alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
+alias pcaudio='pacmd set-card-profile 1 output:analog-stereo+input:analog-stereo'
 #fixes the fucking time
 #but you need to adjust to the correct time
 alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
