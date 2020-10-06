@@ -1,3 +1,0 @@
-works from dmenu
-need to export the pid of mpv
-make script that kills that mpv process
