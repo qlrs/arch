@@ -1,35 +1,53 @@
 #!/bin/sh
 #TODO
-#add detailed output
 #ask user where to store file??? or just make a temporary location that you delete afterwards idk
 
+menu() {
+    echo -e "\t1. m4a"
+    echo -e "\t2. mp3"
+    echo -e "\t3. mp4"
+    echo -e "\t4. opus"
+    read -n1 userext
+}
+
+while :; do
+    menu
+    echo ""
+    case $userext in
+        1) userext=".m4a" ; break ;;
+        2) userext=".mp3" ; break ;;
+        3) userext=".mp4" ; break ;;
+        4) userext=".opus" ; break ;;
+        *) echo "Invalid Selection" ;;
+    esac
+    echo ""
+done
+
+echo""
+echo""
 
 counter=1
 while read line; do
     end="$(echo "$line" | cut -d' ' -f1)"
     tracknum=$(($counter - 1))
 
-    echo "This is loop number $counter"
     if [[ -n $start ]]; then
-        echo $filename
         echo "Track $tracknum is called $name and starts at $start and ends at $end"
-        ffmpeg -nostdin -i $1 -ss $start -to $end -c copy $filename
+        ffmpeg -nostdin -i $1 -b:a 320k -ss $start -to $end $filename 2> /dev/null
+
     else
-        echo "start doens't exist"
+        echo "Starting..."
     fi
 
     start="$end"
-    echo "loop $counter has ended"
     echo 
     name=`echo $line | cut -c 10-`
     fakename=`echo $name | sed 's/\s/_/g'`
-    filename="$fakename"".m4a"
+    filename="$fakename$userext"
     counter=$(($counter + 1))
 
 
 done < $2
 
-echo $start
-echo $end
-ffmpeg -nostdin -i $1 -ss $start -c copy $filename
+ffmpeg -nostdin -i $1 -b:a 320k -ss $start $filename 2> /dev/null
 
