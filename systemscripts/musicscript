@@ -1,7 +1,11 @@
 #!/bin/sh
 #TODO
-#ask user where to store file??? or just make a temporary location that you delete afterwards idk
+#only the first track gets properly tagged, needs fix
+#use eyeD3 for mp3/m4a/mp4
+#copy program to check for file extensions
 
+read -p "What is the artist name? " artistname
+read -p "What is the album name? " albumname
 menu() {
     echo -e "\t1. m4a"
     echo -e "\t2. mp3"
@@ -34,7 +38,7 @@ while read line; do
     if [[ -n $start ]]; then
         echo "Track $tracknum is called $name and starts at $start and ends at $end"
         ffmpeg -nostdin -i $1 -b:a 320k -ss $start -to $end $filename 2> /dev/null
-
+        echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
     else
         echo "Starting..."
     fi
@@ -50,4 +54,4 @@ while read line; do
 done < $2
 
 ffmpeg -nostdin -i $1 -b:a 320k -ss $start $filename 2> /dev/null
-
+echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
