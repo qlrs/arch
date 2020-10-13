@@ -54,4 +54,5 @@ while read line; do
 done < $2
 
 ffmpeg -nostdin -i $1 -b:a 320k -ss $start $filename 2> /dev/null
+tracknum=$(($tracknum + 1))
 echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
