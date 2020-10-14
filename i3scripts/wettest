@@ -1,0 +1,13 @@
+#!/bin/sh
+
+url=wttr.in/Myrtle_Beach\?format="%C\n%f"
+temp=`curl -s $url | sed -n '2p' | sed 's/+//g'`
+condition=`curl -s $url | sed -n '1p'`
+
+case $condition in
+    [sS]unny) echo "☀️ "$condition"  "$temp"" ;;
+    [cC]loudy) echo "☁️ "$condition"  "$temp"" ;;
+    [rR]ain|[rR]ainy) echo "🌧️ "$condition " "$temp"" ;;
+    *) echo "idk "$condition"  "$temp"" ;;
+esac
+
