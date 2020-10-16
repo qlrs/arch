@@ -1,0 +1,58 @@
+#!/bin/sh
+
+#TODO
+#test more, think its good though
+#use eyeD3 for mp3/m4a/mp4
+
+read -p "What is the artist name? " artistname
+read -p "What is the album name? " albumname
+menu() {
+    echo -e "\t1. m4a"
+    echo -e "\t2. mp3"
+    echo -e "\t3. mp4"
+    echo -e "\t4. opus"
+    read -n1 userext
+}
+
+while :; do
+    menu
+    echo "" 
+    case $userext in
+        1) userext=".m4a" ; break ;;
+        2) userext=".mp3" ; break ;;
+        3) userext=".mp4" ; break ;;
+        4) userext=".opus" ; break ;;
+        *) echo "Invalid Selection" ;;
+    esac
+    echo ""
+done
+
+echo""
+echo""
+
+counter=1
+while read line; do
+    end="$(echo "$line" | cut -d' ' -f1)"
+    tracknum=$(($counter - 1))
+
+    [ -n $start ] &&
+        echo "Working on $name" &&
+        ffmpeg -nostdin -i $1 -b:a 320k -ss $start -to $end $filename 2> /dev/null &&
+        echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
+
+    start="$end"
+    echo 
+    name=`echo $line | cut -c 10-`
+    fakename=`echo $name | sed 's/\s/_/g'`
+    filename="$fakename$userext"
+    counter=$(($counter + 1))
+
+
+done < $2
+
+echo "Almost done... Working on $name"
+ffmpeg -nostdin -i $1 -b:a 320k -ss $start $filename 2> /dev/null
+echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
+
+rm $1
+rm $2
