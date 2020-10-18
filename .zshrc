@@ -8,7 +8,6 @@ SAVEHIST=10000
 export HISTFILE=~/.zhistory
 
 setopt autocd
-setopt correctall
 autoload -U compinit
 autoload -Uz url-quote-magic
 autoload -Uz bracketed-paste-magic
@@ -52,7 +51,6 @@ alias fontmeme='fc-list | cut -f2 -d: | sort -u'
 alias wttr='curl -s https://wttr.in/29575\?uT'
 alias switch='sudo minicom ciscoSwitch'
 alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
-alias pcaudio='pacmd set-card-profile 1 output:analog-stereo+input:analog-stereo'
 #fixes the fucking time
 #but you need to adjust to the correct time
 alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
@@ -86,5 +84,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ####
 
 #must be last
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
