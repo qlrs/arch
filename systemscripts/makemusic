@@ -43,8 +43,7 @@ while read line; do
     start="$end"
     echo 
     name=`echo $line | cut -c 10-`
-    fakename=`echo $name | sed 's/\s/_/g'`
-    filename="$fakename$userext"
+    filename="${name// /_}$userext"
     counter=$(($counter + 1))
 
 
