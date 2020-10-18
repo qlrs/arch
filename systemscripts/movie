@@ -17,14 +17,11 @@ while :; do
     echo ""
     case $useranswer in
         1) read -p "Enter the anime to find: " useranime
-            newurl="$animeurl""$useranime"
-            righturl=`echo $newurl | sed 's/\s/_/g'`
+            url="$animeurl${useranime// /_}"
             nohup firefox $righturl >/dev/null 2>&1 & ;;
         2) read -p "Enter the movie to find: " usermovie
-            newurl="$movieurl""$usermovie"
-            nexturl=`echo $newurl | sed 's/\s/+/g'`
-            righturl="$nexturl""#results"
-            nohup firefox $righturl >/dev/null 2>&1 & ;;
+            url="$movieurl${usermovie// /+}#results"
+            nohup firefox $url >/dev/null 2>&1 & ;;
         3) break ;;
         *) echo "Wrong Selection" ;;
     esac
