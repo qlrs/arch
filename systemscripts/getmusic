@@ -5,33 +5,33 @@ read -p "what would you like the album directory to be called? " albumname
 
 if [ -d "~/music/$artistname" ] && [ -d "~/music/$artistname/$albumname" ]; then
     youtube-dl -f m4a $1
+    [ ! -d ~/downloadmusic ] && mkdir ~/downloadmusic
     cd ~/downloadmusic
     mv * album
-    mv album $musicpath
-    cd $musicpath
+    mv album "$musicpath"
+    cd "$musicpath"
     touch times
 elif [ -d "~/music/$artistname" ] && [ ! -d "~/music/$artistname/$albumname" ]; then 
-    cd ~/music/$artistname
-    mkdir $albumname
-    cd $albumname
+    mkdir ~/music/$artistname/$albumname
+    cd ~/music/$artistname/$albumname
     musicpath=$PWD
     youtube-dl -f m4a $1
+    [ ! -d ~/downloadmusic ] && mkdir ~/downloadmusic
     cd ~/downloadmusic
     mv * album
-    mv album $musicpath
-    cd $musicpath
+    mv album "$musicpath"
+    cd "$musicpath"
     touch times
 else
-    cd ~/music
-    mkdir $artistname
-    cd $artistname
-    mkdir $albumname
-    cd $albumname
+    mkdir ~/music/$artistname
+    mkdir ~/music/$artistname/$albumname
+    cd ~/music/$artistname/$albumname
     musicpath=$PWD
     youtube-dl -f m4a $1
+    [ ! -d ~/downloadmusic ] && mkdir ~/downloadmusic
     cd ~/downloadmusic
     mv * album
-    mv album $musicpath
-    cd $musicpath
+    mv album "$musicpath"
+    cd "$musicpath"
     touch times
 fi
