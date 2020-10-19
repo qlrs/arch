@@ -18,7 +18,7 @@ while :; do
     case $useranswer in
         1) read -p "Enter the anime to find: " useranime
             url="$animeurl${useranime// /_}"
-            nohup firefox $righturl >/dev/null 2>&1 & ;;
+            nohup firefox $url >/dev/null 2>&1 & ;;
         2) read -p "Enter the movie to find: " usermovie
             url="$movieurl${usermovie// /+}#results"
             nohup firefox $url >/dev/null 2>&1 & ;;
