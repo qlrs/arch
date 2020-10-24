@@ -3,29 +3,29 @@
 read -p "what would you like the artist directory to be called? " artistname
 read -p "what would you like the album directory to be called? " albumname
 
-if { [ -n ~/music/$artistname ] && [ -n ~/music/$artistname/$albumname ]; }; then
+if { [ -e ~/music/$artistname ] && [ -e ~/music/$artistname/$albumname ]; }; then
     echo "That already exists"
-elif { [ -n ~/music/$artistname ] && [ ! -n ~/music/$artistname/$albumname ]; }; then 
+elif { [ -e ~/music/$artistname ] && [ ! -e ~/music/$artistname/$albumname ]; }; then 
     mkdir ~/music/$artistname/$albumname
-    cd ~/music/$artistname/$albumname
+    cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
     [ ! -n ~/downloadmusic ] && mkdir ~/downloadmusic
-    cd ~/downloadmusic
+    cd ~/downloadmusic || exit
     mv * album
     mv album "$musicpath"
-    cd "$musicpath"
+    cd "$musicpath" || exit
     touch times
 else
     mkdir ~/music/$artistname
     mkdir ~/music/$artistname/$albumname
-    cd ~/music/$artistname/$albumname
+    cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
-    [ ! -n ~/downloadmusic ] && mkdir ~/downloadmusic
-    cd ~/downloadmusic
+    [ ! -e ~/downloadmusic ] && mkdir ~/downloadmusic
+    cd ~/downloadmusic || exit
     mv * album
     mv album "$musicpath"
-    cd "$musicpath"
+    cd "$musicpath" || exit
     touch times
 fi
