@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#[ -d "~/.config/dunst" ] && echo "That shit exist"
+
+
+
+#[ -e ~/.config/dunst ] && echo "yes it exists"
+#[ -e ~/.config/wownice ] || echo "no it doesn't exist"
+
+if { [ -e artist ] && [ -e artist/album ]; }; then
+    echo "they both exist"
+elif { [ -e artist ] && [ ! -e artist/album ]; }; then
+    echo "artist exists but album doesn't"
+else
+    echo "they do not exist"
+fi
+
+! command -v mutter > /dev/null && echo "mutter is not installed"
+
+while IFS= read -r line; do
+
+#try using "which <program>"    [ ! command -v "$line" ] && echo ""$line" is not installed"
+    #echo ""$line" is now installed"
+    
+
+
+done < fordeletetest
