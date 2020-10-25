@@ -8,7 +8,7 @@ condition=`curl -s "$url" | sed -n '1p'`
 case "$condition" in
     [sS]unny) echo "☀️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
     "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
-    "Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp""; notify-send "Weather updated" ;;
+    "Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp""; notify-send "Weather updated" ;;
     "Clear") echo "🌞 "$condition " "$temp"" ; notify-send "Weather updated" ;;
     *) echo "idk "$condition"  "$temp"" ; notify-send "Weather updated" ;;
 esac
