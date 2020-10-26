@@ -1,8 +1,0 @@
-#!/bin/sh
-
-#proper way to check of variables or equal to strings
-if [ "$EDITOR" = 'nvim' ] && [ "$BROWSER" = 'firefox' ]; then
-    echo "a man of culture"
-else
-    echo "scrub"
-fi
