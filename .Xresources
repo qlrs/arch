@@ -1,19 +1,13 @@
-URxvt.font: xft:Liberation Mono:style=Regular:size=13
-URxvt.boldFont: xft:Liberation Mono:style=Bold:size=13
+!URxvt.font: xft:Liberation Mono:style=Regular:size=13
+!URxvt.boldFont: xft:Liberation Mono:style=Bold:size=13
+*.font: xft:Liberation Mono:size=13
 !URxvt.letterSpace: -1
 URxvt.scrollBar: false
-!*foreground:	white
-!*background:	black
-
 
 URxvt.perl-ext-common: default,matcher,resize-font
 !needs urxvt-perls installed
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
-!URxvt.depth: 32
-!URxvt.background: [90]#000000
-!URxvt.transparent:	true
-!URxvt.shading:		5
 URxvt.cursorColor:	magenta
 URxvt.intensityStyles: 	false
 
@@ -61,62 +55,6 @@ URxvt.resize-font.bigger:	C-i
 !*.color7:      #d6dbe5
 !*.color15:     #ffffff
 !*.colorBD:     #d6dbe5
-
-!*.foreground:  #cdcdcd
-!*.color0:      #000000
-!*.color8:      #555555
-!*.color1:      #a60001
-!*.color9:      #ff0003
-!*.color2:      #00bb00
-!*.color10:     #93c863
-!*.color3:      #fecd22
-!*.color11:     #fef874
-!*.color4:      #3a9bdb
-!*.color12:     #a1d7ff
-!*.color5:      #bb00bb
-!*.color13:     #ff55ff
-!*.color6:      #00bbbb
-!*.color14:     #55ffff
-!*.color7:      #bbbbbb
-!*.color15:     #ffffff
-
-!*.foreground:   #e6d4c3
-!*.cursorColor:  #e6d4c3
-!*.color0:       #222222
-!*.color8:       #331c1c
-!*.color1:       #997373
-!*.color9:       #995454
-!*.color2:       #999973
-!*.color10:      #999954
-!*.color3:       #997e63
-!*.color11:      #cc9e70
-!*.color4:       #738099
-!*.color12:      #7090cc
-!*.color5:       #857399
-!*.color13:      #a685cc
-!*.color6:       #7a9998
-!*.color14:      #8fccca
-!*.color7:       #b3b3b3
-!*.color15:      #cccccc
-
-!*.foreground:  #e6d4a3
-!*.color0:      #161819
-!*.color8:      #7f7061
-!*.color1:      #f73028
-!*.color9:      #be0f17
-!*.color2:      #aab01e
-!*.color10:     #868715
-!*.color3:      #f7b125
-!*.color11:     #cc881a
-!*.color4:      #719586
-!*.color12:     #377375
-!*.color5:      #c77089
-!*.color13:     #a04b73
-!*.color6:      #7db669
-!*.color14:     #578e57
-!*.color7:      #faefbb
-!*.color15:     #e6d4a3
-!*.colorBD:     #978771
 
 !gruvbox
 *.foreground:   #ebdbb2
