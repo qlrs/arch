@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:Terminus 12
+font pango:Liberation Mono
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
@@ -21,7 +21,7 @@ bindsym $mod+Return exec urxvt
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Misc Tamsyn"
+bindsym $mod+d exec dmenu_run -fn "Source Code Pro"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
