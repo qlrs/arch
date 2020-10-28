@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:Liberation Mono
+font pango:Source Code Pro
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
@@ -8,7 +8,7 @@ exec mpd &
 exec --no-startup-id picom &
 exec --no-startup-id dunst &
 exec xmodmap .Xmodmap &
-exec urxvt -e zsh -ic clearlock
+exec alacritty -e zsh -ic clearlock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -17,11 +17,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Source Code Pro"
+bindsym $mod+d exec dmenu_run -fn "Misc Tamsyn-15"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -166,23 +166,23 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 
 #launch shit
 bindsym $mod+z exec gnome-calculator
-bindsym $mod+n exec urxvt -e zsh -ic ranger
+bindsym $mod+n exec alacritty -e zsh -ic ranger
 bindsym $mod+v exec firefox
-bindsym $mod+m exec urxvt -e zsh -ic ncmpcpp
+bindsym $mod+m exec alacritty -e zsh -ic ncmpcpp
 bindsym $mod+Shift+a exec gnome-calendar
 bindsym $mod+b exec nemo
 bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
-bindsym $mod+q exec urxvt -e zsh -ic vim
+bindsym $mod+q exec alacritty -e zsh -ic vim
 bindsym $mod+Shift+p exec kolourpaint
-bindsym $mod+Shift+n exec urxvt -e zsh -ic newsboat
-bindsym $mod+p exec urxvt -e zsh -ic pulsemixer
+bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
+bindsym $mod+p exec alacritty -e zsh -ic pulsemixer
 bindsym $mod+u exec pavucontrol
-bindsym $mod+r exec urxvt -e zsh -ic tuir
-bindsym $mod+a exec urxvt -e zsh -ic calcurse
+bindsym $mod+r exec alacritty -e zsh -ic tuir
+bindsym $mod+a exec alacritty -e zsh -ic calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/rain1.jpg
+exec_always feh --bg-scale /home/dan/walls/wall3.jpeg
 #exec_always wal -i /home/dan/walls/city1.jpeg
 
 #specific screens
