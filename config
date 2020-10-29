@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:Source Code Pro
+font pango:Soure Code Pro 11
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
@@ -21,7 +21,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Misc Tamsyn-15"
+bindsym $mod+d exec dmenu_run -fn "Misc Tamsyn-14"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
