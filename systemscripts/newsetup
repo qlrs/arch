@@ -1,5 +1,10 @@
 #!/bin/sh
 #TODO add program list to fordeletetest
+
+###
+#requires a list of programs to be installed
+###
+
 #make sure you have networkmanager, networkmanager-runit, 
 #opensshand git installed already
 #make sure you have generated your ssh keys and added them on github
@@ -31,6 +36,7 @@ done < fordeletetest
 
 #check if directories exist and create them if they don't
 [ ! -e ~/.config/dunst ] && mkdir ~/.config/dunst
+[ ! -e ~/.config/alacritty ] && mkdir ~/.config/alacritty
 [ ! -e ~/.config/ncmpcpp ] && mkdir ~/.config/ncmpcpp
 [ ! -e ~/.config/nvim ] && mkdir ~/.config/nvim
 [ ! -e ~/.config/picom ] && mkdir ~/.config/picom
@@ -49,6 +55,7 @@ done < fordeletetest
 /bin/cp -rf ~/archconfig/picom.conf ~/.config/picom/
 /bin/cp -rf ~/archconfig/rc.conf ~/.config/ranger/
 /bin/cp -rf ~/archconfig/rifle.conf ~/.config/ranger/
+/bin/cp -rf ~/archconfig/alacritty.yml ~/.config/alacritty/
 /bin/cp -rf ~/archconfig/mpd.conf ~/.mpd/
 /bin/cp -rf ~/archconfig/config ~/.i3/
 /bin/cp -rf ~/archconfig/i3scripts/* ~/.i3/scripts
