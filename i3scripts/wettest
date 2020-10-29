@@ -2,8 +2,9 @@
 #need to add dunst notif
 
 url=wttr.in/29575\?format="%C\n%f"
-temp=`curl -s "$url" | sed -n '2p' | sed 's/+//g'`
-condition=`curl -s "$url" | sed -n '1p'`
+faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
+temp=${faketemp%F}
+condition=$(curl -s "$url" | sed -n '1p')
 
 case "$condition" in
     [sS]unny) echo "☀️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
