@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chosenone=$(cut -d ';' -f1 ~/scripts/emojilist | dmenu -i -l 30 | sed "s/ .*//")
+echo "$chosenone" | tr -d '\n' | xclip &
