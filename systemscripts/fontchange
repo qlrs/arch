@@ -1,0 +1,14 @@
+#!/bin/sh
+file="/home/dan/.config/alacritty/alacritty.yml"
+choice=$(fc-list | cut -f2 -d: | sort -u | dmenu -fn "Liberation Mono-10" -i -l 30)
+choice=${choice:1}
+[ -z $choice ] && exit
+
+currentfont=$(grep "family" "$file" | head -1)
+currentfont=${currentfont:12}
+
+echo "$currentfont"
+echo "$choice"
+
+sed -i "s/$currentfont/$choice/g" "$file"
+
