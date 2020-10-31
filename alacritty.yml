@@ -9,16 +9,22 @@ font:
   bold:
     family: Liberation Mono
     style: Bold
+    family: Liberation Mono
 
   italic:
     family: Liberation Mono
     style: Italic
+    family: Liberation Mono
 
   bold_italic:
     family: Liberation Mono
     style: Bold Italic
+    family: Liberation Mono
 
   size: 12
+  offset:
+      x: 0
+      y: 0
 
 colors:
   primary:
