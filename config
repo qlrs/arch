@@ -21,7 +21,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Liberation Mono-12"
+bindsym $mod+d exec dmenu_run -fn "Source Code Pro-12"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
