@@ -176,7 +176,7 @@ bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e zsh -ic vim
 bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
-bindsym $mod+p exec alacritty -e zsh -ic pulsemixer
+bindsym $mod+Shift+p exec alacritty -e zsh -ic pulsemixer
 bindsym $mod+u exec pavucontrol
 bindsym $mod+r exec alacritty -e zsh -ic tuir
 bindsym $mod+a exec alacritty -e zsh -ic calcurse
@@ -233,4 +233,4 @@ bindsym $mod+Tab workspace back_and_forth
 #audio stuff
 bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
-bindsym $mod+Shift+p exec mpc toggle
+bindsym $mod+p exec mpc toggle
