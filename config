@@ -21,7 +21,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Misc Tamsyn-14"
+bindsym $mod+d exec dmenu_run -fn "Liberation Mono-12"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -175,7 +175,6 @@ bindsym $mod+b exec nemo
 bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e zsh -ic vim
-bindsym $mod+Shift+p exec kolourpaint
 bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
 bindsym $mod+p exec alacritty -e zsh -ic pulsemixer
 bindsym $mod+u exec pavucontrol
@@ -230,3 +229,8 @@ bindsym $mod+s scratchpad show
 
 #switch between workspaces
 bindsym $mod+Tab workspace back_and_forth
+
+#audio stuff
+bindcode $mod+21 exec pamixer --allow-boost -i 5
+bindcode $mod+20 exec pamixer --allow-boost -d 5
+bindsym $mod+Shift+p exec mpc toggle
