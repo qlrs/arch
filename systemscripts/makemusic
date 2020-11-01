@@ -7,10 +7,10 @@
 echo "What is the artist name? "; read -r artistname
 echo "What is the album name? "; read -r albumname
 menu() {
-    printf "\t1. m4a"
-    printf "\t2. mp3"
-    printf "\t3. mp4"
-    printf "\t4. opus"
+    printf "\t1. m4a\n"
+    printf "\t2. mp3\n"
+    printf "\t3. mp4\n"
+    printf "\t4. opus\n"
     read -r userext
 }
 
@@ -43,7 +43,8 @@ while read line; do
     start="$end"
     echo 
     name=`echo $line | cut -c 10-`
-    filename="${name// /_}$userext"
+    fakefilename=$(echo "$name" | sed 's/\s/_/g')
+    filename="$fakefilename""$userext"
     counter=$(($counter + 1))
 
 
