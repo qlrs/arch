@@ -4,14 +4,14 @@
 #test more, think its good though
 #use eyeD3 for mp3/m4a/mp4
 
-read -p "What is the artist name? " artistname
-read -p "What is the album name? " albumname
+echo "What is the artist name? "; read -r artistname
+echo "What is the album name? "; read -r albumname
 menu() {
-    echo -e "\t1. m4a"
-    echo -e "\t2. mp3"
-    echo -e "\t3. mp4"
-    echo -e "\t4. opus"
-    read -n1 userext
+    printf "\t1. m4a"
+    printf "\t2. mp3"
+    printf "\t3. mp4"
+    printf "\t4. opus"
+    read -r userext
 }
 
 while :; do
@@ -38,7 +38,7 @@ while read line; do
     [ -n $start ] &&
         echo "Working on $name" &&
         ffmpeg -nostdin -i $1 -b:a 320k -ss $start -to $end $filename 2> /dev/null &&
-        echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
+        printf "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
 
     start="$end"
     echo 
@@ -51,7 +51,7 @@ done < $2
 
 echo "Almost done... Working on $name"
 ffmpeg -nostdin -i $1 -b:a 320k -ss $start $filename 2> /dev/null
-echo -e "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
+printf "Artist=$artistname\nAlbum=$albumname\nTitle=$name\nTrack=$tracknum" | opustags -i -S $filename
 
 rm $1
 rm $2
