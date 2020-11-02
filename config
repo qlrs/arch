@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:Soure Code Pro 11
+font pango:Soure Code Pro 10
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
@@ -234,3 +234,8 @@ bindsym $mod+Tab workspace back_and_forth
 bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
 bindsym $mod+p exec mpc toggle
+
+
+bindsym $mod+Shift+f exec /home/dan/scripts/fontchange
+bindsym $mod+Shift+Return sticky toggle
+
