@@ -2,6 +2,7 @@ xorg-server
 xorg-apps
 xorg-fonts
 zsh
+dash
 openssh
 git
 curl
@@ -27,6 +28,7 @@ pamixer
 sxiv
 picom
 python-pywal
+fzf
 gnome-calculator
 ranger
 firefox
@@ -40,3 +42,16 @@ ttf-liberation
 ttf-linux-libertine
 newsboat
 calcurse
+lm_sensors
+
+----
+aur
+----
+otf-font-awesome-4
+ttf-font-awesome-4
+ttf-symbola
+tuir
+xbanish-git
+opustags
+
+
