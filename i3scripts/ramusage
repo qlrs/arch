@@ -5,5 +5,5 @@ echo "🐏 "$ram""
 
 case $BLOCK_BUTTON in
     1) "$TERMINAL" -e htop;;
-    3) notify-send -t 8000 "$(ps axch -o cmd:10,%cpu --sort=-%cpu | head)" ;;
+    3) notify-send -t 8000 "$(ps axch -o cmd:10,%mem --sort=-%mem | head)" ;;
 esac
