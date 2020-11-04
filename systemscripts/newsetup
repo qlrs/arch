@@ -23,7 +23,7 @@ else
 fi
 
 #check if programs are installed, install them if not
-while IFS=: read -r line; do
+while IFS= read -r line; do
 
     if ! [ -x "$(command -v "$line")" ]; then
         echo -e "${CYAN}"$line" is not installed, installing now${NC}"
