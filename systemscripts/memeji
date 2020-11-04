@@ -1,4 +1,5 @@
 #!/bin/sh
 
-chosenone=$(cut -d ';' -f1 ~/scripts/emojilist | dmenu -i -l 30 | sed "s/ .*//")
+chosenone=$(cut -d ';' -f1 ~/scripts/emojilist | dmenu -fn "Source Code Pro-10" -i -l 30 | sed "s/ .*//")
+[ -z "$chosenone" ] && exit
 echo "$chosenone" | tr -d '\n' | xclip &
