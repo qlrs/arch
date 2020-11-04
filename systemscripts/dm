@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#get formatted output for dmenu
+options=$(lsblk -lp | grep "part $" | awk '{print $1, "("$4")"}')
+selection=$(echo "$options" | dmenu -i -fn "Liberation-Mono-10" -l 5 -p "Enter drive to mount: " | awk '{print $1}')
+[ -z $selection ] && exit
+
+mountpoint=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -fn "Liberation-Mono-10" -l 5 -p "Enter mount point: ")
+[ ! -d "$mountpoint" ] && exit
+sudo mount "$selection" "$mountpoint"
+
+
