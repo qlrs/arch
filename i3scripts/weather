@@ -1,19 +1,30 @@
 #!/bin/sh
-#need to add dunst notif
 
-url=wttr.in/29575\?format="%C\n%f"
-faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
-temp=${faketemp%F}
-condition=$(curl -s "$url" | sed -n '1p')
 
-case "$condition" in
-    [sS]unny) echo "☀️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
-    "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
-    "Patchy rain possible"|"Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp""; notify-send "Weather updated" ;;
-    "Clear") echo "🌞 "$condition " "$temp"" ; notify-send "Weather updated" ;;
-    *) echo "idk "$condition"  "$temp"" ; notify-send "Weather updated" ;;
-esac
+radarfunc() {
+    notify-send "Getting radar... "
+    curl -s https://radar.weather.gov/lite/N0R/CAE_loop.gif -o radar.gif && mpv --loop-file=inf radar.gif
+}
+
+weatherfunc() {
+    url=wttr.in/29575\?format="%C\n%f"
+    faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
+    temp=${faketemp%F}
+    condition=$(curl -s "$url" | sed -n '1p')
+
+    case "$condition" in
+        [sS]unny) echo "☀️ "$condition"  "$temp"" ;;
+        "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ;;
+        "Patchy rain possible"|"Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp"" ;;
+        "Clear") echo "🌞 "$condition " "$temp"" ;; 
+        *) echo "idk "$condition"  "$temp"" ;;
+    esac
+}
+
 
 case $BLOCK_BUTTON in
-    1) curl -s https://radar.weather.gov/lite/N0R/CAE_loop.gif -o radar.gif && mpv --loop-file=inf radar.gif ;;
+    1) weatherfunc ;;
+    3) radarfunc ;;
 esac
+
+weatherfunc
