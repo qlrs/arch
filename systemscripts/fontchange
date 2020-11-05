@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 file="/home/dan/.config/alacritty/alacritty.yml"
 choice=$(fc-list | cut -f2 -d: | sort -u | dmenu -fn "Liberation Mono-10" -i -l 30)
 choice=${choice:1}
