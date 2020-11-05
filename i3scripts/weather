@@ -1,0 +1,16 @@
+#!/bin/sh
+#need to add dunst notif
+
+url=wttr.in/29575\?format="%C\n%f"
+faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
+temp=${faketemp%F}
+condition=$(curl -s "$url" | sed -n '1p')
+
+case "$condition" in
+    [sS]unny) echo "☀️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
+    "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ; notify-send "Weather updated" ;;
+    "Patchy rain possible"|"Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp""; notify-send "Weather updated" ;;
+    "Clear") echo "🌞 "$condition " "$temp"" ; notify-send "Weather updated" ;;
+    *) echo "idk "$condition"  "$temp"" ; notify-send "Weather updated" ;;
+esac
+
