@@ -1,7 +1,7 @@
 #!/bin/sh
 
-read -p "what would you like the artist directory to be called? " artistname
-read -p "what would you like the album directory to be called? " albumname
+echo "what would you like the artist directory to be called? "; read -r artistname
+echo "what would you like the album directory to be called? "; read -r albumname
 
 if { [ -e ~/music/$artistname ] && [ -e ~/music/$artistname/$albumname ]; }; then
     echo "That already exists"
