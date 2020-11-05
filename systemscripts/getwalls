@@ -1,8 +1,5 @@
 #!/bin/sh
-
-# echo "What do you want the file to be called? "; read -r filename
-# wget -O "$filename" "$1"
-# mv "$filename" ~/walls
+#give url of picture or colon seperated list, url;name
 
 if [ $(echo "$1" | grep "http") ]; then 
     echo "What do you want the file to be called? "; read -r filename
