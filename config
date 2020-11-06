@@ -177,12 +177,11 @@ bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e zsh -ic vim
 bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
 bindsym $mod+Shift+p exec alacritty -e zsh -ic pulsemixer
-bindsym $mod+u exec pavucontrol
 bindsym $mod+r exec alacritty -e zsh -ic tuir
 bindsym $mod+a exec alacritty -e zsh -ic calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/street2.jpg
+exec_always feh --bg-scale /home/dan/walls/city2.jpg
 #exec_always wal -i /home/dan/walls/city1.jpeg
 
 #specific screens
@@ -238,4 +237,4 @@ bindsym $mod+p exec mpc toggle
 
 bindsym $mod+Shift+f exec /home/dan/scripts/fontchange
 bindsym $mod+Shift+Return sticky toggle
-
+bindsym $mod+u exec /home/dan/scripts/dmenumount
