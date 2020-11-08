@@ -3,12 +3,13 @@
 #get a list of mountable drives
 #if no drives listed then exit
 mountabledrives=$(lsblk -lp | grep "part $" | awk '{print $1, "("$4")"}')
-[ -z "$mountabledrives" ] && notify-send "Nothing selected, exiting..." && exit
+[ -z "$mountabledrives" ] && exit
 
 
 #let user select one of the mountable drives
 #if none chosen then exit
 userselection=$(echo "$mountabledrives" | dmenu -i -fn "Liberation-Mono-10" -l 5 -p "Enter drive to mount: " | awk '{print $1}')
+[ -z "$userselection" ] && notify-send "Nothing selected, exiting..." && exit
 getfiletype=$(lsblk -o "fstype" "$userselection" | sed -n '2p')
 [ -z "$userselection" ] && exit
 
