@@ -2,6 +2,9 @@
 
 echo "what would you like the artist directory to be called? "; read -r artistname
 echo "what would you like the album directory to be called? "; read -r albumname
+[ -z "$artistname" ] && notify-send "Nothing entered, exiting..." && exit
+[ -z "$albumname" ] && notify-send "Nothing entered, exiting..." && exit
+[ -z "$1" ] && notify-send "No link found, please enter a link" && exit
 
 if { [ -e ~/music/$artistname ] && [ -e ~/music/$artistname/$albumname ]; }; then
     echo "That already exists"
