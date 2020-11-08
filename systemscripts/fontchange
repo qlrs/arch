@@ -5,7 +5,7 @@ file="/home/dan/.config/alacritty/alacritty.yml"
 
 #give dmenu list of fonts to choose from
 choice=$(fc-list | cut -f2 -d: | sort -u | sed "s/^ *//" | dmenu -fn "Liberation Mono-10" -i -l 30)
-[ -z $choice ] && exit
+[ -z $choice ] && notify-send "Nothing selected, exiting..." && exit
 
 
 #annoyingly extract the font name
