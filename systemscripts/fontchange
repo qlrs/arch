@@ -1,14 +1,16 @@
-#!/bin/bash
+#!/bin/sh
+#location of file you wish to edit
 file="/home/dan/.config/alacritty/alacritty.yml"
-choice=$(fc-list | cut -f2 -d: | sort -u | dmenu -fn "Liberation Mono-10" -i -l 30)
-choice=${choice:1}
+
+
+#give dmenu list of fonts to choose from
+choice=$(fc-list | cut -f2 -d: | sort -u | sed "s/^ *//" | dmenu -fn "Liberation Mono-10" -i -l 30)
 [ -z $choice ] && exit
 
-currentfont=$(grep "family" "$file" | head -1)
-currentfont=${currentfont:12}
 
-echo "$currentfont"
-echo "$choice"
+#annoyingly extract the font name
+currentfont=$(grep "family" "$file" | head -1 | awk '!($1="")' | sed "s/^ *//")
 
+
+#replace old font with new
 sed -i "s/$currentfont/$choice/g" "$file"
-
