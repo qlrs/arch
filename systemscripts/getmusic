@@ -1,5 +1,14 @@
 #!/bin/sh
 
+musiclocation() {
+    [ ! -d ~/downloadmusic ] && mkdir ~/downloadmusic
+    cd ~/downloadmusic || exit
+    mv * album
+    mv album "$musicpath"
+    cd "$musicpath" || exit
+    touch times
+}
+
 echo "what would you like the artist directory to be called? "; read -r artistname
 echo "what would you like the album directory to be called? "; read -r albumname
 [ -z "$artistname" ] && notify-send "Nothing entered, exiting..." && exit
@@ -13,22 +22,10 @@ elif { [ -e ~/music/$artistname ] && [ ! -e ~/music/$artistname/$albumname ]; };
     cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
-    [ ! -n ~/downloadmusic ] && mkdir ~/downloadmusic
-    cd ~/downloadmusic || exit
-    mv * album
-    mv album "$musicpath"
-    cd "$musicpath" || exit
-    touch times
 else
     mkdir ~/music/$artistname
     mkdir ~/music/$artistname/$albumname
     cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
-    [ ! -e ~/downloadmusic ] && mkdir ~/downloadmusic
-    cd ~/downloadmusic || exit
-    mv * album
-    mv album "$musicpath"
-    cd "$musicpath" || exit
-    touch times
 fi
