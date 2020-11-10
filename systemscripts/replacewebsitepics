@@ -4,9 +4,12 @@ thetext=$(printf "<a href="pics/title1" target"_blank">
             <img src="pics/thumbs/title2">
             </a>")
 
+
+
+
 while IFS= read -r line; do
-    realname=$(echo "$line" | cut -d ';' -f1)
-    thumbname=$(echo "$line" | cut -d ';' -f2)
+    realname=$(echo "$line")
+    thumbname=$(echo "$realname" | sed 's/^/thumbnail-/g')
     echo "$thetext" | sed "s/title1/$realname/;s/title2/$thumbname/" >> correctedforwebsite.txt
 
 done < namesofpics
