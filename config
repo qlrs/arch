@@ -1,8 +1,9 @@
 set $mod Mod1
-font pango:Soure Code Pro 10
+font pango:Inconsolata
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
+exec clipmenud
 exec xbanish &
 exec mpd &
 exec --no-startup-id picom &
@@ -21,7 +22,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Source Code Pro-12"
+bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -170,7 +171,7 @@ bindsym $mod+z exec gnome-calculator
 bindsym $mod+n exec alacritty -e zsh -ic ranger
 bindsym $mod+v exec firefox
 bindsym $mod+m exec alacritty -e zsh -ic ncmpcpp
-bindsym $mod+Shift+a exec gnome-calendar
+bindsym $mod+Shift+a exec clipmenu
 bindsym $mod+b exec nemo
 bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
@@ -181,8 +182,8 @@ bindsym $mod+r exec alacritty -e zsh -ic tuir
 bindsym $mod+a exec alacritty -e zsh -ic calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/city2.jpg
-#exec_always wal -i /home/dan/walls/city1.jpeg
+exec_always feh --bg-scale /home/dan/walls/city4.png
+#exec_always wal -i /home/dan/walls/city4.png
 
 #specific screens
 workspace 1 output DVI-D-0
