@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #TODO add program list to fordeletetest
 
 ###
@@ -34,19 +34,20 @@ while IFS= read -r line; do
 
 done < fordeletetest
 
-#check if directories exist and create them if they don't
-[ ! -e ~/.config/dunst ] && mkdir ~/.config/dunst
-[ ! -e ~/.config/alacritty ] && mkdir ~/.config/alacritty
-[ ! -e ~/.config/ncmpcpp ] && mkdir ~/.config/ncmpcpp
-[ ! -e ~/.config/nvim ] && mkdir ~/.config/nvim
-[ ! -e ~/.config/picom ] && mkdir ~/.config/picom
-[ ! -e ~/.config/ranger ] && mkdir ~/.config/ranger
-[ ! -e ~/.i3 ] && mkdir ~/.i3
-[ ! -e ~/.mpd ] && mkdir ~/.mpd
-[ ! -e ~/music ] && mkdir ~/music
-[ ! -e ~/walls ] && mkdir ~/walls
-[ ! -e ~/scripts ] && mkdir ~/scripts
-[ ! -e ~/newsboat ] && mkdir ~/newsboat
+#check for directories
+dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" ".i3" ".mpd" "music" "walls" "scripts" ".newsboat" )
+
+for i in "${dirs[@]}"; do
+    case "$i" in
+        ".i3") [ ! -d ~/.i3 ] && mkdir ~/.i3 ;;
+        ".mpd") [ ! -d ~/.mpd ] && mkdir ~/.mpd ;;
+        "music") [ ! -d ~/music ] && mkdir ~/music ;;
+        "walls") [ ! -d ~/walls ] && mkdir ~/walls ;;
+        "scripts") [ ! -d ~/scripts ] && mkdir ~/scripts ;;
+        ".newsboat") [ ! -d ~/.newsboat ] && mkdir ~/.newsboat ;;
+        *) [ ! -d ~/.config/"$i" ] && mkdir ~/.config/"$i" ;;
+    esac
+done
 
 #cp configs from git directory
 /bin/cp -rf ~/archconfig/dunstrc ~/.config/dunst/
