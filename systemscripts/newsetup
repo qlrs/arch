@@ -34,6 +34,7 @@ while IFS= read -r line; do
 
 done < fordeletetest
 
+mkdir ~/.config
 #check for directories
 dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" ".i3" ".mpd" "music" "walls" "scripts" ".newsboat" )
 
