@@ -8,7 +8,7 @@ mountabledrives=$(lsblk -lp | grep "part $" | awk '{print $1, "("$4")"}')
 
 #let user select one of the mountable drives
 #if none chosen then exit
-userselection=$(echo "$mountabledrives" | dmenu -i -fn "Liberation-Mono-10" -l 5 -p "Enter drive to mount: " | awk '{print $1}')
+userselection=$(echo "$mountabledrives" | dmenu -i -fn "Liberation-Mono-13" -l 5 -p "Enter drive to mount: " | awk '{print $1}')
 [ -z "$userselection" ] && notify-send "Nothing selected, exiting..." && exit
 getfiletype=$(lsblk -o "fstype" "$userselection" | sed -n '2p')
 [ -z "$userselection" ] && exit
@@ -16,7 +16,7 @@ getfiletype=$(lsblk -o "fstype" "$userselection" | sed -n '2p')
 
 #give user a list of possible locations to mount the drive
 #if mount location does not exist then let user create it
-chosenmount=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -fn "Liberation-Mono-10" -l 5 -p "Choose where to mount the drive: ")
+chosenmount=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -fn "Liberation-Mono-13" -l 5 -p "Choose where to mount the drive: ")
 if [ ! -d "$chosenmount" ]; then
     newdir=$(printf "Yes\nNo" | dmenu -i -p "Mount point does not exist, create it?")
     if [ "$newdir" = "Yes" ];then
