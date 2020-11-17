@@ -22,7 +22,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13"
+bindsym $mod+d exec dmenu_run -fn "Inconsolata-13"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -141,7 +141,7 @@ mode "resize" {
 # finds out, if available)
 
 bar {
-	status_command i3blocks -c ~/.i3/i3blocks.conf
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
 	
 }
@@ -173,7 +173,6 @@ bindsym $mod+v exec firefox
 bindsym $mod+m exec alacritty -e zsh -ic ncmpcpp
 bindsym $mod+Shift+a exec clipmenu
 bindsym $mod+b exec nemo
-bindsym $mod+Shift+t exec torbrowser-launcher
 bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e zsh -ic vim
 bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
@@ -239,3 +238,4 @@ bindsym $mod+p exec mpc toggle
 bindsym $mod+Shift+f exec /home/dan/scripts/fontchange
 bindsym $mod+Shift+Return sticky toggle
 bindsym $mod+u exec /home/dan/scripts/dmenumount
+bindsym $mod+t exec /home/dan/scripts/twitchdmenu
