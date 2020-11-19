@@ -1,4 +1,6 @@
 #!/bin/sh
+#requires text file with names of pictures that you want, seperated by newlines
+#gives output that you can paste into your website html
 
 thetext=$(printf "<a href="pics/title1" target"_blank">
             <img src="pics/thumbs/title2">
