@@ -9,7 +9,7 @@ exec mpd &
 exec --no-startup-id picom &
 exec --no-startup-id dunst &
 exec xmodmap .Xmodmap &
-exec alacritty -e zsh -ic clearlock
+exec alacritty -e clearlock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -22,7 +22,7 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Inconsolata-13"
+bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -168,17 +168,17 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 #launch shit
 bindsym $mod+Shift+e exec /home/dan/scripts/memeji
 bindsym $mod+z exec gnome-calculator
-bindsym $mod+n exec alacritty -e zsh -ic ranger
+bindsym $mod+n exec alacritty -e ranger
 bindsym $mod+v exec firefox
-bindsym $mod+m exec alacritty -e zsh -ic ncmpcpp
+bindsym $mod+m exec alacritty -e ncmpcpp
 bindsym $mod+Shift+a exec clipmenu
 bindsym $mod+b exec nemo
 bindsym $mod+g exec steam
-bindsym $mod+q exec alacritty -e zsh -ic vim
-bindsym $mod+Shift+n exec alacritty -e zsh -ic newsboat
-bindsym $mod+Shift+p exec alacritty -e zsh -ic pulsemixer
-bindsym $mod+r exec alacritty -e zsh -ic tuir
-bindsym $mod+a exec alacritty -e zsh -ic calcurse
+bindsym $mod+q exec alacritty -e vim
+bindsym $mod+Shift+n exec alacritty -e newsboat
+bindsym $mod+Shift+p exec alacritty -e pulsemixer
+bindsym $mod+r exec alacritty -e tuir
+bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
 exec_always feh --bg-scale /home/dan/walls/city4.png

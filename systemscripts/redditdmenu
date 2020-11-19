@@ -1,0 +1,26 @@
+#!/bin/sh
+
+
+selection=$(printf "MouseReview
+LivestreamFail
+Cyberpunk
+privacytoolsIO
+linuxmasterrace
+archlinux
+artixlinux
+voidlinux" | dmenu -fn "Liberation Mono-13" -i -l 10)
+
+url=""https://old.reddit.com/r/""$selection""
+
+[ -z "$selection" ] && notify-send "Nothing selected..." && exit
+
+qutebrowser "$url" &
+
+#if you want to use tuir and firefox
+# if [ "$(pgrep firefox)" ]; then
+#     "$BROWSER" "$url" &
+# else
+#     "$TERMINAL" -e tuir -s "$selection" &
+# fi
+
+notify-send "Opening "$selection""
