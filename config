@@ -8,7 +8,7 @@ exec xbanish &
 exec mpd &
 exec --no-startup-id picom &
 exec --no-startup-id dunst &
-exec xmodmap .Xmodmap &
+exec /home/dan/scripts/capstoescape
 exec alacritty -e clearlock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -177,7 +177,7 @@ bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e vim
 bindsym $mod+Shift+n exec alacritty -e newsboat
 bindsym $mod+Shift+p exec alacritty -e pulsemixer
-bindsym $mod+r exec alacritty -e tuir
+bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
