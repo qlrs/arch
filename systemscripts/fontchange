@@ -5,11 +5,13 @@ file="/home/dan/.config/alacritty/alacritty.yml"
 
 #give dmenu list of fonts to choose from
 choice=$(fc-list | cut -f2 -d: | sort -u | sed "s/^ *//" | dmenu -fn "Liberation Mono-13" -i -l 30)
-[ -z $choice ] && notify-send "Nothing selected, exiting..." && exit
+[ -z "$choice" ] && notify-send "Nothing selected, exiting..." && exit
 
 
 #annoyingly extract the font name
-currentfont=$(grep "family" "$file" | head -1 | awk '!($1="")' | sed "s/^ *//")
+#currentfont=$(grep "family" "$file" | head -1 | awk '!($1="")' | sed "s/^ *//")
+currentfont=$(sed -n '/family/ {p;q}' "$file")
+currentfont="${currentfont#????????????}"
 
 
 #replace old font with new
