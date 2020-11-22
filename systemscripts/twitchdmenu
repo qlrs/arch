@@ -1,6 +1,6 @@
 #!/bin/sh
 
-streamer=$(printf "xQc\nDestiny\nElajjaz\nLilyPichu\nHasan\nWillNeff" | dmenu -fn "Liberation Mono-13" -i -l 10)
+streamer=$(printf "xQc\nTrihex\nDestiny\nElajjaz\nLilyPichu\nHasan\nWillNeff" | dmenu -fn "Liberation Mono-13" -i -l 10)
 
 [ -z "$streamer" ] && notify-send "Nothing selected..." && exit
 
@@ -11,4 +11,5 @@ case "$streamer" in
     Hasan) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/hasanabi" ;;
     WillNeff) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/willneff" ;;
     LilyPichu) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/lilypichu" ;;
+    Trihex) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/trihex" ;;
 esac
