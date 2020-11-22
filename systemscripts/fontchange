@@ -9,7 +9,6 @@ choice=$(fc-list | cut -f2 -d: | sort -u | sed "s/^ *//" | dmenu -fn "Liberation
 
 
 #annoyingly extract the font name
-#currentfont=$(grep "family" "$file" | head -1 | awk '!($1="")' | sed "s/^ *//")
 currentfont=$(sed -n '/family/ {p;q}' "$file")
 currentfont="${currentfont#????????????}"
 
