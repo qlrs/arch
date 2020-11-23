@@ -1,15 +1,10 @@
 #!/bin/sh
 
-streamer=$(printf "xQc\nTrihex\nDestiny\nElajjaz\nLilyPichu\nHasan\nWillNeff" | dmenu -fn "Liberation Mono-13" -i -l 10)
+streamerfunc() {
+    streamer=$(printf "xQc\nTrihex\nDestiny\nElajjaz\nLilyPichu\nHasan\nWillNeff" | dmenu -fn "Liberation Mono-13" -i -l 10)
+    notify-send "Opening "$streamer"'s Stream..."
+    mpv "https://www.twitch.tv/"$streamer""
+    [ $? -eq 2 ] && notify-send ""$streamer" is offline ☹️" && exit 1
+}
 
-[ -z "$streamer" ] && notify-send "Nothing selected..." && exit
-
-case "$streamer" in
-    xQc) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/xqcow" ;;
-    Destiny) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/destiny" ;;
-    Elajjaz) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/elajjaz" ;;
-    Hasan) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/hasanabi" ;;
-    WillNeff) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/willneff" ;;
-    LilyPichu) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/lilypichu" ;;
-    Trihex) notify-send "Opening "$streamer"'s Stream" ; mpv "https://www.twitch.tv/trihex" ;;
-esac
+streamerfunc
