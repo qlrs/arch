@@ -62,7 +62,7 @@ alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
 alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
 alias tuir='tuir --enable-media'
 alias clearlock='xmodmap -e "clear lock"'
-alias sshserver='ssh root@rschrader.xyz'
+alias sshserver='ssh -p 55443 root@rschrader.xyz'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
