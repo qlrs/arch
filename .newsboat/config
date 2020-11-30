@@ -13,7 +13,7 @@ bind-key h quit
 
 browser firefox
 player mpv
-macro o open-in-browser ; toggle-article-read "read"
+macro o set browser mpv ; open-in-browser ; toggle-article-read "read" ; set browser firefox
 
 #color listfocus white magenta
 #color info white black
