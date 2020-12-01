@@ -1,13 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-openprice=$(curl -s https://query1.finance.yahoo.com/v7/finance/quote?symbols=amd | sed 's/:/\n/g' | grep "averageDailyVolume3Month" | cut -d ',' -f1)
-currentprice=$(curl -s https://query1.finance.yahoo.com/v7/finance/quote?symbols=amd | sed 's/:/\n/g' | grep "bidSize" | cut -d ',' -f1)
-
-if [ "$openprice" -gt "$currentprice" ]; then
-    echo "💲AMD ⬇️"$currentprice""
-else
-    echo "💲AMD ⬆️"$currentprice""
-fi
+currentprice=$(curl -s https://query1.finance.yahoo.com/v7/finance/quote\?symbols\=amd | sed 's/,/\n/g' | grep "regularMarketPrice" | cut -d ':' -f2)
+echo "💲AMD "$currentprice""
 
 case $BLOCK_BUTTON in
     1) "$TERMINAL" -e mop ;;
