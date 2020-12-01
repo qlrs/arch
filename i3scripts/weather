@@ -6,19 +6,22 @@ radarfunc() {
 }
 
 weatherfunc() {
-    url=wttr.in/Myrtle_Beach\?format="%C\n%f"
-    faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
-    temp=${faketemp%F}
-    condition=$(curl -s "$url" | sed -n '1p')
+    temp=$(curl -s https://wttr.in/Myrtle_Beach\?format=1)
+    echo "$temp"
 
-    case "$condition" in
-        [sS]unny) echo "☀️ "$condition"  "$temp"" ;;
-        "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ;;
-        "Heavy rain, mist" | "Mist" | "Patchy rain possible"|"Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp"" ;;
-        "Clear") echo "🌞 "$condition " "$temp"" ;; 
-        *) echo "idk "$condition"  "$temp"" ;;
-    esac
-}
+    #url=wttr.in/Myrtle_Beach\?format="%C\n%f"
+    #faketemp=$(curl -s "$url" | sed -n '2p' | sed 's/+//g')
+    #temp=${faketemp%F}
+    #condition=$(curl -s "$url" | sed -n '1p')
+
+    # case "$condition" in
+    #     [sS]unny) echo "☀️ "$condition"  "$temp"" ;;
+    #     "Partly cloudy"|[oO]vercast|[cC]loudy) echo "☁️ "$condition"  "$temp"" ;;
+    #     "Heavy rain, mist" | "Mist" | "Patchy rain possible"|"Light rain"|"Rain, mist"|[rR]ain|[rR]ainy|"Light rain, mist") echo "🌧️ "$condition " "$temp"" ;;
+    #     "Clear") echo "🌞 "$condition " "$temp"" ;; 
+    #     *) echo "idk "$condition"  "$temp"" ;;
+    # esac
+ }
 
 
 case $BLOCK_BUTTON in
