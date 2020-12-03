@@ -2,7 +2,7 @@
 
 radarfunc() {
     notify-send "Getting radar... "
-    curl -s https://radar.weather.gov/lite/N0R/LTX_loop.gif -o radar.gif && mpv --loop-file=inf --speed=1.30 radar.gif
+    curl -s https://radar.weather.gov/lite/N0R/LTX_loop.gif -o radar.gif && "$TERMINAL" -e mpv --loop-file=inf --speed=1.30 radar.gif
 }
 
 weatherfunc() {
