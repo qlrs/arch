@@ -114,3 +114,4 @@ ssh-keygen
 ssh-copy-id -p 55443 root@rschrader.xyz
 #copy keys to github
 #then use git clone but remember to click code then ssh and use that url
+#eventually install dnscrypt-proxy and dnscrypt-proxy-runit
