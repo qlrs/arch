@@ -1,0 +1,58 @@
+#to wipe hard drive
+cat /dev/urandom > /dev/sd???
+
+#create partitions
+/boot 1g     (/dev/sda1 for example)
+/ rest of hd (/dev/sda2 for example)
+
+
+cryptsetup -y -v luksFormat /dev/sda2
+cryptsetup open /dev/sda2 cryptroot
+mkfs.ext4 /dev/mapper/cryptroot
+mount /dev/mapper/cryptroot /mnt
+
+#check that it worked as intended
+umount /mnt
+cryptsetup close cryptroot
+cryptsetup open /dev/sda2 cryptroot
+mount /dev/mapper/cryptroot /mnt
+
+#preparing the boot partition
+mkfs.ext4 /dev/sda1
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+
+#install base system
+basestrap /mnt base base-devl runit elogind-runit
+basestrap /mnt linux linux-firmware
+basestrap /mnt neovim
+fstabgen -U /mnt >> /mnt/etc/fstab
+artools-chroot /mnt
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc
+nvim /etc/locale.gen
+locale-gen
+nvim /etc/locale.conf
+export LANG="en_US.UTF-8"
+export LC_COLLATE="C"
+
+
+nvim /etc/mkinitcpio.conf
+HOOKS=(base udev autodetect keyboard consolefont modconf block encrypt filesystems fsck)
+mkinitcpio -p linux
+
+pacman -S grub networkmanager networkmanager-runit
+ln -s /etc/runit/NetworkManager/ /etc/runit/runsvdir/current
+
+grub-install --target=i386-pc /dev/sdX
+grub-mkconfig -o /boot/grub/grub.cfg
+
+cd /boot/loader
+nvim loader.conf
+#THE device-UUID NEEDS TO BE THE ACTUAL UUID OF THE / PARTITION
+cryptdevice=UUID=device-UUID:cryptroot root=/dev/mapper/cryptroot
+
+
+nvim /etc/default/grub
+GRUB_CMDLINE_LINUX="cryptdevice=UUID=device-UUID:cryptroot root=/dev/mapper/cryptroot"
+grub-mkconfig -o /boot/grub/grub.cfg
