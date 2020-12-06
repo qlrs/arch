@@ -23,11 +23,4 @@ else
     qutebrowser "$url" &
 fi
 
-#if you want to use tuir and firefox
-# if [ "$(pgrep firefox)" ]; then
-#     "$BROWSER" "$url" &
-# else
-#     "$TERMINAL" -e tuir -s "$selection" &
-# fi
-
 notify-send "Opening "$selection""
