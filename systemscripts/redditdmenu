@@ -13,7 +13,7 @@ archlinux
 artixlinux
 voidlinux" | dmenu -fn "Liberation Mono-13" -i -l 10)
 
-url=""https://old.reddit.com/r/""$selection""
+url=""https://teddit.net/r/""$selection""
 
 [ -z "$selection" ] && notify-send "Nothing selected..." && exit
 
