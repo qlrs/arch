@@ -108,10 +108,9 @@ sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-rade
 
 sudo pacman -S i3-gaps dmenu i3lock dunst feh mpc mpv picom ranger firefox
 sudo pacman -S noto-fonts terminus-font tamsyn-font noto-fonts-emoji ttf-inconsolata ttf-liberation ttf-linux-libertine
-sudo pacman -S calcurse newsboat alacritty ncmpcpp sxiv ueberzug lxappearance arc-gtk-theme arandr
+sudo pacman -S calcurse newsboat alacritty ncmpcpp sxiv
 
 ssh-keygen
 ssh-copy-id -p 55443 root@rschrader.xyz
 #copy keys to github
 #then use git clone but remember to click code then ssh and use that url
-#eventually install dnscrypt-proxy and dnscrypt-proxy-runit and yay

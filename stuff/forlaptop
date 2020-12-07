@@ -23,7 +23,7 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 #install base system
-basestrap /mnt base base-devl runit elogind-runit
+basestrap /mnt base base-devl runit elogind-runit #also cryptsetup for artix 
 basestrap /mnt linux linux-firmware
 basestrap /mnt neovim
 fstabgen -U /mnt >> /mnt/etc/fstab
@@ -47,12 +47,11 @@ ln -s /etc/runit/NetworkManager/ /etc/runit/runsvdir/current
 grub-install --target=i386-pc /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg
 
-cd /boot/loader
-nvim loader.conf
-#THE device-UUID NEEDS TO BE THE ACTUAL UUID OF THE / PARTITION
-cryptdevice=UUID=device-UUID:cryptroot root=/dev/mapper/cryptroot
+
 
 
 nvim /etc/default/grub
 GRUB_CMDLINE_LINUX="cryptdevice=UUID=device-UUID:cryptroot root=/dev/mapper/cryptroot"
 grub-mkconfig -o /boot/grub/grub.cfg
+
+passwd
