@@ -42,7 +42,8 @@ HOOKS=(base udev autodetect keyboard consolefont modconf block encrypt filesyste
 mkinitcpio -p linux
 
 pacman -S grub networkmanager networkmanager-runit
-ln -s /etc/runit/NetworkManager/ /etc/runit/runsvdir/current
+ln -s /etc/runit/sv/dbus/ /etc/runit/runsvdir/current/
+ln -s /etc/runit/sv/NetworkManager/ /etc/runit/runsvdir/current/
 
 grub-install --target=i386-pc /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg

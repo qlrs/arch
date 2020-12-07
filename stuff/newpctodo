@@ -63,8 +63,8 @@ nvim /etc/locale.conf
 pacman -S networkmanager networkmanager-runit network-manager-applet openvpn openvpn-runit
 pacman -S networkmanager-openvpn
 
-ln -s /etc/runit/dbus/ /etc/runit/runsvdir/current
-ln -s /etc/runit/NetworkManager/ /etc/runit/runsvdir/current
+ln -s /etc/runit/sv/dbus/ /etc/runit/runsvdir/current/
+ln -s /etc/runit/sv/NetworkManager/ /etc/runit/runsvdir/current/
 
 nvim /etc/hostname
 #artixMachine
