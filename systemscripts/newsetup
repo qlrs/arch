@@ -47,7 +47,7 @@ for i in "${dirs[@]}"; do
         *) [ ! -d ~/.config/"$i" ] && mkdir ~/.config/"$i" ;;
     esac
 done
-
+mkdir ~/.config/i3/scripts
 #cp configs from git directory
 /bin/cp -ivrf ~/archconfig/dunstrc ~/.config/dunst/
 /bin/cp -ivrf ~/archconfig/ncmpcppbindings ~/.config/ncmpcpp/bindings
@@ -58,7 +58,8 @@ done
 /bin/cp -ivrf ~/archconfig/alacritty.yml ~/.config/alacritty/
 /bin/cp -ivrf ~/archconfig/mpd.conf ~/.config/mpd/
 /bin/cp -ivrf ~/archconfig/config ~/.config/i3/
-/bin/cp -ivrf ~/archconfig/i3scripts/* ~/.config/i3/scripts
+/bin/cp -ivrf ~/archconfig/i3blocks.conf ~/.config/i3/
+/bin/cp -ivf ~/archconfig/i3scripts/* ~/.config/i3/scripts/
 /bin/cp -ivrf ~/archconfig/walls/* ~/walls
 /bin/cp -ivrf ~/archconfig/systemscripts/* ~/scripts/
 /bin/cp -ivrf ~/archconfig/.newsboat/* ~/.newsboat/
