@@ -232,6 +232,8 @@ bindsym $mod+Tab workspace back_and_forth
 #audio stuff
 bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
+bindcode $mod+110 exec xbacklight -inc 5
+bindcode $mod+115 exec xbacklight -dec 5
 bindsym $mod+p exec mpc toggle
 bindsym $mod+m exec pamixer -t
 
