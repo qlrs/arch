@@ -173,15 +173,15 @@ bindsym $mod+Shift+m exec alacritty -e ncmpcpp
 bindsym $mod+Shift+a exec clipmenu
 bindsym $mod+b exec nemo
 bindsym $mod+g exec steam
-bindsym $mod+q exec alacritty -e vim
+bindsym $mod+q exec alacritty -e nvim
 bindsym $mod+Shift+n exec alacritty -e newsboat
 bindsym $mod+Shift+p exec alacritty -e pulsemixer
 bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/city4.png
-#exec_always wal -i /home/dan/walls/city4.png
+exec_always feh --bg-scale /home/dan/walls/funny1.jpg
+#exec_always wal -i /home/dan/walls/funny1.jpg
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -209,11 +209,11 @@ assign [class="discord"]1
 assign [class="Steam"]3
 
 
-#probably deleting
+#colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #b30000   #b30000
+client.unfocused        #333333 #222222 #888888 #555555   #555555
 
-client.background       #ffffff
 
 #mouse warping
 mouse_warping none
