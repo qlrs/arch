@@ -1,9 +1,9 @@
 #!/bin/sh
 
 if [ "$(command -v htop)" ]; then
-    tp=htop -s PERCENT_CPU
+    tp="htop"
 else
-    tp=top
+    tp="top"
 fi
 
 ram=$(free -h | awk '/Mem/ {print $3}')
