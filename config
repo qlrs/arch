@@ -210,9 +210,10 @@ assign [class="Steam"]3
 
 
 #colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #b30000   #b30000
-client.unfocused        #333333 #222222 #888888 #555555   #555555
+# class                     border  backgr. text    indicator child_border
+client.focused              #ffffff #ffffff #ffffff #dddddd   #13a6ff
+client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
+client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
 
 
 #mouse warping
