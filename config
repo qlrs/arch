@@ -142,7 +142,9 @@ mode "resize" {
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-	
+    colors {
+    focused_workspace  #ffffff #13a6ff
+    }
 }
 
 
@@ -180,8 +182,8 @@ bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/funny1.jpg
-#exec_always wal -i /home/dan/walls/funny1.jpg
+exec_always feh --bg-scale /home/dan/walls/landscape7.jpg
+#exec_always wal -i /home/dan/walls/landscape7.jpg
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -232,10 +234,12 @@ bindsym $mod+Tab workspace back_and_forth
 #audio stuff
 bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
-bindcode $mod+110 exec xbacklight -inc 5
-bindcode $mod+115 exec xbacklight -dec 5
 bindsym $mod+p exec mpc toggle
 bindsym $mod+m exec pamixer -t
+
+#brightness
+bindcode $mod+110 exec xbacklight -inc 5
+bindcode $mod+115 exec xbacklight -dec 5
 
 
 bindsym $mod+Shift+f exec /home/dan/scripts/fontchange
