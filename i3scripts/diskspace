@@ -1,2 +1,2 @@
 #!/bin/sh
-df -h | sed -n '9p' | awk '{print $4}'
+df -h | awk '/\/dev\/sdd4/ {print $4}'
