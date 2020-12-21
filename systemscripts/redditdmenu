@@ -5,6 +5,7 @@ selection=$(printf "MouseReview
 LivestreamFail
 Cyberpunk
 privacytoolsIO
+privacy
 destiny
 linux
 linuxmasterrace
@@ -17,10 +18,14 @@ url=""https://teddit.net/r/""$selection""
 
 [ -z "$selection" ] && notify-send "Nothing selected..." && exit
 
-if [ "$(pgrep firefox)" ]; then
+torornot=$(printf "Yes\nNo" | dmenu -i -fn "Liberation Mono-13" -l 2 -p "Would you like to use tor browser?")
+
+if [ "$torornot" = "Yes" ]; then
+    /home/dan/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser "$url" &
+elif [ "$(pgrep firefox)" ]; then
     firefox "$url" &
 else
     qutebrowser "$url" &
 fi
 
-notify-send "Opening "$selection""
+notify-send "Opening r/"$selection""
