@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 #need to change interface you are grepping for
-if [[ `nmcli device status | grep -i "tun0"` ]]; then
+if [[ $(nmcli device status | grep -i "tun0") ]]; then
     nowrec=$(cat /sys/class/net/tun0/statistics/rx_bytes) #change for vpn
     nowtrans=$(cat /sys/class/net/tun0/statistics/tx_bytes)
     sleep 1
