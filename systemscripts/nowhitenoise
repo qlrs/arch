@@ -1,5 +1,0 @@
-#!/bin/sh
-
-var1=`pidof mpv`
-
-kill $var1
