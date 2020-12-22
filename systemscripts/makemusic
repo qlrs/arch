@@ -50,7 +50,7 @@ while read line; do
                 
     start="$end"
     echo 
-    name=`echo $line | cut -c 10-`
+    name=$(echo $line | cut -c 10-)
     fakefilename=$(echo "$name" | sed 's/\s/_/g')
     filename="$fakefilename""$userext"
     counter=$(($counter + 1))
