@@ -2,7 +2,7 @@
 
 #get a list of mountable drives
 #if no drives listed then exit
-mountabledrives=$(lsblk -lp | grep "part $" | awk '{print $1, "("$4")"}')
+mountabledrives=$(lsblk -lp | awk '/part[[:blank:]]$/ {print $1, "("$4")"}')
 [ -z "$mountabledrives" ] && exit
 
 
