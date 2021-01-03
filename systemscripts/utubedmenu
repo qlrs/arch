@@ -1,0 +1,30 @@
+#!/bin/sh
+#TODO
+#fix vidurl
+#test if you should use cut or grep first
+#see if awk is useful in any of these
+
+
+#search url of the site you are using
+url="https://invidious.xyz/search?q="
+
+#get the string the user is searching for
+search=$(echo "" | dmenu -i -fn "Liberation Mono-13" -p "Search: ")
+
+#add search string to end of url
+url=""$url""$search""
+
+#replace spaces with +'s
+goodurl=$(echo "$url" | sed 's/ /+/g')
+
+#parse through html bs to get video titles
+choice="$(curl -s "$goodurl" | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | sed '/^$/d' | dmenu -i -fn "Liberation Mono-13" -p "Pick vid" -l 20)"
+
+#parse through html bs to get video link
+vidurl="https://invidious.xyz""$(curl -s "$goodurl" | grep "$choice" | grep -o '/watch?v\=[a-zA-Z0-9]*')"
+
+
+
+
+mpv "$vidurl"
+
