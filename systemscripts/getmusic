@@ -1,4 +1,6 @@
 #!/bin/sh
+#you need to specify downloadmusic in your youtube-dl config
+#-o ~/downloadmusic/%(title)s.%(ext)s
 
 musiclocation() {
     [ ! -d ~/downloadmusic ] && mkdir ~/downloadmusic
@@ -18,7 +20,7 @@ echo "what would you like the album directory to be called? "; read -r albumname
 if { [ -e ~/music/$artistname ] && [ -e ~/music/$artistname/$albumname ]; }; then
     echo "That already exists"
 elif { [ -e ~/music/$artistname ] && [ ! -e ~/music/$artistname/$albumname ]; }; then 
-    mkdir ~/music/$artistname/$albumname
+    mkdir -p ~/music/$artistname/$albumname
     cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
