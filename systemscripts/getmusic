@@ -24,8 +24,7 @@ elif { [ -e ~/music/$artistname ] && [ ! -e ~/music/$artistname/$albumname ]; };
     youtube-dl -f m4a $1
     musiclocation
 else
-    mkdir ~/music/$artistname
-    mkdir ~/music/$artistname/$albumname
+    mkdir -p ~/music/$artistname/$albumname
     cd ~/music/$artistname/$albumname || exit
     musicpath=$PWD
     youtube-dl -f m4a $1
