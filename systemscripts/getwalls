@@ -5,7 +5,7 @@
 if [ $(echo "$1" | grep "http") ]; then 
     echo "What do you want the file to be called? "; read -r filename
     wget -O "$filename" "$1"
-    mv "$filename" ~/walls
+    mv "$filename" "$HOME"/walls
 else
     while IFS= read -r line; do
         url=$(echo "$line" | cut -d ';' -f1)
@@ -13,7 +13,7 @@ else
         name=$(echo "$line" | cut -d ';' -f2)
         echo "$name"
         wget -O "$name" "$url"
-        mv "$name" ~/walls
+        mv "$name" "$HOME"/walls
     done < "$1"
 fi
 
