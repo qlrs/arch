@@ -40,9 +40,11 @@ alias ca='cd ~/archconfig'
 alias ci='cd ~/.config/i3'
 alias cis='cd ~/.config/i3/scripts'
 alias cl='cd ~/linuxbook'
+alias cps='cd ~/linuxbook/perlstuff'
 alias cc='cd ~/.config'
 alias cs='cd ~/scripts'
 alias cw='cd ~/memes/website'
+alias updateawk='grep "^awk" ~/.zhistory >> linuxbook/workingwithawk'
 alias paci='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
 alias yayi='yay -S'
@@ -92,6 +94,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ####
 
 #must be last
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
