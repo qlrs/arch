@@ -2,7 +2,7 @@
 #give url of picture or colon seperated list, url;name
 [ -z "$1" ] && notify-send "Please enter a url or list" && exit
 
-if [ $(echo "$1" | grep "http") ]; then 
+if [ "$(echo "$1" | grep "http")" ]; then 
     echo "What do you want the file to be called? "; read -r filename
     wget -O "$filename" "$1"
     mv "$filename" "$HOME"/walls
