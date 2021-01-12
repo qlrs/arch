@@ -14,7 +14,7 @@ archlinux
 artixlinux
 voidlinux" | dmenu -fn "Liberation Mono-13" -i -l 10)
 
-url=""https://teddit.net/r/""$selection""
+url="https://teddit.net/r/""$selection"
 
 [ -z "$selection" ] && notify-send "Nothing selected..." && exit
 
@@ -28,4 +28,4 @@ else
     qutebrowser "$url" &
 fi
 
-notify-send "Opening r/"$selection""
+notify-send "Opening r/$selection"
