@@ -52,7 +52,8 @@ alias yayaur='yay -Sua'
 alias pacr='sudo pacman -Rs'
 alias yayr='yay -Rs'
 alias i3lock='i3lock -c 000000'
-alias p='python3'
+alias p='perl'
+alias sc='shellcheck'
 alias vim='nvim '
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
 #shows font list with easy to read name
@@ -94,6 +95,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ####
 
 #must be last
-#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
