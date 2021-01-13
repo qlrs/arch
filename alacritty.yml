@@ -26,39 +26,45 @@ font:
       x: 0
       y: 0
 
+
 colors:
-    primary:
-      background: '#1e1c31'
-      foreground: '#ffffff'
-    normal:
-      black:   '#141228'
-      red:     '#ff5458'
-      green:   '#62d196'
-      yellow:  '#ffb378'
-      blue:    '#65b2ff'
-      magenta: '#906cff'
-      cyan:    '#63f2f1'
-      white:   '#a6b3cc'
-    bright:
-      black:   '#565575'
-      red:     '#ff8080'
-      green:   '#95ffa4'
-      yellow:  '#ffe9aa'
-      blue:    '#91ddff'
-      magenta: '#c991e1'
-      cyan:    '#aaffe4'
-      white:   '#cbe3e7'
+  # Default colors
+  primary:
+    background: '#181818'
+    foreground: '#d8d8d8'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '#d8d8d8'
+    cursor: '#ff00ff'
 
-    cursor:
-      text: '#ffffff'
-      cursor: '#ff00ff'
+  # Normal colors
+  normal:
+    black:   '#181818'
+    red:     '#ab4642'
+    green:   '#a1b56c'
+    yellow:  '#f7ca88'
+    blue:    '#7cafc2'
+    magenta: '#ba8baf'
+    cyan:    '#86c1b9'
+    white:   '#d8d8d8'
 
+  # Bright colors
+  bright:
+    black:   '#585858'
+    red:     '#ab4642'
+    green:   '#a1b56c'
+    yellow:  '#f7ca88'
+    blue:    '#7cafc2'
+    magenta: '#ba8baf'
+    cyan:    '#86c1b9'
+    white:   '#f8f8f8'
 
 
 key_bindings:
   # Vi Mode
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: K,   mods: Shift, action: ScrollPageUp }
   - { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
   - { key: Space,  mods: Shift|Control,           action: ToggleViMode            }
   - { key: Escape,                      mode: Vi, action: ClearSelection          }
