@@ -2,8 +2,8 @@
 
 #get the movie or w/e the user is searching for
 query=$(echo "" | dmenu -fn "Liberation Mono-13" -i -p "Search torrent: ")
-forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
 [ -z "$query" ] && notify-send "Nothing selected... exiting" && exit
+forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
 
 searchurl="https://1337x.to/category-search/$query/Movies/1/"
 
@@ -13,7 +13,8 @@ curl -s "$searchurl" > /tmp/searchurl
 #get seeds
 grep "<td class=\"coll-2" /tmp/searchurl | sed 's/<[^>]*>//g' > /tmp/seeds
 #get clean names
-cat /tmp/searchurl | sed 's/\//\n/g' | grep -i "$forsearchinglinks" > /tmp/names
+cat /tmp/searchurl | grep -o "/torrent/[0-9]\+/.*" | cut -d '/' -f4 > /tmp/names
+#cat /tmp/searchurl | sed 's/\//\n/g' | grep -i "$forsearchinglinks" > /tmp/names
 
 #let user select list from clean names with seeders
 chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-13" -i -p "Which one? ")"
@@ -24,6 +25,9 @@ chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-
 #TODO
 #this doesn't work if the file contains a - in it
 #find a grep pattern to use on searchurl that finds /torrent/number/videourl and 
+#grep -o "/torrent/[0-9]\+/.*" | cut -d '"' -f1 > /tmp/videourls
+#grep -o "/torrent/[0-9]\+/.*" | cut -d '/' -f4 > /tmp/names
+
 #output it to a new file in /tmp
 #then use grep -n to find line number and match it 
 #
