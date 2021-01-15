@@ -1,0 +1,41 @@
+#!/bin/sh
+
+#get the movie or w/e the user is searching for
+query=$(echo "" | dmenu -fn "Liberation Mono-13" -i -p "Search torrent: ")
+forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
+[ -z "$query" ] && notify-send "Nothing selected... exiting" && exit
+
+searchurl="https://1337x.to/category-search/$query/Movies/1/"
+
+#parse through html to get clean names for user to select
+curl -s "$searchurl" > /tmp/searchurl
+
+#get seeds
+grep "<td class=\"coll-2" /tmp/searchurl | sed 's/<[^>]*>//g' > /tmp/seeds
+#get clean names
+cat /tmp/searchurl | sed 's/\//\n/g' | grep -i "$forsearchinglinks" > /tmp/names
+
+#let user select list from clean names with seeders
+chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-13" -i -p "Which one? ")"
+[ -z "$chosen" ] && notify-send "Nothing selected... exiting" && exit
+
+
+
+#TODO
+#this doesn't work if the file contains a - in it
+#find a grep pattern to use on searchurl that finds /torrent/number/videourl and 
+#output it to a new file in /tmp
+#then use grep -n to find line number and match it 
+#
+#extract name to use for searching for the actual torrent page
+findingurl="$(echo "$chosen" | sed -e 's/ /\-/g' -e 's/(//g' -e 's/)//g' -e 's/\[//g' -e 's/\]//g' -e 's/\://g' | cut -d ';' -f1)"
+echo "$findingurl"
+
+[ "$(echo "$findingurl" | grep "[0-9]$")" ] && findingurl=${findingurl%?}
+
+
+pageurl="$(grep -o "torrent/[0-9]\+/$findingurl/" < /tmp/searchurl)"
+curl -s "https://1337x.to/$pageurl" > /tmp/videourl
+
+magnet="$(grep -o "magnet:?xt=urn:btih:[a-zA-Z0-9]*" < /tmp/videourl | sed -n '1p')"
+setsid -f transmission-gtk "$magnet" && notify-send "Adding torrent" &
