@@ -1,7 +1,8 @@
 #!/bin/sh
 
 
-selection=$(printf "MouseReview
+selection=$(printf "Stallmanwasright
+MouseReview
 LivestreamFail
 Cyberpunk
 privacytoolsIO
