@@ -6,7 +6,7 @@
 
 
 #search url of the site you are using
-url="https://invidious.xyz/search?q="
+url="https://invidiou.site/search?q="
 
 #get the string the user is searching for
 search=$(echo "" | dmenu -i -fn "Liberation Mono-13" -p "Search: ")
@@ -21,7 +21,7 @@ goodurl=$(echo "$url" | sed 's/ /+/g')
 choice="$(curl -s "$goodurl" | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | sed '/^$/d' | dmenu -i -fn "Liberation Mono-13" -p "Pick vid" -l 20)"
 
 #parse through html bs to get video link
-vidurl="https://invidious.xyz""$(curl -s "$goodurl" | grep "$choice" | grep -o '/watch?v\=[a-zA-Z0-9]*')"
+vidurl="https://invidiou.site""$(curl -s "$goodurl" | grep "$choice" | grep -o '/watch?v\=[a-zA-Z0-9]*')"
 
 
 
