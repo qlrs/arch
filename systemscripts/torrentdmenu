@@ -7,14 +7,12 @@ forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
 
 searchurl="https://1337x.to/category-search/$query/Movies/1/"
 
-#parse through html to get clean names for user to select
 curl -s "$searchurl" > /tmp/searchurl
 
 #get seeds
 grep "<td class=\"coll-2" /tmp/searchurl | sed 's/<[^>]*>//g' > /tmp/seeds
 #get clean names
 cat /tmp/searchurl | grep -o "/torrent/[0-9]\+/.*" | cut -d '/' -f4 > /tmp/names
-#cat /tmp/searchurl | sed 's/\//\n/g' | grep -i "$forsearchinglinks" > /tmp/names
 
 #let user select list from clean names with seeders
 chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-13" -i -p "Which one? ")"
