@@ -10,9 +10,10 @@ url="https://invidiou.site/search?q="
 
 #get the string the user is searching for
 search=$(echo "" | dmenu -i -fn "Liberation Mono-13" -p "Search: ")
+[ -z "$search" ] && notify-send "Nothing selected... exiting" && exit 
 
 #add search string to end of url
-url=""$url""$search""
+url="$url""$search"
 
 #replace spaces with +'s
 goodurl=$(echo "$url" | sed 's/ /+/g')
@@ -21,10 +22,6 @@ goodurl=$(echo "$url" | sed 's/ /+/g')
 choice="$(curl -s "$goodurl" | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | sed '/^$/d' | dmenu -i -fn "Liberation Mono-13" -p "Pick vid" -l 20)"
 
 #parse through html bs to get video link
-vidurl="https://invidiou.site""$(curl -s "$goodurl" | grep -F "$choice" | grep -o '/watch?v\=[a-zA-Z0-9]*')"
-
-
-
-
+vidurl="https://invidiou.site""$(curl -s "$goodurl" | grep -F "$choice" | grep -o '/watch?v\=[a-zA-Z0-9\-]*')"
 mpv "$vidurl"
 
