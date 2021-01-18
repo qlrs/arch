@@ -63,8 +63,8 @@ colors:
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
-  - { key: K,   mods: Shift, action: ScrollPageUp }
-  - { key: J,   mods: Shift, action: ScrollPageDown }
+  - { key: K,   mods: Control|Shift, action: ScrollPageUp }
+  - { key: J,   mods: Control|Shift, action: ScrollPageDown }
   - { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
   - { key: Space,  mods: Shift|Control,           action: ToggleViMode            }
   - { key: Escape,                      mode: Vi, action: ClearSelection          }
