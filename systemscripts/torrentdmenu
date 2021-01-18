@@ -5,7 +5,7 @@ query=$(echo "" | dmenu -fn "Liberation Mono-13" -i -p "Search torrent: ")
 [ -z "$query" ] && notify-send "Nothing selected... exiting" && exit
 forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
 
-searchurl="https://1337x.to/category-search/$query/Movies/1/"
+searchurl="https://1337x.to/search/$query/1/"
 
 curl -s "$searchurl" > /tmp/searchurl
 
