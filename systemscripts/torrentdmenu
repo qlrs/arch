@@ -3,7 +3,6 @@
 #get the movie or w/e the user is searching for
 query=$(echo "" | dmenu -fn "Liberation Mono-13" -i -p "Search torrent: ")
 [ -z "$query" ] && notify-send "Nothing selected... exiting" && exit
-forsearchinglinks="$(echo "$query" | sed 's/ /-/g')"
 
 searchurl="https://1337x.to/search/$query/1/"
 
@@ -22,7 +21,8 @@ chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-
 findingurl="$(echo "$chosen" | sed -e 's/ /\-/g' -e 's/(//g' -e 's/)//g' -e 's/\[//g' -e 's/\]//g' -e 's/\://g' | cut -d ';' -f1)"
 echo "$findingurl"
 
-[ "$(echo "$findingurl" | grep "[0-9]$")" ] && findingurl=${findingurl%?}
+#UNCOMMENT THIS IF NOT WORKING
+#[ "$(echo "$findingurl" | grep "[0-9]$")" ] && findingurl=${findingurl%?}
 
 pageurl="$(grep -o "torrent/[0-9]\+/$findingurl/" < /tmp/searchurl)"
 curl -s "https://1337x.to/$pageurl" > /tmp/videourl
