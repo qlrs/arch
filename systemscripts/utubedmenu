@@ -23,5 +23,7 @@ choice="$(curl -s "$goodurl" | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | s
 
 #parse through html bs to get video link
 vidurl="https://invidiou.site""$(curl -s "$goodurl" | grep -F "$choice" | grep -o '/watch?v\=[a-zA-Z0-9\-]*')"
+
+echo "$vidurl" | xclip
 mpv "$vidurl"
 
