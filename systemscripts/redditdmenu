@@ -9,6 +9,7 @@ privacytoolsIO
 privacy
 destiny
 linux
+politics
 linuxmasterrace
 linuxquestions
 archlinux
@@ -19,14 +20,14 @@ url="https://teddit.net/r/""$selection"
 
 [ -z "$selection" ] && notify-send "Nothing selected..." && exit
 
-torornot=$(printf "Yes\nNo" | dmenu -i -fn "Liberation Mono-13" -l 2 -p "Would you like to use tor browser?")
+#torornot=$(printf "Yes\nNo" | dmenu -i -fn "Liberation Mono-13" -l 2 -p "Would you like to use tor browser?")
 
-if [ "$torornot" = "Yes" ]; then
-    /home/dan/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser "$url" &
-elif [ "$(pgrep firefox)" ]; then
-    firefox "$url" &
-else
-    qutebrowser "$url" &
-fi
-
+#if [ "$torornot" = "Yes" ]; then
+#    /home/dan/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser "$url" &
+#elif [ "$(pgrep firefox)" ]; then
+#    firefox "$url" &
+#else
+#    qutebrowser "$url" &
+#fi
+qutebrowser "$url"
 notify-send "Opening r/$selection"
