@@ -36,5 +36,5 @@ url="https://teddit.net/r/""$selection"
 #else
 #    qutebrowser "$url" &
 #fi
-qutebrowser "$url"
 notify-send "Opening r/$selection"
+qutebrowser "$url"
