@@ -1,0 +1,111 @@
+#!/usr/bin/perl
+use utf8;
+#use warnings;
+
+#arrays
+
+@fred=("yabba", "dabba", "do");
+print "@fred[0]\n";
+print "@fred[1]\n";
+print "@fred[2]\n";
+
+$joe[0]="dang";
+$joe[1]="ol";
+$joe[2]="obama";
+print "$joe[0]\n";
+$joe[0]="poop";
+print "$joe[0]\n";
+
+$number=2.7183234;
+#perl truncates $number to 1. so its 2 - 1 here
+print $joe[$number - 1];
+print "\n";
+
+
+#you can skip indices in perl
+$rocks[0]='bedrock';
+$rocks[1]='slate';
+$rocks[2]='lava';
+$rocks[3]='crushed rock';
+$rocks[99]='schist';
+
+$end=$#rocks;
+print "$end\n";
+$number_of_rocks=$end + 1;
+print "$number_of_rocks\n";
+#$rocks[ $#rocks]='hard rock';
+#better way to do ^
+$rocks[ -1 ]='hard rock';
+print "$rocks[ -1 ]\n";
+print "$rocks[99]\n";
+
+#gets 'bedrock'. -100 aka 0 in this case
+$dead_rock=$rocks[-100];
+
+
+#lists
+
+(1, 2, 3);
+(1..100); # 1 - 100
+(0,2..6,10,12); # same as 0 2 3 4 5 6 10 12
+
+qw( fred barney betty wilma dino ); #same as ("fred", "barney", etc)
+#can't use \n or $fred in qw
+
+qw(fred
+    barney      betty
+wilma dino); #does the same thing, spaces dont matter
+
+#you also dont' have to use paranthesis as the delimiter 
+#you can use any punctuation character like { [ < ! etc.
+
+($fred, $barney, $dino)=("flintstone", "rubble", undef);
+
+@rocks=qw/ bedrock slate lava /;
+print "I like @rocks[0] and @rocks[1]\n";
+@giant=1..200;
+@stuff=(@giant, undef, @giant);
+
+@meme=5..9;
+$dinkle=pop(@meme); #dinkle gets 9, removes 9 from meme
+$winkle=pop(@meme); #dinkle gets 8, removes 8 from meme
+#you can also do
+#pop @meme
+#which will remove the last one, 7 in this case
+#if array is empty pop leaves it alone and returns undef
+print "I have $dinkle pizzas in my belly\n";
+print "I have $winkle sodas in my belly\n";
+
+push(@meme, 0); #adds 0 to the end
+push @meme, 1..4; #adds 1 2 3 4 to the end
+@others=qw/ 9 0 2 1 0 /;
+push @meme, @others; @meme; #now has those five new elements in it
+print "@meme\n"; #prints 5670123490210
+
+#PUSH AND POP DO STUFF TO THE END OF THE ARRAY
+#SHIFT AND UNSHIFT DO STUFF TO THE START
+
+@array=qw# dino fred barney #;
+$m=shift(@array); #$m gets dino, removes it from array
+$n=shift(@array); #$n gets fred, array just has barney left
+shift @array; #array is empty now
+$o=shift(@array); #$o is undef, array still empty
+unshift(@array, 5);
+unshift(@array, 8);
+print "@array\n"; #prints 85
+
+#does stuff in middle
+#takes 4 args, two are optional
+#first is array, then start position, then length, then replacement list
+@dingus=qw( pebbles dino fred barney betty );
+@removed=splice @dingus, 2; #remove fred and all after fred
+print "@removed\n"; #fred barney betty
+print "@dingus\n"; #pebbles dino
+
+@array=qw: pebbles dino fred barney betty :;
+@removed=splice @array, 1, 2; #@removed is (dino fred) @array is (pebbles barnye betty)
+
+@array=qw: pebbles dino fred barney betty :;
+@removed=splice @array, 1, 2, qw(wilma);
+print "@array\n";
+#you can do @array, 1, 0, qw(wilman) too to remove no elements

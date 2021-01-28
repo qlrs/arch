@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+use utf8;
+use warnings;
+
+$animals="dogs and cats";
+$foods="pizza and hotdogs";
+
+if ($animals eq "dogs and cats") {
+    print "My favorite animals are ${animals} and my favorite foods are ${foods}\n";
+} else {
+    print "I hate all animals\n";
+}
+chomp($friends = <STDIN>); #removes \n, only one time though
+
+print "My friends are ${friends}\n";
+
+$count=0;
+while ($count < 10) {
+    $count += 2;
+    print "count is now $count\n";
+}
+
+$n=1;
+while ($n < 10) {
+    $sum += $n; #sum is undefin but gets the value 1 at the start since $n is 1
+    $n += 2;
+}
+print "The total was $sum.\n";
+
+$next_line=<STDIN>;
+if ( defined($next_line) ) {
+    print "The input was $next_line";
+} else {
+    print "No input available!\n";
+}

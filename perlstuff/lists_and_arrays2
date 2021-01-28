@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+use utf8;
+#use warnings;
+
+@rocks=qw{ flintstone slate rubble };
+print "My favorite rocks are quartz @rocks limestone\n";
+print "There is nothing in the parens (@empty) here\n";
+print "I will use escape to make this email not use the array john\@rocks.com\n";
+
+@fred=qw(eating rocks is wrong);
+$fred="right";
+print "this is $fred[3]\n"; #wrong way
+print "this is ${fred}[3]\n"; #all vvv all correct
+print "this is $fred"."[3]\n";
+print "this is $fred\[3]\n";
+
+foreach $i (qw( bedrock slate lava )) {
+    print "One rock is $i.\n";
+}
+
+@rocks=qw( bedrock slate lava );
+foreach $i (@rocks) { #actually edits the element $i as you can see on 26
+    $i = "\t$i";
+    $i .= "\n"; #appends a new line
+}
+print "The rocks are: \n", @rocks;
+
+
+foreach (1..10) { #default control var. is $_ if none given
+    print "I can count to $_!\n";
+}
+$_="nice meme\n";
+print;
+
+@fred=6..10;
+@barney=reverse(@fred);
+@wilma=reverse(6..10);
+
+print "@fred\n";
+print "@barney\n";
+print "@wilma\n";
+
+@food=qw( pizza chicken hotdog milk);
+@foodsorted=sort(@food); #gets chicken hotdog milk pizza
+foreach $i (@foodsorted) {
+    print "$i\n";
+}
+
+@rocks=qw/ bedrock slate rubble granite /;
+while( ( $index, $value ) = each @rocks ) {
+    print "$index: $value\n";
+}
+
+@betty=(); #correct how to get empty list
