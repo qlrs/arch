@@ -11,6 +11,7 @@ curl -s "$searchurl" > /tmp/wikisearchurl
 
 
 chosen="$( dmenu -fn "Liberation Mono-13" -l 10 -p "Choose one: " < /tmp/wikinames)"
+[ -z "$chosen" ] && notify-send "Nothing selected... exiting" && exit 
 echo "$chosen"
 
 firefox "https://en.wikipedia.org/wiki/$chosen"
