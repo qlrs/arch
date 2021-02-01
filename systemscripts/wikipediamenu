@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userquery="$(echo "" | dmenu -fn "Liberation Mono-13" -p "Search: ")"
+userquery="$(echo "" | dmenu -fn "Liberation Mono-13" -p "Search: " | sed 's/ /_/g')"
 [ -z "$userquery" ] && notify-send "Nothing selected... exiting" && exit 
 searchurl="https://en.wikipedia.org/w/index.php?search=$userquery&title=Special%3ASearch&profile=default&fulltext=1&ns0=1"
 
