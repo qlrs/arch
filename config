@@ -169,6 +169,7 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 #launch shit
 bindsym $mod+Shift+e exec /home/dan/scripts/memeji
 bindsym $mod+z exec gnome-calculator
+bindsym $mod+Shift+w exec alacritty -e aerc
 bindsym $mod+n exec alacritty -e ranger
 bindsym $mod+v exec firefox
 bindsym $mod+Shift+m exec alacritty -e ncmpcpp
