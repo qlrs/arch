@@ -182,8 +182,8 @@ bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/landscape7.jpg
-#exec_always wal -i /home/dan/walls/landscape7.jpg
+exec_always feh --bg-scale /home/dan/walls/japan1.jpg
+#exec_always wal -i /home/dan/walls/flowers1.jpg
 
 #specific screens
 workspace 1 output DVI-D-0
@@ -236,6 +236,8 @@ bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
 bindsym $mod+p exec mpc toggle
 bindsym $mod+m exec pamixer -t
+bindcode $mod+Shift+59 exec mpc prev
+bindcode $mod+Shift+60 exec mpc next
 
 #brightness
 bindcode $mod+110 exec xbacklight -inc 5
