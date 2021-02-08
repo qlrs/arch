@@ -68,7 +68,7 @@ alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
 alias tuir='tuir --enable-media'
 alias clearlock='xmodmap -e "clear lock"'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
-alias updatesite='rsync -urv -e '\''ssh -p 55443'\'' ~/memes/website/* root@rschrader.xyz:/var/www/wowee/'
+alias updatesite='rsync -urv -e '\''ssh -p 55443'\'' ~/memes/website/ root@rschrader.xyz:/var/www/wowee'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
