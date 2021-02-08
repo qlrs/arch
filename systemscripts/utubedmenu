@@ -17,12 +17,14 @@ url="$url""$search"
 
 #replace spaces with +'s
 goodurl=$(echo "$url" | sed 's/ /+/g')
+curl -s "$goodurl" > /tmp/utubegoodurl
 
 #parse through html bs to get video titles
-choice="$(curl -s "$goodurl" | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | sed '/^$/d' | dmenu -i -fn "Liberation Mono-13" -p "Pick vid" -l 20)"
+choice="$(cat /tmp/utubegoodurl | grep "/watch?v\=[a-zA-Z0-9]*" | cut -d'>' -f3 | sed '/^$/d' | dmenu -i -fn "Liberation Mono-13" -p "Pick vid" -l 20)"
+[ -z "$choice" ] && notify-send "Nothing selected.. exiting" && exit
 
 #parse through html bs to get video link
-vidurl="https://invidiou.site""$(curl -s "$goodurl" | grep -F "$choice" | grep -o '/watch?v\=[a-zA-Z0-9\-]*')"
+vidurl="https://invidiou.site""$(cat /tmp/utubegoodurl | grep -F "$choice" | grep -o '/watch?v\=[a-zA-Z0-9\-]*')"
 
 echo "$vidurl" | xclip
 mpv "$vidurl"
