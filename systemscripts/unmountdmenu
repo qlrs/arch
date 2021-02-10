@@ -4,4 +4,5 @@ getchoice="$(lsblk -lpo +HOTPLUG | grep '1$' | awk '/part[[:space:]]/ {print $1,
 [ -z "$getchoice" ] && notify-send "Nothing selected... exiting" && exit
 
 locationtounmount="$(echo "$getchoice" | cut -d ' ' -f2)"
-sudo umount "$(locationtounmount)" || { notify-send "Error... exiting" ; exit 1 ;}
+echo "$locationtounmount"
+sudo umount "$locationtounmount" || { notify-send "Error... exiting" ; exit 1 ;}
