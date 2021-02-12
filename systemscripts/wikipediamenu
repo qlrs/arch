@@ -6,8 +6,8 @@ searchurl="https://en.wikipedia.org/w/index.php?search=$userquery&title=Special%
 
 curl -s "$searchurl" > /tmp/wikisearchurl
 
-#get article names
-{ grep -io '<a href="/wiki/[a-zA-Z0-9_()-]\+' | cut -d'/' -f3; } < /tmp/wikisearchurl > /tmp/wikinames
+#get article names, idk how this works but w/e
+{ grep -io '<a href="/wiki/[a-zA-Z0-9_()-]\+' | awk '!seen[$0]++ {if(NR>1)print}' | cut -d'/' -f3; } < /tmp/wikisearchurl > /tmp/wikinames
 
 
 chosen="$( dmenu -fn "Liberation Mono-13" -l 10 -p "Choose one: " < /tmp/wikinames)"
