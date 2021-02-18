@@ -2,6 +2,7 @@
 
 weatherfunc() {
     temp=$(curl -s https://wttr.in/Myrtle_Beach\?format=1)
+    [ "$(echo $temp | grep 'Unknown')" ] && echo "❓"
     echo "$temp"
 }
 
