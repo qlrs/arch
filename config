@@ -7,6 +7,7 @@ exec clipmenud
 exec xbanish &
 exec mpd &
 exec --no-startup-id picom &
+#exec xsetroot -mod 16 16 -bg black -fg yellow
 exec --no-startup-id dunst &
 exec /home/dan/scripts/capstoescape
 exec alacritty -e clearlock
@@ -174,16 +175,16 @@ bindsym $mod+n exec alacritty -e ranger
 bindsym $mod+v exec firefox
 bindsym $mod+Shift+m exec alacritty -e ncmpcpp
 bindsym $mod+Shift+a exec clipmenu
-bindsym $mod+b exec nemo
+bindsym $mod+b exec pcmanfm
 bindsym $mod+g exec steam
 bindsym $mod+q exec alacritty -e nvim
 bindsym $mod+Shift+n exec alacritty -e newsboat
-bindsym $mod+Shift+p exec alacritty -e pulsemixer
+bindsym $mod+p exec alacritty -e pulsemixer
 bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/japan1.jpg
+exec_always feh --bg-scale /home/dan/walls/spaceguyblue.png
 #exec_always wal -i /home/dan/walls/flowers1.jpg
 
 #specific screens
@@ -197,7 +198,6 @@ workspace 7 output HDMI-1
 
 
 #launch floating
-for_window [class="Nemo" instance="nemo"] floating enable
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="Tor Browser" instance="Navigator"] floating enable
@@ -214,10 +214,10 @@ assign [class="Steam"]3
 
 #colors
 # class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #dddddd   #13a6ff
+client.focused              #ffffff #ffffff #ffffff #dddddd   #bd93f9
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
-
+client.urgent               #ffffff #ffffff #ffffff #555555   #ff5555
 
 #mouse warping
 mouse_warping none
@@ -235,7 +235,7 @@ bindsym $mod+Tab workspace back_and_forth
 #audio stuff
 bindcode $mod+21 exec pamixer --allow-boost -i 5
 bindcode $mod+20 exec pamixer --allow-boost -d 5
-bindsym $mod+p exec mpc toggle
+bindsym $mod+Shift+p exec mpc toggle
 bindsym $mod+m exec pamixer -t
 bindcode $mod+Shift+59 exec mpc prev
 bindcode $mod+Shift+60 exec mpc next
