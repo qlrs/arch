@@ -1,7 +1,7 @@
 #!/bin/sh
 
 streamerfunc() {
-    streamer=$(printf "xQcOW\nTrihex\nReckful\nDestiny\nElajjaz\nLilyPichu\nHasanabi\nWillNeff\nHAchubby" | dmenu -fn "Liberation Mono-13" -i -l 10)
+    streamer=$(printf "xQcOW\nTrihex\nReckful\nDestiny\nElajjaz\nLilyPichu\nHasanabi\nWillNeff\nHAchubby" | dmenu -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9" -i -l 10)
     [ -z "$streamer" ] && notify-send "Nothing selected, exiting..." && exit 1
     notify-send "Opening $streamer's Stream..."
     mpv "https://www.twitch.tv/$streamer"

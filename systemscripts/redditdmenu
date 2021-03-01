@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 selection=$(printf "stallmanwasright
 mousereview
 livestreamfail
@@ -21,7 +20,7 @@ linuxmasterrace
 linuxquestions
 archlinux
 artixlinux
-voidlinux" | dmenu -fn "Liberation Mono-13" -i -l 20)
+voidlinux" | dmenu -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9" -i -l 20)
 
 url="https://teddit.net/r/""$selection"
 
@@ -37,4 +36,4 @@ url="https://teddit.net/r/""$selection"
 #    qutebrowser "$url" &
 #fi
 notify-send "Opening r/$selection"
-qutebrowser "$url"
+firefox "$url"

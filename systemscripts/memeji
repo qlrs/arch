@@ -1,5 +1,5 @@
 #!/bin/sh
 
-chosenone=$(cut -d ';' -f1 ~/scripts/emojilist | dmenu -fn "Liberation Mono-13" -i -l 30 | sed "s/ .*//")
+chosenone=$(cut -d ';' -f1 ~/scripts/emojilist | dmenu -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9" -i -l 30 | sed "s/ .*//")
 [ -z "$chosenone" ] && { notify-send "Nothing selected... exiting" ; exit ;}
 echo "$chosenone" | tr -d '\n' | xclip &
