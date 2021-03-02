@@ -3,15 +3,14 @@ font pango:Inconsolata
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
-exec xset r rate 400 50 &
-exec clipmenud &
-exec unclutter &
-exec mpd &
-exec --no-startup-id picom &
+#exec xset r rate 400 50 &
+#exec clipmenud &
+#exec unclutter &
+#exec mpd &
+#exec --no-startup-id picom &
 #exec xsetroot -mod 16 16 -bg black -fg yellow
-exec --no-startup-id dunst &
+#exec --no-startup-id dunst &
 exec /home/dan/scripts/capstoescape
-exec alacritty -e clearlock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle

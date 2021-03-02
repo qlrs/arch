@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mpd &
+xset r rate 400 50 &
+clipmenud &
+unclutter &
+picom &
+dunst &
+
