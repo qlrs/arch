@@ -3,8 +3,9 @@ font pango:Inconsolata
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec screen
-exec clipmenud
-exec xbanish &
+exec xset r rate 400 50 &
+exec clipmenud &
+exec unclutter &
 exec mpd &
 exec --no-startup-id picom &
 #exec xsetroot -mod 16 16 -bg black -fg yellow
@@ -30,10 +31,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left focus left pixel 10
+bindsym $mod+Down focus down pixel 10
+bindsym $mod+Up focus up pixel 10
+bindsym $mod+Right focus right pixel 10
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -159,7 +160,7 @@ bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/spaceguyblue.png
+exec_always feh --bg-scale /home/dan/walls/jellyfish1.jpg
 #exec_always wal -i /home/dan/walls/flowers1.jpg
 
 #specific screens
