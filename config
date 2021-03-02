@@ -118,6 +118,8 @@ bar {
 	position top
     colors {
     focused_workspace  #ffffff #bd93f9
+    urgent_workspace #ffffff #ff5555
+
     }
 }
 
