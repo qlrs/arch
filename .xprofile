@@ -6,4 +6,6 @@ clipmenud &
 unclutter &
 picom &
 dunst &
-
+screen &
+capstoescape &
+nm-applet &

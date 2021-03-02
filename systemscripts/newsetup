@@ -1,10 +1,10 @@
 #!/bin/bash
-#TODO add program list to fordeletetest
 
 ###
 #requires a list of programs you want installed
 ###
 
+#make sure you have user in wheel group and in sudoers
 #make sure you have networkmanager, networkmanager-runit, 
 #openssh openssh-runit and git installed already
 #make sure you have generated your ssh keys and added them on github
@@ -22,12 +22,15 @@ else
     exit
 fi
 
+sudo xbps-
+
 #check if programs are installed, install them if not
 while IFS= read -r line; do
 
     if ! [ -x "$(command -v "$line")" ]; then
         echo -e "${CYAN}"$line" is not installed, installing now${NC}"
-        sudo pacman --noconfirm -S "$line"
+        sudo xbps-install -y "$line"
+        #sudo pacman --noconfirm -S "$line"
     else
         echo -e "${GREEN}"$line" is already installed${NC}"
     fi

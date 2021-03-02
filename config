@@ -1,8 +1,8 @@
 set $mod Mod1
 font pango:Inconsolata
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
-exec screen
+#exec --no-startup-id nm-applet
+#exec screen
 #exec xset r rate 400 50 &
 #exec clipmenud &
 #exec unclutter &
