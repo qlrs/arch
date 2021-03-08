@@ -9,3 +9,4 @@ dunst &
 screen &
 capstoescape &
 nm-applet &
+feh --bg-scale /home/dan/walls/landscape9.jpg
