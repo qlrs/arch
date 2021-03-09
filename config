@@ -127,9 +127,10 @@ bar {
 
 #gaps
 for_window [class="^.*"] border pixel 3
-gaps inner 10
-gaps outer 1
-
+#desktop
+gaps inner 30
+#laptop
+#gaps inner 10
 
 #smart border and gaps
 #smart_borders on
@@ -159,7 +160,8 @@ bindsym $mod+r exec /home/dan/scripts/redditdmenu
 bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
-exec_always feh --bg-scale /home/dan/walls/jellyfish1.jpg
+#moved to xprofile
+#exec_always feh --bg-scale /home/dan/walls/landscape9.jpg
 #exec_always wal -i /home/dan/walls/flowers1.jpg
 
 #specific screens
