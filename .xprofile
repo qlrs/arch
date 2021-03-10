@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sxhkd &
 mpd &
 xset r rate 400 50 &
 clipmenud &
@@ -9,4 +10,4 @@ dunst &
 screen &
 capstoescape &
 nm-applet &
-feh --bg-scale /home/dan/walls/landscape9.jpg
+feh --bg-scale /home/dan/walls/landscape10.png

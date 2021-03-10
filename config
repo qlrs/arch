@@ -42,13 +42,13 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+g split h
+bindsym $mod+f split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $mod+c split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
@@ -128,7 +128,7 @@ bar {
 #gaps
 for_window [class="^.*"] border pixel 3
 #desktop
-gaps inner 30
+gaps inner 25
 #laptop
 #gaps inner 10
 
@@ -144,20 +144,20 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 
 
 #launch shit
-bindsym $mod+Shift+e exec /home/dan/scripts/memeji
-bindsym $mod+z exec gnome-calculator
-bindsym $mod+Shift+w exec alacritty -e aerc
-bindsym $mod+n exec alacritty -e ranger
-bindsym $mod+v exec firefox
-bindsym $mod+Shift+m exec alacritty -e ncmpcpp
-bindsym $mod+Shift+a exec clipmenu
-bindsym $mod+b exec pcmanfm
-bindsym $mod+g exec steam
-bindsym $mod+q exec alacritty -e nvim
-bindsym $mod+Shift+n exec alacritty -e newsboat
-bindsym $mod+p exec alacritty -e pulsemixer
-bindsym $mod+r exec /home/dan/scripts/redditdmenu
-bindsym $mod+a exec alacritty -e calcurse
+#bindsym $mod+Shift+e exec /home/dan/scripts/memeji
+#bindsym $mod+z exec gnome-calculator
+#bindsym $mod+Shift+w exec alacritty -e aerc
+#bindsym $mod+n exec alacritty -e ranger
+#bindsym $mod+v exec firefox
+#bindsym $mod+Shift+m exec alacritty -e ncmpcpp
+#bindsym $mod+Shift+a exec clipmenu
+#bindsym $mod+b exec pcmanfm
+#bindsym $mod+g exec steam
+#bindsym $mod+q exec alacritty -e nvim
+#bindsym $mod+Shift+n exec alacritty -e newsboat
+#bindsym $mod+p exec alacritty -e pulsemixer
+#bindsym $mod+r exec /home/dan/scripts/redditdmenu
+#bindsym $mod+a exec alacritty -e calcurse
 
 #wallpaper and pywal
 #moved to xprofile
@@ -210,21 +210,20 @@ bindsym $mod+s scratchpad show
 bindsym $mod+Tab workspace back_and_forth
 
 #audio stuff
-bindcode $mod+21 exec pamixer --allow-boost -i 5
-bindcode $mod+20 exec pamixer --allow-boost -d 5
-bindsym $mod+Shift+p exec mpc toggle
-bindsym $mod+m exec pamixer -t
-bindcode $mod+Shift+59 exec mpc prev
-bindcode $mod+Shift+60 exec mpc next
+#bindcode $mod+21 exec pamixer --allow-boost -i 5
+#bindcode $mod+20 exec pamixer --allow-boost -d 5
+#bindsym $mod+Shift+p exec mpc toggle
+#bindsym $mod+m exec pamixer -t
+#bindcode $mod+Shift+59 exec mpc prev
+#bindcode $mod+Shift+60 exec mpc next
 
 #brightness
 bindcode $mod+110 exec xbacklight -inc 5
 bindcode $mod+115 exec xbacklight -dec 5
 
 
-bindsym $mod+Shift+f exec /home/dan/scripts/fontchange
-bindsym $mod+Shift+Return sticky toggle
-bindsym $mod+u exec /home/dan/scripts/dmenumount
-bindsym $mod+t exec /home/dan/scripts/twitchdmenu
-bindsym $mod+w exec /home/dan/scripts/wikistuff
+#bindsym $mod+Shift+Return sticky toggle
+#bindsym $mod+u exec /home/dan/scripts/dmenumount
+#bindsym $mod+t exec /home/dan/scripts/twitchdmenu
+#bindsym $mod+w exec /home/dan/scripts/wikistuff
 
