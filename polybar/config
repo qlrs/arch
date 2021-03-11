@@ -1,0 +1,122 @@
+[settings]
+throttle-ms = 50
+throttle-limit = 5
+screenchange-reload=true
+enable-ip = true
+
+[bar/bar]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 27
+offset-y = 5
+separator = "| "
+background = #000000
+foreground = #f8f8f2
+
+overline-size = 2
+overline-color = #FFFFFF
+underline-size = 2
+underline-color = #bc92f8
+
+spacing = 1
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = LiberationMono:pixelsize=11;
+font-1 = NotoColorEmoji:fontformat=truetype:scale=11;antialias=false;
+
+modules-left = i3
+modules-center = xwindow
+modules-right = vpn inttraffic diskspace checktemp ramusage stockprice volume music calendar
+pin-workspaces = true
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+format-spacing = 0
+
+label-focused = %index%
+label-focused-padding = 1
+label-focused-margin = 0
+label-focused-font = 0
+label-focused-foreground = #fff
+label-focused-background = #bd93f9
+label-focused-overline = #000000
+label-focused-underline = #000000
+
+label-unfocused = %index%
+label-unfocused-padding = 1
+label-unfocused-margin = 0
+label-unfocused-background = #eeeeee
+label-unfocused-foreground = #dd222222
+label-unfocused-overline = #c5c5c5
+label-unfocused-underline = #c5c5c5
+label-unfocused-font = 0
+
+label-urgent = %index%
+label-urgent-padding = 1
+label-urgent-margin = 0
+label-urgent-font = 0
+
+label-visible = %index%
+label-visible-padding = 1
+label-visible-margin = 0
+label-visible-font = 0
+
+[module/vpn]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/vpn
+interval = 5
+
+[module/inttraffic]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/inttraffic
+interval = 5
+
+[module/diskspace]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/diskspace
+interval = 60
+format-prefix = "💽 "
+
+
+[module/checktemp]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/checktemp
+interval = 60
+
+[module/ramusage]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/ramusage
+interval = 5
+
+[module/volume]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/volume
+interval = 5
+
+[module/music]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/music
+interval = 5
+format-prefix="🎵 "
+
+[module/calendar]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/calendar
+interval = 60
+
+
+[module/stockprice]
+type = custom/script
+exec = /home/dan/.config/i3/scripts/stockprice
+interval = 3
+
+[module/xwindow]
+type = internal/xwindow
+label-font = 0
+
+; vim:ft=dosini
+
