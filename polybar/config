@@ -2,7 +2,7 @@
 throttle-ms = 50
 throttle-limit = 5
 screenchange-reload=true
-enable-ip = true
+
 
 [bar/bar]
 monitor = ${env:MONITOR:}
@@ -30,9 +30,14 @@ modules-left = i3
 modules-center = xwindow
 modules-right = vpn inttraffic diskspace checktemp ramusage stockprice volume music calendar
 pin-workspaces = true
+tray-position=right
+tray-offset-y=-5
+wm-restack=i3
+
 
 [module/i3]
 type = internal/i3
+
 
 format = <label-state> <label-mode>
 format-spacing = 0

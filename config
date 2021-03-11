@@ -19,11 +19,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9"
+#bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -113,15 +113,16 @@ bindsym $mod+Shift+r restart
 
 #bindsym $mod+r mode "resize"
 
-bar {
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-    colors {
-    focused_workspace  #ffffff #bd93f9
-    urgent_workspace #ffffff #ff5555
-
-    }
-}
+exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
+#bar {
+#	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	position top
+#    colors {
+#    focused_workspace  #ffffff #bd93f9
+#    urgent_workspace #ffffff #ff5555
+#
+#    }
+#}
 
 
 
@@ -191,7 +192,7 @@ assign [class="Steam"]3
 
 #colors
 # class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #f8f8f2   #bd93f9
+client.focused              #ffffff #ffffff #ffffff #cff993   #bd93f9
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
 client.urgent               #ffffff #ffffff #ffffff #555555   #ff5555
