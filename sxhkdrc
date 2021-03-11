@@ -1,0 +1,45 @@
+alt + Return
+    $TERMINAL
+alt + shift + e
+    memeji
+alt + z
+    gnome-calculator
+alt + shift + w
+    $TERMINAL -e aerc
+alt + n
+    $TERMINAL -e ranger
+alt + v 
+    firefox
+alt + shift + m 
+    $TERMINAL -e ncmpcpp
+alt + shift + a 
+    clipmenu
+alt + b
+    pcmanfm
+alt + g
+    steam
+alt + shift + n
+    $TERMINAL -e newsboat
+alt + p
+    $TERMINAL -e pulsemixer
+alt + r 
+    redditdmenu
+alt + a 
+    $TERMINAL -e calcurse
+alt + equal
+    pamixer --allow-boost -i 5
+alt + minus
+    pamixer --allow-boost -d 5
+alt + shift + p
+    mpc toggle
+alt + m
+    pamixer -t
+alt + shift + period
+    mpc next
+alt + shift + comma
+    mpc prev
+alt + u
+    dmenumount
+alt + t
+    twitchdmenu
+
