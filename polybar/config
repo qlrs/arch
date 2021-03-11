@@ -7,15 +7,15 @@ screenchange-reload=true
 [bar/bar]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 27
+height = 25
 offset-y = 5
 separator = "| "
 background = #000000
 foreground = #f8f8f2
 
-overline-size = 2
-overline-color = #FFFFFF
-underline-size = 2
+overline-size = 0
+overline-color = #f8f8f2
+underline-size = 0
 underline-color = #bc92f8
 
 spacing = 1
@@ -23,8 +23,8 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = LiberationMono:pixelsize=11;
-font-1 = NotoColorEmoji:fontformat=truetype:scale=11;antialias=false;
+font-0 = LiberationMono:pixelsize=9;
+font-1 = NotoColorEmoji:fontformat=truetype:scale=9;antialias=false;
 
 modules-left = i3
 modules-center = xwindow
@@ -46,7 +46,7 @@ label-focused = %index%
 label-focused-padding = 1
 label-focused-margin = 0
 label-focused-font = 0
-label-focused-foreground = #fff
+label-focused-foreground = #f8f8f2
 label-focused-background = #bd93f9
 label-focused-overline = #000000
 label-focused-underline = #000000
@@ -54,8 +54,8 @@ label-focused-underline = #000000
 label-unfocused = %index%
 label-unfocused-padding = 1
 label-unfocused-margin = 0
-label-unfocused-background = #eeeeee
-label-unfocused-foreground = #dd222222
+label-unfocused-background = #000000
+label-unfocused-foreground = #f8f8f2
 label-unfocused-overline = #c5c5c5
 label-unfocused-underline = #c5c5c5
 label-unfocused-font = 0
