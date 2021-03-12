@@ -78,6 +78,7 @@ interval = 5
 [module/inttraffic]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/inttraffic
+click-left = setsid -f "$TERMINAL" -e bmon
 interval = 5
 
 [module/diskspace]
@@ -90,27 +91,38 @@ format-prefix = "💽 "
 [module/checktemp]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/checktemp
+click-right = notify-send -t 8000 "$(sensors | sed -n '5,18p' | sed 's/([^)]*)//g')"
 interval = 60
 
 [module/ramusage]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/ramusage
+click-left = "$TERMINAL" -e "htop"
+click-right = notify-send -t 8000 "$(ps axch -o cmd:10,%mem --sort=-%mem | sed 's/$/%/g' | head)"
 interval = 5
 
 [module/volume]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/volume
+click-left = "$TERMINAL" -e pulsemixer
+click-right = pamixer -t
+scroll-up = pamixer --alow-boost -i 5
+scroll-down = pamixer --alow-boost -d 5 
 interval = 5
 
 [module/music]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/music
-interval = 5
 format-prefix="🎵 "
+click-left = setsid -f "$TERMINAL" -e ncmpcpp
+click-right = pc toggle > /dev/null
+interval = 5
 
 [module/calendar]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/calendar
+click-left = yad --calendar --width=400 --height=400 --undecorated --fixed --close-on-unfocus --no-buttons --posx=1650 --posy=30 >/dev/null  
+click-right = "$TERMINAL" -e calcurse
 interval = 60
 
 
@@ -122,6 +134,7 @@ interval = 3
 [module/weather]
 type = custom/script
 exec = /home/dan/.config/i3/scripts/weather
+click-left = firefox "https://forecast.weather.gov/MapClick.php?CityName=Myrtle+Beach&state=SC&site=ILM&lat=33.6988&lon=-78.8922"
 interval = 30
 
 [module/xwindow]
