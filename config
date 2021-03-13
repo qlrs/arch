@@ -192,7 +192,7 @@ assign [class="Steam"]3
 
 #colors
 # class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #cff993   #bd93f9
+client.focused              #ffffff #ffffff #ffffff #d8dee9   #81a1c1
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
 client.urgent               #ffffff #ffffff #ffffff #555555   #ff5555

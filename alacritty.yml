@@ -27,43 +27,82 @@ font:
       y: 0
 
 
+
+
 colors:
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
   cursor:
-    text: CellBackground
-    cursor: CellForeground
-
+    text: '#2e3440'
+    cursor: '#d8dee9'
   normal:
-    black:   '#000000'
-    red:     '#ff5555'
-    green:   '#50fa7b'
-    yellow:  '#f1fa8c'
-    blue:    '#bd93f9'
-    magenta: '#ff79c6'
-    cyan:    '#8be9fd'
-    white:   '#bfbfbf'
-
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
   bright:
-    black:   '#4d4d4d'
-    red:     '#ff6e67'
-    green:   '#5af78e'
-    yellow:  '#f4f99d'
-    blue:    '#caa9fa'
-    magenta: '#ff92d0'
-    cyan:    '#9aedfe'
-    white:   '#e6e6e6'
-
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
   dim:
-    black:   '#14151b'
-    red:     '#ff2222'
-    green:   '#1ef956'
-    yellow:  '#ebf85b'
-    blue:    '#4d5b86'
-    magenta: '#ff46b0'
-    cyan:    '#59dffc'
-    white:   '#e6e6d1'
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
+
+
+      #colors:
+      #  primary:
+      #    background: '#282a36'
+      #    foreground: '#f8f8f2'
+      #  cursor:
+      #    text: CellBackground
+      #    cursor: CellForeground
+      #
+      #  normal:
+      #    black:   '#000000'
+      #    red:     '#ff5555'
+      #    green:   '#50fa7b'
+      #    yellow:  '#f1fa8c'
+      #    blue:    '#bd93f9'
+      #    magenta: '#ff79c6'
+      #    cyan:    '#8be9fd'
+      #    white:   '#bfbfbf'
+      #
+      #  bright:
+      #    black:   '#4d4d4d'
+      #    red:     '#ff6e67'
+      #    green:   '#5af78e'
+      #    yellow:  '#f4f99d'
+      #    blue:    '#caa9fa'
+      #    magenta: '#ff92d0'
+      #    cyan:    '#9aedfe'
+      #    white:   '#e6e6e6'
+      #
+      #  dim:
+      #    black:   '#14151b'
+      #    red:     '#ff2222'
+      #    green:   '#1ef956'
+      #    yellow:  '#ebf85b'
+      #    blue:    '#4d5b86'
+      #    magenta: '#ff46b0'
+      #    cyan:    '#59dffc'
+      #    white:   '#e6e6d1'
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
