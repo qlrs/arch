@@ -14,9 +14,9 @@ background = #2e3440
 foreground = #d8dee9
 
 overline-size = 0
-overline-color = #f8f8f2
+overline-color = #d8dee9
 underline-size = 0
-underline-color = #81a1c1
+underline-color = #688090
 
 spacing = 1
 padding-right = 2
@@ -46,8 +46,8 @@ label-focused = %index%
 label-focused-padding = 1
 label-focused-margin = 0
 label-focused-font = 0
-label-focused-foreground = #f8f8f2
-label-focused-background = #d8dee9
+label-focused-foreground = #d8dee9
+label-focused-background = #81a1c1
 label-focused-overline = #000000
 label-focused-underline = #000000
 
