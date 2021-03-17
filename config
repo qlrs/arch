@@ -113,16 +113,16 @@ bindsym $mod+Shift+r restart
 
 #bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
-#bar {
-#	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#	position top
-#    colors {
-#    focused_workspace  #ffffff #bd93f9
-#    urgent_workspace #ffffff #ff5555
-#
-#    }
-#}
+#exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
+bar {
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+    colors {
+    focused_workspace  #ffffff #688090
+    urgent_workspace #ffffff #bf616a
+
+    }
+}
 
 
 
