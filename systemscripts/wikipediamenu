@@ -14,7 +14,7 @@ chosen="$( dmenu -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93
 [ -z "$chosen" ] && notify-send "Nothing selected... exiting" && exit 
 echo "$chosen"
 
-firefox "https://en.wikipedia.org/wiki/$chosen"
+$BROWSER "https://en.wikipedia.org/wiki/$chosen"
 
 
 
