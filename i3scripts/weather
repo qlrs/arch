@@ -8,7 +8,7 @@ weatherfunc() {
 
 case $BLOCK_BUTTON in
     1) weatherfunc ;;
-    3) firefox "https://forecast.weather.gov/MapClick.php?CityName=Myrtle+Beach&state=SC&site=ILM&lat=33.6988&lon=-78.8922" ;;
+    3) $BROWSER "https://forecast.weather.gov/MapClick.php?CityName=Myrtle+Beach&state=SC&site=ILM&lat=33.6988&lon=-78.8922" ;;
 esac
 
 weatherfunc
