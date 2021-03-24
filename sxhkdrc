@@ -1,7 +1,7 @@
 alt + Return
     $TERMINAL
 alt + d
-    dmenu_run -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9"
+    dmenu_run -fn "Liberation Mono-13" -nb "#2e3440" -nf "#d8dee9" -sb "#81a1c1"
 alt + shift + e
     memeji
 alt + z
@@ -11,7 +11,7 @@ alt + shift + w
 alt + n
     $TERMINAL -e ranger
 alt + v 
-    firefox
+    $BROWSER
 alt + shift + m 
     $TERMINAL -e ncmpcpp
 alt + shift + a 
