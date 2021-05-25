@@ -3,6 +3,7 @@
 #get user input
 
 selection="$( echo '' | dmenu -fn "Liberation Mono-13" -nb "#2e3440" -nf "#d8dee9" -sb "#81a1c1" -p "What game would you like to search for? ")"
+[ -z "$userquery" ] && notify-send "Nothing selected... exiting" && exit 
 
 #add user input to end of url
 url="https://www.protondb.com/search?q=$selection"
