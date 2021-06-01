@@ -30,5 +30,5 @@ else
 fi
 
 case $BLOCK_BUTTON in
-    1) setsid -f "$TERMINAL" -e bmon ;;
+    1) setsid -f "$TERMINAL" -e nmtui ;;
 esac
