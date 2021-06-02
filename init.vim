@@ -3,8 +3,6 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
-Plug 'davidhalter/jedi-vim'
-Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-css-color'
 call plug#end()
 
