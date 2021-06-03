@@ -1,10 +1,10 @@
 #!/bin/bash
+#TODO add program list to fordeletetest
 
 ###
 #requires a list of programs you want installed
 ###
 
-#make sure you have user in wheel group and in sudoers
 #make sure you have networkmanager, networkmanager-runit, 
 #openssh openssh-runit and git installed already
 #make sure you have generated your ssh keys and added them on github
@@ -22,15 +22,13 @@ else
     exit
 fi
 
-sudo xbps-
-
 #check if programs are installed, install them if not
 while IFS= read -r line; do
 
     if ! [ -x "$(command -v "$line")" ]; then
         echo -e "${CYAN}"$line" is not installed, installing now${NC}"
-        sudo xbps-install -y "$line"
-        #sudo pacman --noconfirm -S "$line"
+        sudo pacman --noconfirm -S "$line"
+        #sudo xbps-install -Sy "$line" for void linux
     else
         echo -e "${GREEN}"$line" is already installed${NC}"
     fi
@@ -50,7 +48,9 @@ for i in "${dirs[@]}"; do
         *) [ ! -d ~/.config/"$i" ] && mkdir ~/.config/"$i" ;;
     esac
 done
-mkdir ~/.config/i3/scripts
+
+mkdir ~/.i3/scripts
+
 #cp configs from git directory
 /bin/cp -ivrf ~/archconfig/dunstrc ~/.config/dunst/
 /bin/cp -ivrf ~/archconfig/ncmpcppbindings ~/.config/ncmpcpp/bindings
@@ -61,8 +61,7 @@ mkdir ~/.config/i3/scripts
 /bin/cp -ivrf ~/archconfig/alacritty.yml ~/.config/alacritty/
 /bin/cp -ivrf ~/archconfig/mpd.conf ~/.config/mpd/
 /bin/cp -ivrf ~/archconfig/config ~/.config/i3/
-/bin/cp -ivrf ~/archconfig/i3blocks.conf ~/.config/i3/
-/bin/cp -ivf ~/archconfig/i3scripts/* ~/.config/i3/scripts/
+/bin/cp -ivrf ~/archconfig/i3scripts/* ~/.config/i3/scripts
 /bin/cp -ivrf ~/archconfig/walls/* ~/walls
 /bin/cp -ivrf ~/archconfig/systemscripts/* ~/scripts/
 /bin/cp -ivrf ~/archconfig/.newsboat/* ~/.newsboat/
