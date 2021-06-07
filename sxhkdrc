@@ -1,7 +1,7 @@
 alt + Return
     $TERMINAL
 alt + d
-    dmenu_run -fn "Liberation Mono-13" -nb "#2e3440" -nf "#d8dee9" -sb "#81a1c1"
+    dmenu_run -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff"
 alt + shift + e
     memeji
 alt + z
