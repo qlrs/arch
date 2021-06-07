@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #get the movie or w/e the user is searching for
-query=$(echo "" | dmenu -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9" -i -p "Search torrent: ")
+query=$(echo "" | dmenu -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff" -i -p "Search torrent: ")
 [ -z "$query" ] && notify-send "Nothing selected... exiting" && exit
 
 searchurl="https://1337x.to/search/$query/1/"
@@ -14,7 +14,7 @@ grep "<td class=\"coll-2" /tmp/searchurl | sed 's/<[^>]*>//g' > /tmp/seeds
 cat /tmp/searchurl | grep -o "/torrent/[0-9]\+/.*" | cut -d '/' -f4 > /tmp/names
 
 #let user select list from clean names with seeders
-chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9" -i -p "Which one? ")"
+chosen="$(paste /tmp/names /tmp/seeds -d ';' | dmenu -l 10 -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff" -i -p "Which one? ")"
 [ -z "$chosen" ] && notify-send "Nothing selected... exiting" && exit
 
 #extract name to use for searching for the actual torrent page
