@@ -118,8 +118,8 @@ bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
     colors {
-    focused_workspace  #ffffff #688090
-    urgent_workspace #ffffff #bf616a
+    focused_workspace  #ffffff #0066ff
+    urgent_workspace #ffffff #fe0100
 
     }
 }
@@ -190,10 +190,10 @@ for_window [class="Steam"] floating enable
 
 #colors
 # class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #d8dee9   #81a1c1
+client.focused              #ffffff #ffffff #ffffff #d0d0d0   #0066ff
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
-client.urgent               #ffffff #ffffff #ffffff #555555   #ff5555
+client.urgent               #ffffff #ffffff #ffffff #555555   #fe0100
 
 #mouse warping
 mouse_warping none
