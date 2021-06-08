@@ -17,9 +17,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)	
-
 bindkey -v '^?' backward-delete-char
 export KEYTIMEOUT=1
+export PASSWORD_STORE_X_SELECTION=primary
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -38,6 +38,7 @@ alias fd='fd --hidden'
 alias rs='rsync -urv'
 alias syncmusic='rsync -urv ~/music/ ~/storagedrive/music'
 alias syncmemes='rsync -urv ~/memes/ ~/storagedrive/memes'
+alias syncwindows='rsync -urv ~/memes/ ~/windowssd/memes'
 alias fh='cat ~/.zhistory | fzf'
 alias ca='cd ~/archconfig'
 alias ci='cd ~/.config/i3'
@@ -50,14 +51,15 @@ alias cw='cd ~/memes/website'
 alias ga='git add'
 alias gp='git push && git push site && git push codeberg'
 alias gc='git commit -m'
-alias paci='sudo pacman -S'
-alias xi='sudo xbps-install'
-alias pacu='sudo pacman -Syu'
 alias xu='sudo xbps-install -Su'
+alias xi='sudo xbps-install -S'
+alias xr='sudo xbps-remove -R'
+alias xq='sudo xbps-query -Rs'
+alias paci='sudo pacman -S'
+alias pacu='sudo pacman -Syu'
 alias yayi='yay -S'
 alias yayaur='yay -Sua'
 alias pacr='sudo pacman -Rs'
-alias xr='sudo xbps-remove -R'
 alias yayr='yay -Rs'
 alias i3lock='i3lock -c 000000'
 alias p='perl'
