@@ -1,0 +1,27 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sdd3
+UUID=6e23d45f-d396-4b56-a18d-5a9fd05e63c1	/         	ext4      	rw,relatime	0 1
+
+# /dev/sdd1
+UUID=a132e8bf-ae7a-4753-98d3-5ba939d59f39	/boot     	ext4      	rw,relatime	0 2
+
+# /dev/sdd4
+UUID=8cfadc86-7266-444d-a3ab-7a19ca91372c	/home     	ext4      	rw,relatime	0 2
+
+# /dev/sdd2
+UUID=6261414f-22c8-40ee-852c-36731c46130f	none      	swap      	defaults  	0 0
+
+# /dev/sdb1
+UUID=1CCC434FCC4321FE				/home/dan/windowssd	ntfs	defaults	0 0
+
+# /dev/sdc2
+UUID=62A20577A20550C9				/home/dan/windowhdd	ntfs	defaults	0 0	
+
+# /dev/sda4
+UUID=C254EAA454EA9A85				/home/dan/windowos	ntfs	defaults	0 0
+
+# /dev/sde1
+UUID=ca562107-3713-4f58-acee-a135bcad1707 	/home/dan/storagedrive	ext4	defaults,nofail        0 0
