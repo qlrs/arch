@@ -180,8 +180,6 @@ for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="Tor Browser" instance="Navigator"] floating enable
 for_window [class="Yad"] floating enable
-for_window [class="gedit"] floating enable
-for_window [class="Rhythmbox"] floating enable
 for_window [class="Steam"] floating enable
 
 #assign to specific workspace
