@@ -3,15 +3,11 @@
 [ -z "$1" ] && notify-send "Please enter a url or list" && exit
 
 if echo "$1" | grep -q "http"; then
-    echo "What do you want the file to be called? "; read -r filename
-    wget "$1" -O "$filename"
-    mv "$filename" "$HOME"/walls
+    echo "What do you want the file to be called? "; read -r name
+    wget "$1" -O "$name"
+    mv "$name" "$HOME"/walls
 else
-    while IFS= read -r line; do
-        url=$(echo "$line" | cut -d ';' -f1)
-        echo "$url"
-        name=$(echo "$line" | cut -d ';' -f2)
-        echo "$name"
+    while read -r url name; do
         wget "$url" -O "$name"
         mv "$name" "$HOME"/walls
     done < "$1"
