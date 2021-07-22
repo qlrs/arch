@@ -9,29 +9,17 @@
 #openssh openssh-runit and git installed already
 #make sure you have generated your ssh keys and added them on github
 
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m'
 
+#✅
 #check for internet connection
-if ping -q -c 1 -W 1 1.1.1.1 > /dev/null 2>&1; then
-    echo "${GREEN}Internet is up${NC}"
-else
-    echo "${RED}Internet is down${NC}"
-    exit
-fi
+[ "$(ping -c 1 9.9.9.9)" ] && echo success || echo fail
 
+
+#need to check commands for void linux
 #check if programs are installed, install them if not
 while IFS= read -r line; do
-
-    if ! [ -x "$(command -v "$line")" ]; then
-        echo -e "${CYAN}"$line" is not installed, installing now${NC}"
-        sudo pacman --noconfirm -S "$line"
-        #sudo xbps-install -Sy "$line" for void linux
-    else
-        echo -e "${GREEN}"$line" is already installed${NC}"
-    fi
+    [ "$(pacman -Q | grep $line)" ] && echo "$line already installed" || sudo pacman --noconfirm -S "$line"
+#    #sudo xbps-install -Sy "$line" for void linux
 
 done < listofprograms
 
