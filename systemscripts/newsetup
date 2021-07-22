@@ -7,7 +7,7 @@
 
 #requires networking, git, and ssh keys on git server
 
-#✅
+#FIX FOR VOID
 #check for internet connection
 [ "$(ping -c 1 9.9.9.9)" ] && echo success || echo fail
 
@@ -15,12 +15,15 @@
 #need to check commands for void linux
 #check if programs are installed, install them if not
 while IFS= read -r line; do
+    #xbps-query -m  OR -l for void linux I THINK
     [ "$(pacman -Q | grep $line)" ] && echo "$line already installed" || sudo pacman --noconfirm -S "$line"
 #    #sudo xbps-install -Sy "$line" for void linux
 
 done < listofprograms
 
-mkdir ~/.config
+
+! [ -d "$HOME"/.config ] && mkdir "$HOME"/.config || echo "The config directory already exists, continuing"
+
 #check for directories
 dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" "i3" "mpd" "music" "walls" "scripts" ".newsboat" )
 
