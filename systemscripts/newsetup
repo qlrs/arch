@@ -24,7 +24,9 @@ done < listofprograms
 ! [ -d "$HOME"/.config ] && mkdir "$HOME"/.config || echo "The config directory already exists, continuing"
 
 #add necessary directories
-mkdir "$HOME"/downloadmusic "$HOME"/linuxbook "$HOME"/memes "$HOME"/memes/website "$HOME"/music "$HOME"/storagedrive "$HOME"/scripts "$HOME"/walls "$HOME"/archwikidocs "$HOME"/gitwebsite "$HOME"/.newsboat
+for i in downloadmusic linuxbook memes memes/website music apeepee storagedrive scripts walls archwikidocs gitwebsite .newsboat; do
+    ! [ -d "$HOME"/"$i" ] && { echo "Creating $HOME/$i..." ; mkdir "$HOME"/"$i" ;} || echo "That directory exists"
+done
 
 #check for directories
 dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" "i3" "mpd" "music" "walls" "scripts" ".newsboat" )
