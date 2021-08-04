@@ -21,8 +21,10 @@ while IFS= read -r line; do
 
 done < listofprograms
 
-
 ! [ -d "$HOME"/.config ] && mkdir "$HOME"/.config || echo "The config directory already exists, continuing"
+
+#add necessary directories
+mkdir "$HOME"/downloadmusic "$HOME"/linuxbook "$HOME"/memes "$HOME"/memes/website "$HOME"/music "$HOME"/storagedrive "$HOME"/scripts "$HOME"/walls "$HOME"/archwikidocs "$HOME"/gitwebsite "$HOME"/.newsboat
 
 #check for directories
 dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" "i3" "mpd" "music" "walls" "scripts" ".newsboat" )
