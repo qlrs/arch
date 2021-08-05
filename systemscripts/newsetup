@@ -22,7 +22,7 @@ while IFS= read -r line; do
 done < listofprograms
 
 #add necessary directories
-for i in .config downloadmusic linuxbook memes memes/website music apeepee storagedrive scripts walls archwikidocs gitwebsite .newsboat .config/aerc .config/alacritty .config/dunst .config/i3 .config/mpd .config/mpv .config/ncmpcpp .config/nvim .config/picom .config/polybar .config/qutebrowser .config/ranger .config/sxhkd .config/youtube-dl; do
+for i in .config downloadmusic linuxbook memes memes/website music apeepee storagedrive scripts walls archwikidocs gitwebsite windowhdd windowos windowssd .newsboat .config/aerc .config/alacritty .config/dunst .config/i3 .config/mpd .config/mpv .config/ncmpcpp .config/nvim .config/picom .config/polybar .config/qutebrowser .config/ranger .config/sxhkd .config/youtube-dl; do
     ! [ -d "$HOME"/"$i" ] && { echo "Creating $HOME/$i..." ; mkdir "$HOME"/"$i" ;} || echo "That directory exists"
 done
 
