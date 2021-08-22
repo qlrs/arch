@@ -12,7 +12,6 @@ songinfo() {
     rightname="$filename"".mp3"
 }
 
-songinfo
 
 songplacement() {
     if [ -e "$HOME"/music/"$dirartistname" ]; then
@@ -41,4 +40,5 @@ songplacement() {
     fi
 }
 
+songinfo
 songplacement $1
