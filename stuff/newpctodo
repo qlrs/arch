@@ -48,7 +48,7 @@ mkdir /mnt/home
 mount /dev/sdXX /mnt/home #mount home partition
 mount /dev/sdXX /mnt/boot #mount boot partition
 basestrap /mnt base base-devel runit elogind-runit
-basestrap /mnt linux linux-firmware
+basestrap /mnt linux linux-firmware INSTALL MICROCODE HERE amd OR intel
 basestrap /mnt neovim
 fstabgen -U /mnt >> /mnt/etc/fstab
 artools-chroot /mnt
