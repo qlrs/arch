@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #TODO shellcheck
 
 ###
@@ -16,31 +16,16 @@
 #check if programs are installed, install them if not
 while IFS= read -r line; do
     #xbps-query -m  OR -l for void linux I THINK
-    [ "$(pacman -Q | grep $line)" ] && echo "$line already installed" || sudo pacman --noconfirm -S "$line"
+    [ "$(pacman -Qqe | grep $line)" ] && echo "$line already installed" || sudo pacman --noconfirm -S "$line"
 #    #sudo xbps-install -Sy "$line" for void linux
 
 done < listofprograms
 
 #add necessary directories
-for i in .config downloadmusic linuxbook memes memes/website music apeepee storagedrive scripts walls archwikidocs gitwebsite windowhdd windowos windowssd .newsboat .config/aerc .config/alacritty .config/dunst .config/i3 .config/mpd .config/mpv .config/ncmpcpp .config/nvim .config/picom .config/polybar .config/qutebrowser .config/ranger .config/sxhkd .config/youtube-dl; do
+for i in .config downloadmusic linuxbook memes memes/website music storagedrive scripts walls archwikidocs gitwebsite windowhdd windowos windowssd .newsboat .config/aerc .config/alacritty .config/dunst .config/i3 .config/i3/scripts .config/mpd .config/mpv .config/ncmpcpp .config/nvim .config/picom .config/polybar .config/qutebrowser .config/ranger .config/sxhkd .config/youtube-dl; do
     ! [ -d "$HOME"/"$i" ] && { echo "Creating $HOME/$i..." ; mkdir "$HOME"/"$i" ;} || echo "That directory exists"
 done
 
-
-#check for directories
-dirs=( "dunst" "alacritty" "ncmpcpp" "nvim" "picom" "ranger" "i3" "mpd" "music" "walls" "scripts" ".newsboat" )
-
-for i in "${dirs[@]}"; do
-    case "$i" in
-        "music") [ ! -d ~/music ] && mkdir ~/music ;;
-        "walls") [ ! -d ~/walls ] && mkdir ~/walls ;;
-        "scripts") [ ! -d ~/scripts ] && mkdir ~/scripts ;;
-        ".newsboat") [ ! -d ~/.newsboat ] && mkdir ~/.newsboat ;;
-        *) [ ! -d ~/.config/"$i" ] && mkdir ~/.config/"$i" ;;
-    esac
-done
-
-mkdir ~/.i3/scripts
 
 #cp configs from git directory
 /bin/cp -ivrf ~/archconfig/dunstrc ~/.config/dunst/
@@ -60,5 +45,3 @@ mkdir ~/.i3/scripts
 /bin/cp -ivrf ~/archconfig/.xinitrc ~/
 /bin/cp -ivrf ~/archconfig/.zprofile ~/
 /bin/cp -ivrf ~/archconfig/.zshrc ~/
-
-
