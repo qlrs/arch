@@ -1,47 +1,34 @@
-#!/bin/sh
-#TODO shellcheck
+#!/bin/bash
 
-###
-#requires a list of programs you want installed
-###
 
-#requires networking, git, and ssh keys on git server
-
-#FIX FOR VOID
 #check for internet connection
 [ "$(ping -c 1 9.9.9.9)" ] && echo success || echo fail
 
 
-#need to check commands for void linux
-#check if programs are installed, install them if not
-while IFS= read -r line; do
-    #xbps-query -m  OR -l for void linux I THINK
-    [ "$(pacman -Qqe | grep $line)" ] && echo "$line already installed" || sudo pacman --noconfirm -S "$line"
-#    #sudo xbps-install -Sy "$line" for void linux
-
-done < listofprograms
-
 #add necessary directories
-for i in .config downloadmusic linuxbook memes memes/website music storagedrive scripts walls archwikidocs gitwebsite windowhdd windowos windowssd .newsboat .config/aerc .config/alacritty .config/dunst .config/i3 .config/i3/scripts .config/mpd .config/mpv .config/ncmpcpp .config/nvim .config/picom .config/polybar .config/qutebrowser .config/ranger .config/sxhkd .config/youtube-dl; do
-    ! [ -d "$HOME"/"$i" ] && { echo "Creating $HOME/$i..." ; mkdir "$HOME"/"$i" ;} || echo "That directory exists"
-done
+mkdir "$HOME"/downloadmusic "$HOME"/linuxbook "$HOME"/memes "$HOME"/memes/website "$HOME"/music "$HOME"/storagedrive "$HOME"/scripts "$HOME"/walls "$HOME"/archwikidocs "$HOME"/gitwebsite "$HOME"/.newsboat "$HOME"/alacritty "$HOME"/dunst "$HOME"/i3 "$HOME"/mpd "$HOME"/ncmpcpp "$HOME"/nvim "$HOME"/picom "$HOME"/polybar "$HOME"/ranger "$HOME"/sxhkd "$HOME"/youtube-dl
 
 
-#cp configs from git directory
-/bin/cp -ivrf ~/archconfig/dunstrc ~/.config/dunst/
-/bin/cp -ivrf ~/archconfig/ncmpcppbindings ~/.config/ncmpcpp/bindings
-/bin/cp -ivrf ~/archconfig/init.vim ~/.config/nvim/
-/bin/cp -ivrf ~/archconfig/picom.conf ~/.config/picom/
-/bin/cp -ivrf ~/archconfig/rc.conf ~/.config/ranger/
-/bin/cp -ivrf ~/archconfig/rifle.conf ~/.config/ranger/
-/bin/cp -ivrf ~/archconfig/alacritty.yml ~/.config/alacritty/
-/bin/cp -ivrf ~/archconfig/mpd.conf ~/.config/mpd/
-/bin/cp -ivrf ~/archconfig/config ~/.config/i3/
-/bin/cp -ivrf ~/archconfig/i3scripts/* ~/.config/i3/scripts
-/bin/cp -ivrf ~/archconfig/walls/* ~/walls
-/bin/cp -ivrf ~/archconfig/systemscripts/* ~/scripts/
-/bin/cp -ivrf ~/archconfig/.newsboat/* ~/.newsboat/
-/bin/cp -ivrf ~/archconfig/.Xdefaults ~/
-/bin/cp -ivrf ~/archconfig/.xinitrc ~/
-/bin/cp -ivrf ~/archconfig/.zprofile ~/
-/bin/cp -ivrf ~/archconfig/.zshrc ~/
+#check if packages are installed, install them if not
+installpackages() {
+while IFS= read -r line; do
+    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || sudo pacman --noconfirm --needed -S "$line"
+done < "$1"
+}
+
+
+#copy the config files from the git directory to their proper locations
+placeconfigs() {
+while IFS=, read -r file location; do
+    #works ✅
+    cp -r "$HOME"/archconfig/"$file" "$HOME"/"$location"
+done < "$1"
+}
+
+
+#this command will generate skeleton config for ranger
+ranger --copy-config=all
+
+
+installpackages packages.txt
+placeconfigs configlocations.csv
