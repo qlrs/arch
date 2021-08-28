@@ -1,4 +1,7 @@
 #!/bin/bash
+#TODO
+#check that sudo is used correctly
+#alternitavely, run script as sudo and add parts to setup a user account
 
 
 #check for internet connection
@@ -36,3 +39,6 @@ ranger --copy-config=all
 
 installpackages packages.txt
 placeconfigs configlocations.csv
+
+#change default shell to zsh
+chsh -s /usr/bin/zsh
