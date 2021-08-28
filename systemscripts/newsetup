@@ -2,7 +2,11 @@
 
 
 #check for internet connection
-[ "$(ping -c 1 9.9.9.9)" ] && echo success || echo fail
+[ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
+
+
+#rename git repo directory
+mv "$HOME"/arch "$HOME"/archconfig
 
 
 #add necessary directories
