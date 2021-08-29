@@ -1,6 +1,10 @@
 #!/bin/sh
-#give url of picture or colon seperated list, url;name
+#Give url of picture or a spaced list such as
+#url name
+
+
 [ -z "$1" ] && notify-send "Please enter a url or list" && exit
+
 
 if echo "$1" | grep -q "http"; then
     echo "What do you want the file to be called? "; read -r name
@@ -12,4 +16,3 @@ else
         mv "$name" "$HOME"/walls
     done < "$1"
 fi
-

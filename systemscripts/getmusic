@@ -1,5 +1,5 @@
 #!/bin/sh
-#you need to specify downloadmusic in your youtube-dl config
+#You need to specify downloadmusic in your youtube-dl config
 #-o "$HOME"/downloadmusic/%(title)s.%(ext)s
 
 musiclocation() {

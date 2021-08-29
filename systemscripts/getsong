@@ -1,6 +1,8 @@
 #!/bin/sh
 
+
 [ -z "$1" ] && notify-send "No link" && exit
+
 
 songinfo() {
 
@@ -39,6 +41,7 @@ songplacement() {
         rm "$filename"
     fi
 }
+
 
 songinfo
 songplacement $1
