@@ -6,7 +6,8 @@
 #every instance of "$HOME" will need to be changed to /home/"$username"
 
 #since this script will be ran as root, you will need
-#to change the permission of the git cloned folder, this can be added to 
+#to change the permission of the git cloned folder, AND you will have to copy the 
+#location of the folder to the new users home directory, this can be added to 
 #the rename git repo directory part and made into a function 
 #chown -R "$username":wheel /home/"$username"/arch I THINK
 
