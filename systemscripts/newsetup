@@ -1,44 +1,65 @@
 #!/bin/bash
+#run script as root
+
+
 #TODO
-#check that sudo is used correctly
-#alternitavely, run script as sudo and add parts to setup a user account
+#every instance of "$HOME" will need to be changed to /home/"$username"
 
+#since this script will be ran as root, you will need
+#to change the permission of the git cloned folder, this can be added to 
+#the rename git repo directory part and made into a function 
+#chown -R "$username":wheel /home/"$username"/arch I THINK
 
-#check for internet connection
+#okay make sure you INSTALL and SET zsh first
+#useradd -m -G mpd,audio,wheel -s /bin/zsh $username
+#echo "$username:$password" | chpasswd
+
+#Check for internet connection
 [ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
 
 
-#rename git repo directory
+#Rename git repo directory
 mv "$HOME"/arch "$HOME"/archconfig
 
 
-#add necessary directories
+#Add necessary directories
 mkdir "$HOME"/downloadmusic "$HOME"/linuxbook "$HOME"/memes "$HOME"/memes/website "$HOME"/music "$HOME"/storagedrive "$HOME"/scripts "$HOME"/walls "$HOME"/archwikidocs "$HOME"/gitwebsite "$HOME"/.newsboat "$HOME"/alacritty "$HOME"/dunst "$HOME"/i3 "$HOME"/mpd "$HOME"/ncmpcpp "$HOME"/nvim "$HOME"/picom "$HOME"/polybar "$HOME"/ranger "$HOME"/sxhkd "$HOME"/youtube-dl
 
 
-#check if packages are installed, install them if not
+#Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
-    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || sudo pacman --noconfirm --needed -S "$line"
+    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || sudo -u "$username" pacman --noconfirm --needed -S "$line"
 done < "$1"
 }
 
 
-#copy the config files from the git directory to their proper locations
+#Copy the config files from the git directory to their proper locations
 placeconfigs() {
 while IFS=, read -r file location; do
-    #works ✅
     cp -r "$HOME"/archconfig/"$file" "$HOME"/"$location"
 done < "$1"
 }
 
 
-#this command will generate skeleton config for ranger
+#Create the user account, add them to the necessary groups, and
+#set a password.
+usernameandpassword() {
+    echo "What do you want your username to be?" ; read -r username
+    echo "What do you want your password to be?" ; read -r password
+    useradd -m -G mpd,audio,wheel -s /bin/zsh "$username"
+    echo "$username":"$password" | chpasswd
+}
+
+
+#This command will generate skeleton config for ranger
 ranger --copy-config=all
 
 
-installpackages packages.txt
-placeconfigs configlocations.csv
+usernameandpassword || exit 1
+installpackages packages.txt || exit 1
+placeconfigs configlocations.csv || exit 1
 
-#change default shell to zsh
+
+#Change default shell to zsh
 chsh -s /usr/bin/zsh
