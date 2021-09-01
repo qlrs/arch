@@ -3,28 +3,16 @@
 
 
 #TODO
-#every instance of "$HOME" will need to be changed to /home/"$username"
 
 #since this script will be ran as root, you will need
 #to change the permission of the git cloned folder, AND you will have to copy the 
 #location of the folder to the new users home directory, this can be added to 
-#the rename git repo directory part and made into a function 
+#the rename git repo directory part and made into a function, i believe this command will have to be ran with sudo -u
 #chown -R "$username":wheel /home/"$username"/arch I THINK
-
-#okay make sure you INSTALL and SET zsh first
-#useradd -m -G mpd,audio,wheel -s /bin/zsh $username
-#echo "$username:$password" | chpasswd
-
-#Check for internet connection
-[ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
-
-
-#Rename git repo directory
-mv "$HOME"/arch "$HOME"/archconfig
 
 
 #Add necessary directories
-mkdir "$HOME"/downloadmusic "$HOME"/linuxbook "$HOME"/memes "$HOME"/memes/website "$HOME"/music "$HOME"/storagedrive "$HOME"/scripts "$HOME"/walls "$HOME"/archwikidocs "$HOME"/gitwebsite "$HOME"/.newsboat "$HOME"/alacritty "$HOME"/dunst "$HOME"/i3 "$HOME"/mpd "$HOME"/ncmpcpp "$HOME"/nvim "$HOME"/picom "$HOME"/polybar "$HOME"/ranger "$HOME"/sxhkd "$HOME"/youtube-dl
+mkdir "/home/$username"/downloadmusic "/home/$username"/linuxbook "/home/$username"/memes "/home/$username"/memes/website "/home/$username"/music "/home/$username"/storagedrive "/home/$username"/scripts "/home/$username"/walls "/home/$username"/archwikidocs "/home/$username"/gitwebsite "/home/$username"/.newsboat "/home/$username"/alacritty "/home/$username"/dunst "/home/$username"/i3 "/home/$username"/mpd "/home/$username"/ncmpcpp "/home/$username"/nvim "/home/$username"/picom "/home/$username"/polybar "/home/$username"/ranger "/home/$username"/sxhkd "/home/$username"/youtube-dl
 
 
 #Check if packages are installed, install them if not
@@ -38,7 +26,7 @@ done < "$1"
 #Copy the config files from the git directory to their proper locations
 placeconfigs() {
 while IFS=, read -r file location; do
-    cp -r "$HOME"/archconfig/"$file" "$HOME"/"$location"
+    cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
 done < "$1"
 }
 
@@ -48,16 +36,22 @@ done < "$1"
 usernameandpassword() {
     echo "What do you want your username to be?" ; read -r username
     echo "What do you want your password to be?" ; read -r password
-    useradd -m -G mpd,audio,wheel -s /bin/zsh "$username"
+    useradd -m -G mpd,audio,wheel -s /bin/bash "$username"
     echo "$username":"$password" | chpasswd
 }
 
 
-#This command will generate skeleton config for ranger
-ranger --copy-config=all
+[ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection" #Check for internet connection
+
+
+mv "/home/$username"/arch "/home/$username"/archconfig #Rename git repo directory
+
+
+ranger --copy-config=all #This command will generate skeleton config for ranger
 
 
 usernameandpassword || exit 1
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers #adds user to sudoers file
 installpackages packages.txt || exit 1
 placeconfigs configlocations.csv || exit 1
 
