@@ -1,14 +1,7 @@
 #!/bin/bash
 #run script as root
-
-
 #TODO
-
-#since this script will be ran as root, you will need
-#to change the permission of the git cloned folder, AND you will have to copy the 
-#location of the folder to the new users home directory, this can be added to 
-#the rename git repo directory part and made into a function, i believe this command will have to be ran with sudo -u
-#chown -R "$username":wheel /home/"$username"/arch I THINK
+#add paru installation
 
 
 #Add necessary directories
@@ -44,6 +37,9 @@ usernameandpassword() {
 [ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection" #Check for internet connection
 
 
+#TODO
+#the cloned repo will go somewhere in roots home, needs to be moved and chown'd
+#chown -R "$username":wheel /home/"$username"/arch I THINK
 mv "/home/$username"/arch "/home/$username"/archconfig #Rename git repo directory
 
 
