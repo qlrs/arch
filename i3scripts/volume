@@ -9,9 +9,9 @@ case $BLOCK_BUTTON in
 esac
 
 
-currentvolume=`pamixer --get-volume`
+currentvolume=$(pamixer --get-volume)
 
-if [ $(pamixer --get-mute) = true ]; then
+if [ "$(pamixer --get-mute)" = true ]; then
     icon="🔇"
 else
     icon="🔊"
