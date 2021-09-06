@@ -4,9 +4,6 @@
 #add paru installation
 
 
-#Add necessary directories
-
-
 #Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
@@ -37,8 +34,8 @@ usernameandpassword() {
 
 
 #the cloned repo will go somewhere in roots home, needs to be moved and chown'd
-chown -R "$username":wheel /home/"$username"/arch I THINK
-mv /root/arch /home/"$username"/archconfig #Rename git repo directory
+chown -R "$username":wheel /home/"$username"/arch
+cp -r "/root/arch" "/home/$username/archconfig" #Rename git repo directory
 
 
 
