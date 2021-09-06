@@ -40,7 +40,7 @@ usernameandpassword() {
 #TODO
 #the cloned repo will go somewhere in roots home, needs to be moved and chown'd
 #chown -R "$username":wheel /home/"$username"/arch I THINK
-mv "/home/$username"/arch "/home/$username"/archconfig #Rename git repo directory
+mv /root/arch /home/"$username"/archconfig #Rename git repo directory
 
 
 ranger --copy-config=all #This command will generate skeleton config for ranger
