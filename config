@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:Inconsolata
+font pango:Terminus 11
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec --no-startup-id nm-applet
 #exec screen
@@ -103,15 +103,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# reload the configuration file
-#bindsym $mod+Shift+p reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-
-#bindsym $mod+r mode "resize"
 
 #exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
 bar {
@@ -127,25 +120,25 @@ bar {
 
 
 
-#gaps
+# Gaps
 for_window [class="^.*"] border pixel 3
-#desktop
+# Desktop
 gaps inner 25
-#laptop
+# Laptop
 #gaps inner 10
 
 #smart border and gaps
 #smart_borders on
 #smart_gaps on
 
-#resize windows without dumbass resize mode
+# Resize windows without dumbass resize mode
 bindsym $mod+Shift+y	resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+u	resize grow height 10 px or 10 ppt
 bindsym $mod+Shift+i	resize shrink height 10 px or 10 ppt
 bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 
 
-#launch shit
+# Launch shit (switched to sxhkd)
 #bindsym $mod+Shift+e exec /home/dan/scripts/memeji
 #bindsym $mod+z exec gnome-calculator
 #bindsym $mod+Shift+w exec alacritty -e aerc
@@ -161,12 +154,12 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 #bindsym $mod+r exec /home/dan/scripts/redditdmenu
 #bindsym $mod+a exec alacritty -e calcurse
 
-#wallpaper and pywal
-#moved to xprofile
+# Wallpaper and pywal
+# Moved to xprofile
 #exec_always feh --bg-scale /home/dan/walls/landscape9.jpg
 #exec_always wal -i /home/dan/walls/flowers1.jpg
 
-#specific screens
+# Specific screens
 workspace 1 output DVI-D-0
 workspace 2 output HDMI-1
 workspace 4 output HDMI-1
@@ -175,7 +168,7 @@ workspace 5 output DP-0
 workspace 6 output DVI-D-0
 
 
-#launch floating
+# Launch floating
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="Tor Browser" instance="Navigator"] floating enable
