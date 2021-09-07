@@ -8,4 +8,4 @@ price() {
 }
 
 
-echo "💲 ETH-$(price eth) 💲 BTC-$(price btc)"
+echo "💲 ETH: $(price eth) 💲 BTC: $(price btc)"
