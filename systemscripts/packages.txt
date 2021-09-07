@@ -54,7 +54,6 @@ tamsyn-font
 terminus-font
 torbrowser-launcher
 transmission-gtk
-ttf-font-awesome
 ttf-inconsolata
 ttf-joypixels
 ttf-linux-libertine
