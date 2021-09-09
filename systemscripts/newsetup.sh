@@ -41,6 +41,7 @@ usernameandpassword || exit 1
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 
+# Big yikes I know
 mkdir "/home/$username"/downloadmusic "/home/$username"/linuxbook "/home/$username"/memes "/home/$username"/memes/website "/home/$username"/music "/home/$username"/storagedrive "/home/$username"/scripts "/home/$username"/walls "/home/$username"/archwikidocs "/home/$username"/gitwebsite "/home/$username"/.newsboat "/home/$username"/alacritty "/home/$username"/dunst "/home/$username"/i3 "/home/$username"/mpd "/home/$username"/ncmpcpp "/home/$username"/nvim "/home/$username"/picom "/home/$username"/polybar "/home/$username"/ranger "/home/$username"/sxhkd "/home/$username"/youtube-dl
 installpackages packages.txt || exit 1
 
@@ -49,7 +50,7 @@ installpackages packages.txt || exit 1
 cp -r "/root/arch" "/home/$username/archconfig"
 chown -R "$username":wheel /home/"$username"/arch
 
-# This command will generate skeleton config for ranger
+# Generates skeleton config for ranger
 ranger --copy-config=all
 
 
