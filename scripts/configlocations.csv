@@ -20,6 +20,6 @@ config/sxhkdrc,.config/sxhkd/
 i3scripts,.config/i3/scripts
 .newsboat,
 qutebrowser,.config/
-stuff,/memes
+stuff,memes
 scripts,scripts
 walls,
