@@ -1,6 +1,7 @@
 #!/bin/bash
 # Run script as root
 # TODO
+# MAJOR fix mkdir section, many need a .config/ before the name
 # Add paru installation
 
 
