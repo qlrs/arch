@@ -43,7 +43,7 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 
 # Big yikes I know
-mkdir "/home/$username"/downloadmusic "/home/$username"/linuxbook "/home/$username"/memes "/home/$username"/memes/website "/home/$username"/music "/home/$username"/storagedrive "/home/$username"/scripts "/home/$username"/walls "/home/$username"/archwikidocs "/home/$username"/gitwebsite "/home/$username"/.newsboat "/home/$username"/alacritty "/home/$username"/dunst "/home/$username"/i3 "/home/$username"/mpd "/home/$username"/ncmpcpp "/home/$username"/nvim "/home/$username"/picom "/home/$username"/polybar "/home/$username"/ranger "/home/$username"/sxhkd "/home/$username"/youtube-dl
+mkdir "/home/$username"/downloadmusic "/home/$username"/linuxbook "/home/$username"/memes "/home/$username"/memes/website "/home/$username"/music "/home/$username"/storagedrive "/home/$username"/scripts "/home/$username"/walls "/home/$username"/archwikidocs "/home/$username"/gitwebsite "/home/$username"/.newsboat "/home/$username"/.config/alacritty "/home/$username"/.config/dunst "/home/$username"/.config/i3 "/home/$username"/.config/mpd "/home/$username"/.config/ncmpcpp "/home/$username"/.config/nvim "/home/$username"/.config/picom "/home/$username"/.config/polybar "/home/$username"/.config/ranger "/home/$username"/.config/sxhkd "/home/$username"/.config/youtube-dl
 installpackages packages.txt || exit 1
 
 
