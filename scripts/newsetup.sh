@@ -1,6 +1,8 @@
 #!/bin/bash
 # Run script as root
 # TODO
+# All directories that are created are owned by root, need to be 
+# chown'd to $username
 # Add paru installation
 # Make dash default sh
 
@@ -52,7 +54,7 @@ cp -r "/root/arch" "/home/$username/archconfig"
 chown -R "$username":wheel /home/"$username"/arch
 
 # Generates skeleton config for ranger
-ranger --copy-config=all
+sudo -u "username" ranger --copy-config=all
 
 
 # Put all the git repo files and folders in the right places
