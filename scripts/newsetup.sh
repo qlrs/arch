@@ -39,6 +39,7 @@ usernameandpassword() {
 
 usernameandpassword || exit 1
 
+[ -f /etc/sudoers.pacnew ] && cp /etc/sudoers.pacnew /etc/sudoers
 
 # Adds user to sudoers file
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -62,4 +63,4 @@ placeconfigs configlocations.csv || exit 1
 
 
 # Change default shell to zsh
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/zsh "$username"
