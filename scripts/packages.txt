@@ -19,6 +19,7 @@ dnscrypt-proxy
 dunst
 exa
 fd
+feh
 fff
 firefox
 gnome-calculator
