@@ -17,7 +17,7 @@ config/sxhkdrc,.config/sxhkd/
 .zshrc,
 .bash_profile,
 .bashrc,
-i3scripts,.config/i3/scripts
+i3scripts,.config/i3/i3scripts
 .newsboat,
 qutebrowser,.config/
 stuff,memes
