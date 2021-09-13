@@ -1,8 +1,7 @@
 #!/bin/bash
 # Run script as root
 # TODO
-# All directories that are created are owned by root, need to be 
-# chown'd to $username
+# Add vim-plug "https://github.com/junegunn/vim-plug"
 # Add paru installation
 # Make dash default sh
 
@@ -10,7 +9,7 @@
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
-    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || pacman --noconfirm --needed -S "$line"
+    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" > /dev/null 2>&1
 done < "$1"
 }
 
@@ -18,7 +17,7 @@ done < "$1"
 # Copy the config files from the git directory to their proper locations
 placeconfigs() {
 while IFS=, read -r file location; do
-    cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
+    sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
 done < "$1"
 }
 
