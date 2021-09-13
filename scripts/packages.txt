@@ -62,6 +62,7 @@ torbrowser-launcher
 transmission-gtk
 ttf-inconsolata
 ttf-joypixels
+ttf-llberation
 ttf-linux-libertine
 ueberzug
 unclutter
