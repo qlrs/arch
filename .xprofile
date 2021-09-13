@@ -3,11 +3,12 @@
 sxhkd &
 mpd &
 xset r rate 400 50 &
+xset s 3600 5400 &
 clipmenud &
 unclutter &
 picom &
 dunst &
 screen &
-capstoescape &
+capstoescape.sh &
 nm-applet &
-feh --bg-scale /home/dan/walls/landscape10.png
+feh --bg-scale /home/dan/walls/cyberpunk7.jpg
