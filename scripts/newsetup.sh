@@ -46,7 +46,7 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 
 # Big yikes I know
-mkdir -p "/home/$username/downloadmusic" "/home/$username/linuxbook" "/home/$username/memes" "/home/$username/memes/website" "/home/$username/music" "/home/$username/storagedrive" "/home/$username/scripts" "/home/$username/walls" "/home/$username/archwikidocs" "/home/$username/gitwebsite" "/home/$username/.newsboat" "/home/$username/.config/alacritty" "/home/$username/.config/dunst" "/home/$username/.config/i3" "/home/$username/.config/mpd" "/home/$username/.config/ncmpcpp" "/home/$username/.config/nvim" "/home/$username/.config/picom" "/home/$username/.config/polybar" "/home/$username/.config/ranger" "/home/$username/.config/sxhkd" "/home/$username/.config/youtube-dl"
+sudo -u "$username" mkdir -p "/home/$username/downloadmusic" "/home/$username/linuxbook" "/home/$username/memes" "/home/$username/memes/website" "/home/$username/music" "/home/$username/storagedrive" "/home/$username/scripts" "/home/$username/walls" "/home/$username/archwikidocs" "/home/$username/gitwebsite" "/home/$username/.newsboat" "/home/$username/.config/alacritty" "/home/$username/.config/dunst" "/home/$username/.config/i3" "/home/$username/.config/mpd" "/home/$username/.config/ncmpcpp" "/home/$username/.config/nvim" "/home/$username/.config/picom" "/home/$username/.config/polybar" "/home/$username/.config/ranger" "/home/$username/.config/sxhkd" "/home/$username/.config/youtube-dl"
 installpackages packages.txt || exit 1
 
 
@@ -55,7 +55,7 @@ cp -r "/root/arch" "/home/$username/archconfig"
 chown -R "$username":wheel /home/"$username"/arch
 
 # Generates skeleton config for ranger
-sudo -u "username" ranger --copy-config=all
+sudo -u "$username" ranger --copy-config=all
 
 
 # Put all the git repo files and folders in the right places
