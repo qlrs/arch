@@ -61,6 +61,7 @@ transmission-gtk
 ttf-inconsolata
 ttf-joypixels
 ttf-linux-libertine
+ueberzug
 unclutter
 urxvt-perls
 wget
