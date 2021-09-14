@@ -6,6 +6,13 @@
 # Make dash default sh
 
 
+# Check if user has sudo installed prior to running script
+sudocheck () {
+    echo "This script will only work with sudo installed, are you sure you have sudo already installed? Y or N" ; read -r answer
+    [ "$answer" = "Y" ] && echo "Okay, continuing..." || { echo "Please install sudo first, exiting script now." ; exit 1 ;}
+}
+
+
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
@@ -35,6 +42,8 @@ usernameandpassword() {
 # Check for internet connection
 [ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
 
+
+sudocheck
 
 usernameandpassword || exit 1
 
