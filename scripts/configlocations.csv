@@ -8,7 +8,7 @@ config/ncmpcppbindings,.config/ncmpcpp/bindings
 config/picom.conf,.config/picom/
 config/rc.conf,.config/ranger/
 config/rifle.conf,.config/ranger/
-config/youtube-dlconfig,.config/youtube/config
+config/youtube-dlconfig,.config/youtube-dl/config
 config/sxhkdrc,.config/sxhkd/
 .Xdefaults,
 .xinitrc,
