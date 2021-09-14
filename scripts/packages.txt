@@ -91,4 +91,6 @@ xorg-xrefresh
 xorg-xwud
 xwallpaper
 yad
+zenity
+zsh
 zsh-syntax-highlighting
