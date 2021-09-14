@@ -63,7 +63,7 @@ cp -r "/root/arch" "/home/$username/archconfig"
 chown -R "$username":wheel /home/"$username"/arch
 
 # Generates skeleton config for ranger
-su -c ranger --copy-config=all "$username"
+sudo -u "$username" ranger --copy-config=all "$username"
 
 
 # Put all the git repo files and folders in the right places
