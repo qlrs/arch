@@ -41,6 +41,7 @@ networkmanager-openvpn
 newsboat
 nnn
 opus-tools
+openssh
 pacman-contrib
 pamixer
 pass
