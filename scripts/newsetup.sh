@@ -60,7 +60,7 @@ installpackages packages.txt || exit 1
 
 # Rename git repo directory
 cp -r "/root/arch" "/home/$username/archconfig"
-chown -R "$username":wheel /home/"$username"/arch
+chown -R "$username":wheel /home/"$username"/archconfig
 
 # Generates skeleton config for ranger
 sudo -u "$username" ranger --copy-config=all "$username"
