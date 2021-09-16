@@ -112,8 +112,8 @@ bar {
 	position top
     tray_output primary
     colors {
-    focused_workspace  #ffffff #0066ff
-    urgent_workspace #ffffff #fe0100
+    focused_workspace  #ffffff #458588
+    urgent_workspace #ffffff #cc241d
 
     }
 }
@@ -181,10 +181,10 @@ for_window [class="Steam"] floating enable
 
 #colors
 # class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #d0d0d0   #0066ff
+client.focused              #ffffff #ffffff #ffffff #92871a   #458588
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
-client.urgent               #ffffff #ffffff #ffffff #555555   #fe0100
+client.urgent               #ffffff #ffffff #ffffff #555555   #cc241d
 
 #mouse warping
 mouse_warping none
