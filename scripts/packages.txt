@@ -13,11 +13,11 @@ calcurse
 checkbashisms
 clipmenu
 cmatrix
+curl
 dash
 dmenu
 dnscrypt-proxy
 dunst
-exa
 fd
 feh
 fff
