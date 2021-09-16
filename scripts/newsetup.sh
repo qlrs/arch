@@ -4,12 +4,17 @@
 # Add vim-plug "https://github.com/junegunn/vim-plug"
 # Add paru installation
 # Make dash default sh
+# Create .mpd dir in home and create the mpd.db mpd.log and mpd.pid files in it
 
 
 # Check if user has sudo installed prior to running script
 sudocheck () {
     echo "This script will only work with sudo installed, are you sure you have sudo already installed? Y or N" ; read -r answer
-    [ "$answer" = "Y" ] && echo "Okay, continuing..." || { echo "Please install sudo first, exiting script now." ; exit 1 ;}
+    if [ "$answer" = "Y" ]; then
+        echo "Okay, continuing..."
+    else 
+        echo "Please install sudo first, exiting script now." ; exit 1
+    fi
 }
 
 
@@ -72,3 +77,7 @@ placeconfigs configlocations.csv || exit 1
 
 # Change default shell to zsh
 chsh -s /usr/bin/zsh "$username"
+
+# Create a to-do list for things that I haven't done in this script
+echo "Creating a To-Do list in your home directory..."
+printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers" > "/home/$username"
