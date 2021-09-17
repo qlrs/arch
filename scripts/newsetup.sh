@@ -1,11 +1,13 @@
 #!/bin/bash
 # Run script as root
+
 # TODO
 # Add vim-plug "https://github.com/junegunn/vim-plug"
 # Add paru installation
-# Make dash default sh
-# Create .mpd dir in home and create the mpd.db mpd.log and mpd.pid files in it
 
+#################
+### Functions ###
+#################
 
 # Check if user has sudo installed prior to running script
 sudocheck () {
@@ -17,7 +19,6 @@ sudocheck () {
     fi
 }
 
-
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
@@ -25,14 +26,12 @@ while IFS= read -r line; do
 done < "$1"
 }
 
-
 # Copy the config files from the git directory to their proper locations
 placeconfigs() {
 while IFS=, read -r file location; do
     sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
 done < "$1"
 }
-
 
 # Create the user account, add them to the necessary groups, and
 # set a password.
@@ -43,29 +42,48 @@ usernameandpassword() {
     echo "$username":"$password" | chpasswd
 }
 
+# Rename git repo directory
+reporename() {
+    cp -r "/root/arch" "/home/$username/archconfig"
+    chown -R "$username":wheel /home/"$username"/archconfig
+}
+
+# Create a to-do list for things that I haven't done in this script
+todolist() {
+    echo "Creating a To-Do list in your home directory..."
+    sudo -u "$username" printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers" > "/home/$username"
+}
+
+# Create mpd directory and necessary files
+mpdstuff() {
+    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.db" 
+    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.log" 
+    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.pid" 
+}
+
+#####################
+### End functions ###
+#####################
 
 # Check for internet connection
 [ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
-
 
 sudocheck
 
 usernameandpassword || exit 1
 
+# Seems necessary /shrug
 [ -f /etc/sudoers.pacnew ] && cp /etc/sudoers.pacnew /etc/sudoers
 
 # Adds user to sudoers file
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-
 # Big yikes I know
 sudo -u "$username" mkdir -p "/home/$username/downloadmusic" "/home/$username/linuxbook" "/home/$username/memes" "/home/$username/memes/website" "/home/$username/music" "/home/$username/storagedrive" "/home/$username/scripts" "/home/$username/walls" "/home/$username/archwikidocs" "/home/$username/gitwebsite" "/home/$username/.newsboat" "/home/$username/.config/alacritty" "/home/$username/.config/dunst" "/home/$username/.config/i3" "/home/$username/.config/mpd" "/home/$username/.config/ncmpcpp" "/home/$username/.config/nvim" "/home/$username/.config/picom" "/home/$username/.config/polybar" "/home/$username/.config/ranger" "/home/$username/.config/sxhkd" "/home/$username/.config/youtube-dl"
+
 installpackages packages.txt || exit 1
 
-
-# Rename git repo directory
-cp -r "/root/arch" "/home/$username/archconfig"
-chown -R "$username":wheel /home/"$username"/archconfig
+reporename
 
 # Generates skeleton config for ranger
 sudo -u "$username" ranger --copy-config=all "$username"
@@ -78,6 +96,9 @@ placeconfigs configlocations.csv || exit 1
 # Change default shell to zsh
 chsh -s /usr/bin/zsh "$username"
 
-# Create a to-do list for things that I haven't done in this script
-echo "Creating a To-Do list in your home directory..."
-printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers" > "/home/$username"
+# Change sh to dash, bash updates will overwrite this though
+sudo -u "$username" ln -sfT dash /usr/bin/sh
+
+mpdstuff
+
+todolist
