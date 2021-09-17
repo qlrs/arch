@@ -56,9 +56,9 @@ todolist() {
 
 # Create mpd directory and necessary files
 mpdstuff() {
-    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.db" 
-    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.log" 
-    sudo -u "$username" touch "/home/$username/.config/mpd/mpd.pid" 
+    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.db" 
+    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.log" 
+    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.pid" 
 }
 
 #####################
