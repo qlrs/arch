@@ -1,8 +1,6 @@
 #!/bin/sh
 
-
 [ -z "$1" ] && notify-send "No link" && exit
-
 
 songinfo() {
 
@@ -42,6 +40,5 @@ songplacement() {
     fi
 }
 
-
 songinfo
-songplacement $1
+songplacement "$1"
