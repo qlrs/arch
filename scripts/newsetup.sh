@@ -11,12 +11,16 @@
 
 # Check if user has sudo installed prior to running script
 sudocheck () {
-    echo "This script will only work with sudo installed, are you sure you have sudo already installed? Y or N" ; read -r answer
-    if [ "$answer" = "Y" ]; then
-        echo "Okay, continuing..."
-    else 
-        echo "Please install sudo first, exiting script now." ; exit 1
-    fi
+    while true; do
+        echo "This script will only work with sudo installed, are you sure you have sudo already installed? Y or N"
+        read -r answer
+        case $answer in
+            [Yy][Ee][Ss]|[Yy] ) echo "Okay, continuing..." ; break ;;
+            [Nn][Oo]|[Nn] ) echo "Please install sudo first, exiting now." ; exit 1 ;;
+            *) echo "Please answer yes or no."
+        esac
+    done
+            
 }
 
 # Check if packages are installed, install them if not
