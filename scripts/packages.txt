@@ -59,6 +59,7 @@ sxhkd
 sxiv
 tamsyn-font
 terminus-font
+time
 torbrowser-launcher
 transmission-gtk
 ttf-inconsolata
