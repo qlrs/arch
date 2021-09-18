@@ -81,6 +81,7 @@ alias tuir='tuir --enable-media'
 alias clearlock='xmodmap -e "clear lock"'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
 alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' ~/memes/website/ root@rschrader.xyz:/var/www/wowee'
+alias realtime='/usr/bin/time -p'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
