@@ -3,8 +3,8 @@
 
 price() {
     coin="$1"
-    price="$(curl -s rate.sx/$coin | awk '/end/ {print $8}')"
-    echo $price
+    price="$(curl -s rate.sx/"$coin" | awk '/end/ {print $8}')"
+    echo "$price"
 }
 
 

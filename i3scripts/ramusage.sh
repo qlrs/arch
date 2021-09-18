@@ -1,13 +1,9 @@
 #!/bin/sh
 
-if [ "$(command -v htop)" ]; then
-    tp="htop"
-else
-    tp="top"
-fi
+[ "$(command -v htop)" ] && tp="htop" || tp="top"
 
 ram=$(free -h | awk '/Mem/ {print $3}')
-echo "🐏 "$ram""
+echo "🐏 $ram"
 
 case $BLOCK_BUTTON in
     1) "$TERMINAL" -e "$tp";;

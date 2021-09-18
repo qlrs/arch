@@ -13,7 +13,7 @@ if [ "$(nmcli device status | grep -i "tun0")" ]; then
 
     rawtrans=$(("$thentrans" - "$nowtrans"))
     fortrans=$(numfmt --to=iec "$rawtrans")
-    echo "🔻 "$forrec" 🔺 "$fortrans""
+    echo "🔻 $forrec 🔺 $fortrans"
 else
     nowrec=$(cat /sys/class/net/enp0s31f6/statistics/rx_bytes) #change int for no vpn
     nowtrans=$(cat /sys/class/net/enp0s31f6/statistics/tx_bytes)
@@ -26,7 +26,7 @@ else
 
     rawtrans=$(("$thentrans" - "$nowtrans"))
     fortrans=$(numfmt --to=iec "$rawtrans")
-    echo "🔻 "$forrec" 🔺 "$fortrans""
+    echo "🔻 $forrec 🔺 $fortrans"
 fi
 
 case $BLOCK_BUTTON in
