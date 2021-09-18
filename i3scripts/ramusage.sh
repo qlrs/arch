@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ "$(command -v htop)" ] && tp="htop" || tp="top"
+command -v htop > /dev/null && tp="htop" || tp="top"
 
 ram=$(free -h | awk '/Mem/ {print $3}')
 echo "🐏 $ram"
