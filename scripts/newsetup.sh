@@ -9,7 +9,7 @@
 ### Functions ###
 #################
 
-# Check if user has sudo installed prior to running script
+# Check if user has sudo installed
 sudocheck () {
     while true; do
         echo "This script will only work with sudo installed, are you sure you have sudo already installed? Y or N"
@@ -20,13 +20,12 @@ sudocheck () {
             *) echo "Please answer yes or no."
         esac
     done
-            
 }
 
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
-    [ "$(pacman -Qqe | grep "$line")" ] && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" > /dev/null 2>&1
+    pacman -Qqe | grep -q "$line" && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" > /dev/null 2>&1
 done < "$1"
 }
 
