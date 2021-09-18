@@ -1,11 +1,11 @@
 #!/bin/sh
-#You need to specify downloadmusic in your youtube-dl config
+#you need to specify downloadmusic in your youtube-dl config
 #-o "$HOME"/downloadmusic/%(title)s.%(ext)s
 
 musiclocation() {
     [ ! -d "$HOME"/downloadmusic ] && mkdir "$HOME"/downloadmusic
     cd "$HOME"/downloadmusic || exit
-    mv * album
+    mv ./* album
     mv album "$musicpath"
     cd "$musicpath" || exit
     touch times
