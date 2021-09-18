@@ -51,14 +51,12 @@ reporename() {
 # Create a to-do list for things that I haven't done in this script
 todolist() {
     echo "Creating a To-Do list in your home directory..."
-    sudo -u "$username" printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers" > "/home/$username"
+    printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers" | sudo -u "$username" tee "/home/$username/todolist.txt"
 }
 
 # Create mpd directory and necessary files
 mpdstuff() {
-    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.db" 
-    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.log" 
-    sudo -u "$username" true > "/home/$username/.config/mpd/mpd.pid" 
+    echo | sudo -u "$username" tee "/home/$username/.config/mpd/{mpd.db,mpd.log,mpd.pid}"
 }
 
 #####################
