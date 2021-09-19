@@ -67,7 +67,7 @@ mpdstuff() {
 #####################
 
 # Check for internet connection
-[ "$(ping -c 1 9.9.9.9)" ] && echo "Success!" || echo "Please check your internet connection"
+ping -c 1 9.9.9.9 > /dev/null 2>&1 && echo "Success!" || echo "Please check your internet connection"
 
 sudocheck
 
@@ -84,15 +84,13 @@ sudo -u "$username" mkdir -p "/home/$username/downloadmusic" "/home/$username/li
 
 installpackages packages.txt || exit 1
 
-reporename
+reporename || exit 1
 
 # Generates skeleton config for ranger
 sudo -u "$username" ranger --copy-config=all "$username"
 
-
 # Put all the git repo files and folders in the right places
 placeconfigs configlocations.csv || exit 1
-
 
 # Change default shell to zsh
 chsh -s /usr/bin/zsh "$username"
