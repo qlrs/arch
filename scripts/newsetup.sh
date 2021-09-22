@@ -2,8 +2,7 @@
 # Run script as root
 
 # TODO
-# Add vim-plug "https://github.com/junegunn/vim-plug"
-# Add paru installation
+# Install vim-plugged
 
 #################
 ### Functions ###
@@ -59,7 +58,22 @@ todolist() {
 
 # Create mpd directory and necessary files
 mpdstuff() {
-    echo | sudo -u "$username" tee "/home/$username/.config/mpd/{mpd.db,mpd.log,mpd.pid}"
+    echo "" | sudo -u "$username" tee /home/"$username"/.config/mpd/mpd.db
+    echo "" | sudo -u "$username" tee /home/"$username"/.config/mpd/mpd.log
+    echo "" | sudo -u "$username" tee /home/"$username"/.config/mpd/mpd.pid
+}
+
+# Installs paru as an aur helper
+installparu() {
+    echo "Installing Paru..."
+    cd /home/"$username" || exit 1
+    sudo -u "$username" git clone https://aur.archlinux.org/paru.git
+    cd paru || exit 1
+    sudo -u "$username" makepkg --noconfirm -si
+}
+
+installvimplug() {
+    sudo -u "$username" sh -c 'curl -fLo "/home/$username/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 #####################
@@ -97,6 +111,9 @@ chsh -s /usr/bin/zsh "$username"
 
 # Change sh to dash, bash updates will overwrite this though
 sudo -u "$username" ln -sfT dash /usr/bin/sh
+
+# Install paru as an aur helper
+installparu
 
 mpdstuff
 
