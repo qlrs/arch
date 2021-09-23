@@ -9,7 +9,7 @@ songinfo() {
 
     echo "What is the artist name? " ; read -r artistname
     echo "What is the song name? " ; read -r songname
-    rightname="$filename"".mp3"
+    rightname="{$filename}.mp3"
 }
 
 
