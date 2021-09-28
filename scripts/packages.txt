@@ -34,6 +34,7 @@ man-pages
 mpc
 mpd
 mpv
+ncdu
 ncmpcpp
 neofetch
 network-manager-applet
