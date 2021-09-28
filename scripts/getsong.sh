@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -z "$1" ] && notify-send "No link" && exit
+[ -z "$1" ] && notify-send "No link given... exiting." && exit
 
 songinfo() {
     echo "What would you like the artist directory to be called? "; read -r dirartistname
@@ -19,8 +19,4 @@ processsong() {
 
 songinfo
 
-if [ -e "$HOME"/music/"$dirartistname" ]; then
-    processsong "$1"
-else
-    mkdir -p "$HOME"/music/"$dirartistname" ; processsong "$1"
-fi
+mkdir -p "$HOME"/music/"$dirartistname" ; processsong "$1"
