@@ -20,7 +20,7 @@ set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
 set clipboard=unnamed
 set linebreak
-set scrolloff=4
+set scrolloff=3
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set nocompatible
