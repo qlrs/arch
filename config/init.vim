@@ -44,10 +44,11 @@ map <C-l> <C-w>l
 
 map <leader>n :NERDTreeToggle<CR>
 map <leader>g :Goyo<CR>
+map <leader>w :w<CR>
 map <C-p> :w !perl<CR>
 inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
-nnoremap <leader>w :vsp
+nnoremap <leader>W :vsp
 
 set t_Co=256
 hi Normal ctermbg=none
