@@ -19,6 +19,8 @@ set statusline+=%l\
 set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
 set clipboard=unnamed
+set linebreak
+set scrolloff=4
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set nocompatible
@@ -45,7 +47,7 @@ map <leader>g :Goyo<CR>
 map <C-p> :w !perl<CR>
 inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
-nnoremap W :vsp
+nnoremap <leader>w :vsp
 
 set t_Co=256
 hi Normal ctermbg=none
