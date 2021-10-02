@@ -3,7 +3,7 @@
 sxhkd &
 mpd &
 xset r rate 400 50 &
-xset s 3600 5400 &
+xautolock -time 30 -locker "systemctl suspend" -detectsleep &
 clipmenud &
 unclutter &
 picom &
