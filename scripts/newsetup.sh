@@ -42,7 +42,7 @@ reporename() {
 # Create a to-do list for things that I haven't done in this script
 todolist() {
     echo "Creating a To-Do list in your home directory..."
-    printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nAdd keys to git servers\nEnable fstrim.timer service (install util-linux if not available" | sudo -u "$username" tee "/home/$username/todolist.txt"
+    printf "Change mirrors to https (https://archlinux.org/mirrorlist/)\nSet theme in lxappearance\nOpen nvim and run :PlugInstall\nAdd keys to git servers\nEnable fstrim.timer service (install util-linux if not available" | sudo -u "$username" tee "/home/$username/todolist.txt"
 }
 
 # Create mpd directory and necessary files
