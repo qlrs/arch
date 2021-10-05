@@ -1,9 +1,6 @@
 #!/bin/bash
 # Run script as root
 
-# TODO
-# Install vim-plugged
-
 #################
 ### Functions ###
 #################
@@ -108,5 +105,7 @@ sudo -u "$username" ln -sfT dash /usr/bin/sh
 installparu
 
 mpdstuff
+
+installvimplug
 
 todolist
