@@ -62,7 +62,7 @@ installparu() {
 }
 
 installvimplug() {
-    sudo -u "$username" sh -c 'curl -fLo "/home/$username/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    sudo -u "$username" sh -c curl -fLo "/home/$username/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 }
 
 #####################
