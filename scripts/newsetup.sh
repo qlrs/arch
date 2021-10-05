@@ -7,7 +7,7 @@
 
 # Check if user has sudo installed
 sudocheck () {
-    pacman -Q | grep -q "sudo" || echo "Please install sudo before running script... exiting" ; exit
+    pacman -Q | grep -q "sudo" || { echo "Please install sudo before running script... exiting" ; exit ;}
 }
 
 # Check if packages are installed, install them if not
