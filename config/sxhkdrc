@@ -3,7 +3,7 @@ alt + Return
 alt + d
     dmenu_run -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff"
 alt + shift + e
-    memeji
+    memeji.sh
 alt + z
     gnome-calculator
 alt + shift + w
@@ -25,9 +25,7 @@ alt + shift + n
 alt + p
     $TERMINAL -e pulsemixer
 alt + r 
-    redditdmenu
-alt + a 
-    $TERMINAL -e calcurse
+    redditdmenu.sh
 alt + equal
     pamixer --allow-boost -i 5
 alt + minus
@@ -41,7 +39,7 @@ alt + shift + period
 alt + shift + comma
     mpc prev
 alt + u
-    dmenumount
+    dmenumount.sh
 alt + t
-    twitchdmenu
+    twitchdmenu.sh
 
