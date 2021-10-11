@@ -10,13 +10,13 @@ width = 100%
 height = 25
 offset-y = 5
 separator = "| "
-background = #2e3440
-foreground = #d8dee9
+background = #000000
+foreground = #ffffff
 
 overline-size = 0
-overline-color = #d8dee9
+overline-color = #ffffff
 underline-size = 0
-underline-color = #688090
+underline-color = #458588
 
 spacing = 1
 padding-right = 2
@@ -28,7 +28,7 @@ font-1 = NotoColorEmoji:fontformat=truetype:scale=9;antialias=false;
 
 modules-left = i3
 #modules-center = xwindow
-modules-right = vpn inttraffic diskspace checktemp ramusage stockprice weather volume music calendar
+modules-right = vpn internettraffic diskspace checktemp ramusage crypto stockprice weather volume music calendar
 pin-workspaces = true
 tray-position=right
 tray-offset-y=-5
@@ -46,15 +46,15 @@ label-focused = %index%
 label-focused-padding = 1
 label-focused-margin = 0
 label-focused-font = 0
-label-focused-foreground = #d8dee9
-label-focused-background = #81a1c1
+label-focused-foreground = #ffffff
+label-focused-background = #458588
 label-focused-overline = #000000
 label-focused-underline = #000000
 
 label-unfocused = %index%
 label-unfocused-padding = 1
 label-unfocused-margin = 0
-label-unfocused-background = #2e3440
+label-unfocused-background = #000000
 label-unfocused-foreground = #d8dee9
 label-unfocused-overline = #c5c5c5
 label-unfocused-underline = #c5c5c5
@@ -72,38 +72,37 @@ label-visible-font = 0
 
 [module/vpn]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/vpn
+exec = /home/dan/.config/i3/i3scripts/vpn.sh
 interval = 5
 
-[module/inttraffic]
+[module/internettraffic]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/inttraffic
-click-left = setsid -f "$TERMINAL" -e bmon
+exec = /home/dan/.config/i3/i3scripts/internettraffic.sh
 interval = 2
 
 [module/diskspace]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/diskspace
+exec = /home/dan/.config/i3/i3scripts/diskspace.sh
 interval = 60
 format-prefix = " 💽 "
 
 
 [module/checktemp]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/checktemp
+exec = /home/dan/.config/i3/i3scripts/checktemp.sh
 click-right = notify-send -t 8000 "$(sensors | sed -n '5,18p' | sed 's/([^)]*)//g')"
 interval = 60
 
 [module/ramusage]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/ramusage
+exec = /home/dan/.config/i3/i3scripts/ramusage.sh
 click-left = "$TERMINAL" -e "htop"
-click-right = notify-send -t 8000 "$(ps axch -o cmd:10,%mem --sort=-%mem | sed 's/$/%/g' | head)"
+click-right = notify-send -t 8000 "$(ps axch -o command:10,%mem,pid --sort=-%mem | head)"
 interval = 5
 
 [module/volume]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/volume
+exec = /home/dan/.config/i3/i3scripts/volume.sh
 click-left = "$TERMINAL" -e pulsemixer
 click-right = pamixer -t
 scroll-up = pamixer --allow-boost -i 5
@@ -112,28 +111,33 @@ interval = 5
 
 [module/music]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/music
-format-prefix="🎵 "
+exec = /home/dan/.config/i3/i3scripts/music.sh
 click-left = setsid -f "$TERMINAL" -e ncmpcpp
-click-right = pc toggle > /dev/null
+click-right = mpc toggle > /dev/null
 interval = 5
+format-prefix = "🎵 "
 
 [module/calendar]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/calendar
+exec = /home/dan/.config/i3/i3scripts/calendar.sh
 click-left = yad --calendar --width=400 --height=400 --undecorated --fixed --close-on-unfocus --no-buttons --posx=1650 --posy=30 >/dev/null  
 click-right = "$TERMINAL" -e calcurse
 interval = 60
 
 
+[module/crypto]
+type = custom/script
+exec = /home/dan/.config/i3/i3scripts/crypto.sh
+interval = 3
+
 [module/stockprice]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/stockprice
+exec = /home/dan/.config/i3/i3scripts/stockprice.sh
 interval = 3
 
 [module/weather]
 type = custom/script
-exec = /home/dan/.config/i3/scripts/weather
+exec = /home/dan/.config/i3/i3scripts/weather.sh
 click-left = firefox "https://forecast.weather.gov/MapClick.php?CityName=Myrtle+Beach&state=SC&site=ILM&lat=33.6988&lon=-78.8922"
 interval = 30
 
