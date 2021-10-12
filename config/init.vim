@@ -49,6 +49,7 @@ map <C-p> :w !perl<CR>
 inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>W :vsp
+nnoremap <leader>f :vert winc f<CR>
 
 set t_Co=256
 hi Normal ctermbg=none
