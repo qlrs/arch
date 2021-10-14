@@ -35,6 +35,7 @@ man-pages
 mpc
 mpd
 mpv
+mupdf
 ncdu
 ncmpcpp
 neofetch
