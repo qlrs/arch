@@ -6,8 +6,8 @@ price() {
     echo "$price"
 }
 
-echo "💲 ETH: $(price eth) 💲 BTC: $(price btc) 💲 DOGE: $(price doge)"
+echo "💲 ETH: $(price eth) 💲 BTC: $(price btc)"
 
 case "$BLOCK_BUTTON" in
-    1) firefox "http://rate.sx/eth" "http://rate.sx/btc" "http://rate.sx/doge" ;;
+    1) firefox "http://rate.sx/eth" "http://rate.sx/btc" ;;
 esac
