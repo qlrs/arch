@@ -6,7 +6,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 call plug#end()
 
-set relativenumber
+set number relativenumber
 set laststatus=2
 set statusline=%t
 set statusline+=\ %h
