@@ -1,7 +1,8 @@
 #!/bin/sh
-#first argument is album file and second is time file formatted as
-#00:00:00 song name
-#00:03:00 song name 2
+### NEEDS A REWORK ###
+# First argument is album file and second is time file formatted as
+# 00:00:00 song name
+# 00:03:00 song name_2
 
 [ -z "$1" ] && echo "First argument is album, second is times" && exit
 [ -z "$2" ] && echo "First argument is album, second is times" && exit
