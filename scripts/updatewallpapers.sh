@@ -8,7 +8,7 @@
 [ -z "$1" ] && notify-send "Please enter text file..." && exit
 
 while read -r name; do
-    thumbname="thumbnail-$name"
+    thumbname="thumbnail-${name}"
     html="<a href=pics/$name target_blank>\n\t<img src=pics/thumbs/$thumbname>\n\t</a>\n"
     printf '%s' "$html" >> /tmp/addtowallpapers.html
 done < "$1"
