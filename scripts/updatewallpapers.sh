@@ -13,6 +13,9 @@ while read -r name; do
     ffmpeg -nostdin -i "$HOME/memes/website/pics/$name" -vf scale=192:108 "$HOME/memes/website/pics/thumbs/$thumbname"
 done < "$1"
 
+# Not sure if I need this, should prob
+# just give the /tmp/addtowallpapers.html file
+# to sed directly
 forsed="$(cat /tmp/addtowallpapers.html)"
 sed -i "/<\/p>/i $forsed" wallpapers.html
 rm /tmp/addtowallpapers.html
