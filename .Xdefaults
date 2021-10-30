@@ -1,7 +1,8 @@
-URxvt.font: xft:Misc Tamsyn:style=Regular:size=15
-URxvt.boldFont: xft:Misc Tamsyn:style=Bold:size=15
-!*.font: xft:Liberation Mono:size=13
-URxvt.letterSpace: -1
+Xcursor.size: 14
+URxvt.font: xft:xos4 Terminus:style=Regular:size=14
+!*URxvt.font: xft:xos4 Terminus:style=Bold:size=14
+!*.font: xft:xos4 Terminus:size=13
+URxvt.letterSpace: 0
 URxvt.scrollBar: false
 
 URxvt.perl-ext-common: default,matcher,resize-font
@@ -18,23 +19,23 @@ URxvt.resize-font.bigger:	C-i
 
 
 
-*.foreground:   #ffffff
-*.highlightColor:#3A3A3A
-*.color0:       #000000
-*.color8:       #808080
-*.color1:       #fe0100
-*.color9:       #fe0100
-*.color2:       #33ff00
-*.color10:      #33ff00
-*.color3:       #ffff00
-*.color11:      #fffff0
-*.color4:       #0066ff
-*.color12:      #0066ff
-*.color5:       #cc00ff
-*.color13:      #cc00ff
-*.color6:       #00ffff
-*.color14:      #00ffff
-*.color7:       #d0d0d0
+!*.foreground:   #ffffff
+!*.highlightColor:#3A3A3A
+!*.color0:       #000000
+!*.color8:       #808080
+!*.color1:       #fe0100
+!*.color9:       #fe0100
+!*.color2:       #33ff00
+!*.color10:      #33ff00
+!*.color3:       #ffff00
+!*.color11:      #fffff0
+!*.color4:       #0066ff
+!*.color12:      #0066ff
+!*.color5:       #cc00ff
+!*.color13:      #cc00ff
+!*.color6:       #00ffff
+!*.color14:      #00ffff
+!*.color7:       #d0d0d0
 
 !/* dracula */
 !*.foreground: #F8F8F2
@@ -77,20 +78,20 @@ URxvt.resize-font.bigger:	C-i
 !*.colorBD:     #d6dbe5
 
 !gruvbox
-!*.foreground:   #ebdbb2
-!*.color0:       #282828
-!*.color8:       #928374
-!*.color1:       #cc241d
-!*.color9:       #fb4934
-!*.color2:       #98971a
-!*.color10:      #b8bb26
-!*.color3:       #d79921
-!*.color11:      #fabd2f
-!*.color4:       #458588
-!*.color12:      #83a598
-!*.color5:       #b16286
-!*.color13:      #d3869b
-!*.color6:       #689d6a
-!*.color14:      #8ec07c
-!*.color7:       #a89984
-!*.color15:      #ebdbb2
+*.foreground:   #ebdbb2
+*.color0:       #282828
+*.color8:       #928374
+*.color1:       #cc241d
+*.color9:       #fb4934
+*.color2:       #98971a
+*.color10:      #b8bb26
+*.color3:       #d79921
+*.color11:      #fabd2f
+*.color4:       #458588
+*.color12:      #83a598
+*.color5:       #b16286
+*.color13:      #d3869b
+*.color6:       #689d6a
+*.color14:      #8ec07c
+*.color7:       #a89984
+*.color15:      #ebdbb2

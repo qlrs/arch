@@ -1,14 +1,15 @@
 #!/bin/sh
 
-sxhkd &
-mpd &
+xrdb "$HOME/.Xdefaults"
 xset r rate 400 50 &
 xautolock -time 30 -locker "systemctl suspend" -detectsleep &
+capstoescape.sh &
+sxhkd &
+mpd &
 clipmenud &
 unclutter &
 picom &
 dunst &
 screen &
-capstoescape.sh &
 nm-applet &
-feh --bg-scale /home/dan/walls/fall1.jpg
+feh --bg-scale /home/dan/walls/monsters1.jpg
