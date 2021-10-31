@@ -45,7 +45,8 @@ map <C-l> <C-w>l
 map <leader>n :NERDTreeToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>w :w<CR>
-map <C-p> :w !perl<CR>
+map <leader>c :setlocal spell! spelllang=en_us<CR>
+map <leader><leader>f :filetype detect<CR>
 inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>W :vsp
