@@ -1,9 +1,3 @@
-#https://nitter.net/cenkuygur/rss "~Cenk Uygur"
-#https://nitter.net/dpakman/rss "~David Pakman"
-#https://nitter.net/youyve/rss "~Yvette Young"
-#https://nitter.net/torproject/rss "~Tor"
-#https://nitter.net/Snowden/rss "~Snowden"
-
 https://youtube.com/feeds/videos.xml?channel_id=UCAL3JXZSzSm8AlZyD3nQdBA "~Prim Tech"
 https://youtube.com/feeds/videos.xml?channel_id=UCf93fPKwotph47H3_KDcRyg "~Kris Occhipinti"
 https://youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith"
@@ -24,4 +18,6 @@ https://artixlinux.org/feed.php "~Artix"
 # https://stallman.org/rss/rss.xml "~Stallman"
 https://protonmail.com/blog/feed/ "~ProtonMail"
 https://disroot.org/en/blog.atom "~Disroot"
-https://voidlinux.org/atom.xml
+https://voidlinux.org/atom.xml "~Void"
+https://www.eff.org/rss/updates.xml "~EFF"
+https://robertheaton.com/feed.xml "~Robert Heaton"
