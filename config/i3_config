@@ -1,73 +1,42 @@
+# Basics
 set $mod Mod1
-font pango:Terminus 11
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-#exec --no-startup-id nm-applet
-#exec screen
-#exec xset r rate 400 50 &
-#exec clipmenud &
-#exec unclutter &
-#exec mpd &
-#exec --no-startup-id picom &
-#exec xsetroot -mod 16 16 -bg black -fg yellow
-#exec --no-startup-id dunst &
-exec /home/dan/scripts/capstoescape
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-#bindsym $mod+Return exec alacritty
-
+font pango:Terminus 11
 bindsym $mod+Shift+c kill
+bindsym $mod+Shift+r restart
+mouse_warping none
+#disables window from focusing if mouse is on it
+#focus_follows_mouse no
 
-#bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9"
-
+# Focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Left focus left pixel 10
-bindsym $mod+Down focus down pixel 10
-bindsym $mod+Up focus up pixel 10
-bindsym $mod+Right focus right pixel 10
-
-# move focused window
+# Move
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
+# Split
 bindsym $mod+f split h
-
-# split in vertical orientation
 bindsym $mod+c split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+Shift+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Fullscreen
+bindsym $mod+Shift+f fullscreen toggle
+
+# Floating
 bindsym $mod+space floating toggle
+bindsym $mod+Shift+space focus mode_toggle
 
-# change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
-
-# focus the parent container
+# Focus parent
 bindsym $mod+a focus parent
+bindsym $mod+Shift+z focus child
 
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# Workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -79,7 +48,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# switch to workspace
+# Switch workspaces
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -91,7 +60,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# move focused container to workspace
+# Move program to another workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -103,10 +72,51 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# Gaps
+for_window [class="^.*"] border pixel 3
+gaps outer -15
+gaps inner 25
+#smart border and gaps
+#smart_borders on
+#smart_gaps on
 
-#exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
+# Resize windows
+bindsym $mod+Shift+y	resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+u	resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i	resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
+
+# Specific screens
+workspace 1 output DVI-D-0
+workspace 2 output HDMI-1
+workspace 4 output HDMI-1
+workspace 3 output DP-0
+workspace 5 output DP-0
+workspace 6 output DVI-D-0
+
+# Switch between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# Launch floating
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
+for_window [class="Tor Browser" instance="Navigator"] floating enable
+for_window [class="Yad"] floating enable
+for_window [class="Steam"] floating enable
+
+# Colors
+# Class                     border  backgr. text    indicator child_border
+client.focused              #ffffff #ffffff #ffffff #d0d0d0   #458588
+client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
+client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
+client.urgent               #ffffff #ffffff #ffffff #555555   #cc241d
+
+
+# Scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
+
+# Bar
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
@@ -118,28 +128,32 @@ bar {
     }
 }
 
+# Dropdown
+for_window [instance="notes"] floating enable
+for_window [instance="notes"] resize set 800 500
+for_window [instance="notes"] move position center
+for_window [instance="notes"] move scratchpad
+exec --no-startup-id alacritty --class notes -e nvim ~/.cache/notes
+bindsym $mod+w [instance="notes"] scratchpad show ; move position center
 
+# Audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindcode $mod+21 exec pamixer --allow-boost -i 5
+#bindcode $mod+20 exec pamixer --allow-boost -d 5
+#bindsym $mod+Shift+p exec mpc toggle
+#bindsym $mod+m exec pamixer -t
+#bindcode $mod+Shift+59 exec mpc prev
+#bindcode $mod+Shift+60 exec mpc next
 
-# Gaps
-for_window [class="^.*"] border pixel 3
-# Desktop
-gaps outer -15
-gaps inner 25
-# Laptop
-#gaps inner 10
+# Brightness
+bindcode $mod+110 exec xbacklight -inc 5
+bindcode $mod+115 exec xbacklight -dec 5
 
-#smart border and gaps
-#smart_borders on
-#smart_gaps on
-
-# Resize windows without dumbass resize mode
-bindsym $mod+Shift+y	resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+u	resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i	resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
-
-
-# Launch shit (switched to sxhkd)
+# Moved to sxhkd but keeping just in case
+#bindsym $mod+Return exec alacritty
+#bindsym $mod+d exec dmenu_run -fn "Liberation Mono-13" -nb "#282a36" -nf "#f8f8f2" -sb "#bd93f9"
 #bindsym $mod+Shift+e exec /home/dan/scripts/memeji
 #bindsym $mod+z exec gnome-calculator
 #bindsym $mod+Shift+w exec alacritty -e aerc
@@ -154,67 +168,22 @@ bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
 #bindsym $mod+p exec alacritty -e pulsemixer
 #bindsym $mod+r exec /home/dan/scripts/redditdmenu
 #bindsym $mod+a exec alacritty -e calcurse
-
-# Wallpaper and pywal
-# Moved to xprofile
-#exec_always feh --bg-scale /home/dan/walls/landscape9.jpg
-#exec_always wal -i /home/dan/walls/flowers1.jpg
-
-# Specific screens
-workspace 1 output DVI-D-0
-workspace 2 output HDMI-1
-workspace 4 output HDMI-1
-workspace 3 output DP-0
-workspace 5 output DP-0
-workspace 6 output DVI-D-0
-
-
-# Launch floating
-for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
-for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
-for_window [class="Tor Browser" instance="Navigator"] floating enable
-for_window [class="Yad"] floating enable
-for_window [class="Steam"] floating enable
-
-#assign to specific workspace
-#assign [class="discord"]1
-
-
-#colors
-# class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #d0d0d0   #458588
-client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
-client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
-client.urgent               #ffffff #ffffff #ffffff #555555   #cc241d
-
-#mouse warping
-mouse_warping none
-
-#disables window from focusing if mouse is on it
-#focus_follows_mouse no
-
-#testing scratchpad stuff
-bindsym $mod+Shift+s move scratchpad
-bindsym $mod+s scratchpad show
-
-#switch between workspaces
-bindsym $mod+Tab workspace back_and_forth
-
-#audio stuff
-#bindcode $mod+21 exec pamixer --allow-boost -i 5
-#bindcode $mod+20 exec pamixer --allow-boost -d 5
-#bindsym $mod+Shift+p exec mpc toggle
-#bindsym $mod+m exec pamixer -t
-#bindcode $mod+Shift+59 exec mpc prev
-#bindcode $mod+Shift+60 exec mpc next
-
-#brightness
-bindcode $mod+110 exec xbacklight -inc 5
-bindcode $mod+115 exec xbacklight -dec 5
-
-
-#bindsym $mod+Shift+Return sticky toggle
 #bindsym $mod+u exec /home/dan/scripts/dmenumount
 #bindsym $mod+t exec /home/dan/scripts/twitchdmenu
 #bindsym $mod+w exec /home/dan/scripts/wikistuff
 
+# Moved to .xprofile
+#exec --no-startup-id nm-applet
+#exec screen
+#exec xset r rate 400 50 &
+#exec clipmenud &
+#exec unclutter &
+#exec mpd &
+#exec --no-startup-id picom &
+#exec xsetroot -mod 16 16 -bg black -fg yellow
+#exec --no-startup-id dunst &
+#exec_always feh --bg-scale /home/dan/walls/landscape9.jpg
+#exec_always wal -i /home/dan/walls/flowers1.jpg
+
+# Polybar
+#exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
