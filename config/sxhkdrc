@@ -6,15 +6,13 @@ alt + shift + e
     memeji.sh
 alt + z
     gnome-calculator
-alt + shift + w
+alt + e
     $TERMINAL -e aerc
-alt + n
-    $TERMINAL -e ranger
-alt + v 
+alt + w 
     $BROWSER
 alt + shift + m 
     $TERMINAL -e ncmpcpp
-alt + shift + a 
+alt + shift + s 
     clipmenu
 alt + b
     pcmanfm
@@ -24,8 +22,8 @@ alt + shift + n
     $TERMINAL -e newsboat
 alt + p
     $TERMINAL -e pulsemixer
-alt + r 
-    redditdmenu.sh
+alt + n
+    $TERMINAL -e ranger
 alt + equal
     pamixer --allow-boost -i 5
 alt + minus
@@ -40,6 +38,3 @@ alt + shift + comma
     mpc prev
 alt + u
     dmenumount.sh
-alt + t
-    twitchdmenu.sh
-
