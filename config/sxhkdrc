@@ -12,7 +12,7 @@ alt + w
     $BROWSER
 alt + shift + m 
     $TERMINAL -e ncmpcpp
-alt + shift + s 
+alt + y 
     clipmenu
 alt + b
     pcmanfm
@@ -38,3 +38,5 @@ alt + shift + comma
     mpc prev
 alt + u
     dmenumount.sh
+alt + r
+    redditmenu.sh
