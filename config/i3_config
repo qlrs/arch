@@ -2,7 +2,7 @@
 set $mod Mod1
 floating_modifier $mod
 font pango:Terminus 11
-bindsym $mod+Shift+c kill
+bindsym $mod+q kill
 bindsym $mod+Shift+r restart
 mouse_warping none
 #disables window from focusing if mouse is on it
