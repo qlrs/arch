@@ -1,23 +1,24 @@
 #!/bin/sh
 
-#Get a list of mountable drives and exit if there are no drives
+#get a list of mountable drives
+#if no drives listed then exit
 mountabledrives=$(lsblk -lp | awk '/part[[:blank:]]$/ {print $1, "("$4")"}')
 [ -z "$mountabledrives" ] && exit
 
 
 #let user select one of the mountable drives
-#if none chosen then exit.
-userselection=$(echo "$mountabledrives" | dmenu -i -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff" -l 5 -p "Enter drive to mount: " | awk '{print $1}')
+#if none chosen then exit
+userselection=$(echo "$mountabledrives" | dmenu -i -l 5 -p "Enter drive to mount: " | awk '{print $1}')
 [ -z "$userselection" ] && notify-send "Nothing selected, exiting..." && exit
 getfiletype=$(lsblk -o "fstype" "$userselection" | sed -n '2p')
 [ -z "$userselection" ] && exit
 
 
 #give user a list of possible locations to mount the drive
-#if mount location does not exist then let user create it.
-chosenmount=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff" -l 5 -p "Choose where to mount the drive: ")
+#if mount location does not exist then let user create it
+chosenmount=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -l 5 -p "Choose where to mount the drive: ")
 if [ ! -d "$chosenmount" ]; then
-    newdir=$(printf "Yes\nNo" | dmenu -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff" -i -p "Mount point does not exist, create it?")
+    newdir=$(printf "Yes\nNo" | dmenu -i -p "Mount point does not exist, create it?")
     if [ "$newdir" = "Yes" ];then
         sudo -A mkdir -p "$chosenmount"
     else
