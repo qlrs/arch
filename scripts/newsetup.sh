@@ -61,6 +61,14 @@ installparu() {
     sudo -u "$username" makepkg --noconfirm -si
 }
 
+installdmenu() {
+    echo "Installing dmenu..."
+    cd "/home/$username/programs" || exit 1
+    sudo -u "$username" git clone https://github.com/mccreadyjonson/dmenu
+    cd dmenu || exit 1
+    sudo make install
+}
+
 installvimplug() {
     sudo -u "$username" sh -c curl -fLo "/home/$username/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 }
@@ -83,7 +91,7 @@ usernameandpassword || exit 1
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Big yikes I know
-sudo -u "$username" mkdir -p "/home/$username/downloadmusic" "/home/$username/linuxbook" "/home/$username/memes" "/home/$username/memes/website" "/home/$username/music" "/home/$username/storagedrive" "/home/$username/scripts" "/home/$username/walls" "/home/$username/archwikidocs" "/home/$username/gitwebsite" "/home/$username/.newsboat" "/home/$username/.config/alacritty" "/home/$username/.config/dunst" "/home/$username/.config/i3" "/home/$username/.config/mpd" "/home/$username/.config/ncmpcpp" "/home/$username/.config/nvim" "/home/$username/.config/picom" "/home/$username/.config/polybar" "/home/$username/.config/ranger" "/home/$username/.config/sxhkd" "/home/$username/.config/youtube-dl"
+sudo -u "$username" mkdir -p "/home/$username/downloadmusic" "/home/$username/programs" "/home/$username/linuxbook" "/home/$username/memes" "/home/$username/memes/website" "/home/$username/music" "/home/$username/storagedrive" "/home/$username/scripts" "/home/$username/walls" "/home/$username/archwikidocs" "/home/$username/gitwebsite" "/home/$username/.newsboat" "/home/$username/.config/alacritty" "/home/$username/.config/dunst" "/home/$username/.config/i3" "/home/$username/.config/mpd" "/home/$username/.config/ncmpcpp" "/home/$username/.config/nvim" "/home/$username/.config/picom" "/home/$username/.config/polybar" "/home/$username/.config/ranger" "/home/$username/.config/sxhkd" "/home/$username/.config/youtube-dl"
 
 installpackages packages.txt || exit 1
 
@@ -103,6 +111,10 @@ sudo -u "$username" ln -sfT dash /usr/bin/sh
 
 # Install paru as an aur helper
 installparu
+
+# Installs my build of dmenu which uses Gruvbox dark colors by default
+# and Liberation Mono font
+installdmenu
 
 mpdstuff
 
