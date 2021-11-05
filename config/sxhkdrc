@@ -1,7 +1,7 @@
 alt + Return
     $TERMINAL
 alt + d
-    dmenu_run -fn "Liberation Mono-13" -nb "#000000" -nf "#ffffff" -sb "#0066ff"
+    dmenu_run
 alt + shift + e
     memeji.sh
 alt + z
@@ -39,4 +39,4 @@ alt + shift + comma
 alt + u
     dmenumount.sh
 alt + r
-    redditmenu.sh
+    redditdmenu.sh
