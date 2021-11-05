@@ -22,7 +22,7 @@ bindsym $mod+Shift+l move right
 
 # Split
 bindsym $mod+f split toggle
-#bindsym $mod+q layout toggle split
+bindsym $mod+t layout toggle split
 
 # Fullscreen
 bindsym $mod+Shift+f fullscreen toggle
