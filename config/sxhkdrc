@@ -2,10 +2,12 @@ alt + Return
     $TERMINAL
 alt + d
     dmenu_run
-alt + shift + e
+alt + shift + semicolon
     memeji.sh
 alt + z
     gnome-calculator
+alt + semicolon
+    $TERMINAL -e nmtui
 alt + e
     $TERMINAL -e aerc
 alt + w 
