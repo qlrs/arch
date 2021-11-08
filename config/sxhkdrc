@@ -9,7 +9,7 @@ alt + z
 alt + semicolon
     $TERMINAL -e nmtui
 alt + e
-    $TERMINAL -e aerc
+    $TERMINAL -e ranger
 alt + w 
     $BROWSER
 alt + shift + m 
@@ -25,7 +25,7 @@ alt + shift + n
 alt + p
     $TERMINAL -e pulsemixer
 alt + n
-    $TERMINAL -e ranger
+    $TERMINAL -e aerc
 alt + equal
     pamixer --allow-boost -i 5
 alt + minus
