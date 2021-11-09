@@ -18,8 +18,6 @@ alt + y
     clipmenu
 alt + b
     pcmanfm
-alt + g
-    steam
 alt + shift + n
     $TERMINAL -e newsboat
 alt + p
@@ -34,9 +32,9 @@ alt + shift + p
     mpc toggle
 alt + m
     pamixer -t
-alt + shift + period
+alt + shift + backslash
     mpc next
-alt + shift + comma
+alt + shift + bracketright
     mpc prev
 alt + u
     dmenumount.sh
