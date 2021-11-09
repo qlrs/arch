@@ -1,2 +1,2 @@
 #!/bin/sh
-df -h | awk '/\/dev\/sdd4/ {print $4}'
+echo "💽 $(df -h | awk '/\/dev\/sdd4/ {print $4}')"
