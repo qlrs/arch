@@ -1,5 +1,3 @@
-# If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
 autoload -U colors && colors
 PS1="%B[%F{yellow}%1~%f]%b $ "
 
@@ -35,7 +33,6 @@ alias cp='cp -iv'
 alias mv='mv -v'
 alias rm='rm -vI'
 alias fd='fd --hidden'
-alias nnn='nnn -de'
 alias editi3='nvim ~/.config/i3/config'
 alias syncmusic='rsync -rtvP ~/music/ ~/storagedrive/music'
 alias syncwebsite='rsync -rtvP ~/memes/website/ ~/gitwebsite'
@@ -47,7 +44,6 @@ alias cas='cd ~/archconfig/scripts'
 alias ci='cd ~/.config/i3'
 alias cis='cd ~/.config/i3/i3scripts'
 alias cl='cd ~/linuxbook'
-alias cps='cd ~/linuxbook/perlstuff'
 alias cc='cd ~/.config'
 alias cs='cd ~/scripts'
 alias cw='cd ~/memes/website'
@@ -70,24 +66,15 @@ alias p='perl'
 alias sc='shellcheck -s sh'
 alias vim='nvim '
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
-#shows font list with easy to read name
 alias fontmeme='fc-list | cut -f2 -d: | sort -u'
-alias wttr='curl -s https://wttr.in/29575\?uT'
-alias switch='sudo minicom ciscoSwitch'
 alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
-#fixes the fucking time
-#but you need to adjust to the correct time
-alias fixfuckingtime='timedatectl set-time "2020-05-24 17:50:00"'
-alias tuir='tuir --enable-media'
-alias clearlock='xmodmap -e "clear lock"'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
 alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' ~/memes/website/ root@rschrader.xyz:/var/www/wowee'
-alias realtime='/usr/bin/time -p'
+alias es="du -a "$HOME/scripts" "$HOME/.config" | awk '{print $2}' | fzf | xargs "$EDITOR""
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
-#for vim stuf
-####
+# For vim stuff
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
@@ -107,9 +94,8 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-####
 
-#must be last
+# Must be last
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
