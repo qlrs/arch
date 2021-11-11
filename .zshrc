@@ -70,7 +70,10 @@ alias fontmeme='fc-list | cut -f2 -d: | sort -u'
 alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
 alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' ~/memes/website/ root@rschrader.xyz:/var/www/wowee'
-alias es="du -a "$HOME/scripts" "$HOME/.config" | awk '{print $2}' | fzf | xargs "$EDITOR""
+function es(){
+    du -a "$HOME/scripts" "$HOME/.config" | awk '{print $2}' | fzf | xargs "$EDITOR"
+}
+export -f es
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
