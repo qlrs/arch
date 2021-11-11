@@ -73,7 +73,7 @@ alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' ~/memes/website/ root@rsch
 function es(){
     du -a "$HOME/scripts" "$HOME/.config" | awk '{print $2}' | fzf | xargs "$EDITOR"
 }
-export -f es
+export es
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
