@@ -24,10 +24,8 @@ alt + p
     $TERMINAL -e pulsemixer
 alt + n
     $TERMINAL -e aerc
-alt + equal
-    pamixer --allow-boost -i 5
-alt + minus
-    pamixer --allow-boost -d 5
+alt + {equal,minus}
+    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks
 alt + shift + p
     mpc toggle
 alt + m
