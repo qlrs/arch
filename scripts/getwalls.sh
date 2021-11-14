@@ -6,8 +6,8 @@
 getone() {
     echo "What do you want the file to be called? "; read -r name
     while true ; do
-        if ! [ -e "/$HOME/walls/$name" ] ; then
-            wget -q "$1" -O "/$HOME/walls/$name" 2> /dev/null
+        if ! [ -e "/$HOME/stuff/walls/$name" ] ; then
+            wget -q "$1" -O "/$HOME/stuff/walls/$name" 2> /dev/null
             echo "Downloaded $1 as $name"
             break
         else
@@ -19,8 +19,8 @@ getone() {
 getmultiple() {
     while read -r url name; do
         while true ; do
-            if ! [ -e "/$HOME/walls/$name" ] ; then
-                wget -q "$url" -O "/$HOME/walls/$name" 2> /dev/null
+            if ! [ -e "/$HOME/stuff/walls/$name" ] ; then
+                wget -q "$url" -O "/$HOME/stuff/walls/$name" 2> /dev/null
                 break
             else
                 echo "The file $name exists, please change the name."
