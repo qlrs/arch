@@ -1,10 +1,10 @@
 #!/bin/sh
 
 if mpc | grep -q "playing"; then
-    echo "⏸️ 🎶"
+    echo "▶️  🎶"
 elif
     mpc | grep -q "paused"; then
-    echo "▶️ 🎶"
+    echo "⏸️ 🎶"
 else
     echo "🎶"
 fi
