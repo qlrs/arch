@@ -2,7 +2,7 @@
 
 xrdb "$HOME/.Xdefaults"
 xset r rate 400 50 &
-xautolock -time 30 -locker "systemctl suspend" -detectsleep &
+xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 capstoescape.sh &
 sxhkd &
 mpd &
@@ -12,4 +12,4 @@ picom &
 dunst &
 screen &
 nm-applet &
-feh --bg-scale /home/dan/walls/monsters1.jpg
+feh --bg-scale /home/dan/stuff/walls/flowers6.jpg
