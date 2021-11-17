@@ -76,6 +76,7 @@ unclutter
 urxvt-perls
 wget
 xautolock
+xclip
 xcursor-themes
 xf86-input-evdev
 xf86-video-intel
