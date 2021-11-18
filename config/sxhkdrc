@@ -29,7 +29,7 @@ alt + {equal,minus}
 alt + shift + p
     mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
-    pamixer -t && pkill -RTMIN+14 i3blocks
+    pamixer -t && pkill -RTMIN+13 i3blocks
 alt + shift + backslash
     mpc next
 alt + shift + bracketright
