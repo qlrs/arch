@@ -4,9 +4,25 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
 Plug 'ap/vim-css-color'
+Plug 'lervag/vimtex'
+Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
+syntax on
 set number relativenumber
+set clipboard=unnamed
+set linebreak
+set scrolloff=3
+set nocompatible
+set encoding=utf-8
+set wildmenu
+set nohlsearch
+set splitbelow splitright
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 set laststatus=2
 set statusline=%t
 set statusline+=\ %h
@@ -18,18 +34,9 @@ set statusline+=%c\
 set statusline+=%l\
 set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
-set clipboard=unnamed
-set linebreak
-set scrolloff=3
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-set nocompatible
-set encoding=utf-8
-syntax on
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let mapleader=" "
-set wildmenu
-set nohlsearch
-set splitbelow splitright
 
 nnoremap <SPACE> <Nop>
 map Q <Nop>
@@ -52,12 +59,10 @@ nnoremap S :%s//g<Left><Left>
 nnoremap <leader>W :vsp
 nnoremap <leader>f :vert winc f<CR>
 
-set t_Co=256
-hi Normal ctermbg=none
+" For vimtex
+filetype plugin indent on
+syntax enable
+let g:vimtex_view_method = 'zathura'
+let maplocalleader = ","
 
-set mouse=a
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>ka<Space>
