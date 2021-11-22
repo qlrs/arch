@@ -2,7 +2,6 @@ config/alacritty.yml,.config/alacritty/
 config/i3_config,.config/i3/config
 config/dunstrc,.config/dunst/
 config/i3blocks.conf,.config/i3/
-config/init.vim,.config/nvim/
 config/mpd.conf,.config/mpd/
 config/ncmpcppbindings,.config/ncmpcpp/bindings
 config/picom.conf,.config/picom/
@@ -10,6 +9,10 @@ config/rc.conf,.config/ranger/
 config/rifle.conf,.config/ranger/
 config/youtube-dlconfig,.config/youtube-dl/config
 config/sxhkdrc,.config/sxhkd/
+config/i3scripts,.config/i3/
+config/polybar,.config/
+config/qutebrowser,.config/
+config/nvim,.config/
 .Xdefaults,
 .xinitrc,
 .xprofile,
@@ -17,9 +20,7 @@ config/sxhkdrc,.config/sxhkd/
 .zshrc,
 .bash_profile,
 .bashrc,
-i3scripts,.config/i3/i3scripts
 .newsboat,
-qutebrowser,.config/
 extrastuff,stuff
 scripts,
 walls,stuff/

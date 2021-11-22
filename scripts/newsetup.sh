@@ -52,7 +52,6 @@ mpdstuff() {
     echo "" | sudo -u "$username" tee /home/"$username"/.config/mpd/mpd.pid
 }
 
-# Installs paru as an aur helper
 installparu() {
     echo "Installing Paru..."
     cd /home/"$username" || exit 1
@@ -78,7 +77,6 @@ installvimplug() {
 ### End functions ###
 #####################
 
-# Check for internet connection
 ping -c 1 9.9.9.9 > /dev/null 2>&1 && echo "Success!" || echo "Please check your internet connection"
 
 sudocheck
