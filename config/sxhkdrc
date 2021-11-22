@@ -14,8 +14,6 @@ alt + w
     $BROWSER
 alt + shift + m 
     $TERMINAL -e ncmpcpp
-alt + y 
-    clipmenu
 alt + b
     pcmanfm
 alt + shift + n

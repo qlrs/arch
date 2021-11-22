@@ -13,14 +13,12 @@ binutils
 bmon
 calcurse
 checkbashisms
-clipmenu
 cmatrix
 curl
 dash
 dnscrypt-proxy
 dunst
 fd
-feh
 ffmpeg
 firefox
 gnome-calculator
