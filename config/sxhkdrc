@@ -4,6 +4,8 @@ alt + d
     dmenu_run
 alt + shift + semicolon
     memeji.sh
+alt + c
+    $TERMINAL -e calcurse
 alt + z
     gnome-calculator
 alt + semicolon
