@@ -5,14 +5,13 @@ config/i3blocks.conf,.config/i3/
 config/mpd.conf,.config/mpd/
 config/ncmpcppbindings,.config/ncmpcpp/bindings
 config/picom.conf,.config/picom/
-config/rc.conf,.config/ranger/
-config/rifle.conf,.config/ranger/
 config/youtube-dlconfig,.config/youtube-dl/config
 config/sxhkdrc,.config/sxhkd/
 config/i3scripts,.config/i3/
 config/polybar,.config/
 config/qutebrowser,.config/
 config/nvim,.config/
+config/ranger,.config/
 .Xdefaults,
 .xinitrc,
 .xprofile,
