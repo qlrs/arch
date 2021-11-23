@@ -35,6 +35,7 @@ set statusline+=%l\
 set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
 
+autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let mapleader=" "
 
@@ -58,6 +59,7 @@ inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>W :vsp
 nnoremap <leader>f :vert winc f<CR>
+nnoremap <leader>s :!clear && shellcheck %<CR>
 
 " For vimtex
 filetype plugin indent on
