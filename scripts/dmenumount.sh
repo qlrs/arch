@@ -4,7 +4,7 @@ drives=$(lsblk -lp | awk '/part[[:blank:]]$/ {print $1, "("$4")"}')
 [ -z "$drives" ] && exit
 
 selec=$(echo "$drives" | dmenu -i -l 5 -p "Enter drive to mount: " | awk '{print $1}')
-[ -z "$selec" ] && notify-send "Nothing selected, exiting..." && exit
+[ -z "$selec" ] && { notify-send "Nothing selected, exiting..." ; exit ;}
 
 ml=$(printf "/home/dan/storagedrive\n/mnt/usbstick" | dmenu -i -l 5 -p "Choose where to mount the drive: ")
 if [ ! -d "$ml" ]; then
@@ -12,7 +12,7 @@ if [ ! -d "$ml" ]; then
     if [ "$newdir" = "Yes" ];then
         sudo -A mkdir -p "$ml"
     else
-        notify-send "Nothing selected, exiting... " && exit
+        notify-send "Nothing selected, exiting... " ; exit
     fi
 fi
 

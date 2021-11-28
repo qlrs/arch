@@ -1,6 +1,6 @@
 #!/bin/sh
 
-selection=$(printf "stallmanwasright
+selection=$(printf 'stallmanwasright
 mousereview
 livestreamfail
 valorant
@@ -22,7 +22,7 @@ linuxmasterrace
 linuxquestions
 archlinux
 artixlinux
-voidlinux" | dmenu -i -l 20)
+voidlinux' | dmenu -i -l 20)
 
 url="https://teddit.net/r/$selection"
 

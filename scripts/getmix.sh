@@ -14,12 +14,12 @@ while read -r time song; do
         eyeD3 -Q --remove-all -a "$artistname" -t "$songname" "$HOME/music/$fileartistname/$filename" 1> /dev/null
     start="$time"
 
-    artistname="$(echo "$song" | cut -d ',' -f1)"
-    fileartistname="$(echo "$artistname" | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_')"
+    artistname=$(echo "$song" | cut -d ',' -f1)
+    fileartistname=$(echo "$artistname" | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_')
     ! [ -e "$HOME/music/$fileartistname" ] && mkdir "$HOME/music/$fileartistname"
 
-    songname="$(echo "$song" | cut -d ',' -f2)"
-    filename="$(echo "$song" | cut -d ',' -f2 | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_' ).mp3"
+    songname=$(echo "$song" | cut -d ',' -f2)
+    filename=$(echo "$song" | cut -d ',' -f2 | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_' ).mp3
     [ -e "$HOME/music/$fileartistname/$filename" ] && { echo "That song name already exists" ; exit 1 ;}
 
 done < "$2"
