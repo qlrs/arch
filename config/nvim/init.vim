@@ -67,4 +67,4 @@ let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
 
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
-autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>Bd0ka<Space>
+autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>Bd0kA<Space>
