@@ -62,7 +62,7 @@ nnoremap <leader>W :vsp
 nnoremap <leader>f :vert winc f<CR>
 nnoremap <leader>s :!clear && shellcheck %<CR>
 
-" For vimtex
+" Vimtex
 filetype plugin indent on
 let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
