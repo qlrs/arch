@@ -7,13 +7,13 @@
 
 # Check if user has sudo installed
 sudocheck () {
-    pacman -Q | grep -q "sudo" || { echo "Please install sudo before running script... exiting" ; exit ;}
+    pacman -Q | grep -q 'sudo' || { echo "Please install sudo before running script... exiting" ; exit ;}
 }
 
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
-    pacman -Qqe | grep -q "$line" && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" > /dev/null 2>&1
+    pacman -Qqe | grep -q "$line" && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" &> /dev/null
 done < "$1"
 }
 
