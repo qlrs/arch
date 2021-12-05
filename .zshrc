@@ -71,6 +71,9 @@ alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
 alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' ~/stuff/website/ root@rschrader.xyz:/var/www/wowee'
 alias es='es.sh'
+alias sxiv='devour sxiv'
+alias mpv='devour mpv'
+alias zathura='devour zathura'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
