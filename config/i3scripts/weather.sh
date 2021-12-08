@@ -14,7 +14,7 @@ displayforecast () {
     case $condition in
         "Partly cloudy") icon="⛅";;
         Sunny) icon="☀️";;
-        Cloudy) icon="☁️";;
+        Cloudy|Overcast) icon="☁️";;
         Rainy) icon="🌧️";;
         *) icon="☀️";;
     esac
