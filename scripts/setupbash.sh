@@ -13,7 +13,12 @@ sudocheck () {
 # Check if packages are installed, install them if not
 installpackages() {
 while IFS= read -r line; do
-    pacman -Qqe | grep -q "$line" && echo "$line already installed" || echo "Installing $line..." ; pacman --noconfirm --needed -S "$line" &> /dev/null
+    if pacman -Qqe | grep -q "$line"; then
+        echo "$line already installed"
+    else
+        echo "Installing $line..."
+        pacman --noconfirm --needed -S "$line" &> /dev/null
+    fi
 done < "$1"
 }
 
