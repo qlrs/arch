@@ -12,4 +12,4 @@ picom &
 dunst &
 screen &
 nm-applet &
-feh --bg-scale /home/dan/stuff/walls/flowers6.jpg
+xwallpaper --center /home/dan/stuff/walls/dock1.png
