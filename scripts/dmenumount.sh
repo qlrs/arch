@@ -16,4 +16,4 @@ if [ ! -d "$ml" ]; then
     fi
 fi
 
-sudo mount "$selec" "$ml" -o umask=000 && notify-send "Mounting..."
+sudo mount "$selec" "$ml" && notify-send "Mounting..."
