@@ -25,7 +25,7 @@ alt + p
 alt + n
     $TERMINAL -e aerc
 alt + {equal,minus}
-    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks
+    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
 alt + shift + p
     mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
