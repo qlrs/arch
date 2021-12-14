@@ -25,15 +25,15 @@ alt + p
 alt + n
     $TERMINAL -e aerc
 alt + {equal,minus}
-    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
+    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume > /dev/null)"
 alt + shift + p
     mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
     pamixer -t && pkill -RTMIN+13 i3blocks
 alt + shift + backslash
-    mpc next
+    mpc next && pkill -RTMIN+14 i3blocks
 alt + shift + bracketright
-    mpc prev
+    mpc prev && pkill -RTMIN+14 i3blocks
 alt + u
     dmenumount.sh
 alt + r

@@ -1,12 +1,13 @@
 #!/bin/sh
+song=$(mpc current)
 
 if mpc | grep -q "playing"; then
-    echo "▶️  🎶"
+    echo "▶️ $song 🎶"
 elif
     mpc | grep -q "paused"; then
-    echo "⏸️ 🎶"
+    echo "⏸️ $song 🎶"
 else
-    echo "🎶"
+    echo "$song 🎶"
 fi
 
 case $BLOCK_BUTTON in
