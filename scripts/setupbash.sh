@@ -7,7 +7,7 @@
 
 # Check if user has sudo installed
 sudocheck () {
-    pacman -Q | grep -q "sudo" || { echo "Please install sudo before running script... exiting" ; exit ;}
+    pacman -Q | grep -q 'sudo' || { echo 'Please install sudo before running script... exiting' ; exit ;}
 }
 
 # Check if packages are installed, install them if not
@@ -32,15 +32,15 @@ done < "$1"
 # Create the user account, add them to the necessary groups, and
 # set a password.
 usernameandpassword() {
-    echo "What do you want your username to be?" ; read -r username
-    echo "What do you want your password to be?" ; read -r password
+    read -rp 'What do you want your username to be?' username
+    read -rp 'What do you want your password to be?' password
     useradd -m -G wheel -s /bin/bash "$username"
     echo "$username":"$password" | chpasswd
 }
 
 # Rename git repo directory
 reporename() {
-    cp -r "/root/arch" "/home/$username/archconfig"
+    cp -r '/root/arch' "/home/$username/archconfig"
     chown -R "$username":wheel /home/"$username"/archconfig
 }
 
@@ -57,7 +57,7 @@ EOF
 
 installparu() {
     echo "Installing Paru..."
-    cd /home/"$username" || exit 1
+    cd /home/"$username/programs" || exit 1
     sudo -u "$username" git clone https://aur.archlinux.org/paru.git
     cd paru || exit 1
     sudo -u "$username" makepkg --noconfirm -si
@@ -81,7 +81,7 @@ installvimplug() {
 ### End functions ###
 #####################
 
-ping -c 1 9.9.9.9 &> /dev/null && echo "Success!" || echo "Please check your internet connection"
+ping -c 1 9.9.9.9 &> /dev/null || echo "Please check your internet connection"
 
 sudocheck
 
@@ -91,7 +91,7 @@ usernameandpassword || exit 1
 [ -f /etc/sudoers.pacnew ] && cp /etc/sudoers.pacnew /etc/sudoers
 
 # Adds user to sudoers file
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,music,storagedrive,scripts,archwikidocs,gitwebsite}
 
