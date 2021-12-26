@@ -14,7 +14,7 @@ bind-key h quit
 browser firefox
 player mpv
 #need to press , before o
-macro o set browser mpv ; open-in-browser ; toggle-article-read "read" ; set browser firefox
+macro o set browser "setsid -f mpv" ; open-in-browser ; toggle-article-read "read" ; set browser firefox
 
 #color listfocus white magenta
 #color info white black
