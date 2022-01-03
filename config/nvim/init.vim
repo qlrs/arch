@@ -62,10 +62,13 @@ nnoremap <leader>W :vsp
 nnoremap <leader>f :vert winc f<CR>
 nnoremap <leader>s :!clear && shellcheck %<CR>
 
-" Vimtex
+" For vimtex
 filetype plugin indent on
 let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
 
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
 autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>Bd0kA<Space>
+autocmd FileType html nnoremap <localleader>p i<p></p><Esc>hhhi
+autocmd FileType html nnoremap <localleader>h1 i<h1></h1><Esc>hhhhi
+autocmd FileType html nnoremap <localleader>ah i< a href=""></a><Esc>F"i
