@@ -5,6 +5,8 @@
 # Artist and song name can not have a forward slash in the name,
 # change it to a backslash
 
+[ -z "$1" ] && { notify-send 'Please give a mix link...' ; exit 1 ;}
+
 yt-dlp -o "$HOME/music/album.%(ext)s" --extract-audio --audio-format mp3 "$1"
 
 while read -r time song; do

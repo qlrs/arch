@@ -3,13 +3,13 @@
 # 00:00:00 song name
 # 00:03:00 song name_2
 
-{ [ -z "$1" ] || [ -z "$2" ] ;} && { echo 'First argument is album, second is times' ; exit ;}
+{ [ -z "$1" ] || [ -z "$2" ] ;} && { echo 'First argument is album, second is times' ; exit 1 ;}
 
 echo "What is the artist name? " ; read -r artistname
 echo "What is the album name? " ; read -r albumname
 
-[ -z "$artistname" ] && echo "Please enter an artist name" && exit
-[ -z "$albumname" ] && echo "Pelase enter an album name" && exit
+[ -z "$artistname" ] && echo "Please enter an artist name" && exit 1
+[ -z "$albumname" ] && echo "Pelase enter an album name" && exit 1
 
 menu() {
     printf '\t1. opus\n'
