@@ -7,26 +7,28 @@
 
 [ -z "$1" ] && { notify-send 'Please give a mix link...' ; exit 1 ;}
 
+music="$HOME/music"
+
 yt-dlp -o "$HOME/music/album.%(ext)s" --extract-audio --audio-format mp3 "$1"
 
 while read -r time song; do
     [ -n "$start" ] && 
         echo "Working on $songname..."
-        ffmpeg -nostdin -i "$HOME/music/album.mp3" -b:a 320k -ss "$start" -to "$time" "$HOME/music/$fileartistname/$filename" && 
-        eyeD3 -Q --remove-all -a "$artistname" -t "$songname" "$HOME/music/$fileartistname/$filename" 1> /dev/null
+        ffmpeg -nostdin -i "$music/album.mp3" -b:a 320k -ss "$start" -to "$time" "$music/$fileartistname/$filename" && 
+        eyeD3 -Q --remove-all -a "$artistname" -t "$songname" "$music/$fileartistname/$filename" 1> /dev/null
     start="$time"
 
     artistname=$(echo "$song" | cut -d ',' -f1)
     fileartistname=$(echo "$artistname" | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_')
-    ! [ -e "$HOME/music/$fileartistname" ] && mkdir "$HOME/music/$fileartistname"
+    ! [ -e "$music/$fileartistname" ] && mkdir "$music/$fileartistname"
 
     songname=$(echo "$song" | cut -d ',' -f2)
     filename=$(echo "$song" | cut -d ',' -f2 | tr '[:upper:]' '[:lower:]' | tr '[:blank:]' '_' ).mp3
-    [ -e "$HOME/music/$fileartistname/$filename" ] && { echo "That song name already exists" ; exit 1 ;}
+    [ -e "$music/$fileartistname/$filename" ] && { echo "That song name already exists" ; exit 1 ;}
 
 done < "$2"
 
 echo "Almost done... Working on $songname..."
 echo "$start $filename"
-ffmpeg -nostdin -i "$HOME/music/album.mp3" -b:a 320k -ss "$start" "$HOME/music/$fileartistname/$filename"
-eyeD3 -Q --remove-all -a "$artistname" -t "$songname" "$HOME/music/$fileartistname/$filename"
+ffmpeg -nostdin -i "$music/album.mp3" -b:a 320k -ss "$start" "$music/$fileartistname/$filename"
+eyeD3 -Q --remove-all -a "$artistname" -t "$songname" "$music/$fileartistname/$filename"
