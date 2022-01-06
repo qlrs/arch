@@ -1,7 +1,7 @@
 #!/bin/sh
 # Give url of picture or list with $url $name
 
-[ -z "$1" ] && { notify-send 'Please enter a url or list' ; exit 1 ;}
+[ -z "$1" ] && { echo 'Please enter a url or list' ; exit 1 ;}
 
 getone() {
     echo 'What do you want the file to be called? '; read -r name

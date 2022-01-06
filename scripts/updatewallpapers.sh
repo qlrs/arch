@@ -2,7 +2,7 @@
 # Requires text file with names of pictures that you want, newline seperated
 # Adds the necessary html to the wallpapers file and creates the thumbnails
 
-[ -z "$1" ] && { notify-send "Requires a list of file names..." ; exit 1 ;}
+[ -z "$1" ] && { echo "Requires a list of file names..." ; exit 1 ;}
 
 while read -r name; do
     thumbname="thumbnail-${name}"

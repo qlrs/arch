@@ -1,14 +1,14 @@
 #!/bin/sh
 
-[ -z "$1" ] && { notify-send 'No link given... Exiting' ; exit 1 ;}
+[ -z "$1" ] && { echo 'No link given... Exiting' ; exit 1 ;}
 
 music="$HOME/music"
 
 songinfo() {
     echo "what would you like the artist directory to be called? "; read -r artistname
     echo "what would you like the album directory to be called? "; read -r albumname
-    [ -z "$artistname" ] && { notify-send 'Nothing entered, exiting...' ; exit 1 ;}
-    [ -z "$albumname" ] && { notify-send 'Nothing entered, exiting...' ; exit 1 ;}
+    [ -z "$artistname" ] && { echo 'Nothing entered, exiting...' ; exit 1 ;}
+    [ -z "$albumname" ] && { echo 'Nothing entered, exiting...' ; exit 1 ;}
 }
 
 songinfo

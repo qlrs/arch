@@ -1,7 +1,7 @@
 #!/bin/sh
 # Might need to switch to youtube-dlp to uncap download limit
 
-[ -z "$1" ] && { notify-send 'No link given... exiting.' ; exit 1 ;}
+[ -z "$1" ] && { echo 'No link given... exiting.' ; exit 1 ;}
 
 songinfo() {
     echo 'Artist directory name? '; read -r dirartistname

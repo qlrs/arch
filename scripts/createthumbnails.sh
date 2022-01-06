@@ -1,7 +1,7 @@
 #!/bin/sh
 # Give file of names newline seperated
 
-[ -z "$1" ] && { notify-send "No file given..." ; exit 1 ;}
+[ -z "$1" ] && { echo "No file given..." ; exit 1 ;}
 
 while read -r name; do
     thumbname="thumbnail-${name}"

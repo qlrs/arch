@@ -5,7 +5,7 @@
 # Artist and song name can not have a forward slash in the name,
 # change it to a backslash
 
-[ -z "$1" ] && { notify-send 'Please give a mix link...' ; exit 1 ;}
+[ -z "$1" ] && { echo 'Please give a mix link...' ; exit 1 ;}
 
 music="$HOME/music"
 
