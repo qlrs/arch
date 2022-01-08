@@ -125,13 +125,6 @@ bar {
     }
 }
 
-# Dropdown
-for_window [instance="notes"] floating enable
-for_window [instance="notes"] resize set 800 500
-for_window [instance="notes"] move scratchpad
-exec --no-startup-id alacritty --class notes -e nvim ~/.cache/notes
-bindsym $mod+Shift+w [instance="notes"] scratchpad show ; move position center
-
 # Audio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
