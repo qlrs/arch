@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file='/home/dan/.config/alacritty/alacritty.yml'
+file=/home/dan/.config/alacritty/alacritty.yml
 fonts() {
     while IFS=$':' read a b c; do
         printf '%s\n' "${b# }"
