@@ -1,10 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
 file='/home/dan/.config/alacritty/alacritty.yml'
+fonts() {
+    while IFS=$':' read a b c; do
+        printf '%s\n' "${b# }"
+    done < <(fc-list)
+}
+choice=$(fonts | sort -u | dmenu -i -l 15)
 
-choice=$(fc-list | cut -f2 -d: | sort -u | sed "s/^ *//" | dmenu -i -l 15)
-[ -z "$choice" ] && { notify-send 'Nothing selected, exiting...' ; exit 1 ;}
+while read; do
+    [[ "$REPLY" =~  [[:space:]]+family ]] && cf="${REPLY#????????????}" && break
+done < "$file"
 
-currentfont=$(sed -n '/family/ {p;q}' "$file")
-currentfont=${currentfont#????????????}
-
-sed -i "s/$currentfont/$choice/g" "$file"
+sed -i "s/$cf/$choice/g" "$file"
