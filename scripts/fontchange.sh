@@ -9,7 +9,7 @@ fonts() {
 choice=$(fonts | sort -u | dmenu -i -l 15)
 
 while read -r; do
-    [[ "$REPLY" =~  [[:space:]]+family ]] && cf="${REPLY#????????????}" && break
+    [[ $REPLY =~ [[:space:]]+family ]] && cf="${REPLY#????????????}" && break
 done < "$file"
 
 sed -i "s/$cf/$choice/g" "$file"
