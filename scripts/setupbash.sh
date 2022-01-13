@@ -1,13 +1,9 @@
 #!/bin/bash
 # Run script as root
 
-#################
-### Functions ###
-#################
-
 # Check if user has sudo installed
 sudocheck () {
-    pacman -Q | grep -q 'sudo' || { echo 'Please install sudo before running script... exiting' ; exit ;}
+    pacman -Q | grep -q 'sudo' || { echo 'Please install sudo before running script' ; exit 1;}
 }
 
 # Check if packages are installed, install them if not
@@ -57,17 +53,17 @@ EOF
 
 installparu() {
     echo "Installing Paru..."
-    cd /home/"$username/programs" || exit 1
+    cd /home/"$username/programs" || exit 2
     sudo -u "$username" git clone https://aur.archlinux.org/paru.git
-    cd paru || exit 1
+    cd paru || exit 2
     sudo -u "$username" makepkg --noconfirm -si
 }
 
 installdmenu() {
     echo "Installing dmenu..."
-    cd "/home/$username/programs" || exit 1
+    cd "/home/$username/programs" || exit 2
     sudo -u "$username" git clone https://github.com/mccreadyjonson/dmenu
-    cd dmenu || exit 1
+    cd dmenu || exit 2
     sudo make
     sudo make install
 }
@@ -76,10 +72,6 @@ installdmenu() {
 installvimplug() {
     sudo -u "$username" curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
-
-#####################
-### End functions ###
-#####################
 
 ping -c 1 9.9.9.9 &> /dev/null || echo "Please check your internet connection"
 
@@ -93,17 +85,17 @@ usernameandpassword || exit 1
 # Adds user to sudoers file
 echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,music,storagedrive,scripts,archwikidocs,gitwebsite}
+sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,music,storagedrive,scripts,scripts/bashrewrites,archwikidocs,gitwebsite}
 
-installpackages packages.txt || exit 1
+installpackages packages.txt
 
-reporename || exit 1
+reporename
 
 # Generates skeleton config for ranger
 sudo -u "$username" ranger --copy-config=all "$username"
 
 # Put all the git repo files and folders in the right places
-placeconfigs configlocations.csv || exit 1
+placeconfigs configlocations.csv
 
 # Change default shell to zsh
 chsh -s /usr/bin/zsh "$username"
