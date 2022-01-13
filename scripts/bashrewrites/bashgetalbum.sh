@@ -12,7 +12,7 @@ songinfo() {
 
 songinfo
 
-if [ -e "$music/$artist/$album" ]; then
+if [ "$music/$artist/$album" ]; then
     echo 'That already exists'
     exit 3
 else
