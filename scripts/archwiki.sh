@@ -1,9 +1,13 @@
-#!/bin/sh
+#!/bin/bash
+[ ! -d "/usr/share/doc/arch-wiki" ] && { notify-send "arch-wiki-docs package needed..." ; exit 1 ;}
 
-[ ! -d "/usr/share/doc/arch-wiki" ] && notify-send "arch-wiki-docs package needed..." && exit 1
+var=''
+for i in /usr/share/doc/arch-wiki/html/en/*; do
+    var+="${i##*/}"$'\n'
+done
 
-selection=$(find /usr/share/doc/arch-wiki/html/en -printf "%f\n" | dmenu -i -l 20)
+selection=$(printf "%s\n" "$var" | dmenu -i -l 20)
 
-[ -z "$selection" ] && notify-send "Nothing selected... exiting" && exit 1
+[ -z "$selection" ] && { notify-send "Nothing selected" ; exit 2 ;}
 
-firefox "/usr/share/doc/arch-wiki/html/en/$selection"
+"$BROWSER" "/usr/share/doc/arch-wiki/html/en/$selection" 2> /dev/null
