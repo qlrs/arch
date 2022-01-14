@@ -11,4 +11,4 @@ picom &
 dunst &
 screen &
 nm-applet &
-xwallpaper --center /home/dan/stuff/walls/cyberpunk2.png
+xwallpaper --stretch /home/dan/stuff/walls/cyberpunk2.png
