@@ -1,5 +1,4 @@
 #!/bin/sh
-
 xrdb "$HOME/.Xdefaults"
 xset r rate 400 50 &
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
@@ -12,4 +11,4 @@ picom &
 dunst &
 screen &
 nm-applet &
-xwallpaper --center /home/dan/stuff/walls/dock1.png
+xwallpaper --center /home/dan/stuff/walls/cyberpunk2.png
