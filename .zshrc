@@ -1,4 +1,6 @@
-autoload -U colors && colors
+
+echo "$server"
+utoload -U colors && colors
 PS1="%B[%F{yellow}%1~%f]%b $ "
 
 HISTSIZE=10000
@@ -74,6 +76,7 @@ alias es='es.sh'
 alias sxiv='devour sxiv'
 alias mpv='devour mpv'
 alias zathura='devour zathura'
+alias vpnup='nmcli -a connection up'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
