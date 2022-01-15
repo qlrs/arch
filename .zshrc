@@ -1,5 +1,3 @@
-
-echo "$server"
 autoload -U colors && colors
 PS1="%B[%F{yellow}%1~%f]%b $ "
 
