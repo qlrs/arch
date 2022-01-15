@@ -5,18 +5,18 @@
 curl -s https://wttr.in/Myrtle_Beach\?format=j1 > /tmp/weather_forecast
 
 getforecast() {
-    temp="$(jq -r ."current_condition[0].temp_F" /tmp/weather_forecast)"
-    condition="$(jq -r ."current_condition[0]|.weatherDesc[0]|.value" /tmp/weather_forecast)"
-    curl "http://wttr.in/Myrtle_Beach?u" > "$HOME/.cache/weatherforcast"
+    temp=$(jq -r ."current_condition[0].temp_F" /tmp/weather_forecast)
+    condition=$(jq -r ."current_condition[0]|.weatherDesc[0]|.value" /tmp/weather_forecast)
+    curl 'http://wttr.in/Myrtle_Beach?u' > "$HOME/.cache/weatherforcast"
 }
 
 displayforecast () {
     case $condition in
-        "Partly cloudy") icon="⛅";;
-        Sunny) icon="☀️";;
-        Cloudy|Overcast) icon="☁️";;
-        Rainy) icon="🌧️";;
-        *) icon="☀️";;
+        'Partly cloudy') icon=⛅;;
+        Sunny) icon=☀️;;
+        Cloudy|Overcast) icon=☁️;;
+        Rainy) icon=🌧️;;
+        *) icon=☀️;;
     esac
     echo "$icon $temp℉ "
 }

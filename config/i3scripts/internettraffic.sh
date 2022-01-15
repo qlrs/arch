@@ -1,17 +1,17 @@
 #!/bin/sh
 
 gettraffic() {
-    oldrec="$(cat /sys/class/net/"$1"/statistics/rx_bytes)"
-    oldtrans="$(cat /sys/class/net/"$1"/statistics/tx_bytes)"
+    oldrec=$(cat /sys/class/net/"$1"/statistics/rx_bytes)
+    oldtrans=$(cat /sys/class/net/"$1"/statistics/tx_bytes)
     sleep 1
-    newrec="$(cat /sys/class/net/"$1"/statistics/rx_bytes)"
-    newtrans="$(cat /sys/class/net/"$1"/statistics/tx_bytes)"
+    newrec=$(cat /sys/class/net/"$1"/statistics/rx_bytes)
+    newtrans=$(cat /sys/class/net/"$1"/statistics/tx_bytes)
 
     rawrec=$((newrec - oldrec))
     rawtrans=$((newtrans - oldtrans))
 
-    rec="$(echo "$rawrec" | numfmt --to=iec)"
-    trans="$(echo "$rawtrans" | numfmt --to=iec)"
+    rec=$(echo "$rawrec" | numfmt --to=iec)
+    trans=$(echo "$rawtrans" | numfmt --to=iec)
     echo "🔻 $rec 🔺 $trans"
 }
 

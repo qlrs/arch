@@ -1,12 +1,12 @@
 #!/bin/sh
 
-if mpc | grep -q "playing"; then
-    echo "▶️ 🎶"
+if mpc | grep -q 'playing'; then
+    echo '▶️ 🎶'
 elif
-    mpc | grep -q "paused"; then
-    echo "⏸️ 🎶"
+    mpc | grep -q 'paused'; then
+    echo '⏸️ 🎶'
 else
-    echo "🎶"
+    echo '🎶'
 fi
 
 case $BLOCK_BUTTON in

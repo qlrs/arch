@@ -1,6 +1,6 @@
 #!/bin/sh
 
-temp="$(sensors | awk '/^Package id 0/ {print $4}')"
+temp=$(sensors | awk '/^Package id 0/ {print $4}')
 echo "🌡️ $temp"
 
 case $BLOCK_BUTTON in
