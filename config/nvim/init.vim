@@ -72,3 +72,5 @@ autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{
 autocmd FileType html nnoremap <localleader>p i<p></p><Esc>hhhi
 autocmd FileType html nnoremap <localleader>h1 i<h1></h1><Esc>hhhhi
 autocmd FileType html nnoremap <localleader>ah i<a href=""></a><Esc>F"i
+autocmd FileType html nnoremap <localleader>aht i<a href="" target="_blank"></a><Esc>3F"i
+autocmd FileType html nnoremap <localleader>f f>a
