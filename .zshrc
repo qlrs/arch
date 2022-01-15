@@ -1,6 +1,6 @@
 
 echo "$server"
-utoload -U colors && colors
+autoload -U colors && colors
 PS1="%B[%F{yellow}%1~%f]%b $ "
 
 HISTSIZE=10000
