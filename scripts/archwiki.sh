@@ -1,5 +1,5 @@
 #!/bin/bash
-[ ! -d "/usr/share/doc/arch-wiki" ] && { notify-send "arch-wiki-docs package needed..." ; exit 1 ;}
+[ ! -d "/usr/share/doc/arch-wiki" ] && { notify-send 'arch-wiki-docs package needed' ; exit 1 ;}
 
 var=''
 for i in /usr/share/doc/arch-wiki/html/en/*; do

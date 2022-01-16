@@ -1,5 +1,5 @@
 #!/bin/bash
-[ -z "$1" ] && { echo 'No link given... exiting.' ; exit 1 ;}
+[ -z "$1" ] && { echo 'No link given' ; exit 1 ;}
 
 songinfo() {
     read -p 'Artist name? ' -r artistname

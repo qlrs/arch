@@ -5,9 +5,9 @@ music=$HOME/music
 
 songinfo() {
     read -p 'what would you like the artist directory to be called? ' -r artist
-    [ -z "$artist" ] && { echo 'Nothing entered, exiting...' ; exit 2 ;}
+    [ -z "$artist" ] && { echo 'Nothing entered' ; exit 2 ;}
     read -p 'what would you like the album directory to be called? ' -r album
-    [ -z "$album" ] && { echo 'Nothing entered, exiting...' ; exit 2 ;}
+    [ -z "$album" ] && { echo 'Nothing entered' ; exit 2 ;}
 }
 
 songinfo
