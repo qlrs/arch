@@ -1,35 +1,31 @@
 #!/bin/bash
 # Run script as root
+# newsetup.sh packages.txt 
 
 # Check if user has sudo installed
 sudocheck () {
-    pacman -Q | grep -q 'sudo' || { echo 'Please install sudo before running script' ; exit 1;}
+    type sudo &> /dev/null || echo 'Please install sudo before running script' ; exit 1;
 }
 
 # Check if packages are installed, install them if not
 installpackages() {
-while IFS= read -r line; do
-    if pacman -Qqe | grep -q "$line"; then
-        echo "$line already installed"
-    else
-        echo "Installing $line..."
+    while read -r; do
         pacman --noconfirm --needed -S "$line" &> /dev/null
-    fi
-done < "$1"
+    done < "$1"
 }
 
 # Copy the config files from the git directory to their proper locations
 placeconfigs() {
-while IFS=, read -r file location; do
-    sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
-done < "$1"
+    while IFS=, read -r file location; do
+        sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
+    done < "$1"
 }
 
 # Create the user account, add them to the necessary groups, and
 # set a password.
 usernameandpassword() {
-    read -rp 'What do you want your username to be?' username
-    read -rp 'What do you want your password to be?' password
+    read -p 'What do you want your username to be?' -r username
+    read -p 'What do you want your password to be?' -r password
     useradd -m -G wheel -s /bin/bash "$username"
     echo "$username":"$password" | chpasswd
 }
@@ -70,16 +66,16 @@ installdmenu() {
 
 # TODO
 installvimplug() {
-    sudo -u "$username" curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sudo -u "$username" curl -fLo "$HOME"/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-ping -c 1 9.9.9.9 &> /dev/null || echo "Please check your internet connection"
+ping -c 1 9.9.9.9 &> /dev/null || echo 'Please check your internet connection'
 
 sudocheck
 
 usernameandpassword || exit 1
 
-# Seems necessary /shrug
+# Seems necessary
 [ -f /etc/sudoers.pacnew ] && cp /etc/sudoers.pacnew /etc/sudoers
 
 # Adds user to sudoers file
