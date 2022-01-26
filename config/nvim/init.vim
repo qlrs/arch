@@ -12,7 +12,7 @@ syntax on
 set number relativenumber
 set clipboard=unnamed
 set linebreak
-set scrolloff=3
+set scrolloff=6
 set nocompatible
 set encoding=utf-8
 set wildmenu
@@ -74,3 +74,4 @@ autocmd FileType html nnoremap <localleader>h1 i<h1></h1><Esc>hhhhi
 autocmd FileType html nnoremap <localleader>ah i<a href=""></a><Esc>F"i
 autocmd FileType html nnoremap <localleader>aht i<a href="" target="_blank"></a><Esc>3F"i
 autocmd FileType html nnoremap <localleader>f f>a
+autocmd FileType c nnoremap <localleader>c :!gcc %<CR>
