@@ -75,3 +75,5 @@ autocmd FileType html nnoremap <localleader>ah i<a href=""></a><Esc>F"i
 autocmd FileType html nnoremap <localleader>aht i<a href="" target="_blank"></a><Esc>3F"i
 autocmd FileType html nnoremap <localleader>f f>a
 autocmd FileType c nnoremap <localleader>c :!gcc %<CR>
+autocmd FileType c nnoremap <localleader>mv iint<CR>main(void)<CR>{<CR>}<Esc>ko
+autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<CR>{<CR>}<Esc>ko
