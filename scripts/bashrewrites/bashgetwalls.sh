@@ -34,3 +34,5 @@ if [[ $1 = http* ]]; then
 else
     getmultiple "$@"
 fi
+
+rm "$1"
