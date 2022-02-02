@@ -2,11 +2,11 @@
 [ -z "$1" ] && { printf "No link given\n" ; exit 1 ;}
 
 songinfo() {
-    read -p 'Artist name? ' -r artistname
+    read -p 'Artist name: ' -r artistname
     dirartistname=${artistname,,}
     dirartistname=${dirartistname// /_}
 
-    read -p 'Song name? ' -r songname
+    read -p 'Song name: ' -r songname
     filename=${songname,,}
     filename=${filename// /_}
 
