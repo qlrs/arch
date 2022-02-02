@@ -29,7 +29,7 @@ counter=1
 while read -r time song; do
     tracknum=$((counter - 1))
     [ "$start" ] &&
-        printf "Working on %s" "$songname" &&
+        printf "Working on %s\n" "$songname" &&
         if [ "$userext" = '.mp3' ]; then
             ffmpeg -nostdin -i "$1" -b:a 320k -ss "$start" -to "$time" "$filename" 2> /dev/null && 
             eyeD3 -Q --remove-all -a "$artistname" -A "$albumname" -t "$songname" -n "$tracknum" "$filename"
