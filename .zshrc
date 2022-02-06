@@ -76,6 +76,7 @@ alias sxiv='devour sxiv'
 alias mpv='devour mpv'
 alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
+alias stopwatch='termdown'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
