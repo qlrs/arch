@@ -37,6 +37,8 @@ set statusline+=%L
 set statusline+=\ %{strftime(\"%I:%M\")}
 
 autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
+autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
+autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let mapleader=" "
 
@@ -67,13 +69,13 @@ filetype plugin indent on
 let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
 
-autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
 autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>Bd0kA<Space>
 autocmd FileType html nnoremap <localleader>p i<p></p><Esc>hhhi
 autocmd FileType html nnoremap <localleader>h1 i<h1></h1><Esc>hhhhi
 autocmd FileType html nnoremap <localleader>ah i<a href=""></a><Esc>F"i
 autocmd FileType html nnoremap <localleader>aht i<a href="" target="_blank"></a><Esc>3F"i
 autocmd FileType html nnoremap <localleader>f f>a
-autocmd FileType c nnoremap <localleader>c :!gcc %<CR>
+autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
 autocmd FileType c nnoremap <localleader>mv iint<CR>main(void)<CR>{<CR>}<Esc>ko
 autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<CR>{<CR>}<Esc>ko
+autocmd FileType c nnoremap <localleader>f ofor (int i = 0; i < x; i++)<Esc><S-f>xs
