@@ -103,10 +103,10 @@ for_window [class="Steam"] floating enable
 
 # Colors
 # Class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #d0d0d0   #458588
+client.focused              #ffffff #ffffff #ffffff #d0d0d0   #cc241d
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
-client.urgent               #ffffff #ffffff #ffffff #555555   #cc241d
+client.urgent               #ffffff #ffffff #ffffff #555555   #d79921
 
 
 # Scratchpad
