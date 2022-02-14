@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # First argument is album file and second is time file formatted as
 # 00:00:00 song name
 # 00:03:00 song name_2

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 [ -z "$1" ] && { printf "No link given\n" ; exit 1 ;}
 
 music=$HOME/music
