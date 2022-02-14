@@ -33,6 +33,5 @@ if [[ $1 = http* ]]; then
     getone "$@"
 else
     getmultiple "$@"
+    rm "$1"
 fi
-
-rm "$1"
