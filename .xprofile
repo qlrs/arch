@@ -1,6 +1,7 @@
 #!/bin/sh
 xrdb "$HOME/.Xdefaults"
 xset r rate 400 50 &
+xset s 1800 1800
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 capstoescape.sh &
 sxhkd &
@@ -11,4 +12,4 @@ picom &
 dunst &
 screen &
 nm-applet &
-xwallpaper --stretch /home/dan/stuff/walls/cyberpunk2.png
+xwallpaper --stretch /home/dan/stuff/walls/aenami2.jpg
