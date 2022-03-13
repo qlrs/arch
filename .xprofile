@@ -10,6 +10,6 @@ clipmenud &
 unclutter &
 picom &
 dunst &
-screen &
+screen.sh &
 nm-applet &
 xwallpaper --stretch /home/dan/stuff/walls/aenami2.jpg
