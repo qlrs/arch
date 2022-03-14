@@ -62,4 +62,6 @@ key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
   - { key: K,   mods: Control|Shift, action: ScrollPageUp }
   - { key: J,   mods: Control|Shift, action: ScrollPageDown }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
