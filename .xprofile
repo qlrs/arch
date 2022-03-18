@@ -3,6 +3,7 @@ xrdb "$HOME/.Xdefaults"
 xset r rate 400 50 &
 xset s 1800 1800
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
+xinput set-button-map 'Kensington Expert Mouse' 1 8 3 4 5 6 7 2 9
 capstoescape.sh &
 sxhkd &
 mpd &
