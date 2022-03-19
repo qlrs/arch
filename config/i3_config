@@ -173,6 +173,3 @@ bindcode $mod+115 exec xbacklight -dec 5
 #exec --no-startup-id dunst &
 #exec_always feh --bg-scale /home/dan/walls/landscape9.jpg
 #exec_always wal -i /home/dan/walls/flowers1.jpg
-
-# Polybar
-#exec_always --no-startup-id /home/dan/.config/polybar/launch.sh
