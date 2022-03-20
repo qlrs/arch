@@ -77,6 +77,7 @@ alias mpv='devour mpv'
 alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
 alias stopwatch='termdown'
+alias key='keychain ~/.ssh/id_rsa'
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
@@ -101,8 +102,6 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-eval $(keychain --eval --quiet --noask ~/.ssh/id_rsa)
 # Must be last
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
