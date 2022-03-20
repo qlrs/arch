@@ -1,5 +1,5 @@
 #!/bin/sh
-drop="http://www.chorderator.com/?optionsDisp=yes&readableTuning=%3CCustom%3E&chordName=$1&tuning=dDGBE&capo=0&size=30"
+drop="http://www.chorderator.com/?optionsDisp=yes&readableTuning=Guitar+Dropped+D&chordName=$1&tuning=DADGBE&capo=0&size=30"
 standard="http://www.chorderator.com/?optionsDisp=yes&readableTuning=Guitar+Standard&chordName=$1&tuning=EADGBE&capo=0&size=30"
 
 read -p 'Standard (1) or Drop (2) tuning: ' -r answer
