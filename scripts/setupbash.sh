@@ -10,7 +10,7 @@ sudocheck () {
 # Check if packages are installed, install them if not
 installpackages() {
     while read -r; do
-        pacman --noconfirm --needed -S "$line" &> /dev/null
+        pacman --noconfirm --needed -S "$REPLY" &> /dev/null
     done < "$1"
 }
 
@@ -19,6 +19,13 @@ placeconfigs() {
     while IFS=, read -r file location; do
         sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
     done < "$1"
+}
+
+getwallpapers() {
+    url='https://rschrader.xyz/pics/'
+    for i in $(curl -s https://rschrader.xyz/wallpapers.html | grep -o 'href=pics/[a-zA-Z0-9]\+\.\(jpg\|png\|jpeg\)'); do
+    wget -nc "$url${i##*/}" -P "home/$username/walls"
+    done
 }
 
 # Create the user account, add them to the necessary groups, and
@@ -108,6 +115,9 @@ installdmenu
 
 # Create necessary files for mpd
 sudo -u "$username" touch "/home/$username/.config/mpd/{mpd.db,mpd.log,mpd.pid}"
+
+# Download wallpapers from my site
+getwallpapers
 
 # TODO
 installvimplug
