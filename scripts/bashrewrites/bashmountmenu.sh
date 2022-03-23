@@ -3,7 +3,7 @@
 show_drives()
 {
 while read -r a b c d e f; do
-    if [[ $f =~ part ]]; then
+    if [[ $f =~ part$ ]]; then
         printf '%s %-15s (%s)\n' "$a" "$f" "$d"
     fi
 done < <(lsblk -lp)
