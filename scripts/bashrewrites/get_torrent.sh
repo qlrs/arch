@@ -41,7 +41,7 @@ show_movies()
 get_movie_page()
 {
     tmp=$(printf "%s" "${choice// /-}" | grep -o '[a-zA-Z].*')
-    page=$(grep -oE "torrent/[0-9]+/$tmp" 'torrent.txt')
+    page=$(grep -oE "torrent/[0-9]+/$tmp" 'tmp/torrent.txt')
     curl -s "$pageurl$page/" > 'movie_page.txt'
 }
 
@@ -56,13 +56,13 @@ search=$(printf "" | dmenu -p 'What do you want to search for? ')
 searchurl="https://1337x.to/search/${search// /_}/1/"
 pageurl="https://1337x.to/"
 
-curl -s "$searchurl" > "$HOME"/linuxbook/bashstuff/torrent.txt
+curl -s "$searchurl" > tmp/torrent.txt
 
-get_seeds 'torrent.txt' > seeds.txt
+get_seeds 'tmp/torrent.txt' > tmp/seeds.txt
 
-get_names 'torrent.txt' > names.txt
+get_names 'tmp/torrent.txt' > tmp/names.txt
 
-choice=$(show_movies 'seeds.txt' 'names.txt' | dmenu -l 20)
+choice=$(show_movies 'tmp/seeds.txt' 'tmp/names.txt' | dmenu -l 20)
 
 get_movie_page
 
