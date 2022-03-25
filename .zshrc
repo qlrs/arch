@@ -77,7 +77,7 @@ alias mpv='devour mpv'
 alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
 alias stopwatch='termdown'
-alias key='eval $(keychain --eval ~/.ssh/id_rsa)'
+eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 #for pywal
 #(cat ~/.cache/wal/sequences &)
 
