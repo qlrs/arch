@@ -1,6 +1,5 @@
-#!/usr/bing/env bash
+#!/usr/bin/env bash
 # Give url of picture or list with $url $name
-
 [ -z "$1" ] && { printf "Please enter a url or list\n" ; exit 1 ;}
 
 getone() {
