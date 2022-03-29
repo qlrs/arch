@@ -7,6 +7,7 @@ fonts() {
     done < <(fc-list)
 }
 choice=$(fonts | sort -u | dmenu -i -l 15)
+[ -z "$choice" ] && exit 1
 
 while read -r; do
     [[ $REPLY =~ [[:space:]]+family ]] && cf="${REPLY#????????????}" && break
