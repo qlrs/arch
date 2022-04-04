@@ -3,25 +3,17 @@
 selection=$(printf 'stallmanwasright
 mousereview
 livestreamfail
-valorant
-valorantcompetitive
 bash
 onions
 tor
-imaginarysliceoflife
 commandline
 thinkpad
 cyberpunk
-privacytoolsIO
 privacyguides
 privacy
 destiny
 linux
-politics
-linuxmasterrace
-linuxquestions
 archlinux
-artixlinux
 voidlinux' | dmenu -i -l 20)
 
 url="https://teddit.net/r/$selection"
