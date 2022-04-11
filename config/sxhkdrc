@@ -7,7 +7,7 @@ alt + shift + semicolon
 alt + c
     $TERMINAL -e calcurse
 alt + z
-    gnome-calculator
+    xcalc
 alt + semicolon
     $TERMINAL -e nmtui
 alt + e
