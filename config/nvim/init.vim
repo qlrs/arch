@@ -39,6 +39,7 @@ set statusline+=\ %{strftime(\"%I:%M\")}
 autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
+autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let mapleader=" "
 
