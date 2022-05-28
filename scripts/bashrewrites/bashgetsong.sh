@@ -16,9 +16,10 @@ songinfo() {
 
 processsong() {
     yt-dlp -o "$musicpath/$filename.%(ext)s" \
-        --extract-audio --audio-format mp3 "$@"
-    eyeD3 -Q --remove-all -a "$artistname" -t "$songname" \
-        "$musicpath/$filename.mp3"
+        --extract-audio --audio-format opus "$@"
+    printf "Artist=%s\nTitle=%s" "$artistname" "$songname" | opustags -i -S "$musicpath/$filename.opus"
+    #eyeD3 -Q --remove-all -a "$artistname" -t "$songname" \
+        #"$musicpath/$filename.mp3"
 }
 
 songinfo
