@@ -9,5 +9,5 @@ price() {
 echo "💲 ETH: $(price eth) 💲 BTC: $(price btc)"
 
 case $BLOCK_BUTTON in
-    1) firefox 'http://rate.sx/eth' 'http://rate.sx/btc' ;;
+    1) "$BROWSER" 'http://rate.sx/eth' 'http://rate.sx/btc' ;;
 esac
