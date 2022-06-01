@@ -7,7 +7,7 @@ alt + shift + semicolon
 alt + c
     $TERMINAL -e calcurse
 alt + z
-    xcalc
+    $TERMINAL --class "bc" -e bc
 alt + semicolon
     $TERMINAL -e nmtui
 alt + e
