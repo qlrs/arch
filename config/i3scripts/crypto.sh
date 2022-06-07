@@ -6,8 +6,8 @@ price() {
     echo "$price"
 }
 
-echo "💲 ETH: $(price eth) 💲 BTC: $(price btc)"
+echo "💲 BTC: $(price btc)"
 
 case $BLOCK_BUTTON in
-    1) "$BROWSER" 'http://rate.sx/eth' 'http://rate.sx/btc' ;;
+    1) "$BROWSER" 'http://rate.sx/btc' ;;
 esac
