@@ -98,6 +98,8 @@ xorg-xwud
 xwallpaper
 yad
 yt-dlp
+zathura
+zathura-pdf-mupdf
 zenity
 zsh
 zsh-syntax-highlighting
