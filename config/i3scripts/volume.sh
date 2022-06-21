@@ -10,7 +10,7 @@ esac
 
 currentvolume=$(pamixer --get-volume)
 
-if pamixer --get-mute > /dev/null; then
+if "$(pamixer --get-mute)" > /dev/null; then
     icon=🔇
 else
     icon=🔊
