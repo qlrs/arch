@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while getopts ":n:b:" i; do
+    case "${i}" in
+        n) nvim "$(grep -rl "$2" * | fzf)" ;;
+        b) bat "$(grep -rl "$2" * | fzf)" 2> /dev/null ;;
+        *) echo 'Not a valid option'
+            exit;;
+    esac
+done
