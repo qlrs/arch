@@ -1,0 +1,92 @@
+#! /usr/bin/env python
+from bs4 import BeautifulSoup
+import requests
+import re
+import subprocess
+
+baseUrl = 'https://nyaa.si/?f=0&c=0_0&q='
+
+def getSearch():
+    dSearch = subprocess.run(['dmenu', '-p', 'Search: '], stdin=subprocess.PIPE, capture_output=True)
+    search = dSearch.stdout.decode().strip()
+    if not search:
+        print("Nothing selected")
+        quit()
+    searchUrl = baseUrl+search+'&s=seeders&o=desc'
+    return searchUrl
+
+def getSeeders():
+    """Returns the number of seeders for the torrent"""
+
+    seeders = []
+    save = None
+    for i in soup.find_all('td', class_='text-center'):
+        if save == True:
+            seeders.append(i.string)
+            save = False
+            continue
+        if i.string == None:
+            continue
+        if re.search(r'\d{4}-\d{2}-\d{2}', i.string):
+            # For saving the next line after match
+            save = True
+    del seeders[20:]
+    return seeders
+
+def getTitles():
+    """Returns title of torrent"""
+     
+    titles = []
+    counter = 0
+    for i in soup.find_all("a"):
+        if counter < 8:
+            counter += 1
+            continue
+        elif i.string == None:
+                    continue
+        elif 'Click' in i.string:
+            continue
+        else:
+            titles.append(i.string)
+    del titles[20:]
+    return titles
+
+def getMagnets():
+    """Returns list of magnet links"""
+
+    magnets = []
+    for i in soup.find_all("a"):
+        try:
+            if 'magnet' in i['href']:
+                magnets.append(i)
+        except KeyError:
+            pass
+    del magnets[20:]
+    return magnets
+
+def getChoice():
+    """Pipe possible selections do dmenu and get the users choice"""
+
+    choices = ''
+    for k, v in torrent.items():
+        choices += f"{v[0].ljust(8)} -> {k}\n"
+
+    output = subprocess.run(['dmenu', '-l', '12', '-i'], input=choices.encode(), capture_output=True)
+    try:
+        dChoice = output.stdout.decode().split('>')[1].strip()
+    except IndexError:
+        print('Nothing selected')
+        quit()
+    almost = str(torrent[dChoice][1]).split('"')
+    winner = almost[1]
+    return winner
+
+r = requests.get(getSearch())
+soup = BeautifulSoup(r.text, 'html.parser')
+
+titles = getTitles()
+magnets = getMagnets()
+seeders = getSeeders()
+torrent = dict(zip(titles, zip(seeders, magnets)))
+winner = getChoice()
+subprocess.run(['setsid', '-f', 'transmission-gtk', winner, '&'])
