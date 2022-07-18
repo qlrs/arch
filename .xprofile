@@ -5,6 +5,7 @@ xset s 1800 1800
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 xinput set-button-map 'Kensington Expert Mouse' 1 8 3 4 5 6 7 2 9
 capstoescape.sh &
+autotiling &
 sxhkd &
 mpd &
 clipmenud &
@@ -13,4 +14,4 @@ picom &
 dunst &
 screen.sh &
 nm-applet &
-xwallpaper --stretch /home/dan/stuff/walls/aenami2.jpg
+xwallpaper --stretch /home/dan/stuff/walls/desk1.png
