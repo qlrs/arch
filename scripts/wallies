@@ -4,7 +4,9 @@ import requests
 import webbrowser
 import sys
 
-req = requests.get("https://teddit.net/r/wallpapers")
+location = "/tmp/"
+
+req = requests.get("https://teddit.namazso.eu/r/wallpapers")
 firefox = webbrowser.Mozilla("/usr/bin/firefox")
 soup = BeautifulSoup(req.content, "html.parser")
 
@@ -28,7 +30,7 @@ def getPics(pics, amount=5):
         url = f"https://teddit.net{thumbs[i]}"
         filename = url.split('_')[1]
         r = requests.get(url)
-        with open(f"{filename}", "wb") as f:
+        with open(f"{location}{filename}", "wb") as f:
             f.write(r.content)
         print(f"{filename} Done")
 
