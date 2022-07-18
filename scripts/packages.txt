@@ -53,6 +53,7 @@ pcmanfm-gtk3
 picom
 piper
 pulsemixer
+python-pip
 python-eyed3
 python-pywal
 qutebrowser

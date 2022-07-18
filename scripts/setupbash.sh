@@ -46,8 +46,10 @@ reporename() {
 # Create a to-do list for things that I haven't done in this script
 todolist() {
     cat <<EOF
+AUR packages: autotiling, devour, opustags
 Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
+
 Open nvim and run :PlugInstall
 Add keys to git server
 Enable fstrim.timer service (install util-linux if not available)
