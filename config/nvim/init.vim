@@ -13,13 +13,13 @@ set number relativenumber
 set clipboard=unnamed
 set linebreak
 set scrolloff=6
-set nocompatible
 set encoding=utf-8
 set wildmenu
 set nohlsearch
 set splitbelow splitright
 set mouse=a
 set tabstop=4
+set expandtab
 set incsearch
 set shiftwidth=4
 set softtabstop=4
@@ -40,6 +40,7 @@ autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
 autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
 autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
+autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let mapleader=" "
 
@@ -80,3 +81,4 @@ autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
 autocmd FileType c nnoremap <localleader>mv iint<CR>main(void)<CR>{<CR>}<Esc>ko
 autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<CR>{<CR>}<Esc>ko
 autocmd FileType c nnoremap <localleader>f ofor (int i = 0; i < x; i++)<Esc><S-f>xs
+autocmd FileType perl nnoremap <localleader>c ichomp($ = <STDIN>);<esc>bbbbhi
