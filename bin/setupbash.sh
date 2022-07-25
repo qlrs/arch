@@ -90,7 +90,7 @@ usernameandpassword || exit 1
 # Adds user to sudoers file
 echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,music,storagedrive,scripts,scripts/bashrewrites,archwikidocs,gitwebsite}
+sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,music,storagedrive,bin,bin/bashrewrites,archwikidocs,gitwebsite}
 
 installpackages packages.txt
 

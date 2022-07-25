@@ -21,4 +21,4 @@ config/ranger,.config/
 .bashrc,
 .newsboat,
 extrastuff,stuff
-scripts,
+bin,
