@@ -1,0 +1,89 @@
+#! /usr/bin/env python
+import requests
+import sys
+from os import system
+import webbrowser
+from bs4 import BeautifulSoup
+from simple_term_menu import TerminalMenu
+
+try:
+    subreddit = sys.argv[1]
+except IndexError:
+    print("What subreddit would you like to see?")
+    subreddit = input("> ")
+url = f"https://teddit.namazso.eu/r/{subreddit}"
+r = requests.get(url)
+soup = BeautifulSoup(r.text, "html.parser")
+
+
+def get_titles(webpage):
+    """Get titles of reddit posts"""
+
+    titles = []
+
+    # Omit useless first match
+    for i in webpage.find_all("h2")[1:]:
+        titles.append(i.string)
+
+    return titles
+
+
+def get_comments_link(webpage):
+    comms_url = "https://teddit.namazso.eu"
+    comments_links = []
+
+    for i in webpage.find_all("a", class_="comments"):
+        coms = f"{comms_url}{i['href']}"
+        comments_links.append(coms)
+    return comments_links
+
+
+def get_article_link(webpage):
+    article_links = []
+
+    for i in webpage.find_all("a")[1:]:
+        if i.find("h2"):
+            if i.string == subreddit:
+                pass
+            elif "rel=" not in str(i):
+                article_links.append("")
+            else:
+                article_links.append(i["href"])
+    return article_links
+
+
+titles = get_titles(soup)
+comments = get_comments_link(soup)
+articles = get_article_link(soup)
+block = dict(zip(titles, list(zip(articles, comments))))
+system("clear")
+
+
+def main_loop():
+    main_menu = TerminalMenu(
+        titles,
+        title=f"r/{subreddit}\n".center(60),
+        menu_highlight_style=("underline", "standout", "fg_green", "bold"),
+        status_bar="J: Down, K: Up, Enter: Select, Q to exit",
+        status_bar_style=("fg_yellow", "bg_black"),
+    )
+    main_index = main_menu.show()
+
+    try:
+        selected = [block[titles[main_index]][0], block[titles[main_index]][1], "Back"]
+    except TypeError:
+        sys.exit(0)
+
+    sel_menu = TerminalMenu(selected, title=titles[main_index], skip_empty_entries=True)
+    sel_index = sel_menu.show()
+    if sel_index == 2:
+        main_loop()
+
+    try:
+        webbrowser.get("firefox").open(selected[sel_index])
+        main_loop()
+    except TypeError:
+        sys.exit(0)
+
+
+main_loop()
