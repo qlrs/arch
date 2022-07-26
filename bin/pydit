@@ -56,10 +56,10 @@ titles = get_titles(soup)
 comments = get_comments_link(soup)
 articles = get_article_link(soup)
 block = dict(zip(titles, list(zip(articles, comments))))
-system("clear")
 
 
 def main_loop():
+    system("clear")
     main_menu = TerminalMenu(
         titles,
         title=f"r/{subreddit}\n".center(60),
