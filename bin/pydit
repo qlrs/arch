@@ -64,7 +64,7 @@ def main_loop():
         titles,
         title=f"r/{subreddit}\n".center(60),
         menu_highlight_style=("underline", "standout", "fg_green", "bold"),
-        status_bar="J: Down, K: Up, Enter: Select, Q to exit",
+        status_bar="J: Down, K: Up, Enter: Select, Q/Esc: Exit",
         status_bar_style=("fg_yellow", "bg_black"),
     )
     main_index = main_menu.show()
