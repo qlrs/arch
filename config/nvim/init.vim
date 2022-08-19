@@ -7,7 +7,16 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+        },
+    }
+EOF
 
 syntax on
 set number relativenumber
@@ -67,7 +76,6 @@ inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>v :vsp
 nnoremap <leader>F :vert winc f<CR>
-nnoremap <leader>s :!clear && shellcheck %<CR>
 
 " For vimtex
 filetype plugin indent on
