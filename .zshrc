@@ -76,6 +76,7 @@ alias sxiv='devour sxiv'
 alias mpv='devour mpv'
 alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
+alias glow='glow -p'
 alias stopwatch='termdown'
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 #for pywal
