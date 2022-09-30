@@ -17,3 +17,4 @@ else
 fi
 
 echo "$icon $currentvolume"
+notify-send "$icon"
