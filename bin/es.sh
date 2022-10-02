@@ -1,6 +1,6 @@
 #!/bin/sh
 
-du -a "$HOME/scripts" \
+du -a "$HOME/bin" \
     "$HOME/.config/aerc" \
     "$HOME/.config/alacritty" \
     "$HOME/.config/calcurse" \
