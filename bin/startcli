@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cp "$HOME"/.config/nvim/templates/skeleton_cli.py "$1"
+[ ! -f TODO.md ] && touch TODO.md
