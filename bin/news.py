@@ -1,0 +1,102 @@
+import curses
+import shutil
+import subprocess
+import sys
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def main():
+    url = "https://text.npr.org"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "html.parser")
+
+    articles_choices = get_info(soup)
+
+    viewing_article = curses.wrapper(
+            work, list(articles_choices.keys())
+            )
+
+    article_url = f"{url}{articles_choices[viewing_article]}"
+    article_r = requests.get(article_url)
+    article_soup = BeautifulSoup(article_r.text, "html.parser")
+
+    article = show_article(article_soup)
+    if shutil.which("bat"):
+        subprocess.run(["bat"], input=article.encode())
+    else:
+        subprocess.run(["less"], input=article.encode())
+
+
+def get_info(soup):
+    titles = [i.text for i in soup.find_all("a", class_="topic-title")]
+    links = [i["href"] for i in soup.find_all("a", class_="topic-title")]
+
+    articles = dict(zip(titles, links))
+    return articles
+
+
+def show_article(soup):
+    line = ""
+    line += soup.title.string
+    line += "\n\n"
+
+    for i in soup.find_all("p"):
+        if i.string is None:
+            continue
+        line += i.string
+        line += "\n\n"
+
+    return line
+
+
+def work(stdscr, menu):
+    current_row_idx = 0
+    print_menu(stdscr, menu, current_row_idx)
+
+    while True:
+        key = stdscr.getkey()
+        stdscr.clear()
+
+        if key == "k" and current_row_idx > 0:
+            current_row_idx -= 1
+        elif key == "j" and current_row_idx < len(menu) - 1:
+            current_row_idx += 1
+        elif key == "\n":
+            stdscr.refresh()
+            break
+        elif key == "q":
+            sys.exit(1)
+
+        print_menu(stdscr, menu, current_row_idx)
+        stdscr.refresh()
+
+    return menu[current_row_idx]
+
+
+def print_menu(stdscr, menu, selected_row_idx):
+    height, width = stdscr.getmaxyx()
+
+    curses.curs_set(0)
+    curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_MAGENTA)
+    stdscr.clear()
+
+    stdscr.addstr(0, 15, "Select article to view")
+    stdscr.addstr(1, 5, "J: Down, K: Up, Enter: Select, Q: Quit")
+    for idx, row in enumerate(menu):
+        x = 1
+        y = 2 + idx
+
+        if idx == selected_row_idx:
+            stdscr.attron(curses.color_pair(1))
+            stdscr.addstr(y, x, row[:width - 1])
+            stdscr.attroff(curses.color_pair(1))
+        else:
+            stdscr.addstr(y, x, row[:width - 1])
+
+    stdscr.refresh()
+
+
+if __name__ == "__main__":
+    main()
