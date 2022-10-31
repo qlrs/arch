@@ -7,7 +7,7 @@ forecast = requests.get(url).json()
 
 
 def get_emoji(short_forecast):
-    if short_forecast == "Mostly Sunny":
+    if short_forecast in ["Mostly Clear", "Mostly Sunny"]:
         emoji = "⛅"
     elif short_forecast in ["Sunny", "Clear"]:
         emoji = "☀️"
@@ -17,20 +17,20 @@ def get_emoji(short_forecast):
         emoji = "🌥️"
     elif short_forecast == "Partly Cloudy":
         emoji = "⛅"
-    elif short_forecast == "Mostly Clear":
-        emoji = "🌤️  "
-    elif short_forecast == "Chance Rain Showers" or short_forecast == "Rain Showers":
-        emoji = "🌧️ "
-    elif short_forecast == "Slight Chance Very Light Rain":
+    elif short_forecast in ["Partly Sunny", "Mostly Clear"]:
+        emoji = "🌤️"
+    elif short_forecast == "Slight Chance Rain Showers":
         emoji = "🌦️"
+    elif short_forecast in ["Chance Rain Showers", "Rain Showers"]:
+        emoji = "🌧️"
     elif "Thunderstorms" in short_forecast:
-        emoji = "⛈️  "
+        emoji = "⛈️ "
     else:
-        emoji = "😎 "
+        emoji = "😎"
     return emoji
 
 
 temp = forecast["properties"]["periods"][0]["temperature"]
 short = forecast["properties"]["periods"][0]["shortForecast"]
 emoji = get_emoji(short)
-print(f"{emoji}{temp}°F")
+print(f"{emoji} {temp}°F")
