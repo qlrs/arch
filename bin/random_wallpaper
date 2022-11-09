@@ -1,0 +1,12 @@
+#!/bin/bash
+
+folder="$HOME/stuff/walls"
+
+upper=$(find "$folder" -type f -print | wc -l)
+rand=$(( ( RANDOM % "$upper" ) + 1 ))
+
+counter=1
+for i in "$folder"/*; do
+    [[ "$counter" -eq "$rand" ]] && xwallpaper --stretch "$i"
+    counter=$(( counter + 1 ))
+done
