@@ -8,6 +8,7 @@ Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -67,7 +68,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <leader>f :Files ~/linuxbook/<CR>
+map <leader>f :Files ~/<CR>
 map <leader>e :NERDTreeToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>w :w<CR>
@@ -92,3 +93,4 @@ autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
 autocmd FileType c nnoremap <localleader>mv iint<CR>main(void)<CR>{<CR>}<Esc>ko
 autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<CR>{<CR>}<Esc>ko
 autocmd FileType c nnoremap <localleader>f ofor (int i = 0; i < x; i++)<Esc><S-f>xs
+autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
