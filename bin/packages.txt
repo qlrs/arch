@@ -61,6 +61,7 @@ python-pywal
 qutebrowser
 ranger
 shellcheck
+syncthing
 sxhkd
 sxiv
 tamsyn-font
