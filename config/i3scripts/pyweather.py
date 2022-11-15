@@ -19,7 +19,7 @@ def get_emoji(short_forecast):
         emoji = "⛅"
     elif short_forecast in ["Partly Sunny", "Mostly Clear"]:
         emoji = "🌤️"
-    elif short_forecast == "Slight Chance Rain Showers":
+    elif short_forecast in ["Rain Showers Likely", "Slight Chance Rain Showers"]:
         emoji = "🌦️"
     elif short_forecast in ["Chance Rain Showers", "Rain Showers"]:
         emoji = "🌧️"
