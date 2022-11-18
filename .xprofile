@@ -1,17 +1,18 @@
 #!/bin/sh
 xrdb "$HOME/.Xdefaults"
-xset r rate 400 50 &
+xset r rate 300 110
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 xinput disable 'SynPS/2 Synaptics TouchPad'
-rebinds.sh &
+rebinds.sh
 sxhkd &
 mpd &
 clipmenud &
 unclutter &
 picom &
 dunst &
-screen &
+screen.sh &
 nm-applet &
-xwallpaper --stretch /home/dan/stuff/walls/halloween6.jpg
+xwallpaper --stretch /home/dan/stuff/walls/hongkong1.jpg
+#random_wallpaper
 rfkill block bluetooth
 autotiling &
