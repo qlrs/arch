@@ -1,0 +1,56 @@
+#!/bin/sh
+# TODO
+# encrypt/decrypt bookmarks with gpg
+
+BOOKMARKS_FILE="$HOME/.config/BACKUPbookmarks"
+TEMP_FILE="/tmp/temp_bookmarks"
+
+
+help() {
+    cat << EOF
+Usage:
+    marks: choose bookmark to open
+    marks add: add bookmark
+    marks help: show this screen
+EOF
+}
+
+
+show_bookmarks() {
+    dmenu -i -l 20 < "$BOOKMARKS_FILE" | cut -d ';' -f1
+}
+
+
+open() {
+    choice=$(show_bookmarks)
+    [ -z "$choice" ] && exit
+    printf "%s" "$choice" | xclip
+    setsid -f "$BROWSER" "$choice" 1> /dev/null 2>&1
+}
+
+
+add() {
+    if [ -z "$1" ]; then
+        printf "%s\n" "$(xclip -o)" >> "$BOOKMARKS_FILE"
+    else
+        printf "%s\n" "$*" >> "$BOOKMARKS_FILE"
+    fi
+}
+
+
+change() {
+    choice=$(show_bookmarks)
+    new=$(printf "Editing %s\n" "$choice" | dmenu -l 2 -p "Edit: ")
+    add "$new"
+    sed "\~$choice~d" "$BOOKMARKS_FILE" > "$TEMP_FILE"
+    mv "$TEMP_FILE" "$BOOKMARKS_FILE"
+}
+
+
+case $1 in
+    add) shift ; add "$*" ;;
+    edit) "$EDITOR" "$BOOKMARKS_FILE" ;;
+    change) shift ; change "$1" ;;
+    -h| --help) help ;;
+    *) open ;;
+esac
