@@ -51,7 +51,7 @@ Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
 
 Open nvim and run :PlugInstall
-Add keys to git server
+Add keys to git server and vps
 Enable fstrim.timer service (install util-linux if not available)
 EOF
 }
