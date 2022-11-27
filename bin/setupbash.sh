@@ -49,7 +49,7 @@ todolist() {
 AUR packages: autotiling, devour, opustags
 Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
-
+Setup Syncthing
 Open nvim and run :PlugInstall
 Add keys to git server and vps
 Enable fstrim.timer service (install util-linux if not available)
