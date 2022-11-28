@@ -1,0 +1,145 @@
+#!/bin/bash
+# ./setup packages.txt configlocations.csv
+
+check() {
+    read -p "Are you sure you want to run this setup script? Y/N" -r ans
+    if ! [[ "$ans" == "Y" ]]; then
+        printf "Exiting"
+        exit 1
+    fi
+}
+
+internet_check() {
+    if ! ping -c 3 9.9.9.9 &> /dev/null; then
+        printf "Please check internet connection\n"
+        exit 1
+    fi
+}
+
+sudo_check() {
+    if ! type sudo &> /dev/null; then
+        printf "Sudo must be installed\n"
+        exit 1
+    fi
+}
+
+get_userinfo() {
+    counter=0
+    read -p 'Username: ' -r username
+    while :; do
+        [[ "$counter" -gt 2 ]] && exit 1
+        read -p 'Password: ' -r password
+        read -p 'Enter password again: ' -r passcheck
+        ((counter++))
+
+        [[ "$password" == "passcheck" ]] && break
+        printf "Passwords do not match\n"
+    done
+
+    useradd -m -G wheel -s /bin/ash "$username"
+    printf "%s:%s" "$username" "$password" | chpasswd
+
+    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
+    printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /etc/sudoers
+}
+
+make_all_dirs() {
+    sudo -u "$username" mkdir -p /home/"$username"/.config/{alacritty,dunst,i3,i3/i3scripts,mpd,ncmpcpp,nvim,picom,polybar,ranger,sxhkd,youtube-dl} /home/"$username"/{programs,linuxbook,stuff,stuff/website,stuff/walls,stuff/sync,stuff/books,music,storagedrive,bin,bin/bashrewrites,archwikidocs,gitwebsite}
+
+}
+
+install_packages() {
+    while read -r; do
+        pacman --noconfirm --needed -S "$REPLY" &> /dev/null
+    done < "$1"
+}
+
+switch_repo() {
+    cp -r '/root/arch' "/home/$username/archconfig"
+    chown -R "$username":wheel /home/"$username"/archconfig
+}
+
+range_setup() {
+    sudo -u "$username" ranger --copy-config=all "$username"
+}
+
+place_configs() {
+    while IFS=, read -r file location; do
+        sudo -u "$username" cp -r "/home/$username/archconfig/$file" "/home/$username/$location"
+    done < "$1"
+}
+
+user_shell() {
+    chsh -s /usr/bin/zsh "$username"
+}
+
+change_default_sh() {
+    sudo -u "$username" ln -sfT dash /usr/bin/sh
+}
+
+install_paru() {
+    printf "Installing Paru...\n"
+    cd /home/"$username"/programs || exit 1
+    sudo -u "$username" git clone https://aur.archlinux.org/paru.git
+    cd paru || exit 1
+    sudo -u "$username" makepkg --noconfirm -si
+}
+
+install_dmenu() {
+    printf "Installing dmenu...\n"
+    cd "/home/$username/programs" || exit 1
+    sudo -u "$username" git clone https://github.com/mccreadyjonson/dmenu
+    cd dmenu || exit 1
+    sudo make clean install
+}
+
+setup_mpd() {
+    sudo -u "$username" touch "/home/$username/.config/mpd/{mpd.db,mpd.log,mpd.pid}"
+}
+
+get_wallpapers() {
+    url='https://rschrader.xyz/pics/'
+    for i in $(curl -s https://rschrader.xyz/wallpapers.html | grep -o 'href=pics/[a-zA-Z0-9]\+\.\(jpg\|png\|jpeg\)'); do
+        wget -nc "$url${i##*/}" -P "home/$username/stuff/walls"
+    done
+}
+
+create_todo() {
+    cat <<EOF
+AUR packages: autotiling, devour, opustags
+Change mirrors to https (https://archlinux.org/mirrorlist/)
+Set theme in lxappearance
+Setup Syncthing
+Install vimplug
+Open nvim and run :PlugInstall
+Add keys to git server and vps
+Enable fstrim.timer service (install util-linux if not available)
+EOF
+}
+
+main() {
+    check
+    internet_check
+    sudo_check
+    get_userinfo
+    make_all_dirs
+    install_packages "$1"
+    switch_repo
+    range_setup
+    place_configs "$2"
+    user_shell
+    change_default_sh
+    install_paru
+    install_dmenu
+    setup_mpd
+    get_wallpapers
+    create_todo > "/home/$username/todolist.txt"
+}
+
+main "$1" "$2"
+
+
+# TODO
+# installvimplug() {
+#     sudo -u "$username" curl -fLo "$HOME"/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# }
