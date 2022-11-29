@@ -110,6 +110,7 @@ AUR packages: autotiling, devour, opustags
 Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
 Configure dns-crypt
+fix i3blocks scripts
 Setup Syncthing
 Install vimplug
 Open nvim and run :PlugInstall
