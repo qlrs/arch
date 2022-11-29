@@ -32,11 +32,11 @@ get_userinfo() {
         read -p 'Enter password again: ' -r passcheck
         ((counter++))
 
-        [[ "$password" == "passcheck" ]] && break
+        [[ "$password" == "$passcheck" ]] && break
         printf "Passwords do not match\n"
     done
 
-    useradd -m -G wheel -s /bin/ash "$username"
+    useradd -m -G wheel -s /bin/bash "$username"
     printf "%s:%s" "$username" "$password" | chpasswd
 
     [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
