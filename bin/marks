@@ -2,8 +2,8 @@
 # TODO
 # encrypt/decrypt bookmarks with gpg
 
-BOOKMARKS_FILE="$HOME/.config/BACKUPbookmarks"
-TEMP_FILE="/tmp/temp_bookmarks"
+bookmarks_file="$HOME/stuff/sync/BACKUPbookmarks"
+temp_file="/tmp/temp_bookmarks"
 
 
 help() {
@@ -17,7 +17,7 @@ EOF
 
 
 show_bookmarks() {
-    dmenu -i -l 20 < "$BOOKMARKS_FILE" | cut -d ';' -f1
+    dmenu -i -l 20 < "$bookmarks_file" | cut -d ';' -f1
 }
 
 
@@ -31,9 +31,9 @@ open() {
 
 add() {
     if [ -z "$1" ]; then
-        printf "%s\n" "$(xclip -o)" >> "$BOOKMARKS_FILE"
+        printf "%s\n" "$(xclip -o)" >> "$bookmarks_file"
     else
-        printf "%s\n" "$*" >> "$BOOKMARKS_FILE"
+        printf "%s\n" "$*" >> "$bookmarks_file"
     fi
 }
 
@@ -42,14 +42,14 @@ change() {
     choice=$(show_bookmarks)
     new=$(printf "Editing %s\n" "$choice" | dmenu -l 2 -p "Edit: ")
     add "$new"
-    sed "\~$choice~d" "$BOOKMARKS_FILE" > "$TEMP_FILE"
-    mv "$TEMP_FILE" "$BOOKMARKS_FILE"
+    sed "\~$choice~d" "$bookmarks_file" > "$temp_file"
+    mv "$temp_file" "$bookmarks_file"
 }
 
 
 case $1 in
     add) shift ; add "$*" ;;
-    edit) "$EDITOR" "$BOOKMARKS_FILE" ;;
+    edit) "$EDITOR" "$bookmarks_file" ;;
     change) shift ; change "$1" ;;
     -h| --help) help ;;
     *) open ;;
