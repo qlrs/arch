@@ -19,7 +19,7 @@ alt + shift + w
 alt + shift + m 
     $TERMINAL -e ncmpcpp
 alt + b
-    pcmanfm
+    marks
 alt + shift + n
     $TERMINAL -e newsboat
 alt + p
