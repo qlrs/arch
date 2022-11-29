@@ -100,7 +100,7 @@ setup_mpd() {
 get_wallpapers() {
     url='https://rschrader.xyz/pics/'
     for i in $(curl -s https://rschrader.xyz/wallpapers.html | grep -o 'href=pics/[a-zA-Z0-9]\+\.\(jpg\|png\|jpeg\)'); do
-        wget -nc "$url${i##*/}" -P "home/$username/stuff/walls"
+        wget -nc "$url${i##*/}" -P "/home/$username/stuff/walls"
     done
 }
 
