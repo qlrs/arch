@@ -100,7 +100,7 @@ setup_mpd() {
 get_wallpapers() {
     url='https://rschrader.xyz/pics/'
     for i in $(curl -s https://rschrader.xyz/wallpapers.html | grep -o 'href=pics/[a-zA-Z0-9]\+\.\(jpg\|png\|jpeg\)'); do
-        wget -nc "$url${i##*/}" -P "home/$username/stuff/walls"
+        wget -nc "$url${i##*/}" -P "/home/$username/stuff/walls"
     done
 }
 
@@ -110,6 +110,7 @@ AUR packages: autotiling, devour, opustags
 Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
 Configure dns-crypt
+fix i3blocks scripts
 Setup Syncthing
 Install vimplug
 Open nvim and run :PlugInstall
