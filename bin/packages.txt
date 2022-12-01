@@ -21,7 +21,6 @@ dunst
 fd
 ffmpeg
 firefox
-gnome-calculator
 glow
 htop
 i3-gaps
