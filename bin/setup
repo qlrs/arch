@@ -26,6 +26,7 @@ sudo_check() {
 get_userinfo() {
     counter=0
     read -p 'Username: ' -r username
+    # change to while counter < 2
     while :; do
         [[ "$counter" -gt 2 ]] && exit 1
         read -p 'Password: ' -r password
