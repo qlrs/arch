@@ -95,4 +95,5 @@ autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<
 autocmd FileType c nnoremap <localleader>f ofor (int i = 0; i < x; i++)<Esc><S-f>xs
 autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
 autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatal(err)<CR>}<Esc>
+autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
