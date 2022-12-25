@@ -2,7 +2,7 @@
 # TODO
 # encrypt/decrypt bookmarks with gpg
 
-bookmarks_file="$HOME/stuff/sync/BACKUPbookmarks"
+bookmarks_file="$HOME/stuff/sync/bookmarks"
 temp_file="/tmp/temp_bookmarks"
 
 
