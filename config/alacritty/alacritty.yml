@@ -1,0 +1,177 @@
+scrolling:
+  multiplier: 5
+
+font:
+  normal:
+    family: TerminessTTF Nerd Font
+    style: Regular
+
+  bold:
+    family: TerminessTTF Nerd Font
+    style: Bold
+    family: TerminessTTF Nerd Font
+
+  italic:
+    family: TerminessTTF Nerd Font
+    style: Italic
+    family: TerminessTTF Nerd Font
+
+  bold_italic:
+    family: TerminessTTF Nerd Font
+    style: Bold Italic
+    family: TerminessTTF Nerd Font
+
+  size: 12
+  offset:
+      x: 0
+      y: 0
+
+colors:
+    primary:
+        background: "#1E1E2E"
+        foreground: "#CDD6F4"
+        dim_foreground: "#CDD6F4"
+        bright_foreground: "#CDD6F4"
+
+    cursor:
+        text: "#1E1E2E"
+        cursor: "#F5E0DC"
+    vi_mode_cursor:
+        text: "#1E1E2E"
+        cursor: "#B4BEFE"
+
+    search:
+        matches:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+        focused_match:
+            foreground: "#1E1E2E"
+            background: "#A6E3A1"
+        footer_bar:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+
+    hints:
+        start:
+            foreground: "#1E1E2E"
+            background: "#F9E2AF"
+        end:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+
+    selection:
+        text: "#1E1E2E"
+        background: "#F5E0DC"
+
+    normal:
+        black: "#45475A"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#BAC2DE"
+
+    bright:
+        black: "#585B70"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#A6ADC8"
+
+    dim:
+        black: "#45475A"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#BAC2DE"
+
+    indexed_colors:
+        - { index: 16, color: "#FAB387" }
+        - { index: 17, color: "#F5E0DC" }
+
+colors:
+    primary:
+        background: "#1E1E2E"
+        foreground: "#CDD6F4"
+        dim_foreground: "#CDD6F4"
+        bright_foreground: "#CDD6F4"
+
+    cursor:
+        text: "#1E1E2E"
+        cursor: "#F5E0DC"
+    vi_mode_cursor:
+        text: "#1E1E2E"
+        cursor: "#B4BEFE"
+
+    search:
+        matches:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+        focused_match:
+            foreground: "#1E1E2E"
+            background: "#A6E3A1"
+        footer_bar:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+
+    hints:
+        start:
+            foreground: "#1E1E2E"
+            background: "#F9E2AF"
+        end:
+            foreground: "#1E1E2E"
+            background: "#A6ADC8"
+
+    selection:
+        text: "#1E1E2E"
+        background: "#F5E0DC"
+
+    normal:
+        black: "#45475A"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#BAC2DE"
+
+    bright:
+        black: "#585B70"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#A6ADC8"
+
+    dim:
+        black: "#45475A"
+        red: "#F38BA8"
+        green: "#A6E3A1"
+        yellow: "#F9E2AF"
+        blue: "#89B4FA"
+        magenta: "#F5C2E7"
+        cyan: "#94E2D5"
+        white: "#BAC2DE"
+
+    indexed_colors:
+        - { index: 16, color: "#FAB387" }
+        - { index: 17, color: "#F5E0DC" }
+
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: K,   mods: Control|Shift, action: ScrollPageUp }
+  - { key: J,   mods: Control|Shift, action: ScrollPageDown }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
