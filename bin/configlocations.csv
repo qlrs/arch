@@ -11,6 +11,7 @@ config/i3scripts,.config/i3/
 config/polybar,.config/
 config/qutebrowser,.config/
 config/nvim,.config/
+config/alacritty,.config/
 config/calcurse,.config/calcurse/
 config/ranger,.config/
 .Xdefaults,
