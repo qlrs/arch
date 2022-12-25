@@ -25,8 +25,10 @@ show_bookmarks() {
 open() {
     choice=$(show_bookmarks)
     [ -z "$choice" ] && exit
-    printf "%s" "$choice" | xclip
-    setsid -f "$BROWSER" "$choice" 1> /dev/null 2>&1
+    if grep -q "$choice" "$bookmarks_file"; then
+        printf "%s" "$choice" | xclip
+        setsid -f "$BROWSER" "$choice" 1> /dev/null 2>&1
+    fi
 }
 
 
