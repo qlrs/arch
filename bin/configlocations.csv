@@ -11,7 +11,12 @@ config/i3scripts,.config/i3/
 config/polybar,.config/
 config/qutebrowser,.config/
 config/nvim,.config/
+<<<<<<< HEAD
 config/calcurse,.config/
+=======
+config/alacritty,.config/
+config/calcurse,.config/calcurse/
+>>>>>>> e9173e62dfebc9ed4bf7683c2a70b0fbc1e68e08
 config/ranger,.config/
 .Xdefaults,
 .xinitrc,

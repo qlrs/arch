@@ -2,9 +2,8 @@
 # TODO
 # encrypt/decrypt bookmarks with gpg
 
-bookmarks_file="$HOME/stuff/sync/BACKUPbookmarks"
+bookmarks_file="$HOME/stuff/sync/bookmarks"
 temp_file="/tmp/temp_bookmarks"
-
 
 help() {
     cat << EOF
@@ -16,19 +15,18 @@ Usage:
 EOF
 }
 
-
 show_bookmarks() {
     dmenu -i -l 20 < "$bookmarks_file" | cut -d ';' -f1
 }
 
-
 open() {
     choice=$(show_bookmarks)
     [ -z "$choice" ] && exit
-    printf "%s" "$choice" | xclip
-    setsid -f "$BROWSER" "$choice" 1> /dev/null 2>&1
+    if grep -q "$choice" "$bookmarks_file"; then
+        printf "%s" "$choice" | xclip
+        setsid -f "$BROWSER" "$choice" 1> /dev/null 2>&1
+    fi
 }
-
 
 add() {
     if [ -z "$1" ]; then
@@ -38,15 +36,19 @@ add() {
     fi
 }
 
-
 change() {
     choice=$(show_bookmarks)
+    [ -z "$choice" ] && exit
     new=$(printf "Editing %s\n" "$choice" | dmenu -l 2 -p "Edit: ")
     add "$new"
     sed "\~$choice~d" "$bookmarks_file" > "$temp_file"
     mv "$temp_file" "$bookmarks_file"
 }
 
+if [ ! -f "$bookmarks_file" ]; then
+    printf "Please set bookmarks_file equal to the path of your bookmarks file\n"
+    exit
+fi
 
 case $1 in
     add) shift ; add "$*" ;;
