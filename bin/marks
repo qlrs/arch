@@ -45,6 +45,11 @@ change() {
     mv "$temp_file" "$bookmarks_file"
 }
 
+if [ ! -f "$bookmarks_file" ]; then
+    printf "Please set bookmarks_file equal to the path of your bookmarks file\n"
+    exit
+fi
+
 case $1 in
     add) shift ; add "$*" ;;
     edit) "$EDITOR" "$bookmarks_file" ;;
