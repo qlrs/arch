@@ -1,22 +1,18 @@
 #!/bin/sh
 
-selection=$(printf 'stallmanwasright
-mousereview
-livestreamfail
-bash
-onions
-tor
+selection=$(printf 'bash
 commandline
 thinkpad
 cyberpunk
 privacyguides
 privacy
-destiny
 linux
 archlinux
+openbsd
+tor
 voidlinux' | dmenu -i -l 20)
 
-url="https://teddit.net/r/$selection"
+url="https://libreddit.de/r/$selection"
 
 [ -z "$selection" ] && { notify-send "Nothing selected..." ; exit ;}
 
@@ -29,5 +25,4 @@ url="https://teddit.net/r/$selection"
 #else
 #    qutebrowser "$url" &
 #fi
-notify-send "Opening r/$selection"
 "$BROWSER" "$url"
