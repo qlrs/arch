@@ -30,9 +30,9 @@ open() {
 
 add() {
     if [ -z "$1" ]; then
-        printf "%s\n" "$(xclip -o)" >> "$bookmarks_file"
+        printf "%s;\n" "$(xclip -o)" >> "$bookmarks_file"
     else
-        printf "%s\n" "$*" >> "$bookmarks_file"
+        printf "%s;\n" "$*" >> "$bookmarks_file"
     fi
 }
 
