@@ -3,4 +3,10 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="alacritty"
 
-neofetch
+# swap caps and escape in tty
+sudo loadkeys "$HOME/.local/share/keymaps"
+
+# auto start x
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    startx
+fi

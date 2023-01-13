@@ -46,7 +46,6 @@ alias cl='cd ~/linuxbook'
 alias cc='cd ~/.config'
 alias cs='cd ~/bin'
 alias cw='cd ~/stuff/website'
-alias csync='cd ~/stuff/sync'
 alias cpys='cd ~/linuxbook/python_stuff'
 alias cg='cd ~/linuxbook/go_stuff'
 alias cb='cd ~/stuff/books'
@@ -67,7 +66,9 @@ alias yayr='yay -Rs'
 alias i3lock='i3lock -c 000000'
 alias p='python'
 alias sc='shellcheck -s sh'
-alias vim='nvim '
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
 alias fontmeme='fc-list | cut -f2 -d: | sort -u'
 alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
@@ -80,8 +81,8 @@ alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
 alias g='glow -p'
 alias webcam='mplayer tv://'
-alias sbcl='rlwrap sbcl'
-alias stopwatch='termdown'
+
+nmcli -a connection up atlanta.protonvpn.net.udp > /dev/null 2>&1
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 #for pywal
 #(cat ~/.cache/wal/sequences &)
@@ -108,5 +109,5 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Must be last
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
