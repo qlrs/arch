@@ -6,6 +6,8 @@ alt + shift + semicolon
     memeji.sh
 alt + c
     $TERMINAL -e calcurse
+XF86Calculator
+    $TERMINAL --class "bc" -e bc -l
 alt + z
     $TERMINAL --class "bc" -e bc -l
 alt + semicolon
@@ -28,10 +30,16 @@ alt + n
     $TERMINAL -e aerc
 alt + {equal,minus}
     pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
+XF86AudioPlay
+    mpc toggle && pkill -RTMIN+14 i3blocks
 alt + shift + p
-    mpc toggle && music.sh && pkill -RTMIN+14 i3blocks
+    mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
     pamixer -t && pkill -RTMIN+13 i3blocks
+XF86AudioNext
+    mpc next
+XF86AudioPrev
+    mpc prev
 alt + shift + backslash
     mpc next
 alt + shift + bracketright
