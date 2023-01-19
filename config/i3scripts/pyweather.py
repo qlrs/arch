@@ -7,26 +7,27 @@ forecast = requests.get(url).json()
 
 
 def get_emoji(short_forecast):
-    if short_forecast in ["Mostly Clear", "Mostly Sunny"]:
-        emoji = "⛅"
-    elif short_forecast in ["Sunny", "Clear"]:
-        emoji = "☀️"
-    elif short_forecast == "Mostly Cloudy":
-        emoji = "☁️"
-    elif short_forecast == "Cloudy":
-        emoji = "🌥️"
-    elif short_forecast == "Partly Cloudy":
-        emoji = "⛅"
-    elif short_forecast in ["Partly Sunny", "Mostly Clear"]:
-        emoji = "🌤️"
-    elif short_forecast in ["Rain Showers Likely", "Slight Chance Rain Showers"]:
-        emoji = "🌦️"
-    elif short_forecast in ["Chance Rain Showers", "Rain Showers"]:
-        emoji = "🌧️"
-    elif "Thunderstorms" in short_forecast:
-        emoji = "⛈️ "
-    else:
-        emoji = "😎"
+    match short_forecast:
+        case "Mostly Clear" | "Mostly Sunny":
+            emoji = "⛅"
+        case "Sunny" | "Clear":
+            emoji = "☀️"
+        case "Mostly Cloudy":
+            emoji = "☁️"
+        case "Cloudy":
+            emoji = "🌥️"
+        case "Partly Cloudy":
+            emoji = "⛅"
+        case "Partly Sunny", "Mostly Clear":
+            emoji = "🌤️"
+        case "Rain Showers Likely", "Slight Chance Rain Showers":
+            emoji = "🌦️"
+        case "Chance Rain Showers", "Rain Showers":
+            emoji = "🌧️"
+        case "Thunderstorms":
+            emoji = "⛈️ "
+        case _:
+            emoji = "😎"
     return emoji
 
 
