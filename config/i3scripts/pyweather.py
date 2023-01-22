@@ -24,7 +24,7 @@ def get_emoji(short_forecast):
             emoji = "🌦️"
         case "Rain" | "Chance Rain Showers" | "Rain Showers":
             emoji = "🌧️"
-        case "Thunderstorms":
+        case "Showers And Thunderstorms" | "Thunderstorms":
             emoji = "⛈️ "
         case _:
             emoji = "😎"
