@@ -18,11 +18,11 @@ def get_emoji(short_forecast):
             emoji = "🌥️"
         case "Partly Cloudy":
             emoji = "⛅"
-        case "Partly Sunny", "Mostly Clear":
+        case "Partly Sunny" | "Mostly Clear":
             emoji = "🌤️"
-        case "Rain Showers Likely", "Slight Chance Rain Showers":
+        case "Rain Showers Likely" | "Slight Chance Rain Showers":
             emoji = "🌦️"
-        case "Chance Rain Showers", "Rain Showers":
+        case "Chance Rain Showers" | "Rain Showers":
             emoji = "🌧️"
         case "Thunderstorms":
             emoji = "⛈️ "
@@ -34,4 +34,5 @@ def get_emoji(short_forecast):
 temp = forecast["properties"]["periods"][0]["temperature"]
 short = forecast["properties"]["periods"][0]["shortForecast"]
 emoji = get_emoji(short)
+print(short)
 print(f"{emoji} {temp}°F")
