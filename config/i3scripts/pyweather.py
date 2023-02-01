@@ -18,6 +18,8 @@ def get_emoji(short_forecast):
             emoji = "🌥️"
         case "Partly Cloudy":
             emoji = "⛅"
+        case "Patchy Fog":
+            emoji = "🌁"
         case "Partly Sunny" | "Mostly Clear":
             emoji = "🌤️"
         case "Slight Chance Light Rain" | "Rain Showers Likely" | "Slight Chance Rain Showers":
