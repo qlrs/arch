@@ -22,7 +22,7 @@ def get_emoji(short_forecast):
             emoji = "🌁"
         case "Partly Sunny" | "Mostly Clear":
             emoji = "🌤️"
-        case "Chance Light Rain" | "Slight Chance Light Rain" | "Rain Showers Likely" | "Slight Chance Rain Showers":
+        case "Intermittent Very Light Rain" | "Chance Light Rain" | "Slight Chance Light Rain" | "Rain Showers Likely" | "Slight Chance Rain Showers":
             emoji = "🌦️"
         case "Rain" | "Chance Rain Showers" | "Rain Showers":
             emoji = "🌧️"
