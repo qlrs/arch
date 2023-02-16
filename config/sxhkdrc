@@ -22,6 +22,8 @@ alt + shift + m
     $TERMINAL -e ncmpcpp
 alt + b
     marks
+alt + g
+    golib
 alt + shift + n
     $TERMINAL -e newsboat
 alt + p
@@ -35,7 +37,7 @@ XF86AudioPlay
 alt + shift + p
     mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
-    pamixer -t && pkill -RTMIN+13 i3blocks
+    pamixer -t && pkill -RTMIN+13 i3blocks && mute.sh
 XF86AudioNext
     mpc next
 XF86AudioPrev
