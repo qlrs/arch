@@ -9,6 +9,8 @@ Plug 'lervag/vimtex'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -97,6 +99,9 @@ lua <<EOF
   require('lspconfig')['bashls'].setup {
     capabilities = capabilities
   }
+  require('lspconfig')['clangd'].setup {
+    capabilities = capabilities
+  }
 
 EOF
 
@@ -120,6 +125,7 @@ set expandtab
 set colorcolumn=80
 set autochdir
 highlight ColorColumn ctermbg=lightgrey
+highlight Pmenu ctermbg=blue guibg=blue
 set laststatus=2
 set statusline=%t
 set statusline+=\ %h
@@ -148,12 +154,13 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
+inoremap <C-H> <C-W>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <leader>f :Files ~/<CR>
+map <leader>f :Telescope find_files<CR>
 map <leader>e :NERDTreeToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>w :w<CR>
