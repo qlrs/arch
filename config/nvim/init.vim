@@ -36,6 +36,7 @@ lua <<EOF
   local cmp = require'cmp'
 
   cmp.setup({
+    preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
         require('luasnip').lsp_expand(args.body)
@@ -124,6 +125,7 @@ set softtabstop=4
 set expandtab
 set colorcolumn=80
 set autochdir
+set completeopt = "menu,menuone,noselect"
 highlight ColorColumn ctermbg=lightgrey
 highlight Pmenu ctermbg=blue guibg=blue
 set laststatus=2
