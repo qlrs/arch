@@ -71,7 +71,7 @@ transmission-gtk
 ttf-inconsolata
 ttf-joypixels
 ttf-liberation
-ttf-linux-libertine
+libertinus-font
 ueberzug
 unclutter
 urxvt-perls
