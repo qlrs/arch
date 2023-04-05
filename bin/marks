@@ -10,7 +10,7 @@ help() {
 Usage:
     marks: choose bookmark to open
     marks add: add bookmark
-    makrs edit: edit bookmark file
+    marks edit: edit bookmark file
     marks help: show this screen
 EOF
 }
