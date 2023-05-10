@@ -3,25 +3,25 @@ scrolling:
 
 font:
   normal:
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
     style: Regular
 
   bold:
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
     style: Bold
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
 
   italic:
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
     style: Italic
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
 
   bold_italic:
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
     style: Bold Italic
-    family: TerminessTTF Nerd Font
+    family: Terminess Nerd Font
 
-  size: 12
+  size: 15
   offset:
       x: 0
       y: 0
