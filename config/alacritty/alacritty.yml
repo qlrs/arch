@@ -9,93 +9,48 @@ font:
   bold:
     family: Terminess Nerd Font
     style: Bold
-    family: Terminess Nerd Font
 
   italic:
     family: Terminess Nerd Font
     style: Italic
-    family: Terminess Nerd Font
 
   bold_italic:
     family: Terminess Nerd Font
     style: Bold Italic
-    family: Terminess Nerd Font
 
-  size: 15
+  size: 12
   offset:
       x: 0
       y: 0
 
 colors:
-    primary:
-        background: "#1E1E2E"
-        foreground: "#CDD6F4"
-        dim_foreground: "#CDD6F4"
-        bright_foreground: "#CDD6F4"
+  primary:
+    background: '#181818'
+    foreground: '#d8d8d8'
 
-    cursor:
-        text: "#1E1E2E"
-        cursor: "#F5E0DC"
-    vi_mode_cursor:
-        text: "#1E1E2E"
-        cursor: "#B4BEFE"
+  cursor:
+    text: '#d8d8d8'
+    cursor: '#d8d8d8'
 
-    search:
-        matches:
-            foreground: "#1E1E2E"
-            background: "#A6ADC8"
-        focused_match:
-            foreground: "#1E1E2E"
-            background: "#A6E3A1"
-        footer_bar:
-            foreground: "#1E1E2E"
-            background: "#A6ADC8"
+  normal:
+    black:   '#181818'
+    red:     '#ab4642'
+    green:   '#a1b56c'
+    yellow:  '#f7ca88'
+    blue:    '#7cafc2'
+    magenta: '#ba8baf'
+    cyan:    '#86c1b9'
+    white:   '#d8d8d8'
 
-    hints:
-        start:
-            foreground: "#1E1E2E"
-            background: "#F9E2AF"
-        end:
-            foreground: "#1E1E2E"
-            background: "#A6ADC8"
-
-    selection:
-        text: "#1E1E2E"
-        background: "#F5E0DC"
-
-    normal:
-        black: "#45475A"
-        red: "#F38BA8"
-        green: "#A6E3A1"
-        yellow: "#F9E2AF"
-        blue: "#89B4FA"
-        magenta: "#F5C2E7"
-        cyan: "#94E2D5"
-        white: "#BAC2DE"
-
-    bright:
-        black: "#585B70"
-        red: "#F38BA8"
-        green: "#A6E3A1"
-        yellow: "#F9E2AF"
-        blue: "#89B4FA"
-        magenta: "#F5C2E7"
-        cyan: "#94E2D5"
-        white: "#A6ADC8"
-
-    dim:
-        black: "#45475A"
-        red: "#F38BA8"
-        green: "#A6E3A1"
-        yellow: "#F9E2AF"
-        blue: "#89B4FA"
-        magenta: "#F5C2E7"
-        cyan: "#94E2D5"
-        white: "#BAC2DE"
-
-    indexed_colors:
-        - { index: 16, color: "#FAB387" }
-        - { index: 17, color: "#F5E0DC" }
+  bright:
+    black:   '#585858'
+    red:     '#ab4642'
+    green:   '#a1b56c'
+    yellow:  '#f7ca88'
+    blue:    '#7cafc2'
+    magenta: '#ba8baf'
+    cyan:    '#86c1b9'
+    white:   '#f8f8f8'
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
@@ -103,4 +58,3 @@ key_bindings:
   - { key: J,   mods: Control|Shift, action: ScrollPageDown }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-
