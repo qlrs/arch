@@ -126,7 +126,7 @@ set expandtab
 set colorcolumn=80
 set autochdir
 set completeopt = "menu,menuone,noselect"
-highlight ColorColumn ctermbg=lightgrey
+highlight ColorColumn ctermbg=8
 highlight Pmenu ctermbg=blue guibg=blue
 set laststatus=2
 set statusline=%t
@@ -147,6 +147,7 @@ autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
 autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
 autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go
+autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 let mapleader=" "
