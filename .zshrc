@@ -83,7 +83,7 @@ alias vpnup='nmcli -a connection up'
 alias g='glow -p'
 alias webcam='mplayer tv://'
 
-nmcli -a connection up atlanta.protonvpn.net.udp > /dev/null 2>&1
+nmcli -a connection up miami.protonvpn.net.udp > /dev/null 2>&1
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 #for pywal
 #(cat ~/.cache/wal/sequences &)
