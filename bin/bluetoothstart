@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo systemctl start bluetooth.service
+rfkill unblock bluetooth
+nohup bluetoothctl > /dev/null 2>&1 &
