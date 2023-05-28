@@ -1,8 +1,12 @@
-call plug#begin()
+ call plug#begin()
 Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'lunarvim/Onedarker.nvim'
+Plug 'folke/which-key.nvim'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary' 
 Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
@@ -28,7 +32,6 @@ set number relativenumber
 set clipboard=unnamed
 set linebreak
 set scrolloff=6
-set nocompatible
 set encoding=utf-8
 set wildmenu
 set nohlsearch
@@ -44,17 +47,19 @@ set autochdir
 set completeopt = "menu,menuone,noselect"
 highlight ColorColumn ctermbg=8
 highlight Pmenu ctermbg=blue guibg=blue
-set laststatus=2
-set statusline=%t
-set statusline+=\ %h
-set statusline+=%m
-set statusline+=%r
-set statusline+=%y
-set statusline+=%=
-set statusline+=%c\
-set statusline+=%l\
-set statusline+=%L
-set statusline+=\ %{strftime(\"%I:%M\")}
+hi clear SpellBad
+hi SpellBad ctermfg=009 guifg=#ffff00
+" set laststatus=2
+" set statusline=%t
+" set statusline+=\ %h
+" set statusline+=%m
+" set statusline+=%r
+" set statusline+=%y
+" set statusline+=%=
+" set statusline+=%c\
+" set statusline+=%l\
+" set statusline+=%L
+" set statusline+=\ %{strftime(\"%I:%M\")}
 " for lsp stuff
 set signcolumn=no
 
@@ -80,7 +85,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 map <leader>f :Telescope find_files<CR>
-map <leader>e :NERDTreeToggle<CR>
+map <leader>e :NvimTreeToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>w :w<CR>
 map <leader>c :setlocal spell! spelllang=en_us<CR>
@@ -108,86 +113,122 @@ autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
 autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatal(err)<CR>}<Esc>
 autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
-
 lua <<EOF
+-- colorscheme
+vim.cmd("colorscheme onedarker")
+
+-- some keybinds
+vim.api.nvim_set_keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
+
+-- which-key
+local wk = require("which-key")
+wk.register(mappings, opts)
+
+-------------------------------------------------------------------------
+-- friendly-snippets
+-- see https://github.com/rafamadriz/friendly-snippets/tree/main/snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+require'luasnip'.filetype_extend("python", {"python"})
+require'luasnip'.filetype_extend("go", {"go"})
+require'luasnip'.filetype_extend("html", {"html"})
+require'luasnip'.filetype_extend("css", {"css"})
+require'luasnip'.filetype_extend("bash", {"bash"})
+
+
+-------------------------------------------------------------------------
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+require("nvim-tree").setup()
+
+-------------------------------------------------------------------------
+-- treesitter
 require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
         },
     }
-EOF
 
-lua <<EOF
-  local cmp = require'cmp'
+require('lualine').setup()
 
-  cmp.setup({
-    preselect = cmp.PreselectMode.None,
-    snippet = {
-      expand = function(args)
-        require('luasnip').lsp_expand(args.body)
-      end,
-    },
-    window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    }, {
-      { name = 'buffer' },
-    })
-  })
 
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
+-------------------------------------------------------------------------
+-- cmp
+local cmp = require'cmp'
 
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+cmp.setup({
+preselect = cmp.PreselectMode.None,
+snippet = {
+  expand = function(args)
+    require('luasnip').lsp_expand(args.body)
+  end,
+},
+window = {
+  -- completion = cmp.config.window.bordered(),
+  -- documentation = cmp.config.window.bordered(),
+},
+mapping = cmp.mapping.preset.insert({
+  ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  ['<C-Space>'] = cmp.mapping.complete(),
+  ['<C-e>'] = cmp.mapping.abort(),
+  ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+}),
+sources = cmp.config.sources({
+  { name = 'nvim_lsp' },
+  { name = 'luasnip' },
+}, {
+  { name = 'buffer' },
+})
+})
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+sources = cmp.config.sources({
+  { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+}, {
+  { name = 'buffer' },
+})
+})
 
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['gopls'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['bashls'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['clangd'].setup {
-    capabilities = capabilities
-  }
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+mapping = cmp.mapping.preset.cmdline(),
+sources = {
+  { name = 'buffer' }
+}
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+mapping = cmp.mapping.preset.cmdline(),
+sources = cmp.config.sources({
+  { name = 'path' }
+}, {
+  { name = 'cmdline' }
+})
+})
+
+-------------------------------------------------------------------------
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require('lspconfig')['pyright'].setup {
+capabilities = capabilities
+}
+require('lspconfig')['gopls'].setup {
+capabilities = capabilities
+}
+require('lspconfig')['bashls'].setup {
+capabilities = capabilities
+}
+require('lspconfig')['clangd'].setup {
+capabilities = capabilities
+}
 
 EOF
