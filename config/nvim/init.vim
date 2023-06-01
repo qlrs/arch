@@ -9,9 +9,11 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
 Plug 'ap/vim-css-color'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'lervag/vimtex'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -45,7 +47,6 @@ set expandtab
 set colorcolumn=80
 set autochdir
 set completeopt = "menu,menuone,noselect"
-highlight ColorColumn ctermbg=8
 highlight Pmenu ctermbg=blue guibg=blue
 hi clear SpellBad
 hi SpellBad ctermfg=009 guifg=#ffff00
@@ -84,15 +85,20 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+map <leader>w :w<CR>
 map <leader>f :Telescope find_files<CR>
 map <leader>e :NvimTreeToggle<CR>
 map <leader>g :Goyo<CR>
-map <leader>w :w<CR>
+
 map <leader>c :setlocal spell! spelllang=en_us<CR>
 inoremap <S-Tab> <Esc>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>v :vsp
-nnoremap <leader>F :vert winc f<CR>
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>0 :tablast<CR>
 
 " For vimtex
 filetype plugin indent on
@@ -156,6 +162,29 @@ require'nvim-treesitter.configs'.setup {
 
 require('lualine').setup()
 
+
+-------------------------------------------------------------------------
+-- treesitter-context
+require'treesitter-context'.setup{
+    enable = true,
+    max_lines = 0,
+    min_window_height = 0,
+    line_numbers = true,
+    multiline_threshold = 20,
+    trim_scope = 'outer',
+    mode = 'cursor',
+    separator = nil,
+    zindex = 20,
+    on_attach = nil,
+}
+
+-------------------------------------------------------------------------
+-- bufferline
+require'bufferline'.setup{
+    options = {
+        mode = "tabs",
+    },
+}
 
 -------------------------------------------------------------------------
 -- cmp
@@ -232,3 +261,4 @@ capabilities = capabilities
 }
 
 EOF
+hi ColorColumn ctermbg=black guibg=black
