@@ -1,30 +1,31 @@
  call plug#begin()
 Plug 'tpope/vim-surround'
-" Plug 'preservim/nerdtree'
+Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-commentary' 
+Plug 'ap/vim-css-color'
+Plug 'lervag/vimtex'
+Plug 'kovetskiy/sxhkd-vim'
+
+" lua
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'lunarvim/Onedarker.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-commentary' 
-Plug 'ap/vim-css-color'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-Plug 'lervag/vimtex'
-Plug 'kovetskiy/sxhkd-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
+" lsp stuff
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
@@ -64,68 +65,112 @@ hi SpellBad ctermfg=009 guifg=#ffff00
 " for lsp stuff
 set signcolumn=no
 
-autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
-autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
-autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
-autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
-autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go
-autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html
+" autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
+" autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
+" autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
+" autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
+" autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go
+" autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html
+" Stop autocomment on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-let mapleader=" "
-nnoremap <SPACE> <Nop>
-map Q <Nop>
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-H> <C-W>
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" let mapleader=" "
+" TODO do i need this vvvvvvvvvvvvvvv
+" nnoremap <SPACE> <Nop>
+" map Q <Nop>
+" inoremap <C-k> <Up>
+" inoremap <C-j> <Down>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-H> <C-W>
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
-map <leader>w :w<CR>
-map <leader>f :Telescope find_files<CR>
-map <leader>e :NvimTreeToggle<CR>
-map <leader>g :Goyo<CR>
+" map <leader>w :w<CR>
+" map <leader>f :Telescope find_files<CR>
+" map <leader>e :NvimTreeToggle<CR>
+" map <leader>g :Goyo<CR>
 
-map <leader>c :setlocal spell! spelllang=en_us<CR>
-inoremap <S-Tab> <Esc>
-nnoremap S :%s//g<Left><Left>
-nnoremap <leader>v :vsp
-nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>0 :tablast<CR>
+" map <leader>c :setlocal spell! spelllang=en_us<CR>
+" inoremap <S-Tab> <Esc>
+" nnoremap S :%s//g<Left><Left>
+" nnoremap <leader>v :vsp
+" nnoremap <leader>t :tabnew<CR>
+" nnoremap <leader>1 1gt
+" nnoremap <leader>2 2gt
+" nnoremap <leader>3 3gt
+" nnoremap <leader>0 :tablast<CR>
 
 " For vimtex
 filetype plugin indent on
 let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
 
-autocmd FileType tex nnoremap <localleader>ul i\begin{itemize}<CR>\item<CR>\end{itemize}<Esc>Bd0kA<Space>
-autocmd FileType html nnoremap <localleader>p i<p></p><Esc>hhhi
-autocmd FileType html nnoremap <localleader>h1 i<h1></h1><Esc>hhhhi
-autocmd FileType html nnoremap <localleader>ah i<a href=""></a><Esc>F"i
-autocmd FileType html nnoremap <localleader>aht i<a href="" target="_blank"></a><Esc>3F"i
-autocmd FileType html nnoremap <localleader>f f>a
 autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
-autocmd FileType c nnoremap <localleader>mv iint<CR>main(void)<CR>{<CR>}<Esc>ko
-autocmd FileType c nnoremap <localleader>ma iint<CR>main(int argc, char **argv)<CR>{<CR>}<Esc>ko
-autocmd FileType c nnoremap <localleader>f ofor (int i = 0; i < x; i++)<Esc><S-f>xs
 autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
 autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatal(err)<CR>}<Esc>
 autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
--- colorscheme
+-- Colorscheme
 vim.cmd("colorscheme onedarker")
 
--- some keybinds
-vim.api.nvim_set_keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
+------------------------ Keybinds --------------------
+vim.g.mapleader = " "
+-- vim.api.nvim_del_keymap('', 'Q')
+
+-- Simple shortcuts
+vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', "<leader>dp", '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', '<leader>w', ':w<cr>')
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<cr>')
+vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
+vim.keymap.set('n', '<leader>g', ':Goyo<cr>')
+
+-- Move between windows
+vim.keymap.set('n', '<C-h>', '<C-w>h', {noremap= true})
+vim.keymap.set('n', '<C-j>', '<C-w>j', {noremap= true})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {noremap= true})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {noremap= true})
+
+-- Movement in insert mode
+vim.keymap.set('i', '<C-h>', '<Left>')
+vim.keymap.set('i', '<C-j>', '<Down>')
+vim.keymap.set('i', '<C-k>', '<Up>')
+vim.keymap.set('i', '<C-l>', '<Right>')
+-- Control + Backspace deletes word in insert mode
+vim.keymap.set('i', '<C-H>', '<C-W>')
+
+
+-- Skeletons
+vim.api.nvim_command('autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh')
+vim.api.nvim_command('autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex')
+vim.api.nvim_command('autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl')
+vim.api.nvim_command('autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go')
+vim.api.nvim_command('autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html')
+
+-- Spellcheck
+vim.keymap.set('n', '<leader>c', ':setlocal spell! spelllang=en_us<cr>')
+
+-- Find and replace
+vim.keymap.set('n', 'S', ':%s//g<Left><Left>')
+
+-- New vertical split
+vim.keymap.set('n', '<leader>v', ':vsp')
+
+-- New tab
+vim.keymap.set('n', '<leader>t', ':tabnew<cr>')
+-- Switching between tabs
+vim.keymap.set('n', '<leader>1', '1gt')
+vim.keymap.set('n', '<leader>2', '2gt')
+vim.keymap.set('n', '<leader>3', '3gt')
+
+-----------------------------------------------------------------------
+
 
 -- which-key
 local wk = require("which-key")
