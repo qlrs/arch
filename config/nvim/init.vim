@@ -145,6 +145,8 @@ vim.keymap.set('i', '<C-l>', '<Right>')
 -- Control + Backspace deletes word in insert mode
 vim.keymap.set('i', '<C-H>', '<C-W>')
 
+-- Open file in browser
+vim.keymap.set('n', '<leader>o', ':!setsid firefox %<cr><cr>')
 
 -- Skeletons
 vim.api.nvim_command('autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh')
