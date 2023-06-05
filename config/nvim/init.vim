@@ -166,10 +166,14 @@ vim.keymap.set('n', '<leader>v', ':vsp')
 
 -- New tab
 vim.keymap.set('n', '<leader>t', ':tabnew<cr>')
--- Switching between tabs
+vim.keymap.set('v', '<leader>t', ':tabnew<cr>')
+-- Switching between tabs in normal and visual mode
 vim.keymap.set('n', '<leader>1', '1gt')
 vim.keymap.set('n', '<leader>2', '2gt')
 vim.keymap.set('n', '<leader>3', '3gt')
+vim.keymap.set('v', '<leader>1', '1gt')
+vim.keymap.set('v', '<leader>2', '2gt')
+vim.keymap.set('v', '<leader>3', '3gt')
 
 -----------------------------------------------------------------------
 
