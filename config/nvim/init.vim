@@ -8,7 +8,6 @@ Plug 'kovetskiy/sxhkd-vim'
 
 " lua
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'lunarvim/Onedarker.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'nvim-tree/nvim-tree.lua'
@@ -18,6 +17,10 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" colorschemes
+Plug 'lunarvim/Onedarker.nvim'
+Plug 'folke/tokyonight.nvim'
 
 " lsp stuff
 Plug 'neovim/nvim-lspconfig'
@@ -115,7 +118,7 @@ autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
 -- Colorscheme
-vim.cmd("colorscheme onedarker")
+vim.cmd("colorscheme tokyonight-moon")
 
 ------------------------ Keybinds --------------------
 vim.g.mapleader = " "
@@ -211,7 +214,17 @@ require'nvim-treesitter.configs'.setup {
         },
     }
 
-require('lualine').setup()
+-- require('lualine').setup()
+require('lualine').setup{
+    options = {
+        -- theme = "onedarker"
+        theme = "tokyonight"
+    },
+    sections = {
+        -- remove Linux penguin
+        lualine_x = {"encoding", "filetype"},
+        }
+}
 
 
 -------------------------------------------------------------------------
