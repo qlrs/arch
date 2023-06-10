@@ -21,6 +21,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 " colorschemes
 Plug 'lunarvim/Onedarker.nvim'
 Plug 'folke/tokyonight.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catpuccin' }
 
 " lsp stuff
 Plug 'neovim/nvim-lspconfig'
@@ -118,7 +119,8 @@ autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
 -- Colorscheme
-vim.cmd("colorscheme tokyonight-moon")
+-- vim.cmd("colorscheme tokyonight-moon")
+vim.cmd("colorscheme catppuccin-mocha")
 
 ------------------------ Keybinds --------------------
 vim.g.mapleader = " "
@@ -218,7 +220,8 @@ require'nvim-treesitter.configs'.setup {
 require('lualine').setup{
     options = {
         -- theme = "onedarker"
-        theme = "tokyonight"
+        -- theme = "tokyonight"
+        theme = "catppuccin"
     },
     sections = {
         -- remove Linux penguin
