@@ -137,8 +137,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 #bindcode $mod+Shift+60 exec mpc next
 
 # Brightness
-bindcode $mod+115 exec xbacklight -inc 5
-bindcode $mod+110 exec xbacklight -dec 5
+bindcode $mod+115 exec xbacklight -inc 2
+bindcode $mod+110 exec xbacklight -dec 2
 
 # Moved to sxhkd but keeping just in case
 #bindsym $mod+Return exec alacritty
