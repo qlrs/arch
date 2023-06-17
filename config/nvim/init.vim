@@ -3,7 +3,6 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
 Plug 'ap/vim-css-color'
-Plug 'lervag/vimtex'
 Plug 'kovetskiy/sxhkd-vim'
 
 " lua
