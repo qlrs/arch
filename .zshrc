@@ -83,10 +83,20 @@ alias vpnup='nmcli -a connection up'
 alias g='glow -p'
 alias webcam='mplayer tv://'
 
-nmcli -a connection up miami.protonvpn.net.udp > /dev/null 2>&1
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
-#for pywal
-#(cat ~/.cache/wal/sequences &)
+
+# Make sure a vpn is active
+function vpncheck() {
+    local hostname=$(nmcli general hostname)
+    local vpnserver='atlanta.protonvpn.net.udp'
+    local output=$(nmcli connection show --active $vpnserver)
+
+    if [[ "$output" = "" ]] && [[ "$hostname" == "arch" ]]; then
+        nmcli -a connection up "$vpnserver"
+    fi
+}
+vpncheck
+
 
 # For vim stuff
 function zle-keymap-select {
