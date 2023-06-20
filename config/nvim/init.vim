@@ -34,7 +34,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 syntax on
-set number relativenumber
+" set number relativenumber
 set clipboard=unnamed
 set linebreak
 set scrolloff=6
@@ -48,7 +48,7 @@ set incsearch
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set colorcolumn=80
+" set colorcolumn=80
 set autochdir
 set completeopt = "menu,menuone,noselect"
 highlight Pmenu ctermbg=blue guibg=blue
@@ -121,6 +121,10 @@ lua <<EOF
 -- vim.cmd("colorscheme tokyonight-moon")
 vim.cmd("colorscheme catppuccin-mocha")
 
+-- Sets
+vim.opt.relativenumber = true
+vim.opt.colorcolumn = "80"
+
 ------------------------ Keybinds --------------------
 vim.g.mapleader = " "
 -- vim.api.nvim_del_keymap('', 'Q')
@@ -146,6 +150,7 @@ vim.keymap.set('i', '<C-h>', '<Left>')
 vim.keymap.set('i', '<C-j>', '<Down>')
 vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-l>', '<Right>')
+
 -- Control + Backspace deletes word in insert mode
 vim.keymap.set('i', '<C-H>', '<C-W>')
 
@@ -169,8 +174,9 @@ vim.keymap.set('n', 'S', ':%s//g<Left><Left>')
 vim.keymap.set('n', '<leader>v', ':vsp')
 
 -- New tab
-vim.keymap.set('n', '<leader>t', ':tabnew<cr>')
+vim.keymap.set('n', '<leader>t', ':tabnew | Telescope find_files<cr>')
 vim.keymap.set('v', '<leader>t', ':tabnew<cr>')
+
 -- Switching between tabs in normal and visual mode
 vim.keymap.set('n', '<leader>1', '1gt')
 vim.keymap.set('n', '<leader>2', '2gt')
@@ -179,6 +185,8 @@ vim.keymap.set('v', '<leader>1', '1gt')
 vim.keymap.set('v', '<leader>2', '2gt')
 vim.keymap.set('v', '<leader>3', '3gt')
 
+-- Make a split "fullscreen" (but not really just open in new tab)
+vim.keymap.set('n', '<leader>m', ':tabe %<cr>')
 -----------------------------------------------------------------------
 
 
