@@ -89,10 +89,18 @@ eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 function vpncheck() {
     local hostname=$(nmcli general hostname)
     local vpnserver='atlanta.protonvpn.net.udp'
-    local output=$(nmcli connection show --active $vpnserver)
+    if [[ "$hostname" == "arch" ]]; then
+        local output=$(nmcli connection show --active $vpnserver)
+    else
+        local output=$(nmcli connection show --active "node-us-64.protonvpn.net.udp")
+    fi
 
     if [[ "$output" = "" ]] && [[ "$hostname" == "arch" ]]; then
         nmcli -a connection up "$vpnserver"
+    fi
+
+    if [[ "$output" = "" ]] && [[ "$hostname" == "archMachine" ]]; then
+        nmcli -a connection up "node-us-64.protonvpn.net.udp"
     fi
 }
 vpncheck
