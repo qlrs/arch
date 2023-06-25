@@ -164,6 +164,9 @@ vim.api.nvim_command('autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skelet
 vim.api.nvim_command('autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go')
 vim.api.nvim_command('autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html')
 
+-- Markdown line wrapping
+vim.api.nvim_command('autocmd FileType markdown setlocal tw=79')
+
 -- Spellcheck
 vim.keymap.set('n', '<leader>c', ':setlocal spell! spelllang=en_us<cr>')
 
@@ -187,8 +190,9 @@ vim.keymap.set('v', '<leader>3', '3gt')
 
 -- Make a split "fullscreen" (but not really just open in new tab)
 vim.keymap.set('n', '<leader>m', ':tabe %<cr>')
------------------------------------------------------------------------
+------------------------End Keybinds--------------------------------------
 
+---------------------------Start Plugins---------------------------------
 
 -- which-key
 local wk = require("which-key")
