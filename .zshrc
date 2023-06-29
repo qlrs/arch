@@ -89,9 +89,6 @@ eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 function d() {
     d=$(find "$HOME" -type d \
          -not -path "*/.git/*" \
-         -not -path "$HOME/windowhdd/*" \
-         -not -path "$HOME/windowos/*" \
-         -not -path "$HOME/windowssd/*" \
          -not -path "$HOME/nand2tetris/*" \
          -not -path "$HOME/Downloads/*" \
          -not -path "$HOME/.mozilla/*" \
