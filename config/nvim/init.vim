@@ -108,6 +108,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " nnoremap <leader>3 3gt
 " nnoremap <leader>0 :tablast<CR>
 
+let maplocalleader = ","
 autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
 autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
 autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatalf(err.Error())<CR>}<Esc>
