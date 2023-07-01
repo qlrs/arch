@@ -16,6 +16,8 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
 
 " colorschemes
 Plug 'lunarvim/Onedarker.nvim'
@@ -43,18 +45,17 @@ set wildmenu
 set nohlsearch
 set splitbelow splitright
 set mouse=a
-set tabstop=4
+set tabstop=2
 set incsearch
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 " set colorcolumn=80
 set autochdir
 set completeopt = "menu,menuone,noselect"
 highlight Pmenu ctermbg=blue guibg=blue
 hi clear SpellBad
-hi SpellBad ctermfg=009 guifg=#ffff00
-" set laststatus=2
+hi SpellBad ctermfg=009 guifg=#ffff00 " set laststatus=2
 " set statusline=%t
 " set statusline+=\ %h
 " set statusline+=%m
@@ -81,6 +82,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " TODO do i need this vvvvvvvvvvvvvvv
 " nnoremap <SPACE> <Nop>
 " map Q <Nop>
+" Move in insert mode
 " inoremap <C-k> <Up>
 " inoremap <C-j> <Down>
 " inoremap <C-h> <Left>
@@ -106,14 +108,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " nnoremap <leader>3 3gt
 " nnoremap <leader>0 :tablast<CR>
 
-" For vimtex
-filetype plugin indent on
-let g:vimtex_view_method = 'zathura'
-let maplocalleader = ","
-
 autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
 autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
-autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatal(err)<CR>}<Esc>
+autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatalf(err.Error())<CR>}<Esc>
 autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
@@ -193,6 +190,17 @@ vim.keymap.set('n', '<leader>m', ':tabe %<cr>')
 ------------------------End Keybinds--------------------------------------
 
 ---------------------------Start Plugins---------------------------------
+
+-- go.nvim
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function()
+        require("go.format").goimport()
+    end,
+    group = format_sync_grp,
+    })
+require("go").setup()
 
 -- which-key
 local wk = require("which-key")
