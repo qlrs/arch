@@ -1,4 +1,4 @@
- call plug#begin()
+call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
@@ -39,7 +39,7 @@ syntax on
 " set number relativenumber
 set clipboard=unnamed
 set linebreak
-set scrolloff=6
+set scrolloff=4
 set encoding=utf-8
 set wildmenu
 set nohlsearch
