@@ -71,6 +71,8 @@ transmission-gtk
 ttf-inconsolata
 ttf-joypixels
 ttf-liberation
+ttf-ibmplex-mono-nerd
+ttf-terminus-nerd
 libertinus-font
 ueberzug
 unclutter
