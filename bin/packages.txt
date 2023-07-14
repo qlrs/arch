@@ -62,7 +62,7 @@ ranger
 shellcheck
 syncthing
 sxhkd
-sxiv
+nsxiv
 tamsyn-font
 terminus-font
 time
