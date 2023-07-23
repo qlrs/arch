@@ -59,6 +59,7 @@ python-eyed3
 python-pywal
 qutebrowser
 ranger
+ripgrep
 shellcheck
 syncthing
 sxhkd
