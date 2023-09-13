@@ -12,17 +12,8 @@ openbsd
 tor
 voidlinux' | dmenu -i -l 20)
 
-url="https://libreddit.de/r/$selection"
+url="https://old.reddit.com/r/$selection"
 
-[ -z "$selection" ] && { notify-send "Nothing selected..." ; exit ;}
+[ -z "$selection" ] && exit
 
-#torornot=$(printf "Yes\nNo" | dmenu -i -l 2 -p "Would you like to use tor browser?")
-
-#if [ "$torornot" = "Yes" ]; then
-#    /home/dan/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser "$url" &
-#elif [ "$(pgrep $BROWSER)" ]; then
-#    $BROWSER "$url" &
-#else
-#    qutebrowser "$url" &
-#fi
 "$BROWSER" "$url"
