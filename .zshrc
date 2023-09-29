@@ -33,6 +33,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -vI'
 alias fd='fd --hidden'
+alias vn="$EDITOR ~/NOTES.md"
 alias editi3='nvim ~/.config/i3/config'
 alias syncmusic='rsync -rtvP ~/music/ ~/storagedrive/music'
 alias syncwebsite='rsync -rtvP ~/stuff/website/ ~/gitwebsite'
@@ -90,12 +91,13 @@ function d() {
     d=$(find "$HOME" -type d \
          -not -path "*/.git/*" \
          -not -path "$HOME/nand2tetris/*" \
+         -not -path "$HOME/.config/BraveSoftware*" \
+         -not -path "$HOME/.config/Signal*" \
+         -not -path "$HOME/.config/libreoffice*" \
          -not -path "$HOME/Downloads/*" \
          -not -path "$HOME/.mozilla/*" \
          -not -path "$HOME/.java/*" \
          -not -path "$HOME/.npm/*" \
-         -not -path "$HOME/.config/*" \
-         -not -path "$HOME/.cache/*" \
          -not -path "$HOME/.cache/*" \
          -not -path "$HOME/.local/*" \
          -not -path "$HOME/music/*" \
@@ -145,8 +147,8 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+ echo -ne '\e[5 q' # Use beam shape cursor on startup.
+ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Must be last
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
