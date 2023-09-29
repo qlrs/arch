@@ -31,17 +31,11 @@ alt + p
 alt + n
     $TERMINAL -e aerc
 alt + {equal,minus}
-    pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
-XF86AudioPlay
-    mpc toggle && pkill -RTMIN+14 i3blocks
+		pamixer --allow-boost -{i,d} 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
 alt + shift + p
     mpc toggle && pkill -RTMIN+14 i3blocks
 alt + m
     pamixer -t && pkill -RTMIN+13 i3blocks && mute.sh
-XF86AudioNext
-    mpc next
-XF86AudioPrev
-    mpc prev
 alt + shift + backslash
     mpc next
 alt + shift + bracketright
@@ -50,3 +44,17 @@ alt + u
     dmenumount.sh
 alt + r
     redditdmenu.sh
+
+# X Audio stuff
+XF86AudioRaiseVolume
+		pamixer -i 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
+XF86AudioLowerVolume
+		pamixer -d 5 && pkill -RTMIN+13 i3blocks && notify-send "Volume 🔊 $(pamixer --get-volume)"
+XF86AudioMute 
+		pamixer -t && pkill -RTMIN+13 i3blocks && mute.sh
+XF86AudioPlay
+    mpc toggle && pkill -RTMIN+14 i3blocks
+XF86AudioNext
+    mpc next
+XF86AudioPrev
+    mpc prev
