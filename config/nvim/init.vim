@@ -23,6 +23,7 @@ Plug 'ray-x/guihua.lua'
 Plug 'lunarvim/Onedarker.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catpuccin' }
+Plug 'ellisonleao/gruvbox.nvim'
 
 " lsp stuff
 Plug 'neovim/nvim-lspconfig'
@@ -116,8 +117,11 @@ autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
 -- Colorscheme
--- vim.cmd("colorscheme tokyonight-moon")
-vim.cmd("colorscheme catppuccin-mocha")
+-- vim.cmd("colorscheme onedarker")
+-- vim.cmd("colorscheme catppuccin-mocha")
+
+vim.o.background = "dark"
+vim.cmd("colorscheme gruvbox")
 
 -- Sets
 vim.opt.relativenumber = true
@@ -242,7 +246,8 @@ require('lualine').setup{
     options = {
         -- theme = "onedarker"
         -- theme = "tokyonight"
-        theme = "catppuccin"
+        -- theme = "catppuccin"
+        them = "gruvbox"
     },
     sections = {
         -- remove Linux penguin
