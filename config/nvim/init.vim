@@ -24,6 +24,7 @@ Plug 'lunarvim/Onedarker.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catpuccin' }
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'dracula/vim'
 
 " lsp stuff
 Plug 'neovim/nvim-lspconfig'
@@ -119,9 +120,10 @@ lua <<EOF
 -- Colorscheme
 -- vim.cmd("colorscheme onedarker")
 -- vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme dracula")
 
-vim.o.background = "dark"
-vim.cmd("colorscheme gruvbox")
+-- vim.o.background = "dark"
+-- vim.cmd("colorscheme gruvbox")
 
 -- Sets
 vim.opt.relativenumber = true
@@ -247,7 +249,8 @@ require('lualine').setup{
         -- theme = "onedarker"
         -- theme = "tokyonight"
         -- theme = "catppuccin"
-        them = "gruvbox"
+        -- theme = "gruvbox"
+        theme = "dracula"
     },
     sections = {
         -- remove Linux penguin
