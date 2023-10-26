@@ -22,6 +22,8 @@ alt + shift + m
     $TERMINAL -e ncmpcpp
 alt + b
     marks
+alt + y
+		marks
 alt + g
     golib
 alt + shift + n
