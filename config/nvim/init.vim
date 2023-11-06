@@ -15,7 +15,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 
@@ -39,7 +39,7 @@ call plug#end()
 
 syntax on
 " set number relativenumber
-set clipboard=unnamed
+set clipboard=unnamedplus
 set linebreak
 set scrolloff=4
 set encoding=utf-8
@@ -119,8 +119,8 @@ autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 lua <<EOF
 -- Colorscheme
 -- vim.cmd("colorscheme onedarker")
--- vim.cmd("colorscheme catppuccin-mocha")
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme catppuccin-mocha")
+-- vim.cmd("colorscheme dracula")
 
 -- vim.o.background = "dark"
 -- vim.cmd("colorscheme gruvbox")
@@ -248,9 +248,9 @@ require('lualine').setup{
     options = {
         -- theme = "onedarker"
         -- theme = "tokyonight"
-        -- theme = "catppuccin"
+        theme = "catppuccin"
         -- theme = "gruvbox"
-        theme = "dracula"
+        -- theme = "dracula"
     },
     sections = {
         -- remove Linux penguin
