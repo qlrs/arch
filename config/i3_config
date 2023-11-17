@@ -100,6 +100,7 @@ bindsym $mod+Shift+z exec alacritty --class "bc" -e bc
 for_window [class="Tor Browser" instance="Navigator"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="Remmina"] floating enable
 
 # Colors
 # Class                     border  backgr. text    indicator child_border
@@ -126,9 +127,9 @@ bar {
 }
 
 # Audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 #bindcode $mod+21 exec pamixer --allow-boost -i 5
 #bindcode $mod+20 exec pamixer --allow-boost -d 5
 #bindsym $mod+Shift+p exec mpc toggle
