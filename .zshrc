@@ -115,7 +115,7 @@ function vpncheck() {
     if [[ "$hostname" == "arch" ]]; then
         local output=$(nmcli connection show --active $vpnserver)
     else
-        local output=$(nmcli connection show --active "node-us-64.protonvpn.net.udp")
+        local output=$(nmcli connection show --active "atlanta_protonvpn")
     fi
 
     if [[ "$output" = "" ]] && [[ "$hostname" == "arch" ]]; then
@@ -123,7 +123,7 @@ function vpncheck() {
     fi
 
     if [[ "$output" = "" ]] && [[ "$hostname" == "archMachine" ]]; then
-        nmcli -a connection up "node-us-64.protonvpn.net.udp"
+        nmcli -a connection up "atlanta_protonvpn"
     fi
 }
 vpncheck
