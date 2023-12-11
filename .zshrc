@@ -111,7 +111,7 @@ function d() {
 # Make sure a vpn is active
 function vpncheck() {
     local hostname=$(nmcli general hostname)
-    local vpnserver='atlanta.protonvpn.net.udp'
+    local vpnserver='atlanta.protonvpn'
     if [[ "$hostname" == "arch" ]]; then
         local output=$(nmcli connection show --active $vpnserver)
     else
