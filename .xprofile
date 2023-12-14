@@ -3,7 +3,6 @@ xrdb "$HOME/.Xdefaults"
 xset r rate 300 110
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 rebinds.sh
-numlockx &
 sxhkd &
 mpd &
 unclutter &
