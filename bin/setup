@@ -4,7 +4,7 @@
 check() {
     read -p "Are you sure you want to run this setup script? Y/N" -r ans
     if ! [[ "$ans" == "Y" ]]; then
-        printf "Exiting"
+        printf "Exiting\n"
         exit 1
     fi
 }
@@ -60,7 +60,7 @@ switch_repo() {
     chown -R "$username":wheel /home/"$username"/archconfig
 }
 
-range_setup() {
+ranger_setup() {
     sudo -u "$username" ranger --copy-config=all "$username"
 }
 
@@ -108,15 +108,16 @@ get_wallpapers() {
 create_todo() {
     cat <<EOF
 AUR packages: autotiling, devour, opustags
+Copy over SSH keys
 Change pacman conf to show colors, parallel downloads, and ILoveCandy
 Change mirrors to https (https://archlinux.org/mirrorlist/)
 Set theme in lxappearance
 Configure dns-crypt
 fix i3blocks scripts
 Setup Syncthing
+Create syncthing notes symlink in home directory
 Install vimplug
 Open nvim and run :PlugInstall
-Add keys to git server and vps
 Enable fstrim.timer service (install util-linux if not available)
 EOF
 }
@@ -129,7 +130,7 @@ main() {
     make_all_dirs
     install_packages "$1"
     switch_repo
-    range_setup
+    ranger_setup
     place_configs "$2"
     user_shell
     change_default_sh
