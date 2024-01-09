@@ -23,7 +23,7 @@ ffmpeg
 firefox
 glow
 htop
-i3-gaps
+i3-wm
 i3blocks
 i3lock
 i3status
@@ -43,7 +43,6 @@ net-tools
 network-manager-applet
 networkmanager-openvpn
 newsboat
-nnn
 opus-tools
 openssh
 pacman-contrib
@@ -64,8 +63,6 @@ shellcheck
 syncthing
 sxhkd
 nsxiv
-tamsyn-font
-terminus-font
 time
 torbrowser-launcher
 transmission-gtk
@@ -75,9 +72,7 @@ ttf-liberation
 ttf-ibmplex-mono-nerd
 ttf-terminus-nerd
 libertinus-font
-ueberzug
 unclutter
-urxvt-perls
 wget
 xautolock
 xclip

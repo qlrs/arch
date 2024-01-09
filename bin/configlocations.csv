@@ -1,3 +1,4 @@
+config/alacritty,.config/
 config/alacritty.yml,.config/alacritty/
 config/i3_config,.config/i3/config
 config/dunstrc,.config/dunst/
@@ -8,15 +9,10 @@ config/picom.conf,.config/picom/
 config/youtube-dlconfig,.config/youtube-dl/config
 config/sxhkdrc,.config/sxhkd/
 config/i3scripts,.config/i3/
-config/polybar,.config/
 config/qutebrowser,.config/
 config/nvim,.config/
-<<<<<<< HEAD
 config/calcurse,.config/
-=======
-config/alacritty,.config/
 config/calcurse,.config/calcurse/
->>>>>>> e9173e62dfebc9ed4bf7683c2a70b0fbc1e68e08
 config/ranger,.config/
 .Xdefaults,
 .xinitrc,
