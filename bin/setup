@@ -55,7 +55,7 @@ make_all_dirs() {
 
 install_packages() {
     while read -r; do
-        pacman --noconfirm --needed -S "$REPLY" &> /dev/null
+        pacman --noconfirm --needed -S "$REPLY"
     done < "$1"
 }
 
