@@ -1,5 +1,5 @@
 config/alacritty,.config/
-config/alacritty.yml,.config/alacritty/
+config/alacritty.toml,.config/alacritty/
 config/i3_config,.config/i3/config
 config/dunstrc,.config/dunst/
 config/i3blocks.conf,.config/i3/
