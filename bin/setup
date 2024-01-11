@@ -46,7 +46,7 @@ get_userinfo() {
 
     fi
     [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
-    [[ -f /var/lib/pacman/db.lck ]] && rm /var/lib/pacman/db.lck
+    [[ -e /var/lib/pacman/db.lck ]] && rm /var/lib/pacman/db.lck
 }
 
 make_all_dirs() {
