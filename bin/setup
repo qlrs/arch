@@ -26,22 +26,23 @@ sudo_check() {
 get_userinfo() {
     counter=0
     read -p 'Username: ' -r username
-    # change to while counter < 2
-    while :; do
-        [[ "$counter" -gt 2 ]] && exit 1
-        read -p 'Password: ' -r password
-        read -p 'Enter password again: ' -r passcheck
-        ((counter++))
+    if ! id -u "$username" &>/dev/null; then
+      while :; do
+          [[ "$counter" -gt 2 ]] && exit 1
+          read -p 'Password: ' -r password
+          read -p 'Enter password again: ' -r passcheck
+          ((counter++))
 
-        [[ "$password" == "$passcheck" ]] && break
-        printf "Passwords do not match\n"
-    done
+          [[ "$password" == "$passcheck" ]] && break
+          printf "Passwords do not match\n"
+      done
 
-    useradd -m -G wheel -s /bin/bash "$username"
-    printf "%s:%s" "$username" "$password" | chpasswd
+      useradd -m -G wheel -s /bin/bash "$username"
+      printf "%s:%s" "$username" "$password" | chpasswd
 
-    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
-    printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /etc/sudoers
+      [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
+      printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /etc/sudoers
+    fi
 }
 
 make_all_dirs() {
