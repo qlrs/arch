@@ -2,7 +2,7 @@
 # ./setup packages.txt configlocations.csv
 
 check() {
-    read -p "Are you sure you want to run this setup script? Y/N" -r ans
+    read -p "Are you sure you want to run this setup script? Y/N " -r ans
     if ! [[ "$ans" == "Y" ]]; then
         printf "Exiting\n"
         exit 1
