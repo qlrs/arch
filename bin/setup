@@ -43,9 +43,9 @@ get_userinfo() {
       useradd -m -G wheel -s /bin/bash "$username"
       printf "%s:%s" "$username" "$password" | chpasswd
 
-      [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
-      printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /etc/sudoers
     fi
+    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
+    printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /etc/sudoers
 }
 
 make_all_dirs() {
