@@ -62,6 +62,7 @@ ripgrep
 shellcheck
 syncthing
 sxhkd
+neovim
 nsxiv
 time
 torbrowser-launcher
