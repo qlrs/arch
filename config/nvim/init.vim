@@ -8,7 +8,6 @@ Plug 'kovetskiy/sxhkd-vim'
 " lua
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'folke/which-key.nvim'
-Plug 'rafamadriz/friendly-snippets'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -18,6 +17,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
+Plug 'rrethy/vim-illuminate'
 
 " colorschemes
 Plug 'lunarvim/Onedarker.nvim'
@@ -121,9 +121,9 @@ lua <<EOF
 -- vim.cmd("colorscheme onedarker")
 vim.cmd("colorscheme catppuccin-mocha")
 -- vim.cmd("colorscheme dracula")
+-- vim.cmd("colorscheme gruvbox")
 
 -- vim.o.background = "dark"
--- vim.cmd("colorscheme gruvbox")
 
 -- Sets
 vim.opt.relativenumber = true
@@ -157,7 +157,8 @@ vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-l>', '<Right>')
 
 -- Control + Backspace deletes word in insert mode
-vim.keymap.set('i', '<C-H>', '<C-W>')
+-- vim.keymap.set('i', '<C-H>', '<C-W>')
+-- vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
 
 -- Open file in browser
 vim.keymap.set('n', '<leader>o', ':!setsid firefox %<cr><cr>')
@@ -213,17 +214,6 @@ require("go").setup()
 -- which-key
 local wk = require("which-key")
 wk.register(mappings, opts)
-
--------------------------------------------------------------------------
--- friendly-snippets
--- see https://github.com/rafamadriz/friendly-snippets/tree/main/snippets
-require("luasnip.loaders.from_vscode").lazy_load()
-require'luasnip'.filetype_extend("python", {"python"})
-require'luasnip'.filetype_extend("go", {"go"})
-require'luasnip'.filetype_extend("html", {"html"})
-require'luasnip'.filetype_extend("css", {"css"})
-require'luasnip'.filetype_extend("bash", {"bash"})
-
 
 -------------------------------------------------------------------------
 -- nvim-tree
