@@ -18,6 +18,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 Plug 'rrethy/vim-illuminate'
+Plug 'rafamadriz/friendly-snippets'
 
 " colorschemes
 Plug 'lunarvim/Onedarker.nvim'
@@ -37,86 +38,20 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
-syntax on
-" set number relativenumber
-set clipboard=unnamedplus
-set linebreak
-set scrolloff=4
-set encoding=utf-8
-set wildmenu
-set nohlsearch
-set splitbelow splitright
-set mouse=a
-set tabstop=2
-set incsearch
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-" set colorcolumn=80
-set autochdir
 set completeopt = "menu,menuone,noselect"
-highlight Pmenu ctermbg=blue guibg=blue
+"highlight Pmenu ctermbg=blue guibg=blue
 hi clear SpellBad
 hi SpellBad ctermfg=009 guifg=#ffff00 " set laststatus=2
-" set statusline=%t
-" set statusline+=\ %h
-" set statusline+=%m
-" set statusline+=%r
-" set statusline+=%y
-" set statusline+=%=
-" set statusline+=%c\
-" set statusline+=%l\
-" set statusline+=%L
-" set statusline+=\ %{strftime(\"%I:%M\")}
-" for lsp stuff
-set signcolumn=no
+"set signcolumn=no
+"let maplocalleader = ","
 
-" autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
-" autocmd BufNewFile *.c 0r ~/.config/nvim/templates/skeleton.c
-" autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/skeleton.tex
-" autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skeleton.pl
-" autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go
-" autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html
-" Stop autocomment on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" let mapleader=" "
-" TODO do i need this vvvvvvvvvvvvvvv
-" nnoremap <SPACE> <Nop>
-" map Q <Nop>
-" Move in insert mode
-" inoremap <C-k> <Up>
-" inoremap <C-j> <Down>
-" inoremap <C-h> <Left>
-" inoremap <C-l> <Right>
-" inoremap <C-H> <C-W>
-" map <C-h> <C-w>h
-" map <C-j> <C-w>j
-" map <C-k> <C-w>k
-" map <C-l> <C-w>l
-
-" map <leader>w :w<CR>
-" map <leader>f :Telescope find_files<CR>
-" map <leader>e :NvimTreeToggle<CR>
-" map <leader>g :Goyo<CR>
-
-" map <leader>c :setlocal spell! spelllang=en_us<CR>
-" inoremap <S-Tab> <Esc>
-" nnoremap S :%s//g<Left><Left>
-" nnoremap <leader>v :vsp
-" nnoremap <leader>t :tabnew<CR>
-" nnoremap <leader>1 1gt
-" nnoremap <leader>2 2gt
-" nnoremap <leader>3 3gt
-" nnoremap <leader>0 :tablast<CR>
-
-let maplocalleader = ","
-autocmd FileType c nnoremap <localleader>c :w<Esc>:!gcc %<CR>
-autocmd FileType go nnoremap <localleader>f :!go fmt %<CR><CR>
 autocmd FileType go nnoremap <localleader>e oif err != nil {<CR>log.Fatalf(err.Error())<CR>}<Esc>
 autocmd FileType python nnoremap <localleader>f :!black -l 79 %<CR><CR>
 
 lua <<EOF
+vim.g.maplocalleader = ","
 -- Colorscheme
 -- vim.cmd("colorscheme onedarker")
 vim.cmd("colorscheme catppuccin-mocha")
@@ -126,8 +61,26 @@ vim.cmd("colorscheme catppuccin-mocha")
 -- vim.o.background = "dark"
 
 -- Sets
+vim.cmd("syntax on")
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
+-- TEST----------------------------------------------------------------------
+vim.opt.clipboard = "unnamedplus"
+vim.opt.linebreak = true
+vim.opt.scrolloff = 4
+vim.opt.wildmenu = true
+vim.opt.hlsearch = false
+vim.opt.mouse = "a"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 2
+vim.opt.incsearch = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.opt.autochdir = true
+vim.opt.signcolumn = "yes"
+-- TEST END -----------------------------------------------------------------
 
 ------------------------ Keybinds --------------------
 vim.g.mapleader = " "
@@ -174,7 +127,7 @@ vim.api.nvim_command('autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skel
 vim.api.nvim_command('autocmd FileType markdown setlocal tw=79')
 
 -- Spellcheck
-vim.keymap.set('n', '<leader>c', ':setlocal spell! spelllang=en_us<cr>')
+vim.keymap.set('n', '<leader>s', ':setlocal spell! spelllang=en_us<cr>')
 
 -- Find and replace
 vim.keymap.set('n', 'S', ':%s//g<Left><Left>')
@@ -199,6 +152,10 @@ vim.keymap.set('n', '<leader>m', ':tabe %<cr>')
 ------------------------End Keybinds--------------------------------------
 
 ---------------------------Start Plugins---------------------------------
+-- friendly-snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
+-------------------------------------------------------------------------
 
 -- go.nvim
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
@@ -345,6 +302,26 @@ capabilities = capabilities
 require('lspconfig')['clangd'].setup {
 capabilities = capabilities
 }
+--- Experimental stuff
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>z', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  end,
+})
+---------------------
 
 EOF
 hi ColorColumn ctermbg=black guibg=black
