@@ -123,8 +123,9 @@ vim.api.nvim_command('autocmd BufNewFile *.pl 0r ~/.config/nvim/templates/skelet
 vim.api.nvim_command('autocmd BufNewFile *.go 0r ~/.config/nvim/templates/skeleton.go')
 vim.api.nvim_command('autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skeleton.html')
 
--- Markdown line wrapping
+-- Markdown stuff
 vim.api.nvim_command('autocmd FileType markdown setlocal tw=79')
+vim.api.nvim_command('autocmd FileType markdown setlocal conceallevel=1')
 
 -- Spellcheck
 vim.keymap.set('n', '<leader>s', ':setlocal spell! spelllang=en_us<cr>')
@@ -186,7 +187,7 @@ require("nvim-tree").setup()
 require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
         },
     }
 
