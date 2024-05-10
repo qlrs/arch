@@ -1,7 +1,7 @@
 call plug#begin()
 Plug 'tpope/vim-surround'
-Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary' 
+Plug 'folke/zen-mode.nvim'
 Plug 'ap/vim-css-color'
 Plug 'kovetskiy/sxhkd-vim'
 
@@ -95,7 +95,7 @@ vim.keymap.set('n', '<leader>fg', ':Telescope git_files<cr>')
 vim.keymap.set('n', '<leader>fs', ':Telescope live_grep<cr>')
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>')
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', '<leader>g', ':Goyo<cr>')
+vim.keymap.set('n', '<leader>g', ':ZenMode<cr>')
 
 -- Move between windows
 vim.keymap.set('n', '<C-h>', '<C-w>h', {noremap= true})
