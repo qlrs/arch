@@ -3,14 +3,13 @@ xrdb "$HOME/.Xdefaults"
 xset r rate 300 110
 xautolock -time 60 -locker "systemctl suspend" -detectsleep &
 rebinds.sh
-sxhkd &
 mpd &
 unclutter &
 picom &
 dunst &
 screen.sh &
 nm-applet &
-xwallpaper --stretch /home/dan/stuff/walls/christmas1.jpg
-#random_wallpaper
+xwallpaper --stretch /home/dan/stuff/walls/cyberpunk4.png
 rfkill block bluetooth
+numlockx &
 autotiling &
