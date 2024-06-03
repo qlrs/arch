@@ -1,0 +1,147 @@
+# Basics
+set $mod Mod1
+floating_modifier $mod
+font pango:Terminus 11
+bindsym $mod+q kill
+bindsym $mod+Shift+r restart
+mouse_warping none
+
+# Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split
+bindsym $mod+f split toggle
+bindsym $mod+t layout toggle split
+
+# Fullscreen
+bindsym $mod+Shift+f fullscreen toggle
+
+# Floating
+bindsym $mod+space floating toggle
+bindsym $mod+BackSpace focus mode_toggle
+
+# Focus parent
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# Switch workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# Move program to another workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# Gaps
+for_window [class="^.*"] border pixel 3
+gaps outer -15
+gaps inner 25
+bindsym $mod+Shift+Mod4+i gaps inner current plus 5
+bindsym $mod+Shift+Mod4+u gaps inner current minus 5
+bindsym $mod+Shift+Mod4+0 gaps inner all set 0; gaps outer all set 0
+bindsym $mod+Shift++0 gaps inner all set 25; gaps outer all set -15
+
+# Resize windows
+bindsym $mod+Shift+y	resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+u	resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i	resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+o	resize grow width 10px or 10 ppt
+
+# Switch between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# Launch floating
+for_window [instance="bc"] floating enable
+bindsym $mod+Shift+z exec alacritty --class "bc" -e bc
+for_window [class="Tor Browser" instance="Navigator"] floating enable
+for_window [class="Yad"] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="Remmina"] floating enable
+
+# Colors
+# Class                     border  backgr. text    indicator child_border
+client.focused              #ffffff #ffffff #ffffff #d0d0d0   #fb4934
+client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
+client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
+client.urgent               #ffffff #ffffff #ffffff #555555   #fabd2f
+
+
+# Scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
+
+# Bar
+bar {
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+    tray_output primary
+    colors {
+    focused_workspace  #ffffff #458588
+    urgent_workspace #ffffff #cc241d
+
+    }
+}
+
+bindsym $mod+Return exec alacritty
+bindsym $mod+d exec dmenu_run
+bindsym $mod+e exec alacritty -e ranger
+bindsym $mod+w exec firefox
+bindsym $mod+Shift+w exec firefox --private-window
+bindsym $mod+b exec marks
+bindsym $mod+c exec alacritty -e calcurse
+
+# Audio stuff
+bindsym $mod+Shift+m exec alacritty -e ncmpcpp
+bindsym $mod+p exec alacritty -e pulsemixer
+bindcode $mod+21 exec pamixer --allow-boost -i 2 && ~/.config/i3/volume_i3.sh
+bindcode $mod+20 exec pamixer --allow-boost -d 2 && ~/.config/i3/volume_i3.sh
+bindsym $mod+Shift+p exec mpc toggle && pkill -RTMIN+14 i3blocks
+bindsym $mod+m exec pamixer -t && pkill -RTMIN+13 i3blocks && mute.sh
+bindsym $mod+Shift+bracketright exec mpc next
+bindsym $mod+Shift+bracketleft exec mpc prev
+
+# Media keys
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 2 && ~/.config/i3/volume_i3.sh
+bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 2 && ~/.config/i3/volume_i3.sh
+bindsym XF86AudioMute exec pamixer -t && pkill -RTMIN+13 i3blocks && mute.sh
+bindsym XF86AudioPlay exec mpc toggle && pkill -RTMIN+14 i3blocks
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+
+# Brightness
+bindcode $mod+115 exec xbacklight -inc 2
+bindcode $mod+110 exec xbacklight -dec 2
