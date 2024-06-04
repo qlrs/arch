@@ -121,7 +121,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+e exec alacritty -e ranger
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec firefox --private-window
-bindsym $mod+b exec marks
+bindsym $mod+y exec marks
 bindsym $mod+c exec alacritty -e calcurse
 
 # Audio stuff
