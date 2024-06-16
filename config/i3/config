@@ -86,7 +86,7 @@ bindsym $mod+Tab workspace back_and_forth
 
 # Launch floating
 for_window [instance="bc"] floating enable
-bindsym $mod+z exec alacritty --class "bc" -e bc
+bindsym $mod+z exec alacritty --class "bc" -e bc -l
 for_window [class="Tor Browser" instance="Navigator"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="Steam"] floating enable
