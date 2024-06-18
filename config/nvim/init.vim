@@ -110,8 +110,7 @@ vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-l>', '<Right>')
 
 -- Control + Backspace deletes word in insert mode
--- vim.keymap.set('i', '<C-H>', '<C-W>')
--- vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-w>', {noremap = true})
 
 -- Open file in browser
 vim.keymap.set('n', '<leader>o', ':!setsid firefox %<cr><cr>')
@@ -156,7 +155,7 @@ vim.keymap.set('n', '<leader>m', ':tabe %<cr>')
 -- friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
--------------------------------------------------------------------------
+
 
 -- go.nvim
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
@@ -169,11 +168,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     })
 require("go").setup()
 
+
+
 -- which-key
 local wk = require("which-key")
 wk.register(mappings, opts)
 
--------------------------------------------------------------------------
+
+
 -- nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -182,7 +184,8 @@ vim.opt.termguicolors = true
 
 require("nvim-tree").setup()
 
--------------------------------------------------------------------------
+
+
 -- treesitter
 require'nvim-treesitter.configs'.setup {
     highlight = {
@@ -191,7 +194,6 @@ require'nvim-treesitter.configs'.setup {
         },
     }
 
--- require('lualine').setup()
 require('lualine').setup{
     options = {
         -- theme = "onedarker"
@@ -207,7 +209,8 @@ require('lualine').setup{
 }
 
 
--------------------------------------------------------------------------
+
+
 -- treesitter-context
 require'treesitter-context'.setup{
     enable = true,
@@ -222,7 +225,9 @@ require'treesitter-context'.setup{
     on_attach = nil,
 }
 
--------------------------------------------------------------------------
+
+
+
 -- bufferline
 require'bufferline'.setup{
     options = {
@@ -230,7 +235,8 @@ require'bufferline'.setup{
     },
 }
 
--------------------------------------------------------------------------
+
+
 -- cmp
 local cmp = require'cmp'
 
@@ -287,7 +293,10 @@ sources = cmp.config.sources({
 })
 })
 
--------------------------------------------------------------------------
+
+
+
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
