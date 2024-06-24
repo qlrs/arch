@@ -87,6 +87,32 @@ alias webcam='mplayer tv://'
 
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
+# Will replace d
+function finder() {
+  dirssync=$(find "$HOME"/stuff/sync -type d)
+  filessync=$(find "$HOME"/stuff/sync -type f)
+  dirsconfig=$(find "$HOME"/.config -type d)
+  filesconfig=$(find "$HOME"/.config -type f)
+  binfiles=$(find "$HOME"/bin -type f)
+  homefiles=$(find "$HOME" -maxdepth 1 -type f)
+
+  selection=$(printf "%s\n%s\n%s\n%s\n%s\n%s" \
+    "$dirssync" "$filessync" \
+    "$dirsconfig" "$filesconfig" \
+    "$binfiles" "$homefiles"\
+    | fzf)
+
+  if [[ -d $selection ]]; then
+    cd "$selection" || exit
+  else
+    if [[ $1 == "n" ]];then
+      "$EDITOR" "$selection"
+    else
+      bat "$selection"
+    fi
+  fi
+}
+
 # Change to common directories
 function d() {
     d=$(find "$HOME" -type d \
