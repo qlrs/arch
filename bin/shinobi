@@ -1,6 +1,8 @@
 #!/bin/sh
-
 id=$(xinput | awk '/USB-HID Keyboard Mouse/ { print $6 }' | cut -d '=' -f2)
 echo "$id"
 
-xinput set-prop "$id" "Coordinate Transformation Matrix" 0.8 0 0 0 0.8 0 0 0 1
+sensitivity=0.3
+
+xinput set-prop "$id" "Coordinate Transformation Matrix" \
+  "$sensitivity" 0 0 0 "$sensitivity" 0 0 0 1
