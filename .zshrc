@@ -102,6 +102,8 @@ function finder() {
     "$binfiles" "$homefiles"\
     | fzf)
 
+  [[ -z $selection ]] && exit
+
   if [[ -d $selection ]]; then
     cd "$selection" || exit
   else
