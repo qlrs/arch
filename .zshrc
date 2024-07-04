@@ -40,7 +40,7 @@ alias syncwebsite='rsync -rtvP ~/stuff/website/ ~/gitwebsite'
 alias syncstuff='rsync -rtvP ~/stuff/ ~/storagedrive/stuff'
 alias syncwindows='rsync -rtvP ~/stuff/ ~/windowssd/stuff'
 alias syncwindowsmusic='rsync -rtvP ~/music/ ~/windowssd/music'
-alias fh='fzf --tac < ~/.zhistory | xclip -r'
+alias fh='fzf --tac < ~/.zhistory | xclip -i -selection clipboard -r'
 alias ca='cd ~/archconfig'
 alias cas='cd ~/archconfig/bin'
 alias cis='cd ~/.config/i3/i3scripts'
@@ -103,6 +103,7 @@ function finder() {
     | fzf)
 
   [[ -z $selection ]] && exit
+  echo "$selection" | xclip -i -selection cipboard -r
 
   if [[ -d $selection ]]; then
     cd "$selection" || exit
