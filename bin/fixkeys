@@ -1,2 +1,4 @@
 #!/bin/sh
 setxkbmap -option caps:ctrl_modifier
+xset r rate 300 110
+shinobi
