@@ -116,28 +116,6 @@ function finder() {
   fi
 }
 
-# Change to common directories
-function d() {
-    d=$(find "$HOME" -type d \
-         -not -path "*/.git/*" \
-         -not -path "$HOME/nand2tetris/*" \
-         -not -path "$HOME/.config/BraveSoftware*" \
-         -not -path "$HOME/.config/Signal*" \
-         -not -path "$HOME/.config/libreoffice*" \
-         -not -path "$HOME/Downloads/*" \
-         -not -path "$HOME/.mozilla/*" \
-         -not -path "$HOME/.java/*" \
-         -not -path "$HOME/.npm/*" \
-         -not -path "$HOME/.cache/*" \
-         -not -path "$HOME/.local/*" \
-         -not -path "$HOME/music/*" \
-         -not -path "$HOME/.cargo/*" \
-         -not -path "$HOME/programs/paru/*" \
-         -not -path "$HOME/go/*" | fzf)
-
-    cd "$d" || exit
-}
-
 # Make sure a vpn is active
 function vpncheck() {
     local hostname=$(nmcli general hostname)
