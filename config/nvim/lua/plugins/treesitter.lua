@@ -6,13 +6,16 @@ return {
     local config = require("nvim-treesitter.configs")
     config.setup({
       ensure_installed = {"bash", "python", "go", "c", "html", "css", "lua"},
-      highlight = { enable = true },
+      highlight = { 
+          enable = true,
+          disable = {"markdown"},
+        },
       indent = { enable = true},
     })
   end
-},
-{
-  "nvim-treesitter/nvim-treesitter-context"
-},
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context"
+  },
 }
-    
