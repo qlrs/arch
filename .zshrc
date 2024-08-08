@@ -87,8 +87,26 @@ alias webcam='mplayer tv://'
 
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
-# Will replace d
-function finder() {
+vterm_printf() {
+    printf "\e]%s\e\\" "$1"
+}
+
+vterm_cmd() {
+    local vterm_elisp
+    vterm_elisp=""
+    while [ $# -gt 0 ]; do
+        vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
+        shift
+    done
+    vterm_printf "51;E$vterm_elisp"
+}
+
+# open file in emacs from vterm
+eopen() {
+    vterm_cmd find-file "$(realpath "${@:-.}")"
+}
+
+finder() {
   dirssync=$(find "$HOME"/stuff/sync -type d)
   filessync=$(find "$HOME"/stuff/sync -type f)
   dirsconfig=$(find "$HOME"/.config -type d)
@@ -117,9 +135,9 @@ function finder() {
 }
 
 # Make sure a vpn is active
-function vpncheck() {
+vpncheck() {
     local hostname=$(nmcli general hostname)
-    local vpnserver='atlanta.protonvpn'
+    local vpnserver='ashburn.protonvpn'
     if [[ "$hostname" == "arch" ]]; then
         local output=$(nmcli connection show --active $vpnserver)
     else
