@@ -1,0 +1,72 @@
+#!/bin/python3
+import json
+import urllib.request
+import argparse
+
+
+def print_info(stock_data, statusbar_bool) -> None:
+    current_price = stock_data.get("last")
+    symbol = stock_data.get("symbol")
+    name = stock_data.get("name")
+
+    last_price = stock_data.get("last")
+    last_timedate = stock_data.get("last_timedate")
+
+    change = stock_data.get("change")
+    change_pct = stock_data.get("change_pct")
+    revenuettm = stock_data.get("revenuettm")
+
+    if statusbar_bool:
+        print(f"{symbol.upper()}: ${current_price}")
+    else:
+        print(f"Current {symbol.upper()} ({name}) Price: ${current_price}")
+        print(f"Last Price: ${last_price} @ {last_timedate}")
+        print(f"Change: {change} ({change_pct})")
+        print(f"Revenue: {revenuettm}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Check stock ticker price")
+
+    parser.add_argument(
+        "ticker",
+        nargs="*",
+        help="Ticker(s) to check",
+    )
+
+    parser.add_argument(
+        "--statusbar",
+        action="store_true",
+    )
+
+    args = parser.parse_args()
+
+    for i in args.ticker:
+        url = f"https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols={i}"
+
+        with urllib.request.urlopen(url) as r:
+            stocks_to_check = len(args.ticker)
+            content = r.read()
+            json_data = json.loads(content)["FormattedQuoteResult"]["FormattedQuote"][0]
+            # "code":1 signifies invalid sticker
+            if json_data["code"] == 1:
+                print(f"{i} is an invalid ticker")
+            else:
+                if args.statusbar:
+                    # Statusbar requires only one ticker
+                    if stocks_to_check > 1:
+                        print('"--statusbar" only works with one ticker')
+                        print("Example: 'stocker --statusbar SPY'")
+                        return
+                    else:
+                        print_info(json_data, args.statusbar)
+                else:
+                    print_info(json_data, False)
+
+        # Print blank space when retreiving multiple ticker info
+        if stocks_to_check != 1:
+            print()
+
+
+if __name__ == "__main__":
+    main()
