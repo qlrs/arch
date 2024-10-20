@@ -34,6 +34,7 @@ alias mv='mv -iv'
 alias rm='rm -vI'
 alias fd='fd --hidden'
 alias vn="$EDITOR ~/NOTES.md"
+alias bc='bc -l'
 alias editi3='nvim ~/.config/i3/config'
 alias syncmusic='rsync -rtvP ~/music/ ~/storagedrive/music'
 alias syncwebsite='rsync -rtvP ~/stuff/website/ ~/gitwebsite'
