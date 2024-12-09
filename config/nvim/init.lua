@@ -32,6 +32,7 @@ vim.opt.termguicolors = true
 -- simple shortcuts
 -- vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 -- vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', '<leader>.', ':Oil<cr>')
 vim.keymap.set('n', '<leader>w', ':w<cr>')
 vim.keymap.set('n', '<leader>g', ':ZenMode<cr>')
 -- move between windows
@@ -85,7 +86,7 @@ vim.api.nvim_set_keymap('n', '<localleader>f', ':!black -l 79 %<CR><CR>', {norem
 
 
 
--- Bootstrap lazy.nvim
+-- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -109,3 +110,5 @@ require("lazy").setup({
   },
   install = { colorscheme = { "habamax" } },
 })
+
+require("colorizer").setup()
