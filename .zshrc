@@ -41,6 +41,7 @@ alias syncwebsite='rsync -rtvP ~/stuff/website/ ~/gitwebsite'
 alias syncstuff='rsync -rtvP ~/stuff/ ~/storagedrive/stuff'
 alias syncwindows='rsync -rtvP ~/stuff/ ~/windowssd/stuff'
 alias syncwindowsmusic='rsync -rtvP ~/music/ ~/windowssd/music'
+alias syncnotes='rsync -av --progress ~/stuff/sync/roam_notes/ ~/gitnotes/roam_notes/; rsync -av --progress ~/stuff/sync/cybersecurity/notes/ ~/gitnotes/notes/'
 alias fh='history | cut -d " " -f4- | uniq | fzf | xclip -i -selection clipboard -r'
 alias ca='cd ~/archconfig'
 alias cas='cd ~/archconfig/bin'
@@ -79,9 +80,6 @@ alias tvaudio='pacmd set-card-profile 0 output:hdmi-stereo-extra3'
 alias sshserver='ssh -p 55443 root@rschrader.xyz'
 alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' --exclude=.git ~/stuff/website/ root@rschrader.xyz:/var/www/wowee'
 alias es='es.sh'
-alias sxiv='devour sxiv'
-alias mpv='devour mpv'
-alias zathura='devour zathura'
 alias vpnup='nmcli -a connection up'
 alias g='glow -p'
 alias webcam='mplayer tv://'
@@ -142,7 +140,7 @@ vpncheck() {
     if [[ "$hostname" == "arch" ]]; then
         local output=$(nmcli connection show --active $vpnserver)
     else
-        local output=$(nmcli connection show --active "atlanta_protonvpn")
+        local output=$(nmcli connection show --active "virginia")
     fi
 
     if [[ "$output" = "" ]] && [[ "$hostname" == "arch" ]]; then
@@ -150,7 +148,7 @@ vpncheck() {
     fi
 
     if [[ "$output" = "" ]] && [[ "$hostname" == "archMachine" ]]; then
-        nmcli -a connection up "atlanta_protonvpn"
+        nmcli -a connection up "virginia"
     fi
 }
 vpncheck
