@@ -1,9 +1,7 @@
 #!/bin/sh
 
-vpn=$(nmcli device status | grep -i "tun0")
-
-if [ -z "$vpn" ]; then
+if nmcli connection show --active | grep -q 'tun'; then
+  echo "⬆️ VPN"
+else
   echo "⚠️ no VPN"
-  else
-    echo "⬆️ VPN"
 fi
