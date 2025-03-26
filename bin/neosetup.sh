@@ -64,10 +64,10 @@ install_packages() {
 }
 
 # Move config repo to arg 1 user home directory and change ownership.
-fix_git_repo() {
+change_repo_owner() {
     cp -r '/root/arch' "/home/$1/archconfig"
     chown -R "$1":wheel /home/"$1"/archconfig
-    chown -R "$username":wheel /home/"$username"/archconfig
+    chown -R "$1":wheel /home/"$1"/archconfig
 }
 
 # Move default ranger config from root user to arg 1 user
@@ -164,7 +164,7 @@ main() {
 
     setup_mpd "$username"
 
-    download_wallpapers "$username"
+    #download_wallpapers "$username"
 
     create_todo "/home/$username/todolist.txt"
 }
