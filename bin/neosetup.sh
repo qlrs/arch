@@ -131,19 +131,19 @@ main() {
     sudo_check
 
     # Get username in "global" scope
-    printf "Username: "
-    read -r username
-    printf "\n"
-    if [ -z "$username" ]; then
-	printf "Username can not be blank"
-	exit 1
-    fi
-
-    finalize_user "$username"
-
-    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
-    [[ -e /var/lib/pacman/db.lck ]] && rm /var/lib/pacman/db.lck
-
+	#    printf "Username: "
+	#    read -r username
+	#    printf "\n"
+	#    if [ -z "$username" ]; then
+	# printf "Username can not be blank"
+	# exit 1
+	#    fi
+	#
+	#    finalize_user "$username"
+	#
+	#    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
+	#    [[ -e /var/lib/pacman/db.lck ]] && rm /var/lib/pacman/db.lck
+	#
     add_wheel_to_sudo
 
     create_my_dirs "$username"
