@@ -144,6 +144,7 @@ main() {
 	#    [[ -f /etc/sudoers.pacnew ]] && cp /etc/sudoers.pacnew /etc/sudoers
 	#    [[ -e /var/lib/pacman/db.lck ]] && rm /var/lib/pacman/db.lck
 	#
+    username='dan'
     add_wheel_to_sudo
 
     create_my_dirs "$username"
