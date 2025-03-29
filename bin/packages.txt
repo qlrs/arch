@@ -54,9 +54,11 @@ pcmanfm-gtk3
 picom
 piper
 pulsemixer
+python-black
 python-pip
 python-eyed3
-python-pywal
+python-pyflakes
+python-lsp-server
 qutebrowser
 ranger
 ripgrep
