@@ -19,6 +19,7 @@ curl
 dash
 dnscrypt-proxy
 dunst
+fastfetch
 fd
 ffmpeg
 firefox
@@ -39,7 +40,6 @@ mpv
 mupdf
 ncdu
 ncmpcpp
-neofetch
 net-tools
 network-manager-applet
 networkmanager-openvpn
