@@ -1,6 +1,9 @@
 autoload -U colors && colors
 PS1="%B[%F{yellow}%1~%f]%b $ "
 PS2='%_> '
+echo -ne '\e[5 q'
+source <(fzf --zsh)
+bindkey '^R' fzf-history-widget
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -132,7 +135,7 @@ finder() {
 vpncheck() {
     output=$(nmcli | grep "connected (externally) to tun0")
     if [[ "$output" = "" ]]; then
-        nmcli -a connection up "georgia00"
+        nmcli -a connection up "03222025atlanta"
     fi
 }
 vpncheck
