@@ -1,10 +1,11 @@
 # Basics
 set $mod Mod4
 floating_modifier $mod
-font pango:Terminus 11
+font pango:Terminess Nerd Font Mono 12
 bindsym $mod+q kill
 bindsym $mod+Shift+r restart
 mouse_warping none
+exec emacs
 
 # Focus
 bindsym $mod+h focus left
@@ -94,7 +95,7 @@ for_window [class="Remmina"] floating enable
 
 # Colors
 # Class                     border  backgr. text    indicator child_border
-client.focused              #ffffff #ffffff #ffffff #ffffff   #999999
+client.focused              #ffffff #ffffff #ffffff #ffffff   #0087bd
 client.focused_inactive     #ffffff #ffffff #ffffff #555555   #555555
 client.unfocused            #ffffff #ffffff #ffffff #555555   #555555
 client.urgent               #ffffff #ffffff #ffffff #555555   #fabd2f
