@@ -110,7 +110,7 @@ bar {
 	position top
     tray_output primary
     colors {
-    focused_workspace  #ffffff #458588
+    focused_workspace  #ffffff #0087bd
     urgent_workspace #ffffff #cc241d
 
     }
