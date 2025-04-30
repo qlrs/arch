@@ -3768,6 +3768,7 @@ vpncheck() {
 vpncheck
 
 
+source <(fzf --zsh)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 ## genrefcard.pl settings
 
