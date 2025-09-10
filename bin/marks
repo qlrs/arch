@@ -16,7 +16,7 @@ EOF
 }
 
 show_bookmarks() {
-    dmenu -i -l 20 < "$bookmarks_file" | cut -d ';' -f1
+	bemenu -i -l 20 --fn "Terminess Nerd Font Mono 20" --tb='#222222' --tf='#bbbbbb' --fb='#000000' --nb='#000000' --nf='#ebdbb2' --hb='#458588' --hf='#eeeeee' < "$bookmarks_file" | cut -d ';' -f1
 }
 
 open() {
