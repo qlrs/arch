@@ -3685,6 +3685,7 @@ alias syncstuff='rsync -rtvP ~/stuff/ ~/storagedrive/stuff'
 alias syncwindows='rsync -rtvP ~/stuff/ ~/windowssd/stuff'
 alias syncwindowsmusic='rsync -rtvP ~/music/ ~/windowssd/music'
 alias syncnotes='rsync -av --progress ~/stuff/sync/roam_notes/ ~/gitnotes/roam_notes/; rsync -av --progress ~/stuff/sync/cybersecurity/notes/ ~/gitnotes/notes/'
+alias syncjellyfin='rsync -avh --progress ~/media/ /opt/jellyfin_media'
 alias ca='cd ~/archconfig'
 alias cis='cd ~/.config/i3/i3scripts'
 alias cl='cd ~/linuxbook'
@@ -3708,6 +3709,9 @@ alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' --exclude=.git ~/stuff/web
 alias vpnup='nmcli -a connection up'
 alias webcam='mplayer tv://'
 alias fixssh='sudo ip li set mtu 1200 dev'
+alias ps1='flatpak run org.duckstation.DuckStation'
+alias ps2='flatpak run net.pcsx2.PCSX2'
+alias ctfvpn='ssh -o "PubkeyAuthentication no"'
 
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
@@ -3762,7 +3766,7 @@ finder() {
 vpncheck() {
     output=$(nmcli | grep "connected (externally) to tun0")
     if [[ "$output" = "" ]]; then
-        nmcli -a connection up "03222025atlanta"
+        nmcli -a connection up "georgia00"
     fi
 }
 vpncheck
