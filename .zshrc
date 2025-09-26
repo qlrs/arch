@@ -3711,7 +3711,7 @@ alias webcam='mplayer tv://'
 alias fixssh='sudo ip li set mtu 1200 dev'
 alias ps1='flatpak run org.duckstation.DuckStation'
 alias ps2='flatpak run net.pcsx2.PCSX2'
-alias ctfvpn='ssh -o "PubkeyAuthentication no"'
+alias sshctf='ssh -o "PubkeyAuthentication no"'
 
 eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
