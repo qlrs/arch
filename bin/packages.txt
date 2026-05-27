@@ -1,11 +1,9 @@
 acpi
 adobe-source-han-sans-jp-fonts
-aerc
 alacritty
 alsa-utils
 android-file-transfer
 arandr
-arc-gtk-theme
 arch-wiki-docs
 base-devel
 bat
@@ -30,7 +28,6 @@ i3blocks
 i3lock
 i3status
 jq
-lxappearance
 lynx
 man-db
 man-pages
