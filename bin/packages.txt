@@ -78,6 +78,8 @@ wget
 xautolock
 xclip
 xcursor-themes
+xfce4
+xfce4-goodies
 xf86-input-evdev
 xf86-video-intel
 xf86-video-vesa
