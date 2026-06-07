@@ -3709,6 +3709,7 @@ alias updatesite='rsync -rtvP -e '\''ssh -p 55443'\'' --exclude=.git ~/stuff/web
 alias vpnup='nmcli -a connection up'
 alias webcam='mplayer tv://'
 alias fixssh='sudo ip li set mtu 1200 dev'
+alias fixalt='setxkbmap -option altwin:swap_lalt_lwin'
 alias ps1='flatpak run org.duckstation.DuckStation'
 alias ps2='flatpak run net.pcsx2.PCSX2'
 alias sshctf='ssh -o "PubkeyAuthentication no"'
